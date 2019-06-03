@@ -1,0 +1,169 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    tools:context=".Activity.LoginActivity">
+
+    <TextView
+        android:id="@+id/txt_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="280dp"
+        android:layout_marginLeft="280dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="67dp"
+        android:padding="8dp"
+        android:text="Sign Up"
+        android:textColor="#000000"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/txt_phoneno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginRight="56dp"
+        android:text="Phone Number"
+        android:textColor="#000000"
+        android:textSize="12sp" />
+
+
+    <EditText
+        android:id="@+id/phoneno_id"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_below="@+id/txt_phoneno"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginRight="83dp"
+        android:background="@drawable/dr_appointment_btn_style"
+        android:ems="10"
+        android:inputType="phone"
+        android:paddingLeft="12dp"
+        android:maxLines="1"
+        android:textAlignment="center"
+        android:textColor="#cccccc"
+        android:textColorHint="#cccccc"
+        android:textColorLink="#000"
+        android:textSize="14sp"/>
+
+
+    <TextView
+        android:id="@+id/txt_password"
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneno_id"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginRight="113dp"
+        android:text="Password"
+        android:textColor="#000000"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/password_id"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_below="@+id/txt_password"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="98dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginRight="81dp"
+        android:background="@drawable/dr_appointment_btn_style"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:paddingLeft="12sp"
+        android:textAlignment="center"
+        android:textColor="#cccccc"
+        android:textColorHint="#cccccc"
+        android:textColorLink="#000"
+        android:textSize="12sp"/>
+
+
+
+    <TextView
+        android:id="@+id/btn_login"
+        android:layout_width="118dp"
+        android:layout_height="38dp"
+        android:layout_below="@+id/password_id"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="156dp"
+        android:layout_marginLeft="156dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="137dp"
+        android:layout_marginRight="137dp"
+        android:text="LOGIN"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_forgetpwd"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="134dp"
+        android:layout_marginLeft="134dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginRight="115dp"
+        android:layout_marginBottom="17dp"
+        android:text="Forget Password"
+        android:textSize="12sp" />
+
+    <!--<Button-->
+        <!--android:id="@+id/btn_login"-->
+        <!--android:layout_width="147dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/password_id"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginStart="139dp"-->
+        <!--android:layout_marginLeft="139dp"-->
+        <!--android:layout_marginTop="18dp"-->
+        <!--android:layout_marginEnd="125dp"-->
+        <!--android:layout_marginRight="125dp"-->
+        <!--android:text="LOGIN"-->
+        <!--android:textColor="#000000"-->
+        <!--android:background="#ffff"/>-->
+
+
+</RelativeLayout>

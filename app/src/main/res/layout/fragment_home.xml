@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="2dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        card_view:cardBackgroundColor="#fff"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="4dp"
+        card_view:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginTop="1dp">
+
+            <Button
+                android:id="@+id/btn_doctor"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="#fff"
+                android:drawableTop="@drawable/ic_doctor"
+                android:text="Doctor"
+                android:textColor="#dc302d2c"
+                android:textSize="14dp"
+                android:typeface="normal" />
+
+
+            <Button
+                android:id="@+id/btn_hospital"
+                android:layout_width="76dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="#fff"
+                android:drawableTop="@drawable/ic_hospital3"
+                android:text="Hospital"
+                android:textSize="14dp"
+                android:typeface="normal" />
+
+
+            <Button
+                android:id="@+id/btn_lab"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="#fff"
+                android:drawableTop="@drawable/ic_lab"
+                android:text="Lab"
+                android:textSize="14dp"
+                android:typeface="normal" />
+
+
+            <Button
+                android:id="@+id/btn_clinic"
+                android:layout_width="78dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="#fff"
+                android:drawableTop="@drawable/ic_clinic"
+                android:text="Clinic"
+                android:textSize="14dp"
+                android:typeface="normal" />
+
+            <!--<ImageButton-->
+            <!--android:layout_width="84dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:background="#fff"-->
+            <!--android:src="@drawable/ic_doctors" />-->
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+
+        card_view:cardBackgroundColor="#fff"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="4dp"
+        card_view:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:paddingLeft="4dp"
+                android:text="Search Hospital Near You"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@drawable/img_googlemap" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="33dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:text="View on map"
+                android:textColor="#1abc9c"
+                android:textDirection="rtl"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+
+        card_view:cardBackgroundColor="#fff"
+        card_view:cardElevation="4dp"
+        card_view:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ic_mybooking"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/ic_mybooking"
+                android:layout_margin="8dp"
+                />
+
+
+            <TextView
+                android:id="@+id/txbooking"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@id/ic_mybooking"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="My Booking"
+                android:gravity="bottom"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_toRightOf="@id/ic_mybooking"
+                android:textSize="14sp"
+                android:text="Check booking you added"
+                android:layout_below="@id/txbooking"
+                android:gravity="top"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+
+        card_view:cardBackgroundColor="#fff"
+        card_view:cardElevation="4dp"
+        card_view:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ic_mydoctor"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/ic_myfvdr"
+                android:layout_margin="8dp"
+                />
+
+
+            <TextView
+                android:id="@+id/txdoctor"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@id/ic_mydoctor"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="My Favorite Doctor"
+                android:gravity="bottom"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_toRightOf="@id/ic_mydoctor"
+                android:textSize="14sp"
+                android:text="Check your favorite doctor"
+                android:layout_below="@id/txdoctor"
+                android:gravity="top"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+
+        card_view:cardBackgroundColor="#fff"
+        card_view:cardElevation="4dp"
+        card_view:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ic_myclinic"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/ic_myfvclinic"
+                android:layout_margin="8dp"
+                />
+
+
+            <TextView
+                android:id="@+id/txclinic"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@id/ic_myclinic"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="My Favorite Hospital"
+                android:gravity="bottom"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_toRightOf="@id/ic_myclinic"
+                android:textSize="14sp"
+                android:text="Check your favorite hospital"
+                android:layout_below="@id/txclinic"
+                android:gravity="top"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+    </LinearLayout>
+</ScrollView>

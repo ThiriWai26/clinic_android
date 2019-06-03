@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    tools:context=".Activity.RegisterActivity">
+
+    <TextView
+        android:id="@+id/txt_signin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="280dp"
+        android:layout_marginLeft="280dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="67dp"
+        android:padding="8dp"
+        android:text="Sign In"
+        android:textColor="#000000"
+        android:textSize="12sp" />
+
+
+    <TextView
+        android:id="@+id/txtreg_phoneno"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="117dp"
+        android:layout_marginTop="269dp"
+        android:layout_marginEnd="73dp"
+        android:layout_marginRight="73dp"
+        android:text="Phone Number"
+        android:textSize="12sp"/>
+
+    <EditText
+        android:id="@+id/regusername_id"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_below="@+id/txtreg_phoneno"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="117dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginRight="75dp"
+        android:background="@drawable/dr_appointment_btn_style"
+        android:ems="10"
+        android:inputType="phone"
+        android:paddingLeft="12sp"
+        android:textAlignment="center"
+        android:textColor="#cccccc"
+        android:textColorHint="#cccccc"
+        android:textColorLink="#000"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/txtreg_password"
+        android:layout_width="191dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/regusername_id"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="129dp"
+        android:layout_marginRight="129dp"
+        android:text="Password"
+        android:textSize="12sp"/>
+
+    <EditText
+        android:id="@+id/regpassword_id"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_below="@+id/txtreg_password"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="116dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginRight="108dp"
+        android:background="@drawable/dr_appointment_btn_style"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textSize="12sp"
+        android:paddingLeft="12sp"
+        android:textAlignment="center"
+        android:textColor="#cccccc"
+        android:textColorHint="#cccccc"
+        android:textColorLink="#000"/>
+
+
+    <TextView
+        android:id="@+id/txtreg_conpassword"
+        android:layout_width="307dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/regpassword_id"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="114dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:text="Confirm Password"
+        android:textSize="12sp"/>
+
+    <EditText
+        android:id="@+id/regconpassword_id"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_below="@+id/txtreg_conpassword"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="114dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginRight="108dp"
+        android:background="@drawable/dr_appointment_btn_style"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textSize="12sp"
+        android:paddingLeft="12sp"
+        android:textAlignment="center"
+        android:textColor="#cccccc"
+        android:textColorHint="#cccccc"
+        android:textColorLink="#000"/>
+
+
+    <TextView
+        android:id="@+id/tx_register"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/regconpassword_id"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="142dp"
+        android:layout_marginLeft="142dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginRight="101dp"
+        android:text="REGISTER"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+
+
+
+</RelativeLayout>
