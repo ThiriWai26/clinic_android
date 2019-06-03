@@ -2,14 +2,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
+    <!--<item-->
+        <!--android:id="@+id/action_search"-->
+        <!--android:title="Search doctor.."-->
+        <!--android:icon="@drawable/ic_menusearch"-->
+        <!--app:iconTint="#415569"-->
+        <!--app:showAsAction="ifRoom|collapseActionView"-->
+        <!--app:actionViewClass="android.support.v7.widget.SearchView"/>-->
     <item
         android:id="@+id/action_search"
-        android:title="Search doctor.."
-        android:icon="@drawable/ic_menusearch"
+        android:title="Search doctor"
+        android:icon="@drawable/ic_menusr"
+        app:iconTint="#415569"
         app:showAsAction="ifRoom|collapseActionView"
-        app:actionViewClass="android.support.v7.widget.SearchView"/>
-
-
-
+        app:actionViewClass="android.support.v7.widget.SearchView" />
 
 </menu>
