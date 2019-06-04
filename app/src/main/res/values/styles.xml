@@ -22,7 +22,7 @@
 
     <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
         <item name="searchIcon">@drawable/ic_menusr</item>
-        <item name="queryBackground">#ffffff</item>
+        <!--<item name="queryBackground">#ffffff</item>-->
         <item name="searchHintIcon">@null</item>
     </style>
 
