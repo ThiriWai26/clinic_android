@@ -23,25 +23,27 @@
             android:layout_marginLeft="1dp"
             android:layout_marginTop="12dp"
             android:layout_marginRight="1dp"
-            android:elevation="3dp"
-            app:contentInsetEnd="5dp"
-            app:contentInsetLeft="5dp"
-            app:contentInsetRight="5dp"
-            app:contentInsetStart="5dp"
-            app:contentInsetStartWithNavigation="2dp"
-            app:titleTextColor="#000000"
-            app:title="Doctor"
-            android:textColor="#000000"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:titleMarginStart="73dp">
 
+            <TextView
+                android:id="@+id/txtdoctor"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="Doctor"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
             <ImageView
+                android:id="@+id/imgsetting"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="200dp"
+                android:layout_toRightOf="@id/toolbar"
                 android:layout_gravity="center"
                 android:src="@drawable/setting"
                 tools:ignore="RtlCompat" />
@@ -52,6 +54,7 @@
                 style="@style/SearchViewStyle"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/imgsetting"
                 android:layout_gravity="end"
                 android:background="#FFFFFF"
                 android:gravity="center_vertical"
