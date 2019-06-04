@@ -20,11 +20,17 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignBottom="@+id/appBarLayout"
-            android:layout_marginLeft="12dp"
+            android:layout_marginLeft="1dp"
             android:layout_marginTop="12dp"
-            android:layout_marginRight="12dp"
+            android:layout_marginRight="1dp"
+            android:elevation="3dp"
+            app:contentInsetEnd="5dp"
+            app:contentInsetLeft="5dp"
+            app:contentInsetRight="5dp"
+            app:contentInsetStart="5dp"
+            app:contentInsetStartWithNavigation="2dp"
+            app:titleTextColor="#000000"
             app:title="Doctor"
-            android:text="Doctor"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,10 +38,19 @@
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:titleMarginStart="73dp">
 
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/setting"
+                tools:ignore="RtlCompat" />
+
+
             <android.support.v7.widget.SearchView
                 android:id="@+id/sv"
                 style="@style/SearchViewStyle"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:background="#FFFFFF"
@@ -43,9 +58,37 @@
                 app:queryHint="Search Doctor"
                 >
             </android.support.v7.widget.SearchView>
+
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
+
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:id="@+id/toolbar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?android:attr/actionBarSize"-->
+        <!--android:background="@color/white"-->
+        <!--android:elevation="3dp"-->
+        <!--app:contentInsetEnd="0dp"-->
+        <!--app:contentInsetLeft="0dp"-->
+        <!--app:contentInsetRight="0dp"-->
+        <!--app:contentInsetStart="0dp"-->
+        <!--app:contentInsetStartWithNavigation="0dp"-->
+        <!--app:titleTextColor="@color/black">-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/editSearch"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="8dp"-->
+            <!--android:hint="@string/label_search"-->
+            <!--android:imeOptions="actionSearch"-->
+            <!--android:inputType="text"-->
+            <!--android:padding="8dp" />-->
+
+    <!--</android.support.v7.widget.Toolbar>-->
+
+
 
     <!--<include layout="@layout/content_drawer" />-->
     <android.support.v7.widget.RecyclerView
@@ -58,6 +101,7 @@
         android:clipChildren="true"
         android:clipToPadding="true"
         android:scrollbars="vertical"
-        tools:listitem="@layout/layout_doctor_list" />
+        tools:listitem="@layout/layout_doctor_list"
+        tools:ignore="NotSibling" />
 
 </RelativeLayout>
