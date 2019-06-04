@@ -1,5 +1,8 @@
 package com.example.clinic_project.Activity;
 
+import android.annotation.SuppressLint;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -7,6 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,11 +19,13 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.clinic_project.R;
@@ -48,6 +54,7 @@ public class DrawerActivity extends AppCompatActivity
     private RecyclerView recyclerView;
     private RetrofitService service;
     private Spinner spinner;
+    private TextView txtdoctor;
     DoctorAdapter adapter;
     ArrayAdapter<String> dataAdapter;
     List<SpecializationList> specializationLists = new ArrayList<>();
@@ -111,21 +118,18 @@ public class DrawerActivity extends AppCompatActivity
 //
 //        return super.onCreateOptionsMenu(menu);
 
-//    }
-
+    @SuppressLint("ResourceType")
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        getMenuInflater().inflate(R.id.action_search, (Menu) menuItem);
 
-        return super.onOptionsItemSelected(item);
+       MenuItem searchItem = ((Menu) menuItem).findItem(R.id.action_search);
+       SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+       SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+       searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+        return super.onOptionsItemSelected(menuItem);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -167,6 +171,7 @@ public class DrawerActivity extends AppCompatActivity
     private void initDoctorList() {
 
 
+        txtdoctor = findViewById(R.id.textdoctor);
         searchView = findViewById(R.id.sv);
         recyclerView = findViewById(R.id.recyclerView);
         service = new RetrofitService();
@@ -272,7 +277,6 @@ public class DrawerActivity extends AppCompatActivity
 //        ImageView searchIcon = searchView.findViewById(android.support.v7.appcompat.R.id.search_mag_icon);
 //        searchIcon.focusSearch(View.FOCUS_RIGHT);
 
-
     }
 
 
@@ -302,8 +306,6 @@ public class DrawerActivity extends AppCompatActivity
 
                     special_id = specializationList.id;
                     Log.e("special_id", String.valueOf(id));
-
-
                 }
             }
             getDoctorsBySpecialization(special_id);
@@ -324,7 +326,6 @@ public class DrawerActivity extends AppCompatActivity
 
                     }
                 }
-
             }
 
             @Override
