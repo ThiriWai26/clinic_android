@@ -28,6 +28,7 @@
             android:textSize="18dp"
             android:textStyle="bold" />
 
+
         <android.support.v7.widget.SearchView
             android:id="@+id/sv"
             android:layout_width="wrap_content"
@@ -36,7 +37,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginRight="1dp"
             android:layout_marginBottom="6dp"
-            app:searchHintIcon="@drawable/ic_search">
+            app:searchHintIcon="@drawable/ic_menusr">
 
             <requestFocus />
 

@@ -24,6 +24,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,6 +56,7 @@ public class DrawerActivity extends AppCompatActivity
     private RetrofitService service;
     private Spinner spinner;
     private TextView txtdoctor;
+    private ImageView imgsetting;
     DoctorAdapter adapter;
     ArrayAdapter<String> dataAdapter;
     List<SpecializationList> specializationLists = new ArrayList<>();
@@ -123,13 +125,18 @@ public class DrawerActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem menuItem) {
 
         getMenuInflater().inflate(R.id.action_search, (Menu) menuItem);
+        getMenuInflater().inflate(R.id.action_settings, (Menu) menuItem);
 
-       MenuItem searchItem = ((Menu) menuItem).findItem(R.id.action_search);
+       MenuItem searchItem  = ((Menu) menuItem).findItem(R.id.action_search);
+       MenuItem searchItem1 = ((Menu) menuItem).findItem(R.id.action_settings);
+
        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+       SearchView searchView1 = (SearchView) MenuItemCompat.getActionView(searchItem1);
+
        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-
-        return super.onOptionsItemSelected(menuItem);
+       searchView1.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+       return super.onOptionsItemSelected(menuItem);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -172,6 +179,7 @@ public class DrawerActivity extends AppCompatActivity
 
 
         txtdoctor = findViewById(R.id.textdoctor);
+        imgsetting = findViewById(R.id.imgsetting);
         searchView = findViewById(R.id.sv);
         recyclerView = findViewById(R.id.recyclerView);
         service = new RetrofitService();
@@ -181,7 +189,6 @@ public class DrawerActivity extends AppCompatActivity
         token = Token.MyToken.getToken();
 
         Log.e("DrawerActivityToken", token);
-
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
