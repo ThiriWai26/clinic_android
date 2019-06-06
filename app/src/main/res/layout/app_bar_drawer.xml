@@ -22,7 +22,7 @@
             android:layout_marginLeft="1dp"
             android:layout_marginTop="12dp"
             android:layout_marginRight="1dp"
-            android:background="#ffffff"
+            android:background="#FFFFFF"
             android:elevation="3dp"
             app:contentInsetEnd="5dp"
             app:contentInsetLeft="5dp"
