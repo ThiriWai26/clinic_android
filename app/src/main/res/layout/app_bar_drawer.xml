@@ -10,7 +10,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="#ffffff"
         android:theme="@style/AppTheme.AppBarOverlay">
 
@@ -35,7 +35,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:titleMarginStart="73dp">
+            app:titleMarginStart="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
