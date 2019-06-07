@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:card_view="http://schemas.android.com/apk/res-auto">
@@ -24,49 +25,71 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_margin="16dp"
-                android:maxHeight="48dp"
-                android:tag="image_tag"
-                android:src="@drawable/img_doctor" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
 
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:layout_toRightOf="@id/profile"
-                android:gravity="bottom"
-                android:text=" Doctor Name"
-                android:textSize="16sp" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:maxHeight="48dp"
+                    android:tag="image_tag"
+                    android:src="@drawable/img_doctor" />
 
-            <TextView
-                android:id="@+id/tvType"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_below="@id/tvName"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="13dp"
-                android:layout_toRightOf="@id/profile"
-                android:gravity="bottom"
-                android:text=" Heart,OG "
-                android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:layout_toRightOf="@id/profile"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="12dp"
+                        android:text=" Doctor Name"
+                        android:textSize="16sp"
+                        tools:ignore="NotSibling" />
+
+                    <TextView
+                        android:id="@+id/tvType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:layout_below="@id/tvName"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_toRightOf="@id/profile"
+                        android:gravity="center_vertical"
+                        android:text=" Heart,OG "
+                        android:textSize="14sp"
+                        tools:ignore="NotSibling" />
+
+            </RelativeLayout>
+
 
             <TextView
                 android:id="@+id/tvAddress"
-                android:layout_width="wrap_content"
+                android:layout_width="121dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
                 android:layout_gravity="center"
-                android:layout_marginLeft="54dp"
-                android:layout_marginTop="9dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="27dp"
+                android:layout_toStartOf="@+id/btn_doctor_detail"
+                android:layout_toLeftOf="@+id/btn_doctor_detail"
                 android:layout_toRightOf="@id/tvName"
-                android:text="   Yangon"
+                android:background="@drawable/dr_appointment_btn_style_color"
+                android:ems="10"
+                android:paddingLeft="20dp"
+                android:text="Yangon"
                 android:textColor="#6FE072"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="NotSibling" />
+
 
             <ImageButton
                 android:id="@+id/btn_doctor_detail"
