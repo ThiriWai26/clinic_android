@@ -83,8 +83,7 @@ public class DoctorListActivity extends AppCompatActivity implements  DoctorHold
 //        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 //        spinner.setAdapter(dataAdapter);
-
-
+        
     }
 
     private void getDoctorsList() {
