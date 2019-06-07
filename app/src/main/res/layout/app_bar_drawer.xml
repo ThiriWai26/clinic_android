@@ -85,7 +85,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_below="@+id/appBarLayout"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="0dp"
@@ -93,7 +93,8 @@
                 android:clipToPadding="true"
                 android:scrollbars="vertical"
                 tools:listitem="@layout/layout_doctor_list"
-                tools:ignore="NotSibling" />
+                tools:ignore="NotSibling"
+                android:background="#D1CCCC" />
 
 
 </RelativeLayout>
