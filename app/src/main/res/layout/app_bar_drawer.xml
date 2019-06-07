@@ -20,7 +20,6 @@
             android:layout_height="match_parent"
             android:layout_alignBottom="@+id/appBarLayout"
             android:layout_marginLeft="1dp"
-            android:layout_marginTop="12dp"
             android:layout_marginRight="1dp"
             android:background="#FFFFFF"
             android:elevation="3dp"
@@ -68,7 +67,7 @@
                     style="@style/SearchViewStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_gravity="end"
+                    android:layout_gravity="center"
                     android:background="#FFFFFF"
                     android:gravity="center_vertical"
                     app:queryHint="Search Doctor">
