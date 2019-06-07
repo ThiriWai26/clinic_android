@@ -22,7 +22,7 @@ public class DoctorHolder extends RecyclerView.ViewHolder implements View.OnClic
 
     private OnDoctorClickListener listener;
 
-    private TextView tvname, tvSpecial, tvAddress, tvId;
+    private TextView tvname, tvSpecial,  tvId;
     private ImageView imgProfile;
     private ImageButton btnDoctorDetail;
 
@@ -46,7 +46,7 @@ public class DoctorHolder extends RecyclerView.ViewHolder implements View.OnClic
         tvId = view.findViewById(R.id.tvid);
         tvname = view.findViewById(R.id.tvName);
         tvSpecial = view.findViewById(R.id.tvType);
-        tvAddress = view.findViewById(R.id.tvAddress);
+//        tvAddress = view.findViewById(R.id.tvAddress);
         imgProfile = view.findViewById(R.id.profile);
         btnDoctorDetail = view.findViewById(R.id.btn_doctor_detail);
 
@@ -71,7 +71,7 @@ public class DoctorHolder extends RecyclerView.ViewHolder implements View.OnClic
 
         tvSpecial.setText(special);
 
-        tvAddress.setText(address);
+//        tvAddress.setText(address);
 
         Log.e("photo",doctor.photo);
 
