@@ -48,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:text="Doctor"
                     android:textSize="18dp"
+                    android:textColor="#000000"
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:textStyle="bold"/>
@@ -94,7 +95,7 @@
                 android:scrollbars="vertical"
                 tools:listitem="@layout/layout_doctor_list"
                 tools:ignore="NotSibling"
-                android:background="#D1CCCC" />
+                android:background="#FFFFFF" />
 
 
 </RelativeLayout>
