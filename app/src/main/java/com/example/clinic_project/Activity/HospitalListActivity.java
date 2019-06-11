@@ -34,6 +34,8 @@ public class HospitalListActivity extends AppCompatActivity implements BuildingH
     private RecyclerView recyclerView;
     private RetrofitService service;
     private TextView txthospital;
+    private int typeId = 2;
+    private int  townId = 0;
     BuildingAdapter adapter;
     List<Building> buildings = new ArrayList<>();
     List<Building> newBuildings = new ArrayList<>();
@@ -48,7 +50,7 @@ public class HospitalListActivity extends AppCompatActivity implements BuildingH
         initHospitalList();
         searchViewModify();
         searchViewFilter();
-        getHospitalsList();
+        getHospitalsList(2,0);
 
     }
 
@@ -63,7 +65,7 @@ public class HospitalListActivity extends AppCompatActivity implements BuildingH
 
     }
 
-    private void getHospitalsList(){
+    private void getHospitalsList(int typeId, int locationId){
 
         Api buildingListApi = service.getRetrofitService().create(Api.class);
         buildingListApi.getBuildingList(token, typeId, locationId).enqueue(new Callback<BuildingListResponse>() {
