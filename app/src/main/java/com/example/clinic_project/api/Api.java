@@ -48,7 +48,7 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("api/building_list")
-    Call<BuildingListResponse> getBuildingList(@Field("token") String token, @Field("type_id") int typeId, @Field("town_id") int townId);
+    Call<BuildingListResponse> getBuildingList(@Field("token") String token, int typeId, int locationId);
 
     @FormUrlEncoded
     @POST("api/town_list")

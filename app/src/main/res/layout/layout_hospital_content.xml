@@ -70,9 +70,7 @@
                     android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:background="#FFFFFF"
-                    android:gravity="center_vertical"
-                    app:queryHint="Search Doctor">
-
+                    android:gravity="center_vertical">
                 </android.support.v7.widget.SearchView>
 
             </LinearLayout>
