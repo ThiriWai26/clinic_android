@@ -73,7 +73,7 @@ public class HospitalListActivity extends AppCompatActivity implements BuildingH
             public void onResponse(Call<BuildingListResponse> call, Response<BuildingListResponse> response) {
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
-                        buildings = response.body().buildingList.data;
+                        buildings = response.body().buildingList;
                         adapter.addItem(buildings);
 
                         Log.e("HospitalLists",String.valueOf(buildings.size()));

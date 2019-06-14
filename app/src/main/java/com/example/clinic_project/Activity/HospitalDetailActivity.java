@@ -7,8 +7,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.clinic_project.R;
+import com.example.clinic_project.Response.BuildingDetailResponse;
+import com.example.clinic_project.api.Api;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
+import com.squareup.picasso.Picasso;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class HospitalDetailActivity extends AppCompatActivity {
@@ -46,6 +53,32 @@ public class HospitalDetailActivity extends AppCompatActivity {
     private void getBuildingDetail() {
 
         Log.e("Building_detail","successs");
+
+        Api buildingDetailApi = service.getRetrofitService().create(Api.class);
+        buildingDetailApi.getBuildingDetail(token,buildingId).enqueue(new Callback<BuildingDetailResponse>() {
+            @Override
+            public void onResponse(Call<BuildingDetailResponse> call, Response<BuildingDetailResponse> response) {
+                if(response.isSuccessful()){
+                    if(response.body().isScuccess){
+//                        Picasso.get()
+//                                .load("http://128.199.180.50/api/get_image/" + response.body().buildingDetails.photos)
+//                                .resize(40, 40)
+//                                .onlyScaleDown()
+//                                .centerCrop()
+//                                .into(imageView);
+//
+//                        txtname.setText(response.body().buildingDetails.name);
+//                        txtlocation.setText(response.body().buildingDetails.location);
+//                        txtphoneno.setText(response.body().buildingDetails.phone);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BuildingDetailResponse> call, Throwable t) {
+
+            }
+        });
 
     }
 }

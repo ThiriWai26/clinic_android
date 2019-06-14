@@ -21,37 +21,37 @@ public interface Api {
     Call<LoginResponse>  login(@Field("phoneNumber") long PhoneNumber, @Field("password") String PassWord);
 
     @FormUrlEncoded
-    @POST("api/register")
+    @POST("/api/register")
     Call<RegisterResponse> userRegister(@Field("phoneNumber") long phoneNumber,
                                         @Field("password") String password,
                                         @Field("password_confirmation") String confirmPassword);
 
     @FormUrlEncoded
-    @POST("api/doctor_list")
+    @POST("/api/doctor_list")
     Call<DoctorListResponse> getDoctorList(@Field("token") String token);
 
     @FormUrlEncoded
-    @POST("api/doctor_list_by_specialization")
+    @POST("/api/doctor_list_by_specialization")
     Call<DoctorListResponse> getDoctorList(@Field("token") String token , @Field("specialization_id") int id);
 
     @FormUrlEncoded
-    @POST("api/specialization_list")
+    @POST("/api/specialization_list")
     Call<SpecializationListResponse> getSpecializationList(@Field("token") String token);
 
     @FormUrlEncoded
-    @POST("api/doctor_details")
+    @POST("/api/doctor_details")
     Call<DoctorDetailResponse> getDoctorDetail(@Field("token") String token, @Field("doctor_id") int id);
 
     @FormUrlEncoded
-    @POST("api/building_details")
-    Call<BuildingDetailResponse> getBuildingDetail(@Field("token") String token, @Field("building_id") int buildingId, @Field("type_id") int typeId);
+    @POST("/api/building_details")
+    Call<BuildingDetailResponse> getBuildingDetail(@Field("token") String token, @Field("building_id") int buildingId);
 
     @FormUrlEncoded
-    @POST("api/building_list")
-    Call<BuildingListResponse> getBuildingList(@Field("token") String token, int typeId, int locationId);
+    @POST("/api/building_list")
+    Call<BuildingListResponse> getBuildingList(@Field("token") String token, @Field("type_id") int typeId, @Field("town_id") int townId);
 
     @FormUrlEncoded
-    @POST("api/town_list")
+    @POST("/api/town_list")
     Call<TownListResponse> getTownList(@Field("token") String token);
 
 }

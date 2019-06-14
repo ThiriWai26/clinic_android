@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.DrawerActivity"
+    tools:ignore="MissingDefaultResource">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/appBarLayout"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:background="#FFFFFF"
+            android:elevation="3dp"
+            app:contentInsetEnd="5dp"
+            app:contentInsetLeft="5dp"
+            app:contentInsetRight="5dp"
+            app:contentInsetStart="5dp"
+            app:contentInsetStartWithNavigation="2dp"
+            app:titleTextColor="#000000"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleMarginStart="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtdoctor"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Clinic"
+                    android:textSize="18dp"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:id="@+id/imgsetting"
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_toRightOf="@id/toolbar"
+                    android:layout_weight="0.1"
+                    android:src="@drawable/setting"
+                    tools:ignore="RtlCompat" />
+
+                <android.support.v7.widget.SearchView
+                    android:id="@+id/sv"
+                    style="@style/SearchViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="#FFFFFF"
+                    android:gravity="center_vertical"
+                    app:queryHint="Search Lab" />
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!--<include layout="@layout/content_drawer" />-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appBarLayout"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="0dp"
+        android:clipChildren="true"
+        android:clipToPadding="true"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/layout_lab_list"
+        tools:ignore="NotSibling"
+        android:background="#FFFFFF" />
+
+
+</RelativeLayout>

@@ -57,19 +57,17 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
     private TextView txthospital;
     private ImageView imgsetting;
     private int typeId = 2;
-    private int  townId = 0;
+    private int townId = 0;
 
     private BuildingAdapter adapter;
-    ArrayAdapter<String> dataAdapter;
-
     List<String> locations = new ArrayList<>();
-    List<String> type = new ArrayList<>();
     List<TownList> townLists = new ArrayList<>();
 
     List<Building> building = new ArrayList<>();
     List<Building> newBuildings = new ArrayList<>();
     private LinearLayoutManager linearLayoutManager;
     private String token = null;
+
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
@@ -89,36 +87,120 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        service = new RetrofitService();
+
         initBuildingList();
-        getBuildingList(2,0);
+
         searchViewFilter();
         searchViewModify();
 
     }
 
-    private void getBuildingList(int typeId, int locationId) {
+    private void getBuildingList(int typeId, int townId) {
 
-        Log.e("buildingList", "success");
+        Log.e("buildingList","success");
 
-        Api buildingApi = service.getRetrofitService().create(Api.class);
-
-        buildingApi.getBuildingList(token, typeId, locationId).enqueue(new Callback<BuildingListResponse>() {
+        Api buildingListApi = service.getRetrofitService().create(Api.class);
+        buildingListApi.getBuildingList(token,typeId,townId).enqueue(new Callback<BuildingListResponse>() {
             @Override
             public void onResponse(Call<BuildingListResponse> call, Response<BuildingListResponse> response) {
-                building = response.body().buildingList.data;
-                adapter.addItem(building);
-                Log.e("Hospital_buildingSize", String.valueOf(building.size()));
+                if(response.isSuccessful()){
+                    if(response.body().isSuccess){
 
+                        building = response.body().buildingList;
+                        adapter.addItem(building);
+                        Log.e("Hospital_buildingSize", String.valueOf(building.size()));
+
+                    }
+                }
             }
 
             @Override
             public void onFailure(Call<BuildingListResponse> call, Throwable t) {
 
             }
-
         });
     }
 
+    private void initBuildingList() {
+
+        searchView = findViewById(R.id.sv);
+        recyclerView = findViewById(R.id.recyclerView);
+        txthospital = findViewById(R.id.txthospital);
+        imgsetting = findViewById(R.id.imgsetting);
+        adapter = new BuildingAdapter(this);
+
+        Bundle b = getIntent().getExtras();
+        token = b.getString("Token");
+        Log.e("HospitalActivityToken", token);
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        getLocationList(token);
+        getBuildingList(typeId,townId);
+
+    }
+
+    private void getLocationList(String token) {
+
+        Log.e("LocationList","success");
+        Api townListApi = service.getRetrofitService().create(Api.class);
+        townListApi.getTownList(token).enqueue(new Callback<TownListResponse>() {
+
+            @Override
+            public void onResponse(Call<TownListResponse> call, Response<TownListResponse> response) {
+                if(response.isSuccessful()){
+                    if(response.body().isSuccess){
+                        townLists = response.body().towns;
+                        for (TownList townList : townLists) {
+                            locations.add(townList.name);
+                            Log.e("locations", townList.name);
+                        }
+                        adapter.notifyDataSetChanged();
+                        Toast.makeText(getApplicationContext(), "Successful!", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TownListResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onBuildingClick(int id) {
+
+        Intent intent = new Intent(this, HospitalDetailActivity.class);
+        intent.putExtra("buildingId", id);
+        intent.putExtra("typeId",2);
+        Log.e("building_id",String.valueOf(id));
+        startActivity(intent);
+
+    }
+
+
+    @SuppressLint("ResourceType")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+
+        getMenuInflater().inflate(R.id.action_search, (Menu) menuItem);
+        getMenuInflater().inflate(R.id.action_settings, (Menu) menuItem);
+
+        MenuItem searchItem  = ((Menu) menuItem).findItem(R.id.action_search);
+        MenuItem searchItem1 = ((Menu) menuItem).findItem(R.id.action_settings);
+
+        android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) MenuItemCompat.getActionView(searchItem);
+        android.support.v7.widget.SearchView searchView1 = (android.support.v7.widget.SearchView) MenuItemCompat.getActionView(searchItem1);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView1.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        return super.onOptionsItemSelected(menuItem);
+    }
 
     @Override
     public void onBackPressed() {
@@ -160,85 +242,6 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    private void initBuildingList() {
-
-        searchView = findViewById(R.id.sv);
-        recyclerView = findViewById(R.id.recyclerView);
-        txthospital = findViewById(R.id.txthospital);
-        imgsetting = findViewById(R.id.imgsetting);
-        service = new RetrofitService();
-        adapter = new BuildingAdapter(this);
-
-        token = Token.MyToken.getToken();
-        Log.e("HospitalActivityToken", token);
-
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        
-        getLocationList(token);
-
-    }
-
-    private void getLocationList(String token) {
-
-        Api townListApi = service.getRetrofitService().create(Api.class);
-        townListApi.getTownList(token).enqueue(new Callback<TownListResponse>() {
-
-            @Override
-            public void onResponse(Call<TownListResponse> call, Response<TownListResponse> response) {
-                if(response.isSuccessful()){
-                    if(response.body().isSuccess){
-                        townLists = response.body().towns;
-                        for (TownList townList : townLists) {
-                            locations.add(townList.name);
-                            Log.e("locations", townList.name);
-                        }
-                        adapter.notifyDataSetChanged();
-                        Toast.makeText(getApplicationContext(), "Successful!", Toast.LENGTH_SHORT).show();
-                    }
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<TownListResponse> call, Throwable t) {
-
-            }
-        });
-    }
-
-
-    @SuppressLint("ResourceType")
-    @Override
-    public boolean onOptionsItemSelected(MenuItem menuItem) {
-
-        getMenuInflater().inflate(R.id.action_search, (Menu) menuItem);
-        getMenuInflater().inflate(R.id.action_settings, (Menu) menuItem);
-
-        MenuItem searchItem  = ((Menu) menuItem).findItem(R.id.action_search);
-        MenuItem searchItem1 = ((Menu) menuItem).findItem(R.id.action_settings);
-
-        android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) MenuItemCompat.getActionView(searchItem);
-        android.support.v7.widget.SearchView searchView1 = (android.support.v7.widget.SearchView) MenuItemCompat.getActionView(searchItem1);
-
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView1.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        return super.onOptionsItemSelected(menuItem);
-    }
-
-
-    @Override
-    public void onBuildingClick(int id) {
-
-        Intent intent = new Intent(this, HospitalDetailActivity.class);
-        intent.putExtra("buildingId", id);
-        intent.putExtra("typeId",2);
-        Log.e("building_id",String.valueOf(id));
-        startActivity(intent);
-
     }
 
     //search view modify
