@@ -17,6 +17,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingHolder> {
     BuildingHolder.OnBuildingClickListener listener;
 
     public BuildingAdapter(BuildingHolder.OnBuildingClickListener listener){
+
         buildings=new ArrayList<>();
         this.listener=listener;
     }

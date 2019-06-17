@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.RecoverySystem;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
@@ -21,15 +20,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.support.v7.widget.SearchView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingListResponse;
+import com.example.clinic_project.Response.ClinicListResponse;
 import com.example.clinic_project.Response.TownListResponse;
 import com.example.clinic_project.adapter.BuildingAdapter;
+import com.example.clinic_project.adapter.ClinicAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.BuildingHolder;
+import com.example.clinic_project.holder.ClinicHolder;
 import com.example.clinic_project.model.Building;
+import com.example.clinic_project.model.Clinic;
+import com.example.clinic_project.model.ClinicDetail;
 import com.example.clinic_project.model.TownList;
 import com.example.clinic_project.service.RetrofitService;
 
@@ -41,21 +47,22 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ClinicActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BuildingHolder.OnBuildingClickListener {
+public class ClinicActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, ClinicHolder.OnClinicClickListener {
 
     private SearchView searchView;
     private RecyclerView recyclerView;
     private RetrofitService service;
-    BuildingAdapter adapter;
+    private TextView txtclinic;
+    private ImageView imgsetting;
+    ClinicAdapter adapter;
+    private int doctorId = -1;
 
-    List<Building> building = new ArrayList<>();
-    List<Building> newBuildings = new ArrayList<>();
-    List<String> location = new ArrayList<>();
+
+    List<Clinic> clinic = new ArrayList<>();
+    List<Clinic> newClinics = new ArrayList<>();
     private String token;
-    private int typeId = 1;
-    private int townId = 0;
     ArrayAdapter<String> dataAdapter;
-    private List<TownList> townLists = new ArrayList<>();
+
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
@@ -76,59 +83,63 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        initBuildingList();
+        initClinic();
+        getClinicList(token,doctorId);
         searchViewModify();
         searchViewFilter();
-        getBuildingList(typeId, townId);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 
-    private void initBuildingList() {
+    private void initClinic() {
+
 
         searchView = findViewById(R.id.sv);
         recyclerView = findViewById(R.id.recyclerView);
+        txtclinic = findViewById(R.id.txtclinic);
+        imgsetting = findViewById(R.id.imgsetting);
         service = new RetrofitService();
-        adapter = new BuildingAdapter(this);
+        adapter = new ClinicAdapter(this);
 
         Bundle b = getIntent().getExtras();
         token = b.getString("Token");
 
         Log.e("ClinicActivityToken", token);
-        getLocationList(token);
-
     }
 
-    private void getLocationList(String token) {
+    private void getClinicList(String token, int doctorId) {
 
-        Log.e("LocationList","success");
-
-        Api townListApi = service.getRetrofitService().create(Api.class);
-        townListApi.getTownList(token).enqueue(new Callback<TownListResponse>() {
+        Log.e("ClinicActivity","success");
+        Api clinicListApi = service.getRetrofitService().create(Api.class);
+        clinicListApi.getClinicList(token,doctorId).enqueue(new Callback<ClinicListResponse>() {
             @Override
-            public void onResponse(Call<TownListResponse> call, Response<TownListResponse> response) {
+            public void onResponse(Call<ClinicListResponse> call, Response<ClinicListResponse> response) {
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
-                        townLists.addAll(response.body().towns);
-                        for(TownList townList:townLists){
-                            location.add(townList.name);
-                            Log.e("locations",townList.name);
-                        }
-                        adapter.notifyDataSetChanged();
-                        Toast.makeText(getApplicationContext(), "Successful!", Toast.LENGTH_SHORT).show();
+
+                        clinic = response.body().clinicLists.clinics;
+                        adapter.addItem(clinic);
+
+                        Log.e("ClinicLists", String.valueOf(clinic.size()));
+
+
                     }
+
                 }
             }
 
             @Override
-            public void onFailure(Call<TownListResponse> call, Throwable t) {
+            public void onFailure(Call<ClinicListResponse> call, Throwable t) {
 
             }
         });
 
+
     }
+
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -140,29 +151,6 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
     }
 
 
-    private void getBuildingList(int typeId, int townId) {
-
-        Api buildingListApi = service.getRetrofitService().create(Api.class);
-        buildingListApi.getBuildingList(token,typeId,townId).enqueue(new Callback<BuildingListResponse>() {
-            @Override
-            public void onResponse(Call<BuildingListResponse> call, Response<BuildingListResponse> response) {
-                if (response.isSuccessful()){
-                    if (response.body().isSuccess){
-                        building = response.body().buildingList;
-                        adapter.addItem(building);
-                        Log.e("Hospital_buildingSize", String.valueOf(building.size()));
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<BuildingListResponse> call, Throwable t) {
-
-            }
-        });
-
-    }
-
 
     private void searchViewFilter() {
 
@@ -172,15 +160,15 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
 
                 s = s.toLowerCase(Locale.getDefault());
                 if(s.length() != 0){
-                    newBuildings.clear();
-                    for (Building building : building){
-                        if (building.name.toLowerCase(Locale.getDefault()).contains(s)) {
-                            newBuildings.add(building);
+                    newClinics.clear();
+                    for (Clinic clinic : clinic){
+                        if (clinic.name.toLowerCase(Locale.getDefault()).contains(s)) {
+                            newClinics.add(clinic);
                         }
                     }
-                    adapter.addItem(newBuildings);
+                    adapter.addItem(newClinics);
                 }else{
-                    adapter.addItem(building);
+                    adapter.addItem(clinic);
                 }
                 Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
                 return false;
@@ -191,16 +179,16 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
 
                 s = s.toLowerCase(Locale.getDefault());
                 if (s.length() != 0){
-                    newBuildings.clear();
-                    for (Building building : building) {
-                        if (building.name.toLowerCase(Locale.getDefault()).contains(s)) {
+                    newClinics.clear();
+                    for (Clinic clinic : clinic) {
+                        if (clinic.name.toLowerCase(Locale.getDefault()).contains(s)) {
 
-                            newBuildings.add(building);
+                            newClinics.add(clinic);
                         }
                     }
-                    adapter.addItem(newBuildings);
+                    adapter.addItem(newClinics);
                 }else {
-                    adapter.addItem(building);
+                    adapter.addItem(clinic);
                 }
 
                 Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
@@ -222,8 +210,6 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
         searchAutoComplete.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
 
     }
-
-
 
 
 
@@ -255,14 +241,14 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
         drawer.closeDrawer(GravityCompat.START);
         return true;    }
 
+
     @Override
-    public void onBuildingClick(int id) {
+    public void onClinicClick(int id) {
 
-        Intent intent = new Intent(this, DoctorDetailActivity.class);
-        intent.putExtra("id", id);
-        Log.e("doctor_id", String.valueOf(id));
+        Intent intent = new Intent(getApplicationContext(), ClinicDetailActivity.class);
+        intent.putExtra("clinicId", id);
+        intent.putExtra("Token", token);
+        Log.e("clinic_id", String.valueOf(id));
         startActivity(intent);
-
-
     }
 }

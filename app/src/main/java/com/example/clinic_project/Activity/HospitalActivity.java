@@ -67,6 +67,7 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
     List<Building> newBuildings = new ArrayList<>();
     private LinearLayoutManager linearLayoutManager;
     private String token = null;
+    private int townListId = -1;
 
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -107,11 +108,12 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
 
-                        building = response.body().buildingList;
+                        building = response.body().buildingList.data;
                         adapter.addItem(building);
-                        Log.e("Hospital_buildingSize", String.valueOf(building.size()));
+                        Log.e("Hospital_buildingSize",String.valueOf(building.size()));
 
                     }
+
                 }
             }
 
@@ -139,6 +141,14 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
 
         getLocationList(token);
         getBuildingList(typeId,townId);
+
+//        Bundle bundle = getIntent().getExtras();
+//        townListId = bundle.getInt("specializationId");
+//
+//        if (townListId != -1) {
+//            getLocationList(String.valueOf(townListId));
+//            Log.e("townListId", String.valueOf(townListId));
+//        }
 
     }
 

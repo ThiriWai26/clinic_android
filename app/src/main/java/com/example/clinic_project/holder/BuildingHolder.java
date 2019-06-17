@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,11 +15,12 @@ import com.squareup.picasso.Picasso;
 
 public class BuildingHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    private TextView txName, txLocation, txId;
-    private ImageView imageViewExpand;
-
     private OnBuildingClickListener listener;
+    private TextView txName, txLocation, txId;
+//    private ImageView imageViewExpand;
     private ImageView imageView;
+    private ImageButton btnHospitalDetail;
+
 
     public static BuildingHolder create(LayoutInflater inflater, ViewGroup parent, OnBuildingClickListener listener) {
 
@@ -30,7 +32,7 @@ public class BuildingHolder extends RecyclerView.ViewHolder implements View.OnCl
     @Override
     public void onClick(View v) {
 
-        listener.onBuildingClick(Integer.parseInt((txId.getText().toString())));
+        listener.onBuildingClick(Integer.parseInt((String) txId.getText()));
         int position;
         position = getAdapterPosition();
         Log.e("position", String.valueOf(position));
@@ -42,6 +44,9 @@ public class BuildingHolder extends RecyclerView.ViewHolder implements View.OnCl
         txName.setText(building.name);
         txLocation.setText(building.townName);
         txId.setText(String.valueOf(building.id));
+
+        Log.e("photo",building.image);
+
         Picasso.get()
                 .load("http://128.190.180.50/api/get_image/" + building.name)
                 .resize(800,700)
@@ -71,7 +76,11 @@ public class BuildingHolder extends RecyclerView.ViewHolder implements View.OnCl
         txLocation = view.findViewById(R.id.txLocation);
         txName = view.findViewById(R.id.txName);
         txId = view.findViewById(R.id.txid);
-        imageView = view.findViewById(R.id.imageView);
+        imageView = view.findViewById(R.id.imageView1);
+        btnHospitalDetail = view.findViewById(R.id.btn_hospital_detail);
+
+        btnHospitalDetail.setOnClickListener(this);
+        view.setOnClickListener(this);
     }
 
 

@@ -2,6 +2,7 @@ package com.example.clinic_project.api;
 
 import com.example.clinic_project.Response.BuildingDetailResponse;
 import com.example.clinic_project.Response.BuildingListResponse;
+import com.example.clinic_project.Response.ClinicListResponse;
 import com.example.clinic_project.Response.DoctorDetailResponse;
 import com.example.clinic_project.Response.DoctorListResponse;
 import com.example.clinic_project.Response.LoginResponse;
@@ -44,7 +45,7 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("/api/building_details")
-    Call<BuildingDetailResponse> getBuildingDetail(@Field("token") String token, @Field("building_id") int buildingId);
+    Call<BuildingDetailResponse> getBuildingDetail(@Field("token") String token,  @Field("type_id") int typeId, @Field("building_id") int buildingId);
 
     @FormUrlEncoded
     @POST("/api/building_list")
@@ -53,6 +54,10 @@ public interface Api {
     @FormUrlEncoded
     @POST("/api/town_list")
     Call<TownListResponse> getTownList(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("/api/clinics_by_doctor")
+    Call<ClinicListResponse> getClinicList(@Field("token") String token, @Field("doctor_id") int doctorId);
 
 }
 

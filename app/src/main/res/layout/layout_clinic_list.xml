@@ -75,7 +75,7 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/btn_doctor_detail"
+                android:id="@+id/btn_clinic_detail"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"

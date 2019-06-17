@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -50,7 +51,10 @@ public class HospitalListActivity extends AppCompatActivity implements BuildingH
         initHospitalList();
         searchViewModify();
         searchViewFilter();
-        getHospitalsList(2,0);
+        getHospitalsList(typeId,townId);
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 
@@ -73,7 +77,7 @@ public class HospitalListActivity extends AppCompatActivity implements BuildingH
             public void onResponse(Call<BuildingListResponse> call, Response<BuildingListResponse> response) {
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
-                        buildings = response.body().buildingList;
+                        buildings = response.body().buildingList.data;
                         adapter.addItem(buildings);
 
                         Log.e("HospitalLists",String.valueOf(buildings.size()));

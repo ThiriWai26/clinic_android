@@ -13,11 +13,12 @@ import java.util.List;
 
 public class DoctorAdapter extends RecyclerView.Adapter<DoctorHolder> {
 
-    List<Doctor>  doctorLists =new ArrayList<>();
+    List<Doctor> doctorLists;
     private DoctorHolder.OnDoctorClickListener listener;
 
     public DoctorAdapter(DoctorHolder.OnDoctorClickListener listener){
 
+        doctorLists = new ArrayList<>();
         this.listener=listener;
     }
 

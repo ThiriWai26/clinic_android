@@ -48,13 +48,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DrawerActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, DoctorHolder.OnDoctorClickListener, Spinner.OnItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, DoctorHolder.OnDoctorClickListener {
 
-    private Intent intent;
     private SearchView searchView;
     private RecyclerView recyclerView;
     private RetrofitService service;
-    private Spinner spinner;
     private TextView txtdoctor;
     private ImageView imgsetting;
     DoctorAdapter adapter;
@@ -297,30 +295,6 @@ public class DrawerActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
-        String name = spinner.getSelectedItem().toString();
-        if (name.equals("All")) {
-            adapter.addDoctors(doctors);
-        } else {
-
-            int special_id = 0;
-            Log.e("spinner selected item", name);
-            for (SpecializationList specializationList : specializationLists) {
-                if (specializationList.name.equals(name)) {
-
-                    special_id = specializationList.id;
-                    Log.e("special_id", String.valueOf(id));
-                }
-            }
-            getDoctorsBySpecialization(special_id);
-
-        }
-
-
-    }
 
     private void getDoctorsBySpecialization(int special_id) {
         Api doctorsBySpecialApi = service.getRetrofitService().create(Api.class);
@@ -342,8 +316,5 @@ public class DrawerActivity extends AppCompatActivity
         });
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
 
-    }
 }

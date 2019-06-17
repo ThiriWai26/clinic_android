@@ -30,7 +30,6 @@ public class DoctorHolder extends RecyclerView.ViewHolder implements View.OnClic
         public void onDoctorClick (int id);
     }
 
-
     public DoctorHolder(@NonNull View itemView, OnDoctorClickListener listener) {
 
         super(itemView);

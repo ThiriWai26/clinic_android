@@ -1,9 +1,10 @@
 package com.example.clinic_project.Response;
 
+import com.example.clinic_project.model.ClinicList;
 import com.example.clinic_project.model.DoctorList;
 import com.google.gson.annotations.SerializedName;
 
-public class DoctorListResponse {
+public class ClinicListResponse {
 
     @SerializedName("is_success")
     public boolean isSuccess;
@@ -20,6 +21,7 @@ public class DoctorListResponse {
     @SerializedName("last_page_url")
     public String lastPage;
 
-    @SerializedName("doctors")
-    public DoctorList doctorLists;
+    @SerializedName("clinics")
+    public ClinicList clinicLists;
 }
+

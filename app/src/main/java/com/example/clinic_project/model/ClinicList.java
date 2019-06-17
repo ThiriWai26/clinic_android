@@ -2,13 +2,12 @@ package com.example.clinic_project.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class BuildingList {
+public class ClinicList {
 
     @SerializedName("data")
-    public List<Building> data;
+    public List<Clinic> clinics;
 
     @SerializedName("next_page_url")
     public String nextPageUrl;
@@ -21,5 +20,4 @@ public class BuildingList {
 
     @SerializedName("last_page_url ")
     public String lastPageUrl;
-
 }

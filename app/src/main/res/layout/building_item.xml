@@ -32,13 +32,16 @@
                 android:layout_height="match_parent"
                 android:gravity="center_vertical">
 
-                <ImageView
-                    android:id="@+id/imageView1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_alignParentTop="true"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_hospital"/>
+
+               <de.hdodenhof.circleimageview.CircleImageView
+                   android:id="@+id/imageView1"
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:layout_gravity="center"
+                   android:layout_margin="16dp"
+                   android:maxHeight="48dp"
+                   android:tag="image_tag"
+                   android:src="@drawable/img_hospital" />
 
                <TextView
                    android:id="@+id/txName"
@@ -70,22 +73,22 @@
                    android:textColor="#000"
                    tools:ignore="NotSibling" />
 
-                <RatingBar
-                    android:id="@+id/ratingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txLocation"
-                    android:numStars="5"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/imageView1"
-                    android:rating="3.5"
-                    style="?android:attr/ratingBarStyleSmall" />
+                <!--<RatingBar-->
+                    <!--android:id="@+id/ratingBar"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_below="@id/txLocation"-->
+                    <!--android:numStars="5"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:layout_toRightOf="@id/imageView1"-->
+                    <!--android:rating="3.5"-->
+                    <!--style="?android:attr/ratingBarStyleSmall" />-->
 
 
              </RelativeLayout>
 
             <ImageButton
-                android:id="@+id/btn_doctor_detail"
+                android:id="@+id/btn_hospital_detail"
                 android:layout_width="24dp"
                 android:layout_height="75dp"
                 android:layout_marginRight="16dp"

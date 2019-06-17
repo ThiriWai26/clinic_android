@@ -23,8 +23,8 @@ public class BuildingListResponse {
     @SerializedName("last_page_url")
     public String lastPage;
 
-    @SerializedName("building")
-    public List<Building> buildingList;
+    @SerializedName("buildings")
+    public BuildingList buildingList;
 
 
 
