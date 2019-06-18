@@ -183,11 +183,11 @@ public class LabActivity extends AppCompatActivity implements NavigationView.OnN
     @Override
     public void onBuildingClick(int id) {
 
-        Intent intent = new Intent(this, DoctorDetailActivity.class);
-        intent.putExtra("id", id);
-        Log.e("doctor_id", String.valueOf(id));
+        Intent intent = new Intent(this, LabDetailActivity.class);
+        intent.putExtra("townId", id);
+        intent.putExtra("typeId",3);
+        Log.e("town_Id",String.valueOf(id));
         startActivity(intent);
-
     }
 
     private void searchViewFilter() {

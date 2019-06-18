@@ -56,7 +56,7 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
     private RetrofitService service;
     private TextView txthospital;
     private ImageView imgsetting;
-    private int typeId = 2;
+    private int typeId = 3;
     private int townId = 0;
 
     private BuildingAdapter adapter;

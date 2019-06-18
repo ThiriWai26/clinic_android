@@ -17,20 +17,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
-public class HospitalDetailActivity extends AppCompatActivity {
+public class LabDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
     private ImageView imageView;
     private TextView txtname,txtlocation,txtphoneno,txttown;
-    private int buildingId = -1;
+    private int townId = -1;
     private int typeId = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hospital_detail);
+        setContentView(R.layout.activity_lab_detail);
 
         initActivity();
     }
@@ -46,8 +45,8 @@ public class HospitalDetailActivity extends AppCompatActivity {
         service = new RetrofitService();
 
         Bundle bundle = getIntent().getExtras();
-        buildingId = bundle.getInt("buildingId");
-        Log.e("buildingId",String.valueOf(buildingId));
+        townId = bundle.getInt("townId");
+        Log.e("townId",String.valueOf(townId));
         getBuildingDetail();
 
     }
@@ -57,7 +56,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
         Log.e("Building_detail","successs");
 
         final Api buildingDetailApi = service.getRetrofitService().create(Api.class);
-        buildingDetailApi.getBuildingDetail(token, buildingId, typeId).enqueue(new Callback<BuildingDetailResponse>() {
+        buildingDetailApi.getBuildingDetail(token, townId, typeId).enqueue(new Callback<BuildingDetailResponse>() {
             @Override
             public void onResponse(Call<BuildingDetailResponse> call, Response<BuildingDetailResponse> response) {
                 if(response.isSuccessful()){
