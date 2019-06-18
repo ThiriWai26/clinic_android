@@ -273,7 +273,7 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
     @Override
     public void onBuildingClick(int id) {
 
-        Intent intent = new Intent(this, HospitalDetailActivity.class);
+        Intent intent = new Intent(this, ClinicDetailActivity.class);
         intent.putExtra("buildingId", id);
         intent.putExtra("typeId",2);
         Log.e("building_id",String.valueOf(id));

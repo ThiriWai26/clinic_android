@@ -3,6 +3,7 @@ package com.example.clinic_project.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.clinic_project.R;
@@ -20,7 +21,7 @@ public class DoctorDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private de.hdodenhof.circleimageview.CircleImageView imageView;
+    private ImageView imageView;
     private TextView tvName,tvType,about,tvclinic,tvtown;
     private int doctorId = -1;
 
