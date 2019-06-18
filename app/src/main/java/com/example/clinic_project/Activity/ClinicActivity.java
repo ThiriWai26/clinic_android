@@ -47,7 +47,7 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
     private RetrofitService service;
     private TextView txtclinic;
     private ImageView imgsetting;
-    private int typeId = 2;
+    private int typeId = 1;
     private int townId = 0;
 
     private BuildingAdapter adapter;

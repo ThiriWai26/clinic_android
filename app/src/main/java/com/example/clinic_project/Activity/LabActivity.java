@@ -185,7 +185,7 @@ public class LabActivity extends AppCompatActivity implements NavigationView.OnN
 
         Intent intent = new Intent(this, LabDetailActivity.class);
         intent.putExtra("townId", id);
-        intent.putExtra("typeId",3);
+        intent.putExtra("typeId",2);
         Log.e("town_Id",String.valueOf(id));
         startActivity(intent);
     }

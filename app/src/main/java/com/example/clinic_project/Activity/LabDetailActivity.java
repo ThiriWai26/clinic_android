@@ -45,7 +45,7 @@ public class LabDetailActivity extends AppCompatActivity {
         service = new RetrofitService();
 
         Bundle bundle = getIntent().getExtras();
-        townId = bundle.getInt("townId");
+        townId= bundle.getInt("townId");
         Log.e("townId",String.valueOf(townId));
         getBuildingDetail();
 
