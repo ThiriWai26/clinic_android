@@ -24,7 +24,7 @@ public class ClinicDetailActivity extends AppCompatActivity {
     private ImageView imageView;
     private TextView txtname,txtlocation,txtphoneno;
     private int buildingId = -1;
-    private int typeId = 2;
+    private int typeId = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

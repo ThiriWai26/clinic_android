@@ -52,6 +52,7 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
 
     private BuildingAdapter adapter;
     List<String> locations = new ArrayList<>();
+
     List<TownList> townLists = new ArrayList<>();
 
     List<Building> building = new ArrayList<>();

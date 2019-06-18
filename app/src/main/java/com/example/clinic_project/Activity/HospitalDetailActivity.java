@@ -37,7 +37,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
     private void initActivity() {
 
-        imageView = findViewById(R.id.profile);
+        imageView = findViewById(R.id.profile1);
         txtname = findViewById(R.id.tvName);
         txtlocation = findViewById(R.id.tvLocation);
         txtphoneno = findViewById(R.id.tvphoneNo);
@@ -65,8 +65,9 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
                         Log.e("name",response.body().buildingDetails.get(0).phoneNumber.get(0));
                         Log.e("address",response.body().buildingDetails.get(0).address);
+                        Log.e("photo",response.body().buildingDetails.get(0).freaturedPhoto);
                         Picasso.get()
-                                .load("http://128.199.180.50/api/get_image/" + response.body().buildingDetails.get(0).photos.get(0))
+                                .load("http://128.199.180.50/api/get_image/" + response.body().buildingDetails.get(0).freaturedPhoto)
                                 .resize(40, 40)
                                 .onlyScaleDown()
                                 .centerCrop()
@@ -74,6 +75,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
                         txtname.setText(response.body().buildingDetails.get(0).name);
                         txtlocation.setText(response.body().buildingDetails.get(0).address);
+
                         txtphoneno.setText(response.body().buildingDetails.get(0).phoneNumber.get(0));
                     }
                 }

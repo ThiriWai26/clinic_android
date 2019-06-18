@@ -18,7 +18,7 @@ public class BuildingHolder extends RecyclerView.ViewHolder implements View.OnCl
     private OnBuildingClickListener listener;
     private TextView txName, txLocation, txId;
 //    private ImageView imageViewExpand;
-    private ImageView imageView;
+    private de.hdodenhof.circleimageview.CircleImageView imageView;
     private ImageButton btnHospitalDetail;
 
 
@@ -48,7 +48,7 @@ public class BuildingHolder extends RecyclerView.ViewHolder implements View.OnCl
         Log.e("photo",building.image);
 
         Picasso.get()
-                .load("http://128.190.180.50/api/get_image/" + building.name)
+                .load("http://128.199.180.50/api/get_image/" + building.image)
                 .resize(800,700)
                 .centerCrop()
                 .into(imageView);
