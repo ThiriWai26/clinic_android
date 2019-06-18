@@ -77,7 +77,7 @@ public class BuildingHolder extends RecyclerView.ViewHolder implements View.OnCl
         txName = view.findViewById(R.id.txName);
         txId = view.findViewById(R.id.txid);
         imageView = view.findViewById(R.id.imageView1);
-        btnHospitalDetail = view.findViewById(R.id.btn_hospital_detail);
+        btnHospitalDetail = view.findViewById(R.id.btn);
 
         btnHospitalDetail.setOnClickListener(this);
         view.setOnClickListener(this);

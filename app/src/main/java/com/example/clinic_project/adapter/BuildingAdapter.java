@@ -5,6 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.example.clinic_project.Activity.ClinicActivity;
+import com.example.clinic_project.Activity.HospitalActivity;
+import com.example.clinic_project.Activity.HospitalListActivity;
 import com.example.clinic_project.holder.BuildingHolder;
 import com.example.clinic_project.model.Building;
 
@@ -17,7 +20,6 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingHolder> {
     BuildingHolder.OnBuildingClickListener listener;
 
     public BuildingAdapter(BuildingHolder.OnBuildingClickListener listener){
-
         buildings=new ArrayList<>();
         this.listener=listener;
     }
