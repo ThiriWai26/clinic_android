@@ -129,7 +129,7 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
 
                         building = response.body().buildingList.data;
                         adapter.addItem(building);
-                        Log.e("Hospital_buildingSize",String.valueOf(building.size()));
+                        Log.e("Clinic_buildingSize",String.valueOf(building.size()));
 
                     }
 
@@ -258,7 +258,7 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
         searchView.setIconified(false);
         searchView.setIconifiedByDefault(false);
         android.support.v7.widget.SearchView.SearchAutoComplete searchAutoComplete = searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
-        searchAutoComplete.setHint("Search Doctors");
+        searchAutoComplete.setHint("Search Clinics");
         searchAutoComplete.setHintTextColor(Color.WHITE);
         searchAutoComplete.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
 

@@ -167,7 +167,7 @@ public class LabActivity extends AppCompatActivity implements NavigationView.OnN
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
                         building = response.body().buildingList.data;
-                        Log.e("LabActivity", String.valueOf(building.size()));
+                        Log.e("Lab_BuildingSize", String.valueOf(building.size()));
                         adapter.addItem(building);
                     }
                 }
