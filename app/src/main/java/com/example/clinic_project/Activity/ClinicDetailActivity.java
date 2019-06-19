@@ -22,7 +22,7 @@ public class ClinicDetailActivity extends AppCompatActivity {
     private RetrofitService service;
     private String token;
     private ImageView imageView;
-    private TextView txtname,txtlocation,txtphoneno;
+    private TextView txtname,txtlocation,txtphoneno,txttown;
     private int buildingId = -1;
     private int typeId = 1;
 
@@ -40,6 +40,7 @@ public class ClinicDetailActivity extends AppCompatActivity {
         txtname = findViewById(R.id.tvName);
         txtlocation = findViewById(R.id.tvLocation);
         txtphoneno = findViewById(R.id.tvphoneNo);
+        txttown = findViewById(R.id.town);
         token = Token.MyToken.getToken();
         service = new RetrofitService();
 
@@ -67,8 +68,9 @@ public class ClinicDetailActivity extends AppCompatActivity {
                                 .into(imageView);
 
                         txtname.setText(response.body().buildingDetails.get(0).name);
-                        txtlocation.setText(response.body().buildingDetails.get(0).address);
+                        txtlocation.setText(response.body().buildingDetails.get(0).townName);
                         txtphoneno.setText(response.body().buildingDetails.get(0).phoneNumber.get(0));
+                        txttown.setText(response.body().buildingDetails.get(0).address);
                     }
                 }
             }

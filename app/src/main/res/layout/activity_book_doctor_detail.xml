@@ -114,9 +114,6 @@
                 android:textSize="14sp"
                 tools:ignore="RtlCompat" />
 
-
-
-
         </RelativeLayout>
 
 
