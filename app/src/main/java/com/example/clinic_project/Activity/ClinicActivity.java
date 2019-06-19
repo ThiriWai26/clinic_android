@@ -1,5 +1,8 @@
 package com.example.clinic_project.Activity;
 
+import android.annotation.SuppressLint;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -9,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +20,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.support.v7.widget.SearchView;
@@ -30,11 +35,13 @@ import com.example.clinic_project.adapter.BuildingAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.BuildingHolder;
 import com.example.clinic_project.model.Building;
+import com.example.clinic_project.model.Clinic;
 import com.example.clinic_project.model.TownList;
 import com.example.clinic_project.service.RetrofitService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -83,7 +90,7 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
 
         initClinic();
         searchViewModify();
-//        searchViewFilter();
+        searchViewFilter();
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -179,52 +186,71 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
 
 
 
-//    private void searchViewFilter() {
-//
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String s) {
-//
-//                s = s.toLowerCase(Locale.getDefault());
-//                if(s.length() != 0){
-//                    newClinics.clear();
-//                    for (Clinic clinic : clinic){
-//                        if (clinic.name.toLowerCase(Locale.getDefault()).contains(s)) {
-//                            newClinics.add(clinic);
-//                        }
-//                    }
-//                    adapter.addItem(newClinics);
-//                }else{
-//                    adapter.addItem(clinic);
-//                }
-//                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String s) {
-//
-//                s = s.toLowerCase(Locale.getDefault());
-//                if (s.length() != 0){
-//                    newClinics.clear();
-//                    for (Clinic clinic : clinic) {
-//                        if (clinic.name.toLowerCase(Locale.getDefault()).contains(s)) {
-//
-//                            newClinics.add(clinic);
-//                        }
-//                    }
-//                    adapter.addItem(newClinics);
-//                }else {
-//                    adapter.addItem(clinic);
-//                }
-//
-//                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
-//                return false;
-//            }
-//        });
-//
-//    }
+    private void searchViewFilter() {
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+
+                s = s.toLowerCase(Locale.getDefault());
+                if(s.length() != 0){
+                    newBuildings.clear();
+                    for (Building building : building){
+                        if (building.name.toLowerCase(Locale.getDefault()).contains(s)) {
+                            newBuildings.add(building);
+                        }
+                    }
+                    adapter.addItem(newBuildings);
+                }else{
+                    adapter.addItem(building);
+                }
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+
+                s = s.toLowerCase(Locale.getDefault());
+                if (s.length() != 0){
+                    newBuildings.clear();
+                    for (Building building : building) {
+                        if (building.name.toLowerCase(Locale.getDefault()).contains(s)) {
+
+                            newBuildings.add(building);
+                        }
+                    }
+                    adapter.addItem(newBuildings);
+                }else {
+                    adapter.addItem(building);
+                }
+
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
+
+    }
+
+
+    @SuppressLint("ResourceType")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+
+        getMenuInflater().inflate(R.id.action_search, (Menu) menuItem);
+        getMenuInflater().inflate(R.id.action_settings, (Menu) menuItem);
+
+        MenuItem searchItem  = ((Menu) menuItem).findItem(R.id.action_search);
+        MenuItem searchItem1 = ((Menu) menuItem).findItem(R.id.action_settings);
+
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        SearchView searchView1 = (SearchView) MenuItemCompat.getActionView(searchItem1);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView1.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        return super.onOptionsItemSelected(menuItem);
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void searchViewModify() {

@@ -65,12 +65,14 @@
                 <android.support.v7.widget.SearchView
                     android:id="@+id/sv"
                     style="@style/SearchViewStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:background="#FFFFFF"
                     android:gravity="center_vertical"
-                    app:queryHint="Search Lab" />
+                    app:queryHint="Search Doctor" >
+
+                </android.support.v7.widget.SearchView>
 
             </LinearLayout>
 
