@@ -89,8 +89,8 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
         navigationView.setNavigationItemSelectedListener(this);
 
         initClinic();
-        searchViewModify();
-        searchViewFilter();
+//        searchViewModify();
+//        searchViewFilter();
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -186,51 +186,51 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
 
 
 
-    private void searchViewFilter() {
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-
-                s = s.toLowerCase(Locale.getDefault());
-                if(s.length() != 0){
-                    newBuildings.clear();
-                    for (Building building : building){
-                        if (building.name.toLowerCase(Locale.getDefault()).contains(s)) {
-                            newBuildings.add(building);
-                        }
-                    }
-                    adapter.addItem(newBuildings);
-                }else{
-                    adapter.addItem(building);
-                }
-                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-
-                s = s.toLowerCase(Locale.getDefault());
-                if (s.length() != 0){
-                    newBuildings.clear();
-                    for (Building building : building) {
-                        if (building.name.toLowerCase(Locale.getDefault()).contains(s)) {
-
-                            newBuildings.add(building);
-                        }
-                    }
-                    adapter.addItem(newBuildings);
-                }else {
-                    adapter.addItem(building);
-                }
-
-                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
-                return false;
-            }
-        });
-
-    }
+//    private void searchViewFilter() {
+//
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String s) {
+//
+//                s = s.toLowerCase(Locale.getDefault());
+//                if(s.length() != 0){
+//                    newBuildings.clear();
+//                    for (Building building : building){
+//                        if (building.name.toLowerCase(Locale.getDefault()).contains(s)) {
+//                            newBuildings.add(building);
+//                        }
+//                    }
+//                    adapter.addItem(newBuildings);
+//                }else{
+//                    adapter.addItem(building);
+//                }
+//                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String s) {
+//
+//                s = s.toLowerCase(Locale.getDefault());
+//                if (s.length() != 0){
+//                    newBuildings.clear();
+//                    for (Building building : building) {
+//                        if (building.name.toLowerCase(Locale.getDefault()).contains(s)) {
+//
+//                            newBuildings.add(building);
+//                        }
+//                    }
+//                    adapter.addItem(newBuildings);
+//                }else {
+//                    adapter.addItem(building);
+//                }
+//
+//                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+//                return false;
+//            }
+//        });
+//
+//    }
 
 
     @SuppressLint("ResourceType")
@@ -252,17 +252,17 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
         return super.onOptionsItemSelected(menuItem);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
-    private void searchViewModify() {
-
-        searchView.setIconified(false);
-        searchView.setIconifiedByDefault(false);
-        android.support.v7.widget.SearchView.SearchAutoComplete searchAutoComplete = searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
-        searchAutoComplete.setHint("Search Clinics");
-        searchAutoComplete.setHintTextColor(Color.WHITE);
-        searchAutoComplete.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-
-    }
+//    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+//    private void searchViewModify() {
+//
+//        searchView.setIconified(false);
+//        searchView.setIconifiedByDefault(false);
+//        android.support.v7.widget.SearchView.SearchAutoComplete searchAutoComplete = searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+//        searchAutoComplete.setHint("Search Clinics");
+//        searchAutoComplete.setHintTextColor(Color.WHITE);
+//        searchAutoComplete.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
+//
+//    }
 
 
 
