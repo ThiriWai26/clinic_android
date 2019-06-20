@@ -1,10 +1,16 @@
 package com.example.clinic_project.Activity;
 
+import android.annotation.SuppressLint;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingDetailResponse;
@@ -22,7 +28,8 @@ public class ClinicDetailActivity extends AppCompatActivity {
     private RetrofitService service;
     private String token;
     private ImageView imageView;
-    private TextView txtname,txtlocation,txtphoneno,txttown;
+    private TextView txtname, txtlocation, txtphoneno, txttown;
+    private Button btndoctor;
     private int buildingId = -1;
     private int typeId = 1;
 
@@ -31,9 +38,71 @@ public class ClinicDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clinic_detail);
 
+        final BottomSheetBehavior sheetBehavior = BottomSheetBehavior.from(btndoctor);
+
+        if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
+            sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            btndoctor.setText("Close sheet");
+        } else {
+            sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            btndoctor.setText("Expand sheet");
+        }
+
+        sheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View view, int newState) {
+                switch (newState) {
+                    case BottomSheetBehavior.STATE_HIDDEN:
+                        break;
+                    case BottomSheetBehavior.STATE_EXPANDED: {
+                        btndoctor.setText("Close Sheet");
+                    }
+                    break;
+                    case BottomSheetBehavior.STATE_COLLAPSED: {
+                        btndoctor.setText("Expand Sheet");
+                    }
+                    break;
+                    case BottomSheetBehavior.STATE_DRAGGING:
+                        break;
+                    case BottomSheetBehavior.STATE_SETTLING:
+                        break;
+                }
+            }
+
+            @Override
+            public void onSlide(@NonNull View view, float v) {
+
+            }
+        });
+
+        btndoctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (sheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
+                    sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                } else {
+                    sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                }
+            }
+        });
+
+
         initActivity();
     }
 
+//    public void toggleBottomsheet(){
+//
+//        if (sheetBehaviour != BottomSheetBehavior.STATE_EXPANDED) {
+//            sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+//            btnBottomSheet.setText("Close sheet");
+//        } else {
+//            sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+//            btnBottomSheet.setText("Expand sheet");
+//        }
+//
+//    }
+
+    @SuppressLint("WrongViewCast")
     private void initActivity() {
 
         imageView = findViewById(R.id.profile);
@@ -41,8 +110,11 @@ public class ClinicDetailActivity extends AppCompatActivity {
         txtlocation = findViewById(R.id.tvLocation);
         txtphoneno = findViewById(R.id.tvphoneNo);
         txttown = findViewById(R.id.town);
+        btndoctor = findViewById(R.id.btnDoctor);
         token = Token.MyToken.getToken();
         service = new RetrofitService();
+
+
 
         Bundle bundle = getIntent().getExtras();
         buildingId = bundle.getInt("buildingId");
