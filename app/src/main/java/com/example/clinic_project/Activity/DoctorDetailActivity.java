@@ -22,7 +22,7 @@ public class DoctorDetailActivity extends AppCompatActivity {
     private RetrofitService service;
     private String token;
     private ImageView imageView;
-    private TextView tvName,tvType,about,tvclinic,tvtown;
+    private TextView tvName,tvType,tvabout,textabout,tvspecial,tvtown;
     private int doctorId = -1;
 
     @Override
@@ -40,13 +40,14 @@ public class DoctorDetailActivity extends AppCompatActivity {
 
         tvName = findViewById(R.id.tvName);
         tvType = findViewById(R.id.tvType);
-        imageView=findViewById(R.id.profile);
+        tvabout = findViewById(R.id.tvabout);
+        textabout = findViewById(R.id.textabout);
+        tvType = findViewById(R.id.tvType);
+        imageView=findViewById(R.id.image);
         Bundle bundle = getIntent().getExtras();
         doctorId = bundle.getInt("doctorId");
         Log.e("doctorId",String.valueOf(doctorId));
 
-        about=findViewById(R.id.about);
-        tvclinic=findViewById(R.id.clinic);
         tvtown=findViewById(R.id.town);
         getDoctorDetail();
 
@@ -86,9 +87,9 @@ public class DoctorDetailActivity extends AppCompatActivity {
                             towns+=","+response.body().doctorDetail.towns.get(i);
                         }
 
-                        about.setText(response.body().doctorDetail.about);
-                        tvclinic.setText(clinics);
-                        tvtown.setText(towns);
+                        textabout.setText(response.body().doctorDetail.about);
+//                        tvclinic.setText(clinics);
+//                        tvtown.setText(towns);
                         tvName.setText(response.body().doctorDetail.name);
                     }
                 }
