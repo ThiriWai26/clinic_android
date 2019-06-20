@@ -5,6 +5,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -35,6 +36,7 @@ import com.example.clinic_project.Response.SpecializationListResponse;
 import com.example.clinic_project.adapter.DoctorAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.DoctorHolder;
+import com.example.clinic_project.model.Building;
 import com.example.clinic_project.model.Doctor;
 import com.example.clinic_project.model.SpecializationList;
 import com.example.clinic_project.service.RetrofitService;
@@ -42,6 +44,7 @@ import com.example.clinic_project.service.Token;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -85,10 +88,11 @@ public class DrawerActivity extends AppCompatActivity
 
         initDoctorList();
         getDoctorsList();
-//        searchViewFilter();
-//        searchViewModify();
+        searchViewFilter();
+        searchViewModify();
 
     }
+
 
     @Override
     public void onBackPressed() {
@@ -117,6 +121,7 @@ public class DrawerActivity extends AppCompatActivity
 //                searchManager.getSearchableInfo(getComponentName()));
 //
 //        return super.onCreateOptionsMenu(menu);
+
 
     @SuppressLint("ResourceType")
     @Override
@@ -272,18 +277,60 @@ public class DrawerActivity extends AppCompatActivity
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void searchViewModify() {
-//        searchView.setIconified(false);
-//        searchView.setIconifiedByDefault(false);
-//        SearchView.SearchAutoComplete searchAutoComplete = searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
-//        searchAutoComplete.setHint("Search Doctors");
-//        searchAutoComplete.setHintTextColor(Color.WHITE);
-//        searchAutoComplete.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-//
-//        ImageView searchIcon = searchView.findViewById(android.support.v7.appcompat.R.id.search_mag_icon);
-//        searchIcon.focusSearch(View.FOCUS_RIGHT);
+
+        SearchView.SearchAutoComplete searchAutoComplete = searchView.findViewById(R.id.search_src_text);
+        searchAutoComplete.setTextColor(Color.BLACK);
+        searchAutoComplete.setHint("Search Doctor");
+        searchAutoComplete.setHintTextColor(Color.BLACK);
+        searchAutoComplete.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
 
     }
 
+    private void searchViewFilter() {
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+
+                s = s.toLowerCase(Locale.getDefault());
+                if(s.length() != 0){
+                    newDoctors.clear();
+                    for (Doctor doctors : doctors){
+                        if (doctors.name.toLowerCase(Locale.getDefault()).contains(s)) {
+                            newDoctors.add(doctors);
+                        }
+                    }
+                    adapter.addDoctors(newDoctors);
+                }else{
+                    adapter.addDoctors(doctors);
+                }
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+
+                s = s.toLowerCase(Locale.getDefault());
+                if (s.length() != 0){
+                    newDoctors.clear();
+                    for (Doctor doctors : doctors) {
+                        if (doctors.name.toLowerCase(Locale.getDefault()).contains(s)) {
+
+                            newDoctors.add(doctors);
+                        }
+                    }
+                    adapter.addDoctors(newDoctors);
+                }else {
+                    adapter.addDoctors(doctors);
+                }
+
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
+
+    }
 
     @Override
     public void onDoctorClick(int id) {

@@ -92,8 +92,8 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
 
         initBuildingList();
 
-//        searchViewFilter();
-//        searchViewModify();
+        searchViewFilter();
+        searchViewModify();
 
     }
 
@@ -254,71 +254,64 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
         return true;
     }
 
-    //search view modify
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void searchViewModify(){
 
-//    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
-//    private void searchViewModify() {
-//
-//        searchView.setIconified(false);
-//        searchView.setIconifiedByDefault(false);
-//
-//        android.support.v7.widget.SearchView.SearchAutoComplete searchAutoComplete = searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
-//        searchAutoComplete.setHint("Search Doctors");
-//        searchAutoComplete.setHintTextColor(Color.WHITE);
-//        searchAutoComplete.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-//
-//        ImageView searchIcon = searchView.findViewById(android.support.v7.appcompat.R.id.search_mag_icon);
-//        searchIcon.focusSearch(View.FOCUS_RIGHT);
+        SearchView.SearchAutoComplete searchAutoComplete = searchView.findViewById(R.id.search_src_text);
+        searchAutoComplete.setTextColor(Color.BLACK);
+        searchAutoComplete.setHint("Search Hospital");
+        searchAutoComplete.setHintTextColor(Color.BLACK);
+        searchAutoComplete.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
 
-//    }
+    }
 
-//    private void searchViewFilter() {
-//
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//
-//                query = query.toLowerCase(Locale.getDefault());
-//                if(query.length() != 0){
-//                    newBuildings.clear();
-//                    for (Building building : building) {
-//                        if (building.name.toLowerCase(Locale.getDefault()).contains(query)) {
-//
-//                            newBuildings.add(building);
-//                        }
-//                    }
-//                    adapter.addItem(newBuildings);
-//                } else {
-//                    adapter.addItem(building);
-//                }
-//                Toast.makeText(getApplicationContext(), query, Toast.LENGTH_LONG).show();
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//
-//                newText = newText.toLowerCase(Locale.getDefault());
-//                if(newText.length() != 0){
-//                    newBuildings.clear();
-//                    for (Building building : building) {
-//                        if (building.name.toLowerCase(Locale.getDefault()).contains(newText)) {
-//
-//                            newBuildings.add(building);
-//                        }
-//                    }
-//                    adapter.addItem(newBuildings);
-//                } else {
-//                    adapter.addItem(building);
-//                }
-//
-//                Toast.makeText(getApplicationContext(), newText, Toast.LENGTH_LONG).show();
-//                return false;
-//            }
-//
-//
-//            });
-//    }
+    private void searchViewFilter() {
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                query = query.toLowerCase(Locale.getDefault());
+                if(query.length() != 0){
+                    newBuildings.clear();
+                    for (Building building : building) {
+                        if (building.name.toLowerCase(Locale.getDefault()).contains(query)) {
+
+                            newBuildings.add(building);
+                        }
+                    }
+                    adapter.addItem(newBuildings);
+                } else {
+                    adapter.addItem(building);
+                }
+                Toast.makeText(getApplicationContext(), query, Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                newText = newText.toLowerCase(Locale.getDefault());
+                if(newText.length() != 0){
+                    newBuildings.clear();
+                    for (Building building : building) {
+                        if (building.name.toLowerCase(Locale.getDefault()).contains(newText)) {
+
+                            newBuildings.add(building);
+                        }
+                    }
+                    adapter.addItem(newBuildings);
+                } else {
+                    adapter.addItem(building);
+                }
+
+                Toast.makeText(getApplicationContext(), newText, Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+
+            });
+    }
 
 
 }
