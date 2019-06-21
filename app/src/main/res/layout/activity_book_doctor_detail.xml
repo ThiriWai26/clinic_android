@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="230dp"
             android:scaleType="fitXY"
-            android:src="@drawable/img_doctor" />
+            />
 
         <ImageView
             android:id="@+id/imgSpecial"
@@ -28,8 +28,8 @@
         <RelativeLayout
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="150dp">
 
             <include
                 android:id="@+id/card_view"
@@ -38,16 +38,7 @@
         </RelativeLayout>
 
 
-        <Button
-            android:id="@+id/btnDoctor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/card_view"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="16dp"
-            android:background="#1E89DD"
-            android:text="Book An Appointment"
-            tools:ignore="NotSibling" />
+
 
     </RelativeLayout>
 
