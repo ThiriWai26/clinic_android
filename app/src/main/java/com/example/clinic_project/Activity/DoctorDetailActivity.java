@@ -21,7 +21,7 @@ public class DoctorDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView;
+    private ImageView imageView,imgSpecial;
     private TextView tvName,tvType,tvabout,textabout,tvspecial,tvtown;
     private int doctorId = -1;
 
@@ -43,7 +43,8 @@ public class DoctorDetailActivity extends AppCompatActivity {
         tvabout = findViewById(R.id.tvabout);
         textabout = findViewById(R.id.textabout);
         tvType = findViewById(R.id.tvType);
-        imageView=findViewById(R.id.image);
+        imageView=findViewById(R.id.imageView);
+        imgSpecial=findViewById(R.id.imgSpecial);
         Bundle bundle = getIntent().getExtras();
         doctorId = bundle.getInt("doctorId");
         Log.e("doctorId",String.valueOf(doctorId));

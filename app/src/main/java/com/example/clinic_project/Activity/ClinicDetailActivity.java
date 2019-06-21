@@ -110,7 +110,7 @@ public class ClinicDetailActivity extends AppCompatActivity {
         txtlocation = findViewById(R.id.tvLocation);
         txtphoneno = findViewById(R.id.tvphoneNo);
         txttown = findViewById(R.id.town);
-        btndoctor = findViewById(R.id.btnDoctor);
+//        btndoctor = findViewById(R.id.btnDoctor);
         token = Token.MyToken.getToken();
         service = new RetrofitService();
 
