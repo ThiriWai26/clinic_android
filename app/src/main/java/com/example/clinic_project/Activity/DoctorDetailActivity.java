@@ -22,7 +22,7 @@ public class DoctorDetailActivity extends AppCompatActivity {
     private RetrofitService service;
     private String token;
     private ImageView imageView,imgSpecial;
-    private TextView tvName,tvType,tvabout,textabout,tvspecial,tvtown;
+    private TextView tvName,tvType,tvabout,textabout,tvspecial;
     private int doctorId = -1;
 
     @Override
@@ -49,7 +49,6 @@ public class DoctorDetailActivity extends AppCompatActivity {
         doctorId = bundle.getInt("doctorId");
         Log.e("doctorId",String.valueOf(doctorId));
 
-        tvtown=findViewById(R.id.town);
         getDoctorDetail();
 
     }

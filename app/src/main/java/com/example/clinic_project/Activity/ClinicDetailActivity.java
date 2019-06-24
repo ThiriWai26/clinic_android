@@ -27,8 +27,8 @@ public class ClinicDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView;
-    private TextView txtname, txtlocation, txtphoneno, txttown;
+    private ImageView imageView,imgSpecial;
+    private TextView txtname, txtlocation,textabout;
     private Button btndoctor;
     private int buildingId = -1;
     private int typeId = 1;
@@ -45,15 +45,14 @@ public class ClinicDetailActivity extends AppCompatActivity {
     @SuppressLint("WrongViewCast")
     private void initActivity() {
 
-        imageView = findViewById(R.id.profile);
+        imageView = findViewById(R.id.imageView);
+        imgSpecial = findViewById(R.id.imgSpecial);
         txtname = findViewById(R.id.tvName);
         txtlocation = findViewById(R.id.tvLocation);
-        txtphoneno = findViewById(R.id.tvphoneNo);
-        txttown = findViewById(R.id.town);
+        textabout = findViewById(R.id.textabout);
         btndoctor = findViewById(R.id.btnDoctor);
         token = Token.MyToken.getToken();
         service = new RetrofitService();
-
 
 
         Bundle bundle = getIntent().getExtras();
@@ -73,7 +72,7 @@ public class ClinicDetailActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     if(response.body().isScuccess){
                         Picasso.get()
-                                .load("http://128.199.180.50/api/get_image/" + response.body().buildingDetails.get(0).photos.get(0))
+                                .load("http://128.199.180.50/api/get_image/" + response.body().buildingDetails.get(0).freaturedPhoto)
                                 .resize(40, 40)
                                 .onlyScaleDown()
                                 .centerCrop()
@@ -81,8 +80,10 @@ public class ClinicDetailActivity extends AppCompatActivity {
 
                         txtname.setText(response.body().buildingDetails.get(0).name);
                         txtlocation.setText(response.body().buildingDetails.get(0).townName);
-                        txtphoneno.setText(response.body().buildingDetails.get(0).phoneNumber.get(0));
-                        txttown.setText(response.body().buildingDetails.get(0).address);
+//                        txtphoneno.setText(response.body().buildingDetails.get(0).phoneNumber.get(0));
+//                        txttown.setText(response.body().buildingDetails.get(0).address);
+                        textabout.setText(response.body().buildingDetails.get(0).phoneNumber.get(0));
+
                     }
                 }
             }
