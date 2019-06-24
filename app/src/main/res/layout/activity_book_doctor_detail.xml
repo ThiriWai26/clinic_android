@@ -5,10 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
+
+
     <RelativeLayout
         android:id="@+id/pic"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
 
         <ImageView
             android:id="@+id/imageView"
@@ -17,17 +20,25 @@
             android:scaleType="fitXY" />
 
         <ImageView
-            android:id="@+id/imgSpecial"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_alignParentRight="true"
-            android:padding="16dp"
-            android:src="@drawable/favorite" />
+            android:id="@+id/imgback"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:paddingLeft="16dp"
+            android:src="@drawable/ic_back_arrow"/>
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imgSpecial"-->
+            <!--android:layout_width="60dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:padding="16dp"-->
+            <!--android:src="@drawable/favorite" />-->
 
         <RelativeLayout
 
+            android:id="@+id/Card"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="550dp"
             android:layout_marginTop="150dp">
 
             <include
@@ -35,6 +46,18 @@
                 layout="@layout/layout_hospital_detail" />
 
         </RelativeLayout>
+
+        <Button
+            android:id="@+id/my_sticky_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Book an Appointment"
+            android:layout_below="@id/Card"
+            android:background="#3173F8"
+            android:fitsSystemWindows="true"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal|bottom"
+            tools:ignore="NotSibling" />
 
 
 
