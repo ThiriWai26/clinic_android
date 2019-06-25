@@ -1,8 +1,14 @@
 package com.example.clinic_project.Activity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,9 +27,11 @@ public class DoctorDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgSpecial;
+    private ImageView imageView;
     private TextView tvName,tvType,tvabout,textabout,tvspecial;
+    private Button button;
     private int doctorId = -1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +39,16 @@ public class DoctorDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_book_doctor_detail);
 
         initActivity();
+
+//        @SuppressLint("WrongViewCast")
+//        Toolbar toolbar = findViewById(R.id.imgback);
+//
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(),DrawerActivity.class));
+//            }
+//        });
     }
 
     private void initActivity() {
@@ -44,7 +62,7 @@ public class DoctorDetailActivity extends AppCompatActivity {
         textabout = findViewById(R.id.textabout);
         tvType = findViewById(R.id.tvType);
         imageView=findViewById(R.id.imageView);
-        imgSpecial=findViewById(R.id.imgSpecial);
+
         Bundle bundle = getIntent().getExtras();
         doctorId = bundle.getInt("doctorId");
         Log.e("doctorId",String.valueOf(doctorId));

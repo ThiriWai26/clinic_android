@@ -5,8 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-
-
     <RelativeLayout
         android:id="@+id/pic"
         android:layout_width="match_parent"
@@ -26,6 +24,7 @@
             android:paddingLeft="16dp"
             android:src="@drawable/ic_back_arrow"/>
 
+
         <!--<ImageView-->
             <!--android:id="@+id/imgSpecial"-->
             <!--android:layout_width="60dp"-->
@@ -38,8 +37,9 @@
 
             android:id="@+id/Card"
             android:layout_width="match_parent"
-            android:layout_height="550dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="150dp">
+
 
             <include
                 android:id="@+id/card_view"
@@ -48,15 +48,15 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/my_sticky_button"
+            android:id="@+id/btnDoctor"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Book an Appointment"
-            android:layout_below="@id/Card"
-            android:background="#3173F8"
-            android:fitsSystemWindows="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textabout"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="#3586FD"
+            android:text="Book An Appointment"
             android:textColor="#FFFFFF"
-            android:layout_gravity="center_horizontal|bottom"
             tools:ignore="NotSibling" />
 
 

@@ -79,9 +79,10 @@
             android:layout_below="@+id/textabout"
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
-            android:background="#2C4DF7"
+            android:background="#3779FD"
             android:text="Book An Appointment"
-            tools:ignore="NotSibling" />
+            android:textColor="#ffffff"
+            tools:ignore="NotSibling"/>
     </android.support.v7.widget.CardView>
 
 </RelativeLayout>
