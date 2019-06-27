@@ -203,13 +203,14 @@ public class DrawerActivity extends AppCompatActivity
 //        spinner.setAdapter(dataAdapter);
         getSpecializationList(token);
 
-        Bundle bundle = getIntent().getExtras();
-        specializationId = bundle.getInt("specializationId");
-
-        if (specializationId != -1) {
-            getDoctorsBySpecialization(specializationId);
-            Log.e("specializationId", String.valueOf(specializationId));
-        }
+//        add backImage hide this
+//        Bundle bundle = getIntent().getExtras();
+//        specializationId = bundle.getInt("specializationId");
+//
+//        if (specializationId != -1) {
+//            getDoctorsBySpecialization(specializationId);
+//            Log.e("specializationId", String.valueOf(specializationId));
+//        }
     }
 
     private void getSpecializationList(String token) {

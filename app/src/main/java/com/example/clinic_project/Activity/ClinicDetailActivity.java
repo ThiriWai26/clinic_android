@@ -1,6 +1,7 @@
 package com.example.clinic_project.Activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +28,7 @@ public class ClinicDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgSpecial;
+    private ImageView imageView,imgback;
     private TextView txtname, txtlocation,textabout;
     private Button btndoctor;
     private int buildingId = -1;
@@ -46,7 +47,7 @@ public class ClinicDetailActivity extends AppCompatActivity {
     private void initActivity() {
 
         imageView = findViewById(R.id.imageView);
-        imgSpecial = findViewById(R.id.imgSpecial);
+        imgback = findViewById(R.id.imgback);
         txtname = findViewById(R.id.tvName);
         txtlocation = findViewById(R.id.tvLocation);
         textabout = findViewById(R.id.textabout);
@@ -59,6 +60,16 @@ public class ClinicDetailActivity extends AppCompatActivity {
         buildingId = bundle.getInt("buildingId");
         Log.e("buildingId",String.valueOf(buildingId));
         getBuildingDetail();
+
+        imgback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), ClinicActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void getBuildingDetail() {

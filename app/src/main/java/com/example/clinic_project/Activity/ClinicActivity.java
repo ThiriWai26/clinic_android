@@ -38,6 +38,7 @@ import com.example.clinic_project.model.Building;
 import com.example.clinic_project.model.Clinic;
 import com.example.clinic_project.model.TownList;
 import com.example.clinic_project.service.RetrofitService;
+import com.example.clinic_project.service.Token;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,9 @@
 package com.example.clinic_project.Activity;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -9,6 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +21,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.SearchView;
 import android.view.View;
@@ -54,6 +60,8 @@ public class LabActivity extends AppCompatActivity implements NavigationView.OnN
     private int typeId = 3;
     private int townId = 0;
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +81,6 @@ public class LabActivity extends AppCompatActivity implements NavigationView.OnN
         navigationView.setNavigationItemSelectedListener(this);
 
         initBuildingList();
-        getBuildingList(typeId,townId);
         searchViewFilter();
         searchViewModify();
 
@@ -108,8 +115,27 @@ public class LabActivity extends AppCompatActivity implements NavigationView.OnN
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return true;    }
+        return true;
+    }
 
+    @SuppressLint("ResourceType")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+
+        getMenuInflater().inflate(R.id.action_search, (Menu) menuItem);
+        getMenuInflater().inflate(R.id.action_settings, (Menu) menuItem);
+
+        MenuItem searchItem = ((Menu) menuItem).findItem(R.id.action_search);
+        MenuItem searchItem1 = ((Menu) menuItem).findItem(R.id.action_settings);
+
+        android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) MenuItemCompat.getActionView(searchItem);
+        android.support.v7.widget.SearchView searchView1 = (android.support.v7.widget.SearchView) MenuItemCompat.getActionView(searchItem1);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView1.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        return super.onOptionsItemSelected(menuItem);
+    }
 
     @Override
     public void onBackPressed() {
@@ -128,12 +154,15 @@ public class LabActivity extends AppCompatActivity implements NavigationView.OnN
         service = new RetrofitService();
         adapter = new BuildingAdapter(this);
 
+
         Bundle b = getIntent().getExtras();
         token = b.getString("Token");
         Log.e("LabActivityToken", token);
         
         getLocationList(token);
-        
+        getBuildingList(typeId,townId);
+
+
     }
 
     private void getLocationList(String token) {

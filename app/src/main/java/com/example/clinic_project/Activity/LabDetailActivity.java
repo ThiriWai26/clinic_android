@@ -1,8 +1,10 @@
 package com.example.clinic_project.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,7 +23,7 @@ public class LabDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgSetting;
+    private ImageView imageView,imgback;
     private TextView txtname,txtlocation,tvabout,textabout;
     private int townId = -1;
     private int typeId = 2;
@@ -37,7 +39,7 @@ public class LabDetailActivity extends AppCompatActivity {
     private void initActivity() {
 
         imageView = findViewById(R.id.imageView);
-        imgSetting = findViewById(R.id.imgSpecial);
+        imgback = findViewById(R.id.imgback);
         txtname = findViewById(R.id.tvName);
         txtlocation = findViewById(R.id.tvLocation);
         tvabout = findViewById(R.id.tvabout);
@@ -49,6 +51,15 @@ public class LabDetailActivity extends AppCompatActivity {
         townId= bundle.getInt("townId");
         Log.e("townId",String.valueOf(townId));
         getBuildingDetail();
+
+        imgback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LabActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 

@@ -1,8 +1,11 @@
 package com.example.clinic_project.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,8 +25,9 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgSpecial;
-    private TextView txtname,txtlocation,tvabout,textabout;
+    private ImageView imageView,imgback;
+    private TextView address,txtname,txtlocation,textabout;
+    private Button button;
     private int buildingId = -1;
     private int typeId = 2;
 
@@ -38,11 +42,13 @@ public class HospitalDetailActivity extends AppCompatActivity {
     private void initActivity() {
 
         imageView = findViewById(R.id.imageView);
-        imgSpecial = findViewById(R.id.imgSpecial);
+//        imgSpecial = findViewById(R.id.imgSpecial);
+        address = findViewById(R.id.address);
         txtname = findViewById(R.id.tvName);
-        txtlocation = findViewById(R.id.tvLocation);
+        imgback = findViewById(R.id.imgback);
+        txtlocation = findViewById(R.id.textLocation);
         textabout = findViewById(R.id.textabout);
-        tvabout= findViewById(R.id.tvabout);
+        button = findViewById(R.id.btnHospital);
         token = Token.MyToken.getToken();
         service = new RetrofitService();
 
@@ -50,6 +56,15 @@ public class HospitalDetailActivity extends AppCompatActivity {
         buildingId = bundle.getInt("buildingId");
         Log.e("buildingId",String.valueOf(buildingId));
         getBuildingDetail();
+
+        imgback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HospitalListActivity.class);
+//                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 
@@ -75,11 +90,11 @@ public class HospitalDetailActivity extends AppCompatActivity {
                                 .into(imageView);
 
                         txtname.setText(response.body().buildingDetails.get(0).name);
-                        txtlocation.setText(response.body().buildingDetails.get(0).townName);
+                        address.setText(response.body().buildingDetails.get(0).address);
 
+                        txtlocation.setText(response.body().buildingDetails.get(0).townName);
 //                        txtphoneno.setText(response.body().buildingDetails.get(0).phoneNumber.get(0));
 //                        txttown.setText(response.body().buildingDetails.get(0).address);
-
                         textabout.setText(response.body().buildingDetails.get(0).phoneNumber.get(0));
                     }
                 }

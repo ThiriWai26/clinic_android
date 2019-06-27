@@ -27,7 +27,7 @@ public class DoctorDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView;
+    private ImageView imageView,imgback;
     private TextView tvName,tvType,tvabout,textabout,tvspecial;
     private Button button;
     private int doctorId = -1;
@@ -40,15 +40,15 @@ public class DoctorDetailActivity extends AppCompatActivity {
 
         initActivity();
 
-//        @SuppressLint("WrongViewCast")
-//        Toolbar toolbar = findViewById(R.id.imgback);
-//
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(),DrawerActivity.class));
-//            }
-//        });
+        imgback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), DrawerActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
     private void initActivity() {
@@ -61,7 +61,9 @@ public class DoctorDetailActivity extends AppCompatActivity {
         tvabout = findViewById(R.id.tvabout);
         textabout = findViewById(R.id.textabout);
         tvType = findViewById(R.id.tvType);
+        button = findViewById(R.id.btnDoctor);
         imageView=findViewById(R.id.imageView);
+        imgback = findViewById(R.id.imgback);
 
         Bundle bundle = getIntent().getExtras();
         doctorId = bundle.getInt("doctorId");

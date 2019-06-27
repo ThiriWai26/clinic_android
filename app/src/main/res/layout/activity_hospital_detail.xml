@@ -5,59 +5,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/pic"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/imageView"
+         <RelativeLayout
+            android:id="@+id/pic"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:scaleType="fitXY"
-            />
-        <ImageView
-            android:id="@+id/imgback"
-            android:layout_width="wrap_content"
-            android:layout_height="56dp"
-            android:paddingLeft="16dp"
-            android:src="@drawable/ic_back_arrow"/>
+            android:layout_height="match_parent">
 
-        <!--<ImageView-->
-            <!--android:id="@+id/imgSpecial"-->
-            <!--android:layout_width="60dp"-->
-            <!--android:layout_height="60dp"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:padding="16dp"-->
-            <!--android:src="@drawable/favorite" />-->
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:scaleType="fitXY"
+                />
+            <ImageView
+                android:id="@+id/imgback"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:paddingLeft="16dp"
+                android:src="@drawable/ic_back_arrow"/>
 
-        <RelativeLayout
+            <!--<ImageView-->
+                <!--android:id="@+id/imgSpecial"-->
+                <!--android:layout_width="60dp"-->
+                <!--android:layout_height="60dp"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:padding="16dp"-->
+                <!--android:src="@drawable/favorite" />-->
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="150dp">
+                <RelativeLayout
+                    android:id="@+id/cardR"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="220dp">
 
-            <include
-                android:id="@+id/card_view"
-                layout="@layout/layout_doctor_detail" />
+                    <include
+                        android:id="@+id/card_view"
+                           layout="@layout/layout_doctor_detail" />
 
+                </RelativeLayout>
+
+             <Button
+                 android:id="@+id/btnHospital"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@+id/textabout"
+                 android:layout_alignParentBottom="true"
+                 android:layout_gravity="bottom"
+                 android:background="#3586FD"
+                 android:text="Book An Appointment"
+                 android:textColor="#FFFFFF"
+                 tools:ignore="NotSibling" />
         </RelativeLayout>
-
-        <!--<Button-->
-            <!--android:id="@+id/btnHospital"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_below="@+id/textabout"-->
-            <!--android:layout_alignParentBottom="true"-->
-            <!--android:layout_gravity="bottom"-->
-            <!--android:background="#3586FD"-->
-            <!--android:text="Book An Appointment"-->
-            <!--android:textColor="#FFFFFF"-->
-            <!--tools:ignore="NotSibling" />-->
-
-
-    </RelativeLayout>
-
 
 </LinearLayout>
 
