@@ -25,7 +25,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgback;
+    private ImageView imageView,imgback,imgSpecial;
     private TextView address,txtname,txtlocation,textabout;
     private Button button;
     private int buildingId = -1;
@@ -42,13 +42,13 @@ public class HospitalDetailActivity extends AppCompatActivity {
     private void initActivity() {
 
         imageView = findViewById(R.id.imageView);
-//        imgSpecial = findViewById(R.id.imgSpecial);
+        imgSpecial = findViewById(R.id.imgSpecial);
         address = findViewById(R.id.address);
         txtname = findViewById(R.id.tvName);
         imgback = findViewById(R.id.imgback);
         txtlocation = findViewById(R.id.textLocation);
         textabout = findViewById(R.id.textabout);
-        button = findViewById(R.id.btnHospital);
+//        button = findViewById(R.id.btnHospital);
         token = Token.MyToken.getToken();
         service = new RetrofitService();
 
