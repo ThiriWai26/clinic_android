@@ -42,7 +42,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
     private void initActivity() {
 
         imageView = findViewById(R.id.imageView);
-        imgSpecial = findViewById(R.id.imgSpecial);
+        imgSpecial = findViewById(R.id.imgsetting);
         address = findViewById(R.id.address);
         txtname = findViewById(R.id.tvName);
         imgback = findViewById(R.id.imgback);
@@ -90,9 +90,9 @@ public class HospitalDetailActivity extends AppCompatActivity {
                                 .into(imageView);
 
                         txtname.setText(response.body().buildingDetails.get(0).name);
-                        address.setText(response.body().buildingDetails.get(0).address);
+                        address.setText(response.body().buildingDetails.get(0).townName);
 
-                        txtlocation.setText(response.body().buildingDetails.get(0).townName);
+                        txtlocation.setText(response.body().buildingDetails.get(0).address);
 //                        txtphoneno.setText(response.body().buildingDetails.get(0).phoneNumber.get(0));
 //                        txttown.setText(response.body().buildingDetails.get(0).address);
                         textabout.setText(response.body().buildingDetails.get(0).phoneNumber.get(0));
