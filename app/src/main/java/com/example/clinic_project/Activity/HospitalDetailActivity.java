@@ -14,6 +14,12 @@ import com.example.clinic_project.Response.BuildingDetailResponse;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
@@ -25,9 +31,10 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgback,imgSpecial;
-    private TextView address,txtname,txtlocation,textabout;
-    private Button button;
+    private ImageView imageView,imgback,imgSpecial,imgmap;
+    private TextView address,txtname,txtlocation,textabout,textviewmap;
+    private Button buttonmap;
+    private GoogleMap googleMap;
     private int buildingId = -1;
     private int typeId = 2;
 
@@ -37,6 +44,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hospital_detail);
 
         initActivity();
+
     }
 
     private void initActivity() {
@@ -48,6 +56,8 @@ public class HospitalDetailActivity extends AppCompatActivity {
         imgback = findViewById(R.id.imgback);
         txtlocation = findViewById(R.id.textLocation);
         textabout = findViewById(R.id.textabout);
+        buttonmap = findViewById(R.id.btnmap);
+//        textviewmap = findViewById(R.id.viewonmap);
 //        button = findViewById(R.id.btnHospital);
         token = Token.MyToken.getToken();
         service = new RetrofitService();
@@ -62,6 +72,15 @@ public class HospitalDetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), HospitalListActivity.class);
 //                startActivity(intent);
+                finish();
+            }
+        });
+
+        buttonmap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
