@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.clinic_project.MapsActivity;
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingDetailResponse;
 import com.example.clinic_project.api.Api;
@@ -33,7 +34,6 @@ public class HospitalDetailActivity extends AppCompatActivity {
     private String token;
     private ImageView imageView,imgback,imgphone,imgSpecial,imgmap;
     private TextView address,txtname,txtlocation,textabout,textviewmap;
-    private Button buttonmap;
     private GoogleMap googleMap;
     private int buildingId = -1;
     private int typeId = 2;
@@ -56,8 +56,8 @@ public class HospitalDetailActivity extends AppCompatActivity {
         imgback = findViewById(R.id.imgback);
         txtlocation = findViewById(R.id.textLocation);
         textabout = findViewById(R.id.textabout);
-        buttonmap = findViewById(R.id.btnmap);
         imgphone = findViewById(R.id.phone);
+        imgmap = findViewById(R.id.map);
 //        textviewmap = findViewById(R.id.viewonmap);
 //        button = findViewById(R.id.btnHospital);
         token = Token.MyToken.getToken();
@@ -77,7 +77,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
             }
         });
 
-        buttonmap.setOnClickListener(new View.OnClickListener() {
+        imgmap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MapsActivity.class);

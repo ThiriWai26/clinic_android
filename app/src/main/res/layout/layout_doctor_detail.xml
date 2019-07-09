@@ -123,7 +123,7 @@
 
                         <ImageView
                             android:id="@+id/image1"
-                            android:layout_width="130dp"
+                            android:layout_width="170dp"
                             android:layout_height="150dp"
                             android:layout_marginLeft="0dp"
                             android:scaleType="fitXY"
@@ -131,7 +131,7 @@
 
                         <ImageView
                             android:id="@+id/image2"
-                            android:layout_width="130dp"
+                            android:layout_width="170dp"
                             android:layout_height="150dp"
                             android:layout_marginLeft="8dp"
                             android:layout_marginRight="8dp"
@@ -140,7 +140,7 @@
 
                         <ImageView
                             android:id="@+id/image3"
-                            android:layout_width="130dp"
+                            android:layout_width="170dp"
                             android:layout_height="150dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/img_doctor"/>
@@ -170,15 +170,15 @@
                     <!--android:layout_below="@+id/searchhospital"-->
                     <!--android:src="@drawable/img_googlemap" />-->
 
-                <Button
-                    android:id="@+id/btnmap"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/horizontalScroll"
-                    android:layout_marginTop="30dp"
-                    android:background="#00BCD4"
-                    android:text="View On Map"
-                    android:textColor="#141111"/>
+                <!--<Button-->
+                    <!--android:id="@+id/btnmap"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_below="@+id/horizontalScroll"-->
+                    <!--android:layout_marginTop="30dp"-->
+                    <!--android:background="#00BCD4"-->
+                    <!--android:text="View On Map"-->
+                    <!--android:textColor="#141111"/>-->
 
                 <!--<TextView-->
                     <!--android:id="@+id/viewonmap"-->

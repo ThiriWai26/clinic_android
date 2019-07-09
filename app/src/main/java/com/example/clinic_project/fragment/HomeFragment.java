@@ -54,7 +54,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
 //        token = b.getString("Token");
         token= Token.MyToken.getToken();
-        Log.e("HomeActivityToken", token);
         return view;
 
     }
