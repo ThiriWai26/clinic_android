@@ -31,7 +31,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgback,imgSpecial,imgmap;
+    private ImageView imageView,imgback,imgphone,imgSpecial,imgmap;
     private TextView address,txtname,txtlocation,textabout,textviewmap;
     private Button buttonmap;
     private GoogleMap googleMap;
@@ -57,6 +57,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
         txtlocation = findViewById(R.id.textLocation);
         textabout = findViewById(R.id.textabout);
         buttonmap = findViewById(R.id.btnmap);
+        imgphone = findViewById(R.id.phone);
 //        textviewmap = findViewById(R.id.viewonmap);
 //        button = findViewById(R.id.btnHospital);
         token = Token.MyToken.getToken();
@@ -80,6 +81,15 @@ public class HospitalDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        imgphone.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PhoneActivity.class);
                 startActivity(intent);
                 finish();
             }

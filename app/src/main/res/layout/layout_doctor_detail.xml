@@ -10,8 +10,7 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         app:cardCornerRadius="15dp"
-        app:cardElevation="2dp"
-        app:cardUseCompatPadding="true">
+        app:cardElevation="2dp">
 
         <!--<ScrollView-->
             <!--android:id="@+id/scroll"-->
@@ -21,7 +20,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="16dp">
+                android:layout_margin="12dp">
 
                 <TextView
                     android:id="@+id/address"
