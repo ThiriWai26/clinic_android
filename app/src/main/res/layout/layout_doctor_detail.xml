@@ -12,11 +12,6 @@
         app:cardCornerRadius="15dp"
         app:cardElevation="2dp">
 
-        <!--<ScrollView-->
-            <!--android:id="@+id/scroll"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -108,94 +103,90 @@
                     android:layout_weight="1"
                     android:textSize="14sp" />
 
-                <HorizontalScrollView
-                    android:id="@+id/horizontalScroll"
-                    android:layout_below="@id/textabout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scrollbarSize="0dp"
-                    android:layout_marginTop="20dp">
-
-                    <LinearLayout
+                    <HorizontalScrollView
+                        android:id="@+id/horizontalScroll"
+                        android:layout_below="@id/textabout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:scrollbarSize="0dp"
+                        android:layout_marginTop="20dp">
 
-                        <ImageView
-                            android:id="@+id/image1"
-                            android:layout_width="170dp"
-                            android:layout_height="150dp"
-                            android:layout_marginLeft="0dp"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/img_doctor" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
-                        <ImageView
-                            android:id="@+id/image2"
-                            android:layout_width="170dp"
-                            android:layout_height="150dp"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/img_doctor" />
+                            <ImageView
+                                android:id="@+id/image1"
+                                android:layout_width="170dp"
+                                android:layout_height="150dp"
+                                android:layout_marginLeft="0dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_doctor" />
 
-                        <ImageView
-                            android:id="@+id/image3"
-                            android:layout_width="170dp"
-                            android:layout_height="150dp"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/img_doctor"/>
+                            <ImageView
+                                android:id="@+id/image2"
+                                android:layout_width="170dp"
+                                android:layout_height="150dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="8dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_doctor" />
 
-                    </LinearLayout>
-                </HorizontalScrollView>
+                            <ImageView
+                                android:id="@+id/image3"
+                                android:layout_width="170dp"
+                                android:layout_height="150dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/img_doctor"/>
 
-                <!--<TextView-->
-                    <!--android:id="@+id/searchhospital"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_below="@+id/horizontalScroll"-->
-                    <!--android:text="Search Hospital Near You"-->
-                    <!--android:textSize="14sp"-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:layout_marginLeft="8dp"-->
-                    <!--android:layout_marginTop="20dp"-->
-                    <!--android:layout_marginBottom="4dp"-->
-                    <!--android:paddingLeft="4dp"-->
-                    <!--android:typeface="normal" />-->
+                        </LinearLayout>
+                    </HorizontalScrollView>
 
-                <!--<ImageView-->
-                    <!--android:id="@+id/imgmap"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="180dp"-->
-                    <!--android:layout_marginTop="3dp"-->
-                    <!--android:layout_below="@+id/searchhospital"-->
-                    <!--android:src="@drawable/img_googlemap" />-->
+                <RelativeLayout
+                    android:id="@+id/cardhospital"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/horizontalScroll"
+                    android:layout_marginTop="2dp">
 
-                <!--<Button-->
-                    <!--android:id="@+id/btnmap"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_below="@+id/horizontalScroll"-->
-                    <!--android:layout_marginTop="30dp"-->
-                    <!--android:background="#00BCD4"-->
-                    <!--android:text="View On Map"-->
-                    <!--android:textColor="#141111"/>-->
+                    <include
+                        android:id="@+id/card_view"
+                        layout="@layout/hospital_detail_cardview"
+                        tools:ignore="ResourceCycle" />
 
-                <!--<TextView-->
-                    <!--android:id="@+id/viewonmap"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="33dp"-->
-                    <!--android:layout_below="@+id/imgmap"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:text="View on map"-->
-                    <!--android:textColor="#1abc9c"-->
-                    <!--android:textDirection="rtl"-->
-                    <!--android:layout_marginRight="8dp"-->
-                    <!--android:textSize="14sp"-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:typeface="normal" />-->
+                </RelativeLayout>
 
-            </RelativeLayout>
-        <!--</ScrollView>-->
+                <RelativeLayout
+                    android:id="@+id/cardhospital1"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/cardhospital"
+                    android:layout_marginTop="2dp">
+
+                    <include
+                        android:id="@+id/card_view"
+                        layout="@layout/hospital_detail_cardview1"
+                        tools:ignore="ResourceCycle" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/cardhospital2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/cardhospital1"
+                    android:layout_marginTop="2dp">
+
+                    <include
+                        android:id="@+id/card_view"
+                        layout="@layout/hospital_detail_cardview2"
+                        tools:ignore="ResourceCycle" />
+
+                </RelativeLayout>
+
+        </RelativeLayout>
+
 
 
     </android.support.v7.widget.CardView>

@@ -154,8 +154,8 @@
 
             <ImageView
                 android:id="@+id/ic_mybooking"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
                 android:src="@drawable/ic_mybooking"
                 android:layout_margin="8dp"
                 />
@@ -201,8 +201,8 @@
 
             <ImageView
                 android:id="@+id/ic_mydoctor"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
                 android:src="@drawable/ic_myfvdr"
                 android:layout_margin="8dp"
                 />
@@ -247,8 +247,8 @@
 
             <ImageView
                 android:id="@+id/ic_myclinic"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
                 android:src="@drawable/ic_myfvclinic"
                 android:layout_margin="8dp"
                 />
