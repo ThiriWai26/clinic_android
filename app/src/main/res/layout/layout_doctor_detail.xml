@@ -146,9 +146,9 @@
                 <RelativeLayout
                     android:id="@+id/cardhospital"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:layout_below="@id/horizontalScroll"
-                    android:layout_marginTop="2dp">
+                    android:layout_marginTop="12dp">
 
                     <include
                         android:id="@+id/card_view"
@@ -160,9 +160,9 @@
                 <RelativeLayout
                     android:id="@+id/cardhospital1"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:layout_below="@id/cardhospital"
-                    android:layout_marginTop="2dp">
+                    android:layout_marginTop="4dp">
 
                     <include
                         android:id="@+id/card_view"
@@ -174,9 +174,9 @@
                 <RelativeLayout
                     android:id="@+id/cardhospital2"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:layout_below="@id/cardhospital1"
-                    android:layout_marginTop="2dp">
+                    android:layout_marginTop="4dp">
 
                     <include
                         android:id="@+id/card_view"
