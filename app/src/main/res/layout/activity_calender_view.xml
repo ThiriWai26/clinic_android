@@ -6,12 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".Activity.CalenderViewActivity">
 
-        <ImageView
-            android:id="@+id/imgback"
+        <!--<ImageView-->
+            <!--android:id="@+id/imgback"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:paddingLeft="16dp"-->
+            <!--android:src="@drawable/ic_back_arrow"/>-->
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="August 2019"
+            android:layout_marginLeft="40dp"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:gravity="center_vertical"/>
+
+        <View
+            android:id="@+id/view"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:paddingLeft="16dp"
-            android:src="@drawable/ic_back_arrow"/>
+            android:layout_height="1dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="12dp"
+            android:background="#E2E4E2" />
 
         <CalendarView
             android:id="@+id/calendarView"
@@ -34,7 +52,7 @@
             android:layout_below="@id/floating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:clipChildren="true"
             android:clipToPadding="true"
             android:scrollbars="vertical"

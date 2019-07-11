@@ -63,14 +63,14 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
             }
         });
 
-        imgback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getApplicationContext(), HospitalDetailActivity.class);
-                startActivity(intent);
-            }
-        });
+//        imgback.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent(getApplicationContext(), HospitalDetailActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         adapter = new BookAdapter(this);
         recyclerView.setAdapter(adapter);
@@ -81,7 +81,6 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
     public void onItemClick(String date, int timeId) {
 
         this.date = date;
-
         Log.e("dateId", date + "," + String.valueOf(date));
 
     }
