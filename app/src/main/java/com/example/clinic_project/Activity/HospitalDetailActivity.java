@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,7 +33,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgback,imgphone,imgSpecial,imgmap;
+    private ImageView imageView,imgback,imgphone,imgSpecial,imgmap,imgfab;
     private TextView address,txtname,txtlocation,textabout,textviewmap;
     private GoogleMap googleMap;
     private int buildingId = -1;
@@ -51,6 +52,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
         imageView = findViewById(R.id.imageView);
         imgSpecial = findViewById(R.id.imgsetting);
+        imgfab = findViewById(R.id.fab);
         address = findViewById(R.id.address);
         txtname = findViewById(R.id.tvName);
         imgback = findViewById(R.id.imgback);
@@ -58,8 +60,6 @@ public class HospitalDetailActivity extends AppCompatActivity {
         textabout = findViewById(R.id.textabout);
         imgphone = findViewById(R.id.phone);
         imgmap = findViewById(R.id.map);
-//        textviewmap = findViewById(R.id.viewonmap);
-//        button = findViewById(R.id.btnHospital);
         token = Token.MyToken.getToken();
         service = new RetrofitService();
 
@@ -92,6 +92,14 @@ public class HospitalDetailActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), PhoneActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        imgfab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CalenderViewActivity.class);
+                startActivity(intent);
             }
         });
 
