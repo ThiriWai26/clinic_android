@@ -27,7 +27,7 @@ public class DoctorDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgback;
+    private ImageView imageView,imgback,imgfav;
     private TextView tvName,tvType,tvabout,textabout,tvspecial;
     private Button button;
     private int doctorId = -1;
@@ -64,12 +64,21 @@ public class DoctorDetailActivity extends AppCompatActivity {
         button = findViewById(R.id.btnDoctor);
         imageView=findViewById(R.id.imageView);
         imgback = findViewById(R.id.imgback);
+        imgfav = findViewById(R.id.fab);
 
         Bundle bundle = getIntent().getExtras();
         doctorId = bundle.getInt("doctorId");
         Log.e("doctorId",String.valueOf(doctorId));
 
         getDoctorDetail();
+
+        imgfav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CalenderViewActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

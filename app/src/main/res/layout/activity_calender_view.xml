@@ -38,21 +38,21 @@
             android:layout_marginTop="60dp"
            />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/floating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/calendarView"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="25dp"
-            android:src="@android:drawable/ic_input_add"/>
+        <!--<android.support.design.widget.FloatingActionButton-->
+            <!--android:id="@+id/floating"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/calendarView"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="25dp"-->
+            <!--android:src="@android:drawable/ic_input_add"/>-->
+
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:layout_below="@id/floating"
+            android:layout_below="@id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:clipChildren="true"
             android:clipToPadding="true"
             android:scrollbars="vertical"
