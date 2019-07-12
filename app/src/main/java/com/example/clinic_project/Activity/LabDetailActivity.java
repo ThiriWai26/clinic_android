@@ -78,9 +78,6 @@ public class LabDetailActivity extends AppCompatActivity {
                         Log.e("address",response.body().buildingDetails.get(0).address);
                         Picasso.get()
                                 .load("http://128.199.180.50/api/get_image/" + response.body().buildingDetails.get(0).freaturedPhoto)
-                                .resize(40, 40)
-                                .onlyScaleDown()
-                                .centerCrop()
                                 .into(imageView);
 
                         txtname.setText(response.body().buildingDetails.get(0).name);

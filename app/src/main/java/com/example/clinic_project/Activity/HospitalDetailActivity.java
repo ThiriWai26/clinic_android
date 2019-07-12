@@ -98,7 +98,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
         imgfab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CalenderViewActivity.class);
+                Intent intent = new Intent(getApplicationContext(), DoctorsByClinic.class);
                 startActivity(intent);
             }
         });
@@ -110,7 +110,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
         Log.e("Building_detail","successs");
 
         final Api buildingDetailApi = service.getRetrofitService().create(Api.class);
-        buildingDetailApi.getBuildingDetail(token, buildingId, typeId).enqueue(new Callback<BuildingDetailResponse>() {
+        buildingDetailApi.getBuildingDetail(token, typeId, buildingId).enqueue(new Callback<BuildingDetailResponse>() {
             @Override
             public void onResponse(Call<BuildingDetailResponse> call, Response<BuildingDetailResponse> response) {
                 if(response.isSuccessful()){
@@ -121,9 +121,6 @@ public class HospitalDetailActivity extends AppCompatActivity {
                         Log.e("photo",response.body().buildingDetails.get(0).freaturedPhoto);
                         Picasso.get()
                                 .load("http://128.199.180.50/api/get_image/" + response.body().buildingDetails.get(0).freaturedPhoto)
-                                .resize(40, 40)
-                                .onlyScaleDown()
-                                .centerCrop()
                                 .into(imageView);
 
                         txtname.setText(response.body().buildingDetails.get(0).name);

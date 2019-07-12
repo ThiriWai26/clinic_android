@@ -5,6 +5,7 @@ import com.example.clinic_project.Response.BuildingListResponse;
 import com.example.clinic_project.Response.ClinicListResponse;
 import com.example.clinic_project.Response.DoctorDetailResponse;
 import com.example.clinic_project.Response.DoctorListResponse;
+import com.example.clinic_project.Response.DoctorsByClinicResponse;
 import com.example.clinic_project.Response.LoginResponse;
 import com.example.clinic_project.Response.RegisterResponse;
 import com.example.clinic_project.Response.SpecializationListResponse;
@@ -58,6 +59,10 @@ public interface Api {
     @FormUrlEncoded
     @POST("/api/clinics_by_doctor")
     Call<ClinicListResponse> getClinicList(@Field("token") String token, @Field("doctor_id") int doctorId);
+
+    @FormUrlEncoded
+    @POST("/api/doctors_by_clinic")
+    Call<DoctorsByClinicResponse> getDoctorByClinic(@Field("token") String token, @Field("clinic_id") int clinicId);
 
 }
 

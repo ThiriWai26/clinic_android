@@ -1,11 +1,8 @@
 package com.example.clinic_project.Activity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,7 +33,7 @@ public class DoctorDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_doctor_detail);
+        setContentView(R.layout.activity_doctor_detail);
 
         initActivity();
 
@@ -44,6 +41,15 @@ public class DoctorDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DrawerActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        imgfav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CalenderViewActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -93,9 +99,6 @@ public class DoctorDetailActivity extends AppCompatActivity {
                     if(response.body().isSuccess){
                         Picasso.get()
                                 .load("http://128.199.180.50/api/get_image/" + response.body().doctorDetail.photo)
-                                .resize(40, 40)
-                                .onlyScaleDown()
-                                .centerCrop()
                                 .into(imageView);
 
                         String specialis=response.body().doctorDetail.specialists.get(0);

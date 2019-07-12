@@ -21,7 +21,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activity.CalenderViewActivity"></activity>
+        <activity android:name=".Activity.DoctorsByClinic"></activity>
+        <activity android:name=".Activity.CalenderViewActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -39,7 +40,8 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".Activity.PhoneActivity" />
-        <activity android:name=".Activity.CalenderViewActivity"
+        <activity
+            android:name=".Activity.CalenderViewActivity"
             tools:ignore="DuplicateActivity" />
 
         <meta-data

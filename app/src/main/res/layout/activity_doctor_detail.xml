@@ -40,7 +40,7 @@
 
                 <include
                     android:id="@+id/card_view"
-                    layout="@layout/layout_hospital_detail" />
+                    layout="@layout/layout_doctor_details" />
 
             </RelativeLayout>
 
