@@ -144,7 +144,7 @@
             </HorizontalScrollView>
 
             <RelativeLayout
-                android:id="@+id/cardhospital"
+                android:id="@+id/cardservice"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_below="@id/horizontalScroll"
@@ -161,7 +161,7 @@
                 android:id="@+id/cardhospital1"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_below="@id/cardhospital"
+                android:layout_below="@id/cardservice"
                 android:layout_marginTop="4dp">
 
                 <include

@@ -21,7 +21,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activity.DoctorsByClinic"></activity>
+        <activity android:name=".Activity.ServiceActivity"></activity>
+        <activity android:name=".Activity.BookingActivity" />
+        <activity android:name=".Activity.DoctorsByClinic" />
         <activity android:name=".Activity.CalenderViewActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

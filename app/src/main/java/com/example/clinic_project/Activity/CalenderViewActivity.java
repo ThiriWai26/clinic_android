@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
 
     private CalendarView calendarView;
     private ImageView imgback;
+    private Button btnBook;
     private RecyclerView recyclerView;
     private RetrofitService retrofitService;
     private BookAdapter adapter;
@@ -40,6 +42,7 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
 
         calendarView = findViewById(R.id.calendarView);
         imgback = findViewById(R.id.imgback);
+        btnBook = findViewById(R.id.btnbooking);
         recyclerView = findViewById(R.id.recyclerView);
         retrofitService = new RetrofitService();
 
@@ -60,6 +63,15 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
                 date = String.valueOf(dayOfMonth) + "-" + String.valueOf(month + 1) + "-" + String.valueOf(year);
                 Log.e("date", date);
 
+            }
+        });
+
+        btnBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), BookingActivity.class);
+                startActivity(intent);
             }
         });
 
