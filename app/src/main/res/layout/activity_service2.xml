@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ServiceActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/appBarLayout"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+
+
+            android:background="#FFFFFF"
+            android:elevation="3dp"
+            app:contentInsetEnd="5dp"
+            app:contentInsetLeft="5dp"
+            app:contentInsetRight="5dp"
+            app:contentInsetStart="5dp"
+            app:contentInsetStartWithNavigation="2dp"
+            app:titleTextColor="#000000"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleMarginStart="0dp">
+
+            <LinearLayout
+                android:id="@+id/tool"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/imglab"
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:src="@drawable/lab"
+                    tools:ignore="RtlCompat" />
+
+                <android.support.v7.widget.SearchView
+                    android:id="@+id/sv"
+                    style="@style/SearchViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="#FFFFFF"
+                    android:gravity="center_vertical"
+                    app:queryHint="Search Lab"/>
+
+                <ImageView
+                    android:id="@+id/imglocation"
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_toRightOf="@id/toolbar"
+                    android:layout_weight="0.1"
+                    android:src="@drawable/location"
+                    tools:ignore="RtlCompat" />
+
+
+                <ImageView
+                    android:id="@+id/imgpeople"
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:src="@drawable/people"
+                    tools:ignore="RtlCompat" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+                android:id="@+id/cardR"
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:layout_marginTop="50dp">
+
+                <include
+                    android:id="@+id/card_view"
+                    layout="@layout/layout_service_cardview" />
+
+        </RelativeLayout>
+
+            <!--<RelativeLayout-->
+                <!--android:id="@+id/calendarview"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="350dp"-->
+                <!--android:layout_below="@+id/cardR"-->
+                <!--android:layout_marginTop="5dp" >-->
+
+                <!--<CalendarView-->
+                    <!--android:id="@+id/calendarView"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="320dp"-->
+                    <!--tools:ignore="InvalidId">-->
+
+                <!--</CalendarView>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tvcancel"-->
+                    <!--android:layout_width="50dp"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:layout_below="@id/calendarView"-->
+                    <!--android:layout_marginLeft="240dp"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:text="Cancel" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tvdone"-->
+                    <!--android:layout_width="50dp"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:layout_below="@id/calendarView"-->
+                    <!--android:layout_marginLeft="30dp"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:layout_toRightOf="@id/tvcancel"-->
+                    <!--android:text="Done" />-->
+
+            <!--</RelativeLayout>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/calendarview"
+        tools:ignore="NotSibling">
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_alignParentBottom="true"
+            app:itemTextAppearanceActive="@style/BottomNavigationView.Active"
+            app:itemTextAppearanceInactive="@style/BottomNavigationView"
+            app:itemBackground="@android:color/white"
+            app:itemIconTint="@color/colorAccent"
+            app:itemTextColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/bottom_nav_menu" />
+
+        <!--<android.support.design.widget.BottomNavigationView-->
+            <!--android:id="@+id/bottom_navigation"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--app:itemBackground="@android:color/white"-->
+            <!--app:itemIconTint="@color/colorAccent"-->
+            <!--app:itemTextColor="@android:color/black"-->
+            <!--app:menu="@menu/bottom_navi_menu" />-->
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

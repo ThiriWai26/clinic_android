@@ -8,7 +8,7 @@
     <item
         android="@id+/checkin"
         android:enabled="true"
-        android:icon="@drawable/checkout"
+        android:icon="@drawable/checkin"
         android:title="Check-in"
         tools:ignore="MissingPrefix" />
 
@@ -16,7 +16,7 @@
         android="@id+/checkin"
         android:enabled="true"
         android:icon="@drawable/checkout"
-        android:title="Check-in"
+        android:title="Check-out"
         tools:ignore="MissingPrefix" />
 
     <item

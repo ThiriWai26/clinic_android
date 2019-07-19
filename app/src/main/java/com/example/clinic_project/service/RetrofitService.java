@@ -9,7 +9,9 @@ public class RetrofitService {
 
     public Retrofit getRetrofitService(){
 
-        Retrofit getService=new Retrofit.Builder().baseUrl(BASE_URL)
+        Retrofit getService=new Retrofit
+                .Builder()
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return getService;

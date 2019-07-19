@@ -26,6 +26,7 @@ public interface Api {
     @POST("/api/register")
     Call<RegisterResponse> userRegister(@Field("phoneNumber") long phoneNumber,
                                         @Field("password") String password,
+
                                         @Field("password_confirmation") String confirmPassword);
 
     @FormUrlEncoded

@@ -16,6 +16,8 @@ import com.example.clinic_project.MapsActivity;
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingDetailResponse;
 import com.example.clinic_project.api.Api;
+import com.example.clinic_project.model.Doctor;
+import com.example.clinic_project.model.DoctorByClinic;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -35,8 +37,9 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgback,imgphone,imgSpecial,imgmap,imgfab;
-    private TextView address,txtname,txtlocation,textabout,textviewmap;
+    private ImageView imageView,imgback,imgphone,imgSpecial,imgmap,imgfab,imgservice;
+    private TextView address,txtname,txtlocation,textabout,textviewmap,textservice;
+    private CardView cardservice;
     private GoogleMap googleMap;
     private int buildingId = -1;
     private int typeId = 2;
@@ -63,8 +66,12 @@ public class HospitalDetailActivity extends AppCompatActivity {
         textabout = findViewById(R.id.textabout);
         imgphone = findViewById(R.id.phone);
         imgmap = findViewById(R.id.map);
+        imgservice = findViewById(R.id.imageservice);
+        textservice = findViewById(R.id.txservice);
         token = Token.MyToken.getToken();
         service = new RetrofitService();
+
+        cardservice = findViewById(R.id.cardservice);
 
         Bundle bundle = getIntent().getExtras();
         buildingId = bundle.getInt("buildingId");
@@ -106,6 +113,21 @@ public class HospitalDetailActivity extends AppCompatActivity {
             }
         });
 
+//        textservice.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), ServiceActivity2.class);
+//                startActivity(intent);
+//            }
+//        });
+
+        cardservice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ServiceActivity2.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

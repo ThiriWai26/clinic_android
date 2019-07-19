@@ -7,14 +7,15 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="2dp">
+        android:layout_margin="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="12dp">
 
             <ImageView
@@ -28,28 +29,51 @@
 
             <TextView
                 android:id="@+id/textname"
-                android:layout_width="120dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imgservice"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="12dp"
                 android:layout_weight="1"
                 android:textSize="16sp"
                 android:text="Lab Name"
                 android:textStyle="bold"/>
 
-            <RatingBar
-                android:id="@+id/rating"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textdesp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/imgservice"
-                android:layout_toRightOf="@+id/textname"
+                android:layout_below="@+id/textname"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:text="Description"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="150dp"
-                style="?android:attr/ratingBarStyleSmall" />
+                android:textSize="15dp"
+                android:textStyle="bold"/>
 
+            <!--<TextView-->
+                <!--android:id="@+id/desp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_below="@+id/textdesp"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_marginTop="5dp"/>-->
 
-
+            <Button
+                android:id="@+id/servicebooking"
+                android:layout_width="74dp"
+                android:layout_height="37dp"
+                android:layout_below="@id/textdesp"
+                android:layout_marginTop="1dp"
+                android:layout_alignBottom="@+id/title"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="18dp"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/home_activity_button"
+                android:text="Booking"
+                android:textColor="#fff"
+                android:textSize="12sp" />
 
         </RelativeLayout>
 
