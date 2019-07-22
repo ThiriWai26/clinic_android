@@ -47,13 +47,13 @@ public class ServiceActivity2 extends AppCompatActivity {
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+
         initActivity();
     }
 
     private void initActivity() {
 
         imglocation = findViewById(R.id.imglocation);
-        btnbooking = findViewById(R.id.servicebooking);
 
         btnbooking.setOnClickListener(new View.OnClickListener() {
             @Override

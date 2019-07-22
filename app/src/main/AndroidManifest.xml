@@ -21,7 +21,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activity.ServiceBookingActivity"></activity>
+        <activity android:name=".Activity.DepartmentActivity"></activity>
+        <activity android:name=".Activity.ServiceBookingActivity" />
         <activity
             android:name=".Activity.ServiceActivity2"
             android:label="@string/title_activity_service2" />

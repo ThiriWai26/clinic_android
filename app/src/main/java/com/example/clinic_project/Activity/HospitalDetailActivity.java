@@ -39,7 +39,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
     private String token;
     private ImageView imageView,imgback,imgphone,imgSpecial,imgmap,imgfab,imgservice;
     private TextView address,txtname,txtlocation,textabout,textviewmap,textservice;
-    private CardView cardservice;
+    private CardView cardservice,carddepartment;
     private GoogleMap googleMap;
     private int buildingId = -1;
     private int typeId = 2;
@@ -72,6 +72,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
         service = new RetrofitService();
 
         cardservice = findViewById(R.id.cardservice);
+        carddepartment = findViewById(R.id.dapartment);
 
         Bundle bundle = getIntent().getExtras();
         buildingId = bundle.getInt("buildingId");
@@ -113,18 +114,18 @@ public class HospitalDetailActivity extends AppCompatActivity {
             }
         });
 
-//        textservice.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), ServiceActivity2.class);
-//                startActivity(intent);
-//            }
-//        });
-
         cardservice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ServiceActivity2.class);
+                Intent intent = new Intent(getApplicationContext(), ServiceActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        carddepartment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), DepartmentActivity.class);
                 startActivity(intent);
             }
         });

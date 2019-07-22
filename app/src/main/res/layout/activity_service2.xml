@@ -140,7 +140,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/calendarview"
         tools:ignore="NotSibling">
 
         <android.support.design.widget.BottomNavigationView

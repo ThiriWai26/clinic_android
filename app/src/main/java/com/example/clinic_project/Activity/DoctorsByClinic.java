@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,6 +33,7 @@ public class DoctorsByClinic extends AppCompatActivity implements DoctorHolder.O
     private RecyclerView recyclerView;
     private RetrofitService retrofitService;
     private TextView textname,texttype;
+    private ImageView imageback;
     DoctorAdapter adapter;
     ArrayAdapter<String> dataAdapter;
 
@@ -45,12 +47,21 @@ public class DoctorsByClinic extends AppCompatActivity implements DoctorHolder.O
         setContentView(R.layout.activity_doctors_by_clinic);
 
         initActivity();
+
+        imageback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HospitalDetailActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initActivity() {
 
         textname = findViewById(R.id.tvname);
         texttype = findViewById(R.id.tvType);
+        imageback = findViewById(R.id.imageback);
         recyclerView = findViewById(R.id.recyclerView);
         retrofitService = new RetrofitService();
         adapter = new DoctorAdapter(this);
@@ -62,6 +73,8 @@ public class DoctorsByClinic extends AppCompatActivity implements DoctorHolder.O
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         getDoctorByClinic();
+
+//
 
     }
 
