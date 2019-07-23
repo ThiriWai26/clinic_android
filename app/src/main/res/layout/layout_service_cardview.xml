@@ -8,7 +8,7 @@
     <android.support.v7.widget.CardView
         android:id="@+id/cardview"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="420dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         app:cardCornerRadius="15dp"
@@ -41,7 +41,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="180dp"
-
             android:layout_below="@+id/relativeimg">
 
             <TextView
@@ -101,7 +100,7 @@
 
             <TextView
                 android:id="@+id/textbook"
-                android:layout_width="100dp"
+                android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:layout_below="@id/view"
                 android:layout_marginLeft="10dp"
@@ -111,14 +110,15 @@
                 android:textStyle="bold"
                 android:layout_toRightOf="@+id/fab"/>
 
-            <!--<ImageView-->
-                <!--android:id="@+id/line"-->
-                <!--android:layout_width="10dp"-->
-                <!--android:layout_height="30dp"-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:layout_below="@id/view"-->
-                <!--android:src="@drawable/line1"-->
-                <!--android:layout_toRightOf="@+id/textbook" />-->
+            <ImageView
+                android:id="@+id/line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@id/view"
+                android:orientation="horizontal"
+                android:src="@drawable/line"
+                android:layout_toRightOf="@+id/textbook" />
 
             <ImageView
                 android:id="@+id/fab1"
@@ -127,7 +127,7 @@
                 android:layout_marginTop="6dp"
                 android:layout_below="@id/view"
                 android:layout_marginStart="8dp"
-                android:layout_toRightOf="@+id/textbook"
+                android:layout_toRightOf="@+id/line"
                 android:src="@drawable/save"
                 android:layout_marginLeft="10dp" />
 

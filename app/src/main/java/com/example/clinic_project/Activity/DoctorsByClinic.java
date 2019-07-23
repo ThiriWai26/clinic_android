@@ -48,6 +48,7 @@ public class DoctorsByClinic extends AppCompatActivity implements DoctorHolder.O
 
         initActivity();
 
+
         imageback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
