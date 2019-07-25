@@ -117,7 +117,8 @@ public class HospitalDetailActivity extends AppCompatActivity {
         cardservice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ServiceActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ServiceActivity
+                        .class);
                 startActivity(intent);
             }
         });
@@ -125,7 +126,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
         carddepartment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DepartmentActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MyBookingActivity.class);
                 startActivity(intent);
             }
         });

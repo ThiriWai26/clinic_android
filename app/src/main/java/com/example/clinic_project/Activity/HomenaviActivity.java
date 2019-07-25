@@ -10,19 +10,33 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.example.clinic_project.R;
 import com.example.clinic_project.adapter.TabPagerAdapter;
 
 
-public class HomenaviActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomenaviActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener , View.OnClickListener{
+
+    private Button btnDoctor, btnHospital, btnLab, btnClinc;
+    private CardView mybooking;
+    private Intent intent;
+    private String token;
+    private Bundle b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_navi);
+
+        initActivity();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -43,6 +57,33 @@ public class HomenaviActivity extends AppCompatActivity implements NavigationVie
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    private void initActivity() {
+
+        btnDoctor = findViewById(R.id.btn_doctor);
+        btnHospital = findViewById(R.id.btn_hospital);
+        btnLab = findViewById(R.id.btn_lab);
+        btnClinc = findViewById(R.id.btn_clinic);
+        mybooking = findViewById(R.id.mybooking);
+
+        btnDoctor.setOnClickListener(this);
+        btnHospital.setOnClickListener(this);
+        btnLab.setOnClickListener(this);
+        btnClinc.setOnClickListener(this);
+
+        b = getIntent().getExtras();
+
+        token = b.getString("Token");
+        Log.e("HomeActivityToken", token);
+
+        mybooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MyBookingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
 
 
     @Override
@@ -87,5 +128,56 @@ public class HomenaviActivity extends AppCompatActivity implements NavigationVie
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if (v == btnDoctor) {
+
+
+            intent = new Intent(HomenaviActivity.this, DrawerActivity.class);
+
+            startActivity(intent);
+
+        }
+
+        if (v == btnHospital) {
+
+            intent = new Intent(HomenaviActivity.this, HospitalActivity.class);
+
+            startNextActivity(intent);
+
+        }
+
+        if (v == btnLab) {
+
+            intent = new Intent(HomenaviActivity.this, LabActivity.class);
+
+            startNextActivity(intent);
+
+        }
+
+        if (v == btnClinc) {
+
+            intent = new Intent(HomenaviActivity.this, ClinicActivity.class);
+
+            startNextActivity(intent);
+
+        }
+
+        if (v == mybooking) {
+            Log.e("mybookingonclick", "ok");
+            intent = new Intent(this, MyBookingActivity.class);
+            startActivity(intent);
+        }
+
+
+    }
+
+    private void startNextActivity(Intent intent) {
+
+        intent.putExtra("Token", token);
+        startActivity(intent);
     }
 }

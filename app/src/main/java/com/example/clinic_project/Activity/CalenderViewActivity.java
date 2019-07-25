@@ -13,12 +13,23 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.clinic_project.R;
+import com.example.clinic_project.Response.BookResponse;
+import com.example.clinic_project.Response.BookTakeResponse;
 import com.example.clinic_project.adapter.BookAdapter;
+import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.BookHolder;
+import com.example.clinic_project.model.Booking;
 import com.example.clinic_project.service.RetrofitService;
+import com.example.clinic_project.service.Token;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.TimeZone;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CalenderViewActivity extends AppCompatActivity implements BookHolder.OnItemClickListener {
 
@@ -26,9 +37,13 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
     private ImageView imgback;
     private Button btnBook;
     private RecyclerView recyclerView;
-    private RetrofitService retrofitService;
+    private RetrofitService service;
     private BookAdapter adapter;
+    private List<Booking> bookings = new ArrayList<>();
+    private int doctorId = -1;
     private String date = null;
+    private int timeId = -1;
+    private String token = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +59,13 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
         imgback = findViewById(R.id.imgback);
         btnBook = findViewById(R.id.btnbooking);
         recyclerView = findViewById(R.id.recyclerView);
-        retrofitService = new RetrofitService();
+        service = new RetrofitService();
 
+        token= Token.MyToken.getToken();
         Log.e("bookActivity", "oncreate");
+
+//        Bundle b = getIntent().getExtras();
+//        token = b.getString("Token");
 
         Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
         int day = calendar.get(Calendar.DAY_OF_MONTH);
@@ -70,21 +89,31 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), BookingActivity.class);
-                startActivity(intent);
+                Log.e("token", token);
+                Api bookapi = service.getRetrofitService().create(Api.class);
+                bookapi.getBookList(token,2,"24-7-2019").enqueue(new Callback<BookResponse>() {
+                    @Override
+                    public void onResponse(Call<BookResponse> call, Response<BookResponse> response) {
+                        if (response.isSuccessful()) {
+                            if (response.body().isSuccess) {
+                                adapter.addItem(response.body().bookLists);
+
+                                Log.e("BookLists", String.valueOf(bookings.size()));
+
+                            }
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<BookResponse> call, Throwable t) {
+
+                    }
+                });
             }
         });
 
-//        imgback.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Intent intent = new Intent(getApplicationContext(), HospitalDetailActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
         adapter = new BookAdapter(this);
+        adapter.addItem(bookings);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -93,7 +122,9 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
     public void onItemClick(String date, int timeId) {
 
         this.date = date;
-        Log.e("dateId", date + "," + String.valueOf(date));
+        this.timeId = timeId;
+
+        Log.e("dayId,timeId", date + "," + String.valueOf(timeId));
 
     }
 }

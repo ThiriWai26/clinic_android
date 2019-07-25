@@ -15,6 +15,7 @@ import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookHolder> {
 
+    List<Booking> bookings=new ArrayList<>();
     BookHolder.OnItemClickListener listener;
 
     public BookAdapter(BookHolder.OnItemClickListener listener){
@@ -35,17 +36,24 @@ public class BookAdapter extends RecyclerView.Adapter<BookHolder> {
     @Override
     public void onBindViewHolder(@NonNull BookHolder bookHolder, int i) {
 
-        bookHolder.bindData();
+        bookHolder.bindData(bookings.get(i));
 
     }
 
     @Override
     public int getItemCount() {
 
-        return 5;
+        Log.e("Size",String.valueOf(bookings.size()));
+        return bookings.size();
+
     }
 
     public void addItem(List<Booking> bookings){
+
+        this.bookings.clear();
+        this.bookings.addAll(bookings);
+        notifyDataSetChanged();
+        Log.e("add Item","Success");
 
     }
 }

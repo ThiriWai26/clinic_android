@@ -1,5 +1,8 @@
 package com.example.clinic_project.api;
 
+import com.example.clinic_project.Response.BookResponse;
+import com.example.clinic_project.Response.BookReturnResponse;
+import com.example.clinic_project.Response.BookTakeResponse;
 import com.example.clinic_project.Response.BuildingDetailResponse;
 import com.example.clinic_project.Response.BuildingListResponse;
 import com.example.clinic_project.Response.ClinicListResponse;
@@ -64,6 +67,14 @@ public interface Api {
     @FormUrlEncoded
     @POST("/api/doctors_by_clinic")
     Call<DoctorsByClinicResponse> getDoctorByClinic(@Field("token") String token, @Field("clinic_id") int clinicId);
+
+    @FormUrlEncoded
+    @POST("api/book")
+    Call<BookTakeResponse> getBookTake(@Field("token") String token, @Field("date") String date, @Field("time_id") int timeId);
+
+    @FormUrlEncoded
+    @POST("api/book_lists")
+    Call<BookResponse> getBookList (@Field("token") String token, @Field("doctor_id") int doctorId, @Field("date") String date);
 
 }
 
