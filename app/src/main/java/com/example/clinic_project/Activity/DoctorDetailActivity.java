@@ -2,6 +2,7 @@ package com.example.clinic_project.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -24,10 +25,11 @@ public class DoctorDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgback,imgfav;
+    private ImageView imageView,imgback;
     private TextView tvName,tvType,tvabout,textabout,tvspecial;
     private Button button;
     private int doctorId = -1;
+    private FloatingActionButton btnBook;
 
 
     @Override
@@ -46,14 +48,6 @@ public class DoctorDetailActivity extends AppCompatActivity {
             }
         });
 
-        imgfav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CalenderViewActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
     }
 
@@ -61,6 +55,8 @@ public class DoctorDetailActivity extends AppCompatActivity {
 
         service = new RetrofitService();
         token = Token.MyToken.getToken();
+
+        Log.e("doctordetailtoken",token);
 
         tvName = findViewById(R.id.tvName);
         tvType = findViewById(R.id.tvType);
@@ -70,7 +66,8 @@ public class DoctorDetailActivity extends AppCompatActivity {
         button = findViewById(R.id.btnDoctor);
         imageView=findViewById(R.id.imageView);
         imgback = findViewById(R.id.imgback);
-        imgfav = findViewById(R.id.fab);
+
+        btnBook=findViewById(R.id.fab);
 
         Bundle bundle = getIntent().getExtras();
         doctorId = bundle.getInt("doctorId");
@@ -78,10 +75,14 @@ public class DoctorDetailActivity extends AppCompatActivity {
 
         getDoctorDetail();
 
-        imgfav.setOnClickListener(new View.OnClickListener() {
+        btnBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CalenderViewActivity.class);
+                intent.putExtra("doctorId", doctorId);
+                intent.putExtra("Token", token);
+                Log.e("doctorId",String.valueOf(doctorId));
+
                 startActivity(intent);
             }
         });

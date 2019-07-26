@@ -1,6 +1,5 @@
 package com.example.clinic_project.Activity;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BookResponse;
-import com.example.clinic_project.Response.BookTakeResponse;
 import com.example.clinic_project.adapter.BookAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.BookHolder;
@@ -26,6 +24,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
+
+import javax.security.auth.login.LoginException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,12 +60,18 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
         btnBook = findViewById(R.id.btnbooking);
         recyclerView = findViewById(R.id.recyclerView);
         service = new RetrofitService();
-
         token= Token.MyToken.getToken();
-        Log.e("bookActivity", "oncreate");
 
-//        Bundle b = getIntent().getExtras();
-//        token = b.getString("Token");
+        Bundle bundle = getIntent().getExtras();
+        token = Token.MyToken.getToken();
+
+        doctorId = bundle.getInt("doctorId");
+        Log.e("doctorId",String.valueOf(doctorId));
+
+        adapter = new BookAdapter(this);
+        adapter.addItem(bookings);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
         int day = calendar.get(Calendar.DAY_OF_MONTH);
@@ -81,41 +87,31 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
 
                 date = String.valueOf(dayOfMonth) + "-" + String.valueOf(month + 1) + "-" + String.valueOf(year);
                 Log.e("date", date);
+                getBookingList();
 
             }
         });
+    }
 
-        btnBook.setOnClickListener(new View.OnClickListener() {
+    private void getBookingList() {
+        Log.e("BookingList","success");
+
+        Api bookapi = service.getRetrofitService().create(Api.class);
+        bookapi.getBookList(token,doctorId,date).enqueue(new Callback<BookResponse>() {
             @Override
-            public void onClick(View v) {
-
-                Log.e("token", token);
-                Api bookapi = service.getRetrofitService().create(Api.class);
-                bookapi.getBookList(token,2,"24-7-2019").enqueue(new Callback<BookResponse>() {
-                    @Override
-                    public void onResponse(Call<BookResponse> call, Response<BookResponse> response) {
-                        if (response.isSuccessful()) {
-                            if (response.body().isSuccess) {
-                                adapter.addItem(response.body().bookLists);
-
-                                Log.e("BookLists", String.valueOf(bookings.size()));
-
-                            }
-                        }
+            public void onResponse(Call<BookResponse> call, Response<BookResponse> response) {
+                if(response.isSuccessful()){
+                    if(response.body().isSuccess){
+                        adapter.addItem(response.body().bookLists);
+                        Log.e("BookLists",String.valueOf(response.body().bookLists.size()));
                     }
-                    @Override
-                    public void onFailure(Call<BookResponse> call, Throwable t) {
+                }
+            }
+            @Override
+            public void onFailure(Call<BookResponse> call, Throwable t) {
 
-                    }
-                });
             }
         });
-
-
-        adapter = new BookAdapter(this);
-        adapter.addItem(bookings);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override

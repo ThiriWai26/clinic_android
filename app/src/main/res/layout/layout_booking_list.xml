@@ -85,7 +85,7 @@
                     android:id="@+id/tvMap"
                     android:layout_width="wrap_content"
                     android:layout_height="28dp"
-                    android:layout_marginLeft="120dp"
+                    android:layout_marginLeft="70dp"
                     android:layout_marginTop="2dp"
                     android:layout_toRightOf="@id/tvName"
                     android:layout_weight="1"
@@ -96,13 +96,13 @@
                     tools:ignore="NotSibling" />
 
                 <Button
-                    android:id="@+id/btnChooseHospital"
+                    android:id="@+id/btncancel"
                     android:layout_width="100dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_toRightOf="@+id/tvName"
                     android:layout_marginRight="10dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginLeft="60dp"
                     android:layout_below="@id/tvMap"
                     android:background="@drawable/dr_appointment_style_color_green"
                     android:text="Cancel"
