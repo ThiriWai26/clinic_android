@@ -75,8 +75,6 @@ public class DoctorsByClinic extends AppCompatActivity implements DoctorHolder.O
 
         getDoctorByClinic();
 
-//
-
     }
 
     private void getDoctorByClinic() {
@@ -92,15 +90,11 @@ public class DoctorsByClinic extends AppCompatActivity implements DoctorHolder.O
                     if(response.body().isSuccess){
                         doctors = response.body().doctorByClinic.doctors;
                         adapter.addDoctors(doctors);
-
                         Log.e("DoctorsByClinic", String.valueOf(doctors.size()));
 
                     }
-
-
                 }
             }
-
             @Override
             public void onFailure(Call<DoctorsByClinicResponse> call, Throwable t) {
 

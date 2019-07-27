@@ -1,5 +1,6 @@
 package com.example.clinic_project.Activity;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BookResponse;
+import com.example.clinic_project.Response.BookTakeResponse;
 import com.example.clinic_project.adapter.BookAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.BookHolder;
@@ -91,6 +93,41 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
 
             }
         });
+
+        btnBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getBookList();
+            }
+        });
+    }
+
+    private void getBookList() {
+        Log.e("getBookList","success");
+        if ((date != null) && (timeId != -1)) {
+            final Api bookingapi = service.getRetrofitService().create(Api.class);
+            bookingapi.getBookTake(token, date, timeId).enqueue(new Callback<BookTakeResponse>() {
+                @Override
+                public void onResponse(Call<BookTakeResponse> call, Response<BookTakeResponse> response) {
+                    if (response.isSuccessful()) {
+                        if (response.body().isSuccess) {
+                            Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_LONG).show();
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), response.body().message, Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<BookTakeResponse> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "Server failure", Toast.LENGTH_LONG).show();
+                }
+            });
+        }else {
+            Toast.makeText(getApplicationContext(), "Choose Booking", Toast.LENGTH_LONG).show();
+
+        }
+
     }
 
     private void getBookingList() {
@@ -114,6 +151,8 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
         });
     }
 
+    
+
     @Override
     public void onItemClick(String date, int timeId) {
 
@@ -123,4 +162,11 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
         Log.e("dayId,timeId", date + "," + String.valueOf(timeId));
 
     }
+
+//    @Override
+//    public void onClick(View v) {
+//
+//        Log.e("date",date);
+//        getBookingList();
+//    }
 }
