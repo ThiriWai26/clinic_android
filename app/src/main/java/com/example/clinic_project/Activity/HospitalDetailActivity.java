@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,16 +14,9 @@ import com.example.clinic_project.MapsActivity;
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingDetailResponse;
 import com.example.clinic_project.api.Api;
-import com.example.clinic_project.model.Doctor;
-import com.example.clinic_project.model.DoctorByClinic;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;

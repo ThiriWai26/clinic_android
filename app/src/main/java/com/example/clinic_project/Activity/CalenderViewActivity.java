@@ -1,11 +1,13 @@
 package com.example.clinic_project.Activity;
 
 import android.annotation.SuppressLint;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -100,9 +102,11 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
                 getBookList();
             }
         });
-    }
 
-    private void getBookList() {
+
+        }
+
+        private void getBookList() {
         Log.e("getBookList","success");
         if ((date != null) && (timeId != -1)) {
             final Api bookingapi = service.getRetrofitService().create(Api.class);
@@ -151,7 +155,7 @@ public class CalenderViewActivity extends AppCompatActivity implements BookHolde
         });
     }
 
-    
+
 
     @Override
     public void onItemClick(String date, int timeId) {

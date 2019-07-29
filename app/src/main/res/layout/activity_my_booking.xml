@@ -182,8 +182,6 @@
 
     <!--</android.support.v7.widget.CardView>-->
 
-
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
@@ -197,7 +195,6 @@
         tools:listitem="@layout/layout_booking_list"
         tools:ignore="NotSibling"
         android:background="#FFFFFF" />
-
 
     <!--//first UI design-->
     <!--<RelativeLayout-->

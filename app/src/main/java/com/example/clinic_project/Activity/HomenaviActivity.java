@@ -26,7 +26,7 @@ import com.example.clinic_project.adapter.TabPagerAdapter;
 public class HomenaviActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener , View.OnClickListener{
 
     private Button btnDoctor, btnHospital, btnLab, btnClinc;
-    private CardView mybooking;
+    private CardView mybooking,myfavdoctor,myfavhospital;
     private Intent intent;
     private String token;
     private Bundle b;
@@ -64,6 +64,8 @@ public class HomenaviActivity extends AppCompatActivity implements NavigationVie
         btnLab = findViewById(R.id.btn_lab);
         btnClinc = findViewById(R.id.btn_clinic);
         mybooking = findViewById(R.id.mybooking);
+        myfavdoctor = findViewById(R.id.myfavdoctor);
+        myfavhospital = findViewById(R.id.myfabhospital);
 
         btnDoctor.setOnClickListener(this);
         btnHospital.setOnClickListener(this);
@@ -79,6 +81,22 @@ public class HomenaviActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MyBookingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        myfavdoctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MyFavouriteDoctorActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        myfavhospital.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MyFavouriteHospitalActivity.class);
                 startActivity(intent);
             }
         });
@@ -165,13 +183,6 @@ public class HomenaviActivity extends AppCompatActivity implements NavigationVie
             startNextActivity(intent);
 
         }
-
-        if (v == mybooking) {
-            Log.e("mybookingonclick", "ok");
-            intent = new Intent(this, MyBookingActivity.class);
-            startActivity(intent);
-        }
-
 
     }
 

@@ -62,9 +62,16 @@ public class MyBookingActivity extends AppCompatActivity implements MyBookingHol
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+//        txtmap.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.e("mapsonclick","ok");
+//                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
-
 
     @Override
     public void onItemClick(String date, int timeId) {

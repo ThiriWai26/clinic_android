@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.example.clinic_project.R;
 import com.example.clinic_project.model.Booking;
 
-public class BookHolder extends RecyclerView.ViewHolder  {
+public class BookHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     private RelativeLayout bookItem;
     private OnItemClickListener listener;
@@ -28,6 +28,7 @@ public class BookHolder extends RecyclerView.ViewHolder  {
         bookItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.e("bookingstatus","ok");
                 if(booking.bookStatus==0){
                     Toast.makeText(v.getContext(),"This cannot be booked",Toast.LENGTH_LONG).show();
                 }
@@ -42,6 +43,15 @@ public class BookHolder extends RecyclerView.ViewHolder  {
         });
     }
 
+    @Override
+    public void onClick(View v) {
+
+        listener.onItemClick(String.valueOf(v),getAdapterPosition());
+
+
+
+    }
+
     public interface OnItemClickListener  {
          void onItemClick(String date, int timeId);
 
@@ -54,6 +64,8 @@ public class BookHolder extends RecyclerView.ViewHolder  {
         BuildingName = itemView.findViewById(R.id.tvname);
         time = itemView.findViewById(R.id.tvTime);
         bookItem = itemView.findViewById(R.id.bookItem);
+
+        itemView.setOnClickListener(this);
 
     }
 

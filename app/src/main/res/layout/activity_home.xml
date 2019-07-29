@@ -198,7 +198,6 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/myfavdoctor"
             card_view:cardBackgroundColor="#fff"
             card_view:cardElevation="4dp"
             card_view:cardUseCompatPadding="true"
@@ -208,6 +207,7 @@
             android:layout_marginRight="8dp">
 
             <RelativeLayout
+                android:id="@+id/myfavdoctor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -244,7 +244,6 @@
 
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
-            android:id="@+id/mayfavhospital"
             card_view:cardBackgroundColor="#fff"
             card_view:cardElevation="4dp"
             card_view:cardUseCompatPadding="true"
@@ -254,6 +253,7 @@
             android:layout_marginRight="8dp">
 
             <RelativeLayout
+                android:id="@+id/mayfavhospital"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 

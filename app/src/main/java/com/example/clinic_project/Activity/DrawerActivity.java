@@ -59,6 +59,7 @@ public class DrawerActivity extends AppCompatActivity
     private TextView txtdoctor;
     private ImageView imgsetting;
     DoctorAdapter adapter;
+
     ArrayAdapter<String> dataAdapter;
     List<SpecializationList> specializationLists = new ArrayList<>();
     List<String> categories = new ArrayList<>();

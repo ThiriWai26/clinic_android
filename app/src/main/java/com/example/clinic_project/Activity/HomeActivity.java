@@ -7,7 +7,6 @@ import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.clinic_project.R;
@@ -15,9 +14,7 @@ import com.example.clinic_project.R;
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnDoctor, btnHospital, btnLab, btnClinc;
-    private RelativeLayout mybooking;
-    private CardView myfavDoctor;
-    private ImageView ic_mybooking;
+    private RelativeLayout mybooking,myfavDoctor,myfabhospital;
     private Intent intent;
     private String token;
     private Bundle b;
@@ -37,10 +34,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         btnLab = findViewById(R.id.btn_lab);
         btnClinc = findViewById(R.id.btn_clinic);
         mybooking = findViewById(R.id.mybooking);
-        ic_mybooking=findViewById(R.id.ic_mybooking);
         myfavDoctor=findViewById(R.id.myfavdoctor);
-//        btnHome = findViewById(R.id.btn_home);
-//        btnArticle = findViewById(R.id.btn_articles);
+        myfabhospital=findViewById(R.id.mayfavhospital);
+
 
         btnDoctor.setOnClickListener(this);
         btnHospital.setOnClickListener(this);
@@ -52,26 +48,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         token = b.getString("Token");
         Log.e("HomeActivityToken", token);
 
-        myfavDoctor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.e("onclickls","ok");
-            }
-        });
+//        myfavDoctor.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.e("onclickls","ok");
+//            }
+//        });
 
     }
 
     @Override
     public void onClick(View v) {
-
-//        if (v == btnArticle) {
-//            Toast.makeText(HomeActivity.this, "This is Articles", Toast.LENGTH_LONG).show();
-//
-//        }
-//
-//        if (v == btnHome) {
-//            Toast.makeText(HomeActivity.this, "This is Home", Toast.LENGTH_LONG).show();
-//        }
 
         if (v == btnDoctor) {
 
@@ -106,11 +93,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-        if (v == mybooking) {
-            Log.e("mybookingonclick", "ok");
-            intent = new Intent(this, MyBookingActivity.class);
-            startActivity(intent);
-        }
 
     }
 
