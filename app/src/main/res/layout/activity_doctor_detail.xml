@@ -32,6 +32,17 @@
                 android:paddingLeft="16dp"
                 android:src="@drawable/ic_back_arrow"/>
 
+            <ImageView
+                android:id="@+id/imgfav"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="270dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/imgback"
+                android:src="@drawable/drawableblack3"
+                android:clickable="true"
+                tools:ignore="RtlCompat" />
+
             <RelativeLayout
                 android:id="@+id/cardR"
                 android:layout_width="match_parent"

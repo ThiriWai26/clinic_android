@@ -2,6 +2,7 @@ package com.example.clinic_project.Activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -23,17 +24,21 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.graphics.Color.RED;
+
 
 public class HospitalDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgback,imgphone,imgSpecial,imgmap,imgfab,imgservice;
+    private ImageView imageView,imgback,imgphone,imgSpecial,imgmap,imgfab,imgfav,imgservice;
     private TextView address,txtname,txtlocation,textabout,textviewmap,textservice;
     private CardView cardservice,carddepartment;
     private GoogleMap googleMap;
     private int buildingId = -1;
     private int typeId = 2;
+
+    boolean isFavourite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +62,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
         textabout = findViewById(R.id.textabout);
         imgphone = findViewById(R.id.phone);
         imgmap = findViewById(R.id.map);
+        imgfav = findViewById(R.id.imgfav);
         imgservice = findViewById(R.id.imageservice);
         textservice = findViewById(R.id.txservice);
         token = Token.MyToken.getToken();
@@ -104,6 +110,20 @@ public class HospitalDetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+       imgfav.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               if (isFavourite){
+                   imgfav.setBackgroundResource(R.drawable.favouritewhite);
+                   isFavourite=false;
+               }
+               else {
+                   imgfav.setBackgroundResource(R.drawable.favouriteblack1);
+                   isFavourite=true;
+               }
+           }
+       });
 
         cardservice.setOnClickListener(new View.OnClickListener() {
             @Override

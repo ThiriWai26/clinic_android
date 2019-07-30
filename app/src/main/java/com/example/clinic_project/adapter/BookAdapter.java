@@ -61,7 +61,8 @@ public class BookAdapter extends RecyclerView.Adapter<BookHolder> {
 //        });
 
         if(selectedPosition == i)
-            bookHolder.itemView.setBackgroundColor(Color.parseColor("#1abc9c"));
+            bookHolder.itemView.setBackgroundColor(Color.parseColor("#8FFCCF"));
+
         else
             bookHolder.itemView.setBackgroundColor(Color.WHITE);
 

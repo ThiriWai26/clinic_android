@@ -25,11 +25,12 @@ public class DoctorDetailActivity extends AppCompatActivity  {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgback;
+    private ImageView imageView,imgback,imgfav;
     private TextView tvName,tvType,tvabout,textabout,tvspecial;
     private Button button;
     private int doctorId = -1;
     private FloatingActionButton btnBook;
+    boolean isFavourite;
 
 
     @Override
@@ -47,8 +48,6 @@ public class DoctorDetailActivity extends AppCompatActivity  {
                 finish();
             }
         });
-
-
     }
 
     private void initActivity() {
@@ -66,6 +65,7 @@ public class DoctorDetailActivity extends AppCompatActivity  {
         button = findViewById(R.id.btnDoctor);
         imageView=findViewById(R.id.imageView);
         imgback = findViewById(R.id.imgback);
+        imgfav = findViewById(R.id.imgfav);
 
         btnBook=findViewById(R.id.fab);
 
@@ -84,6 +84,20 @@ public class DoctorDetailActivity extends AppCompatActivity  {
                 Log.e("doctorId",String.valueOf(doctorId));
 
                 startActivity(intent);
+            }
+        });
+
+        imgfav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isFavourite){
+                    imgfav.setBackgroundResource(R.drawable.favouritewhite);
+                    isFavourite=false;
+                }
+                else {
+                    imgfav.setBackgroundResource(R.drawable.favouriteblack1);
+                    isFavourite=true;
+                }
             }
         });
 

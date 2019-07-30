@@ -41,6 +41,7 @@ public class BookHolder extends RecyclerView.ViewHolder implements View.OnClickL
                 }
             }
         });
+
     }
 
     @Override

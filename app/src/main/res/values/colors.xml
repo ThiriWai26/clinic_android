@@ -7,4 +7,5 @@
     <color name="outer_layout_color">#e5f2eb</color>
     <color name="inner_layout_color">#ffffff</color>
     <color name="search_color">#1abc9c</color>
+    <color name="dd">#8FFCCF</color>
 </resources>
