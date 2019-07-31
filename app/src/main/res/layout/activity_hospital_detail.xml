@@ -28,8 +28,9 @@
             <ImageView
                 android:id="@+id/imgback"
                 android:layout_width="wrap_content"
-                android:layout_height="170dp"
-                android:paddingLeft="16dp"/>
+                android:layout_height="60dp"
+                android:paddingLeft="16dp"
+                android:src ="@drawable/ic_back_arrow" />
 
             <ImageView
                 android:id="@+id/imgfav"
@@ -57,7 +58,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imgback">
+                android:layout_below="@id/imgback"
+                android:layout_marginTop="110dp">
 
                 <ImageView
                     android:id="@+id/map"
@@ -78,6 +80,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="330dp"
+                    android:layout_marginTop="110dp"
                     android:background="@drawable/phonenew"
                     android:scaleType="fitXY"
                     tools:ignore="NotSibling" />
