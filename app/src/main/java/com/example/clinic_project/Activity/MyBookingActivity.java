@@ -1,23 +1,22 @@
 package com.example.clinic_project.Activity;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.clinic_project.MapsActivity;
 import com.example.clinic_project.R;
-import com.example.clinic_project.Response.BookTakeResponse;
+import com.example.clinic_project.Response.MyBookingResponse;
 import com.example.clinic_project.adapter.MyBookingAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.MyBookingHolder;
-import com.example.clinic_project.model.Booking;
+import com.example.clinic_project.model.MyBooking;
 import com.example.clinic_project.service.RetrofitService;
+import com.example.clinic_project.service.Token;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +34,10 @@ public class MyBookingActivity extends AppCompatActivity implements MyBookingHol
     private CircleImageView imgdoctor;
     private Button btncancel;
     private TextView txtdoctorname,txthospitalname,txtdate,txtmap;
+    private String token = null;
+
+    List<MyBooking> booking = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,16 +55,37 @@ public class MyBookingActivity extends AppCompatActivity implements MyBookingHol
         txtmap = findViewById(R.id.tvMap);
         imgdoctor = findViewById(R.id.profile);
         btncancel = findViewById(R.id.btncancel);
-
-//        Log.e("mybookingActivity", "oncreate");
-//        Bundle b = getIntent().getExtras();
-//        token = b.getString("Token");
+        service = new RetrofitService();
 
         recyclerView = findViewById(R.id.recyclerView);
         adapter = new MyBookingAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        getMyBooking();
+
+    }
+
+    private void getMyBooking() {
+
+        Log.e("mybooking","success");
+        Api myBookingApi = service.getRetrofitService().create(Api.class);
+        myBookingApi.getMyBooking(token).enqueue(new Callback<MyBookingResponse>() {
+            @Override
+            public void onResponse(Call<MyBookingResponse> call, Response<MyBookingResponse> response) {
+                if(response.isSuccessful()){
+                    if(response.body().isSuccess){
+
+
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MyBookingResponse> call, Throwable t) {
+
+            }
+        });
 
 
     }

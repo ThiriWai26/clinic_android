@@ -26,6 +26,4 @@ public class BuildingListResponse {
     @SerializedName("buildings")
     public BuildingList buildingList;
 
-
-
 }

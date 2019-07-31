@@ -137,7 +137,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
         carddepartment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), NewActivity.class);
+                Intent intent = new Intent(getApplicationContext(), DepartmentActivity.class);
                 startActivity(intent);
             }
         });
@@ -152,6 +152,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
         buildingDetailApi.getBuildingDetail(token, typeId, buildingId).enqueue(new Callback<BuildingDetailResponse>() {
             @Override
             public void onResponse(Call<BuildingDetailResponse> call, Response<BuildingDetailResponse> response) {
+
                 if(response.isSuccessful()){
                     if(response.body().isScuccess){
 

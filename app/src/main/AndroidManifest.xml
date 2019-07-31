@@ -21,7 +21,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activity.NewActivity"></activity>
+        <activity android:name=".Activity.DoctorsByHospital"></activity>
+        <activity android:name=".Activity.NewActivity" />
         <activity android:name=".Activity.MyFavouriteHospitalActivity" />
         <activity android:name=".Activity.MyFavouriteDoctorActivity" />
         <activity android:name=".Activity.MyBookingActivity" />
@@ -31,7 +32,6 @@
             android:name=".Activity.ServiceActivity2"
             android:label="@string/title_activity_service2" />
         <activity android:name=".Activity.ServiceActivity" />
-        <activity android:name=".Activity.BookingActivity" />
         <activity android:name=".Activity.DoctorsByClinic" />
         <activity android:name=".Activity.CalenderViewActivity" />
         <!--

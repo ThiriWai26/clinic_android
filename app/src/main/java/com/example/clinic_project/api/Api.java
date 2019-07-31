@@ -1,15 +1,19 @@
 package com.example.clinic_project.api;
 
+import com.example.clinic_project.Activity.DoctorsByHospital;
 import com.example.clinic_project.Response.BookResponse;
 import com.example.clinic_project.Response.BookReturnResponse;
 import com.example.clinic_project.Response.BookTakeResponse;
 import com.example.clinic_project.Response.BuildingDetailResponse;
 import com.example.clinic_project.Response.BuildingListResponse;
 import com.example.clinic_project.Response.ClinicListResponse;
+import com.example.clinic_project.Response.DoctorByHospitalResponse;
 import com.example.clinic_project.Response.DoctorDetailResponse;
 import com.example.clinic_project.Response.DoctorListResponse;
 import com.example.clinic_project.Response.DoctorsByClinicResponse;
 import com.example.clinic_project.Response.LoginResponse;
+import com.example.clinic_project.Response.MyBookingResponse;
+import com.example.clinic_project.Response.MyFavouriteDoctorResponse;
 import com.example.clinic_project.Response.RegisterResponse;
 import com.example.clinic_project.Response.SpecializationListResponse;
 import com.example.clinic_project.Response.TownListResponse;
@@ -69,12 +73,24 @@ public interface Api {
     Call<DoctorsByClinicResponse> getDoctorByClinic(@Field("token") String token, @Field("clinic_id") int clinicId);
 
     @FormUrlEncoded
-    @POST("api/book")
+    @POST("/api/book")
     Call<BookTakeResponse> getBookTake(@Field("token") String token, @Field("date") String date, @Field("time_id") int timeId);
 
     @FormUrlEncoded
-    @POST("api/book_lists")
+    @POST("/api/book_lists")
     Call<BookResponse> getBookList (@Field("token") String token, @Field("doctor_id") int doctorId, @Field("date") String date);
+
+    @FormUrlEncoded
+    @POST("/api/upcoming_booking")
+    Call<MyBookingResponse> getMyBooking (@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("/api/favourite_doctor")
+    Call<MyFavouriteDoctorResponse> getMyFavouriteDoctor (@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("/api/doctors_by_hospital")
+    Call<DoctorByHospitalResponse> getDoctorsByHospital (@Field("token") String token, @Field("hospital_id") int hospitalId);
 
 }
 

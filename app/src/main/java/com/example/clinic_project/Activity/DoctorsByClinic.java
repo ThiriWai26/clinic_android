@@ -35,7 +35,6 @@ public class DoctorsByClinic extends AppCompatActivity implements DoctorHolder.O
     private TextView textname,texttype;
     private ImageView imageback;
     DoctorAdapter adapter;
-    ArrayAdapter<String> dataAdapter;
 
     List<Doctor> doctors = new ArrayList<>();
     private String token = null;
