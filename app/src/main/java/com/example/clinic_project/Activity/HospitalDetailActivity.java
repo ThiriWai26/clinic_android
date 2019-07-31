@@ -38,7 +38,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
     private int buildingId = -1;
     private int typeId = 2;
 
-    boolean isFavourite;
+    private boolean isFavourite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +114,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
        imgfav.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+
                if (isFavourite){
                    imgfav.setBackgroundResource(R.drawable.favouritewhite);
                    isFavourite=false;
@@ -136,7 +137,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
         carddepartment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DepartmentActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NewActivity.class);
                 startActivity(intent);
             }
         });

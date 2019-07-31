@@ -19,6 +19,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -58,6 +59,8 @@ public class DrawerActivity extends AppCompatActivity
     private RetrofitService service;
     private TextView txtdoctor;
     private ImageView imgsetting;
+
+    String mHtmlString;
     DoctorAdapter adapter;
 
     ArrayAdapter<String> dataAdapter;
@@ -181,8 +184,9 @@ public class DrawerActivity extends AppCompatActivity
     //initial work of activity
     private void initDoctorList() {
 
-
         txtdoctor = findViewById(R.id.textdoctor);
+//        txtdoctor.setText(Html.fromHtml(mHtmlString));
+
         imgsetting = findViewById(R.id.imgsetting);
         searchView = findViewById(R.id.sv);
         recyclerView = findViewById(R.id.recyclerView);
@@ -191,27 +195,12 @@ public class DrawerActivity extends AppCompatActivity
 //        spinner = findViewById(R.id.spinner);
 
         token = Token.MyToken.getToken();
-
         Log.e("DrawerActivityToken", token);
-
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-//        spinner.setOnItemSelectedListener(this);
-
-//        dataAdapter = new ArrayAdapter<String>(getBaseContext(), R.layout.spinner_item, categories);
-//        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner.setAdapter(dataAdapter);
         getSpecializationList(token);
 
-//        add backImage hide this
-//        Bundle bundle = getIntent().getExtras();
-//        specializationId = bundle.getInt("specializationId");
-//
-//        if (specializationId != -1) {
-//            getDoctorsBySpecialization(specializationId);
-//            Log.e("specializationId", String.valueOf(specializationId));
-//        }
     }
 
     private void getSpecializationList(String token) {
