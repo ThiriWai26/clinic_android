@@ -94,7 +94,7 @@
         android:scrollbars="vertical"
         tools:listitem="@layout/layout_lab_list"
         tools:ignore="NotSibling"
-        android:background="#FFFFFF" />
+        android:background="#F0EEEE" />
 
 
 </RelativeLayout>
