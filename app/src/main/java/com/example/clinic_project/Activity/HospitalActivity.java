@@ -5,7 +5,14 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -55,7 +62,7 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
     private RecyclerView recyclerView;
     private RetrofitService service;
     private TextView txthospital;
-    private ImageView imgsetting;
+    private ImageView imgsetting,imageView1;
     private int typeId = 2;
     private int townId = 0;
 
@@ -130,6 +137,7 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
         recyclerView = findViewById(R.id.recyclerView);
         txthospital = findViewById(R.id.txthospital);
         imgsetting = findViewById(R.id.imgsetting);
+        imageView1 = findViewById(R.id.imageView1);
         adapter = new BuildingAdapter(this);
 
         Bundle b = getIntent().getExtras();
@@ -141,6 +149,16 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
 
         getLocationList(token);
         getBuildingList(typeId,townId);
+
+
+//        Bitmap mbitmap = ((BitmapDrawable) getResources().getDrawable(R.drawable.img_hospital)).getBitmap();
+//        Bitmap imageRounded = Bitmap.createBitmap(mbitmap.getWidth(), mbitmap.getHeight(), mbitmap.getConfig());
+//        Canvas canvas = new Canvas(imageRounded);
+//        Paint mpaint = new Paint();
+//        mpaint.setAntiAlias(true);
+//        mpaint.setShader(new BitmapShader(mbitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
+//        canvas.drawRoundRect((new RectF(0, 0, mbitmap.getWidth(), mbitmap.getHeight())), 100, 100, mpaint);// Round Image Corner 100 100 100 100
+//        imageView1.setImageBitmap(imageRounded);
 
 //        Bundle bundle = getIntent().getExtras();
 //        townListId = bundle.getInt("specializationId");

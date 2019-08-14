@@ -89,6 +89,6 @@
         android:clipToPadding="true"
         android:scrollbars="vertical"
         tools:listitem="@layout/building_item"
-        android:background="#F0EEEE"/>
+        android:background="#FFFFFF"/>
 
 </RelativeLayout>

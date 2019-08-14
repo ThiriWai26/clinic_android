@@ -18,8 +18,7 @@ public class BuildingHolder extends RecyclerView.ViewHolder implements View.OnCl
     private OnBuildingClickListener listener;
     private TextView txName, txLocation, txId;
 //    private ImageView imageViewExpand;
-    private de.hdodenhof.circleimageview.CircleImageView imageView;
-    private ImageButton btnHospitalDetail;
+    private ImageView imageView;
 
 
     public static BuildingHolder create(LayoutInflater inflater, ViewGroup parent, OnBuildingClickListener listener) {
@@ -77,9 +76,7 @@ public class BuildingHolder extends RecyclerView.ViewHolder implements View.OnCl
         txName = view.findViewById(R.id.txName);
         txId = view.findViewById(R.id.txid);
         imageView = view.findViewById(R.id.imageView1);
-        btnHospitalDetail = view.findViewById(R.id.btn);
 
-        btnHospitalDetail.setOnClickListener(this);
         view.setOnClickListener(this);
     }
 
