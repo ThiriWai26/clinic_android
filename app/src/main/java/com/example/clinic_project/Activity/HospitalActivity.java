@@ -150,16 +150,6 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
         getLocationList(token);
         getBuildingList(typeId,townId);
 
-
-//        Bitmap mbitmap = ((BitmapDrawable) getResources().getDrawable(R.drawable.img_hospital)).getBitmap();
-//        Bitmap imageRounded = Bitmap.createBitmap(mbitmap.getWidth(), mbitmap.getHeight(), mbitmap.getConfig());
-//        Canvas canvas = new Canvas(imageRounded);
-//        Paint mpaint = new Paint();
-//        mpaint.setAntiAlias(true);
-//        mpaint.setShader(new BitmapShader(mbitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-//        canvas.drawRoundRect((new RectF(0, 0, mbitmap.getWidth(), mbitmap.getHeight())), 100, 100, mpaint);// Round Image Corner 100 100 100 100
-//        imageView1.setImageBitmap(imageRounded);
-
 //        Bundle bundle = getIntent().getExtras();
 //        townListId = bundle.getInt("specializationId");
 //
