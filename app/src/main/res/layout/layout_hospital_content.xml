@@ -103,29 +103,21 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/relativetext"
+            <TextView
+                android:id="@+id/address"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_below="@+id/cardadv"
-                android:layout_margin="3dp">
-
-                <TextView
-                    android:id="@+id/address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hospital "
-                    android:layout_marginTop="0dp"
-                    android:layout_marginLeft="20sp"
-                    android:textSize="20sp"
-                    android:textColor="#000000"
-                    android:textStyle="bold"/>
-
-            </RelativeLayout>
+                android:layout_height="wrap_content"
+                android:text="Hospital "
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="20sp"
+                android:textSize="20sp"
+                android:background="#fff"
+                android:textColor="#000000"
+                android:textStyle="bold"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"
-                android:layout_below="@id/relativetext"
+                android:layout_below="@id/address"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"

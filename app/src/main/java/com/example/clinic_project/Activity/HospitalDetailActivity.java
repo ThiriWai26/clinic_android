@@ -61,7 +61,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
         txtlocation = findViewById(R.id.textLocation);
         textabout = findViewById(R.id.textabout);
         imgphone = findViewById(R.id.phone);
-        imgmap = findViewById(R.id.map);
+//        imgmap = findViewById(R.id.map);
         imgfav = findViewById(R.id.imgfav);
         imgservice = findViewById(R.id.imageservice);
         textservice = findViewById(R.id.txservice);
@@ -85,14 +85,14 @@ public class HospitalDetailActivity extends AppCompatActivity {
             }
         });
 
-        imgmap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        imgmap.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
 
         imgphone.setOnClickListener(new View.OnClickListener(){
             @Override
