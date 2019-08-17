@@ -101,41 +101,6 @@
 
         </RelativeLayout>
 
-            <!--<RelativeLayout-->
-                <!--android:id="@+id/calendarview"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="350dp"-->
-                <!--android:layout_below="@+id/cardR"-->
-                <!--android:layout_marginTop="5dp" >-->
-
-                <!--<CalendarView-->
-                    <!--android:id="@+id/calendarView"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="320dp"-->
-                    <!--tools:ignore="InvalidId">-->
-
-                <!--</CalendarView>-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/tvcancel"-->
-                    <!--android:layout_width="50dp"-->
-                    <!--android:layout_height="30dp"-->
-                    <!--android:layout_below="@id/calendarView"-->
-                    <!--android:layout_marginLeft="240dp"-->
-                    <!--android:layout_marginTop="5dp"-->
-                    <!--android:text="Cancel" />-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/tvdone"-->
-                    <!--android:layout_width="50dp"-->
-                    <!--android:layout_height="30dp"-->
-                    <!--android:layout_below="@id/calendarView"-->
-                    <!--android:layout_marginLeft="30dp"-->
-                    <!--android:layout_marginTop="5dp"-->
-                    <!--android:layout_toRightOf="@id/tvcancel"-->
-                    <!--android:text="Done" />-->
-
-            <!--</RelativeLayout>-->
 
     <RelativeLayout
         android:layout_width="match_parent"

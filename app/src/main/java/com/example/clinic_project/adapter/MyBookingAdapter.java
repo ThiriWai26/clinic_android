@@ -7,7 +7,8 @@ import android.view.ViewGroup;
 
 import com.example.clinic_project.holder.MyBookingHolder;
 
-public class MyBookingAdapter extends RecyclerView.Adapter<MyBookingHolder> {
+public class
+MyBookingAdapter extends RecyclerView.Adapter<MyBookingHolder> {
 
     MyBookingHolder.OnItemClickListener listener;
 
