@@ -62,7 +62,6 @@
 
             </LinearLayout>
 
-
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
@@ -98,7 +97,7 @@
                     android:layout_marginLeft="16dp"
                     android:text="Services"
                     android:layout_below="@id/cardR"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="0dp"
                     android:textColor="#000"
                     android:textStyle="bold"
                     android:textSize="18dp"/>
@@ -109,7 +108,7 @@
                     android:layout_below="@id/textservicecateg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="2dp"
                     android:layout_gravity="center_horizontal"
                     android:clipChildren="true"
                     android:clipToPadding="true"

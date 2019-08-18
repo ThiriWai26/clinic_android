@@ -16,8 +16,7 @@ import com.example.clinic_project.R;
 public class ServiceHolder extends RecyclerView.ViewHolder  {
 
     private OnItemClickListener listener;
-    private TextView texttitle,textprice;
-    private Button btnbook,btnsave;
+    private TextView texttitle,textprice,btnbook,btnsave;
     private ImageView imgView;
 
     public ServiceHolder(@NonNull View itemView, OnItemClickListener listener) {
