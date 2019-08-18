@@ -3,85 +3,78 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardview"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="2dp"
-        app:cardUseCompatPadding="true">
-
-        <RelativeLayout
-            android:id="@+id/relativeimg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imgservice"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:padding="1dp"
-                android:layout_alignParentTop="true"
-                android:layout_below="@+id/appBarLayout"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginLeft="0dp"
-                android:background="@drawable/department"
-                android:scaleType="centerCrop"
-                tools:ignore="NotSibling" />
+                android:layout_height="290dp"
+                android:layout_marginTop="10dp">
 
-        </RelativeLayout>
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    card_view:cardBackgroundColor="#fff"
+                    card_view:cardCornerRadius="10dp"
+                    card_view:cardElevation="0dp"
+                    card_view:cardUseCompatPadding="true"
+                    tools:ignore="RtlCompat">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="180dp"
-            android:layout_below="@+id/relativeimg">
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/emergency_dept10"
+                        android:scaleType="centerCrop"
+                        tools:ignore="RtlCompat" />
+
+                </android.support.v7.widget.CardView>
+
+             </RelativeLayout>
+
+            <!--<ImageView-->
+                <!--android:id="@+id/imgservice"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="280dp"-->
+                <!--android:layout_margin="20sp"-->
+                <!--android:padding="1dp"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:layout_below="@+id/appBarLayout"-->
+                <!--android:layout_alignParentStart="true"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:layout_marginStart="0dp"-->
+                <!--android:layout_marginLeft="0dp"-->
+                <!--android:background="@drawable/emergency_dept2"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--tools:ignore="NotSibling" />-->
+
 
             <TextView
                 android:id="@+id/textname"
-                android:layout_width="match_parent"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="208dp"
                 android:layout_weight="1"
-                android:textSize="16sp"
-                android:text="Department Name"
-                android:textStyle="bold"/>
+                android:textSize="22dp"
+                android:text="Accident and
+                 emergency (A&amp;E)"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/textdesp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textname"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="40dp"
                 android:layout_weight="1"
-                android:text="Description"
-                android:layout_marginTop="8dp"
-                android:textSize="15dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/about"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginLeft="10dp"
-                android:layout_below="@+id/textdesp"
-                android:justificationMode="inter_word"
-                android:lineSpacingMultiplier="1.25"
-                android:text="Working in a busy surgery providing a full range of dental treatment to prtients to hekp them maintain oral health. Spending a signficant amount of time standing and using specialist equipment...More"
-                android:textColor="#312d2d"
-                android:textSize="12sp" />
-
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
+                android:layout_marginTop="270dp"
+                android:text="if you have arrived in emergency situation"
+                android:textColor="#fff"
+                android:textSize="12dp" />
 
 
 </RelativeLayout>

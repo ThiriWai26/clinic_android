@@ -48,7 +48,7 @@ public class ServiceActivity extends AppCompatActivity implements ServiceHolder.
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        toolbar.setNavigationIcon(R.drawable.img_back1); // your drawable
+        toolbar.setNavigationIcon(R.drawable.back1); // your drawable
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -68,13 +68,14 @@
                     android:layout_width="250dp"
                     android:layout_height="70dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="40dp"
                     android:layout_marginTop="210dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_marginLeft="54dp"
+                    android:layout_marginRight="54dp"
                     card_view:cardBackgroundColor="#fff"
                     card_view:cardCornerRadius="4dp"
                     card_view:cardElevation="2dp"
-                    card_view:cardUseCompatPadding="true">
+                    card_view:cardUseCompatPadding="true"
+                    tools:ignore="RtlCompat">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
