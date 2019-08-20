@@ -15,19 +15,22 @@ import com.example.clinic_project.Activity.DrawerActivity;
 import com.example.clinic_project.Activity.HospitalActivity;
 import com.example.clinic_project.Activity.LabActivity;
 import com.example.clinic_project.R;
+import com.example.clinic_project.constant.NavigationDrawerConstants;
 import com.example.clinic_project.service.Token;
-
-//import com.example.mounts.clinic.activity.DrawerActivity;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private Button btnDoctor, btnHospital, btnLab, btnClinc;
-    private Intent intent;
     private String token;
 
 
     public HomeFragment() {
         // Required empty public constructor
+    }
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getActivity().setTitle(NavigationDrawerConstants.TAG_HOSPITAL);
     }
 
 
@@ -37,7 +40,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
 
         btnDoctor = view.findViewById(R.id.btn_doctor);
         btnHospital = view.findViewById(R.id.btn_hospital);
@@ -49,10 +51,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         btnLab.setOnClickListener(this);
         btnClinc.setOnClickListener(this);
 
-//        b = getActivity().getIntent().getExtras();
-
-
-//        token = b.getString("Token");
         token= Token.MyToken.getToken();
         return view;
 
@@ -61,59 +59,26 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-
-//        if (v == btnArticle) {
-//            Toast.makeText(getActivity(), "This is Articles", Toast.LENGTH_LONG).show();
-//
-//        }
-
-//        if (v == btnHome) {
-//            Toast.makeText(getActivity(), "This is Home", Toast.LENGTH_LONG).show();
-//        }
         if (v == btnDoctor) {
 
-
-            intent = new Intent(getActivity(), DrawerActivity.class);
-
-
-            startNextActivity(intent);
-
         }
+
         if (v == btnHospital) {
-
-
-            intent = new Intent(getActivity(), HospitalActivity.class);
-
-
-
-            startNextActivity(intent);
-
+            loadFragment(new FragmentHostipal());
         }
+
         if (v == btnLab) {
-            intent = new Intent(getActivity(), LabActivity.class);
-
-
-
-            startNextActivity(intent);
-
         }
+
         if (v == btnClinc) {
 
-
-            intent = new Intent(getActivity(), ClinicActivity.class);
-
-
-
-            startNextActivity(intent);
 
         }
 
     }
 
-    private void startNextActivity(Intent intent) {
 
-        intent.putExtra("Token", token);
-        intent.putExtra("specializationId",-1);
-        startActivity(intent);
+    private void loadFragment(Fragment fragment){
+        getFragmentManager().beginTransaction().replace(R.id.frame,fragment).commit();
     }
 }

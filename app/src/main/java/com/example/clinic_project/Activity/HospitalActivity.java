@@ -191,12 +191,12 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
 
     @Override
     public void onBuildingClick(int id) {
-
         Intent intent = new Intent(this, HospitalDetailActivity.class);
         intent.putExtra("buildingId", id);
         intent.putExtra("typeId",2);
         Log.e("building_id",String.valueOf(id));
         startActivity(intent);
+
 
     }
 
