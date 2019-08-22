@@ -3,6 +3,7 @@ package com.example.clinic_project.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.DoctorDetailResponse;
 import com.example.clinic_project.api.Api;
+import com.example.clinic_project.fragment.FragmentDoctor;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
 import com.squareup.picasso.Picasso;
@@ -40,14 +42,14 @@ public class DoctorDetailActivity extends AppCompatActivity  {
 
         initActivity();
 
-        imgback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DrawerActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        imgback.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), FragmentDoctor.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
     }
 
     private void initActivity() {

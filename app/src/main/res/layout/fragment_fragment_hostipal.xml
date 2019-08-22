@@ -6,100 +6,57 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.FragmentHostipal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-            <!-- TODO: Update blank fragment layout -->
-            <RelativeLayout
-                android:id="@+id/relative"
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_height="?android:attr/actionBarSize">
-
-                <TextView
-                    android:id="@+id/txthospital"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="Hospital"
-                    android:textAppearance="@android:style/TextAppearance.Medium"
-                    android:textColor="#000000"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/imgsetting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="50dp"
-
-                    android:src="@drawable/img_settings" />
-
-                <android.support.v7.widget.SearchView
-                    android:id="@+id/sv"
-                    style="@style/SearchViewStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:layout_alignParentRight="true"
-                    app:queryHint="Search Doctor"/>
-
-            </RelativeLayout>
-
-    <android.support.v4.widget.NestedScrollView
+        <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/relative"
         android:scrollbars="none">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusableInTouchMode="true"
-            android:orientation="vertical">
-
-            <RelativeLayout
-                android:id="@+id/cardadv"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginTop="0dp">
-
-                <include
-                    android:id="@+id/card_view"
-                    layout="@layout/layout_advertise" />
-
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/address"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20sp"
-                android:layout_marginTop="0dp"
-                android:background="#fff"
-                android:text="Hospital "
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/address"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                android:background="#FFFFFF"
-                android:clipChildren="true"
-                android:clipToPadding="true"
-                android:scrollbars="vertical"
-                tools:ignore="NotSibling"
-                tools:listitem="@layout/building_item" />
+                <RelativeLayout
+                    android:id="@+id/cardadv"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="0dp">
+
+                    <include
+                        android:id="@+id/card_view"
+                        layout="@layout/layout_advertise" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginTop="0dp"
+                    android:background="#fff"
+                    android:text="Hospital "
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/address"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:background="#FFFFFF"
+                    android:clipChildren="true"
+                    android:clipToPadding="true"
+                    android:scrollbars="vertical"
+                    tools:ignore="NotSibling"
+                    tools:listitem="@layout/building_item" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-    </LinearLayout>
 
 </FrameLayout>

@@ -21,6 +21,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+
         <activity android:name=".Activity.DoctorsByHospital"></activity>
         <activity android:name=".Activity.NewActivity" />
         <activity android:name=".Activity.MyFavouriteHospitalActivity" />

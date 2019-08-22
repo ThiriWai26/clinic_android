@@ -12,16 +12,31 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.clinic_project.R;
+import com.example.clinic_project.fragment.FragmentClinic;
+import com.example.clinic_project.fragment.FragmentDoctor;
 import com.example.clinic_project.fragment.FragmentHostipal;
+import com.example.clinic_project.fragment.FragmentLab;
+import com.example.clinic_project.fragment.FragmentMyBooking;
+import com.example.clinic_project.fragment.FragmentMyFavouriteDoctor;
+import com.example.clinic_project.fragment.FragmentMyFavouriteHospital;
 import com.example.clinic_project.fragment.HomeFragment;
+import com.example.clinic_project.service.Token;
 
-public class HomenaviActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomenaviActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
+    private TextView tbTitle;
+    private Button btnDoctor, btnHospital, btnLab, btnClinc;
+    private CardView mybooking,myfavdoctor,myfavhospital;
+    private String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,49 +61,28 @@ public class HomenaviActivity extends AppCompatActivity implements NavigationVie
 
     private void initActivity() {
 
-//        btnDoctor = findViewById(R.id.btn_doctor);
-//        btnHospital = findViewById(R.id.btn_hospital);
-//        btnLab = findViewById(R.id.btn_lab);
-//        btnClinc = findViewById(R.id.btn_clinic);
-//        mybooking = findViewById(R.id.mybooking);
-//        myfavdoctor = findViewById(R.id.myfavdoctor);
-//        myfavhospital = findViewById(R.id.myfabhospital);
-//
-//        btnDoctor.setOnClickListener(this);
-//        btnHospital.setOnClickListener(this);
-//        btnLab.setOnClickListener(this);
-//        btnClinc.setOnClickListener(this);
-//
-//        b = getIntent().getExtras();
-//
-//        token = b.getString("Token");
-//        Log.e("HomeActivityToken", token);
-//
-//        mybooking.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), MyBookingActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        myfavdoctor.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), MyFavouriteDoctorActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        myfavhospital.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), MyFavouriteHospitalActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-        loadFragment(new HomeFragment());
+        tbTitle=findViewById(R.id.tvTitle);
+        tbTitle.setText("Clinic Management");
 
+        btnDoctor = findViewById(R.id.btn_doctor);
+        btnHospital = findViewById(R.id.btn_hospital);
+        btnLab = findViewById(R.id.btn_lab);
+        btnClinc = findViewById(R.id.btn_clinic);
+
+        mybooking = findViewById(R.id.mybooking);
+        myfavdoctor = findViewById(R.id.myfavdoctor);
+        myfavhospital = findViewById(R.id.myfavhospital);
+
+        btnDoctor.setOnClickListener(this);
+        btnHospital.setOnClickListener(this);
+        btnLab.setOnClickListener(this);
+        btnClinc.setOnClickListener(this);
+
+        mybooking.setOnClickListener(this);
+        myfavdoctor.setOnClickListener(this);
+        myfavhospital.setOnClickListener(this);
+
+        token= Token.MyToken.getToken();
     }
 
     @Override
@@ -133,48 +127,54 @@ public class HomenaviActivity extends AppCompatActivity implements NavigationVie
         return true;
     }
 
-//    @Override
-//    public void onClick(View v) {
-//
-//        if (v == btnDoctor) {
-//
-//
-//            intent = new Intent(HomenaviActivity.this, DrawerActivity.class);
-//
-//            startActivity(intent);
-//
-//        }
-//
-//        if (v == btnHospital) {
-//
-//            intent = new Intent(HomenaviActivity.this, HospitalActivity.class);
-//
-//            startNextActivity(intent);
-//
-//        }
-//
-//        if (v == btnLab) {
-//
-//            intent = new Intent(HomenaviActivity.this, LabActivity.class);
-//
-//            startNextActivity(intent);
-//
-//        }
-//
-//        if (v == btnClinc) {
-//
-//            intent = new Intent(HomenaviActivity.this, ClinicActivity.class);
-//
-//            startNextActivity(intent);
-//
-//        }
-//
-//    }
 
     private void loadFragment(Fragment fragment){
-
         getSupportFragmentManager().beginTransaction().replace(R.id.frame,fragment).commit();
 
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v == btnDoctor) {
+            tbTitle.setText("Doctors");
+            loadFragment(new FragmentDoctor());
+        }
+
+        if (v == btnHospital) {
+
+            tbTitle.setText("Hospitals");
+            loadFragment(new FragmentHostipal());
+        }
+
+        if (v == btnLab) {
+
+            tbTitle.setText("Labs");
+            loadFragment(new FragmentLab());
+        }
+
+        if (v == btnClinc) {
+
+            tbTitle.setText("Clinics");
+            loadFragment(new FragmentClinic());
+        }
+
+        if (v == mybooking){
+
+            tbTitle.setText("My Booking");
+            loadFragment(new FragmentMyBooking());
+        }
+
+        if(v == myfavdoctor){
+            tbTitle.setText("My Favourite Doctors");
+            loadFragment(new FragmentMyFavouriteDoctor());
+        }
+
+        if(v == myfavhospital){
+
+            tbTitle.setText("My Favourite Hospitals");
+            loadFragment(new FragmentMyFavouriteHospital());
+        }
+
+
+    }
 }
