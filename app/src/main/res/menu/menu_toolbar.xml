@@ -19,7 +19,7 @@
 
     <item
         android:id="@+id/action_search"
-        android:icon="@drawable/search_img"
+        android:icon="@drawable/ic_menusr"
         android:orderInCategory="100"
         android:title="Search"
         app:actionViewClass="android.support.v7.widget.SearchView"

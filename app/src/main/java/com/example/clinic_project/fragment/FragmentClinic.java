@@ -1,23 +1,29 @@
 package com.example.clinic_project.fragment;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.clinic_project.Activity.ClinicDetailActivity;
+import com.example.clinic_project.Activity.MainActivity;
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingListResponse;
 import com.example.clinic_project.Response.TownListResponse;
@@ -58,6 +64,8 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
     private LinearLayoutManager linearLayoutManager;
     private String token = null;
 
+    private Context mContext;
+
 
     public FragmentClinic() {
         // Required empty public constructor
@@ -80,6 +88,7 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         token = Token.MyToken.getToken();
+
 
         Log.e("ClinicActivityToken", token);
 
@@ -162,8 +171,31 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
     }
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_toolbar, menu);
         super.onCreateOptionsMenu(menu, inflater);
+        menu.clear();
+        inflater.inflate(R.menu.menu_toolbar, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+
+
+        SearchView searchView = new SearchView(((MainActivity) mContext).getSupportActionBar().getThemedContext());
+        MenuItemCompat.setShowAsAction(item, MenuItemCompat.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);
+        MenuItemCompat.setActionView(item, searchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
 }

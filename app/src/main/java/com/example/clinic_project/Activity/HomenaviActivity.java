@@ -171,7 +171,7 @@ public class HomenaviActivity extends AppCompatActivity implements NavigationVie
 
         if(v == myfavhospital){
 
-            tbTitle.setText("My Favourite Hospitals");
+            tbTitle.setText("My Favourite Hospital");
             loadFragment(new FragmentMyFavouriteHospital());
         }
 

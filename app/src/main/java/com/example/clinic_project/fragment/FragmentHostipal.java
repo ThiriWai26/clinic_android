@@ -17,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -45,7 +46,7 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuildingClickListener {
+public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuildingClickListener{
 
     private SearchView searchView;
     private RecyclerView recyclerView;
@@ -175,77 +176,59 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
         inflater.inflate(R.menu.menu_toolbar, menu);
         super.onCreateOptionsMenu(menu, inflater);
 
+//        MenuItem searchItem = menu.findItem(R.id.action_search);
+//        SearchView searchView = (SearchView) searchItem.getActionView();
+//        searchView.setOnQueryTextListener(this);
+//        searchView.setQueryHint("Search");
+
     }
 
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
-//        inflater.inflate(R.menu.menu_toolbar,menu);
-//        super.onCreateOptionsMenu(menu,inflater);
+//    @Override
+//    public boolean onQueryTextSubmit(String query) {
 //
-//        MenuItem fav ;
-//        fav = menu.add("Doctor");
-//        fav.setTitle("Doctor");
+//        query = query.toLowerCase(Locale.getDefault());
+//        if(query.length() != 0){
+//            newBuildings.clear();
+//            for (Building building : building) {
+//                if (building.name.toLowerCase(Locale.getDefault()).contains(query)) {
+//
+//                    newBuildings.add(building);
+//                }
+//            }
+//            adapter.addItem(newBuildings);
+//        } else {
+//            adapter.addItem(building);
+//        }
+//        Toast.makeText(getContext(), query, Toast.LENGTH_LONG).show();
+//        return false;
+//    }
 //
 //
+//    @Override
+//    public boolean onQueryTextChange(String newText) {
+//
+//        newText = newText.toLowerCase(Locale.getDefault());
+//        if(newText.length() != 0){
+//            newBuildings.clear();
+//            for (Building building : building) {
+//                if (building.name.toLowerCase(Locale.getDefault()).contains(newText)) {
+//
+//                    newBuildings.add(building);
+//                }
+//            }
+//            adapter.addItem(newBuildings);
+//        } else {
+//            adapter.addItem(building);
+//        }
+//
+//        Toast.makeText(getContext(), newText, Toast.LENGTH_LONG).show();
+//        return false;
 //    }
 
 
-//    private void searchViewFilter() {
 
-//        searchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//
-//                query = query.toLowerCase(Locale.getDefault());
-//                if(query.length() != 0){
-//                    newBuildings.clear();
-//                    for (Building building : building) {
-//                        if (building.name.toLowerCase(Locale.getDefault()).contains(query)) {
-//
-//                            newBuildings.add(building);
-//                        }
-//                    }
-//                    adapter.addItem(newBuildings);
-//                } else {
-//                    adapter.addItem(building);
-//                }
-////                Toast.makeText(getApplicationContext(), query, Toast.LENGTH_LONG).show();
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//
-//                newText = newText.toLowerCase(Locale.getDefault());
-//                if(newText.length() != 0){
-//                    newBuildings.clear();
-//                    for (Building building : building) {
-//                        if (building.name.toLowerCase(Locale.getDefault()).contains(newText)) {
-//
-//                            newBuildings.add(building);
-//                        }
-//                    }
-//                    adapter.addItem(newBuildings);
-//                } else {
-//                    adapter.addItem(building);
-//                }
-//
-//                Toast.makeText(getApplicationContext(), newText, Toast.LENGTH_LONG).show();
-//                return false;
-//            }
-//
-//
-//        });
     }
 
 
-//    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
-//    private void searchViewModify() {
-//
-//        android.support.v7.widget.SearchView.SearchAutoComplete searchAutoComplete = searchView.findViewById(R.id.search_src_text);
-//        searchAutoComplete.setTextColor(Color.BLACK);
-//        searchAutoComplete.setHint("Search Hospital");
-//        searchAutoComplete.setHintTextColor(Color.BLACK);
-//        searchAutoComplete.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-//    }
 
 

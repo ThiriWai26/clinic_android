@@ -31,12 +31,14 @@
                 android:typeface="normal" />
         </android.support.v7.widget.Toolbar>
 
+
     </android.support.design.widget.AppBarLayout>
 
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
     <ScrollView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"

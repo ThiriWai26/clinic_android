@@ -3,11 +3,9 @@ package com.example.clinic_project.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.media.SubtitleData;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.menu.MenuView;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -22,7 +20,6 @@ import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v7.widget.Toolbar;
 
 import com.example.clinic_project.Activity.DoctorDetailActivity;
 import com.example.clinic_project.R;
@@ -30,7 +27,6 @@ import com.example.clinic_project.Response.DoctorListResponse;
 import com.example.clinic_project.Response.SpecializationListResponse;
 import com.example.clinic_project.adapter.DoctorAdapter;
 import com.example.clinic_project.api.Api;
-import com.example.clinic_project.constant.NaviDrawerConstant;
 import com.example.clinic_project.holder.DoctorHolder;
 import com.example.clinic_project.model.Doctor;
 import com.example.clinic_project.model.SpecializationList;
@@ -51,6 +47,7 @@ public class FragmentDoctor extends Fragment implements DoctorHolder.OnDoctorCli
 
     private RecyclerView recyclerView;
     private RetrofitService service;
+    private SearchView searchView;
     private TextView txtdoctor;
     private ImageView imgsetting;
 
@@ -76,13 +73,11 @@ public class FragmentDoctor extends Fragment implements DoctorHolder.OnDoctorCli
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment_doctor, container, false);
 
-//        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-//        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-
         recyclerView = view.findViewById(R.id.recyclerView);
         service = new RetrofitService();
         txtdoctor = view.findViewById(R.id.textdoctor);
         imgsetting = view.findViewById(R.id.imgsetting);
+        searchView = view.findViewById(R.id.action_search);
 
         adapter = new DoctorAdapter(this);
         token = Token.MyToken.getToken();
@@ -92,11 +87,68 @@ public class FragmentDoctor extends Fragment implements DoctorHolder.OnDoctorCli
 
         getSpecializationList(token);
         getDoctorList();
+//        searchViewFilter();
+//        searchViewModify();
 
         return view;
 
     }
 
+//    private void searchViewFilter() {
+//
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String s) {
+//
+//                s = s.toLowerCase(Locale.getDefault());
+//                if(s.length() != 0){
+//                    newDoctors.clear();
+//                    for (Doctor doctors: doctors){
+//                        if (doctors.name.toLowerCase(Locale.getDefault()).contains(s)){
+//                            newDoctors.add(doctors);
+//                        }
+//                    }
+//                    adapter.addDoctors(newDoctors);
+//                }else{
+//                    adapter.addDoctors(doctors);
+//                }
+//                Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show();
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String s) {
+//
+//                s = s.toLowerCase(Locale.getDefault());
+//                if (s.length() != 0){
+//                    newDoctors.clear();
+//                    for (Doctor doctors : doctors) {
+//                        if (doctors.name.toLowerCase(Locale.getDefault()).contains(s)) {
+//                            newDoctors.add(doctors);
+//                        }
+//                    }
+//                    adapter.addDoctors(newDoctors);
+//                }else {
+//                    adapter.addDoctors(doctors);
+//                }
+//                Toast.makeText(getContext(),s, Toast.LENGTH_LONG).show();
+//
+//                return false;
+//            }
+//        });
+//
+//    }
+//
+//    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+//    private void searchViewModify() {
+//
+//        android.support.v7.widget.SearchView.SearchAutoComplete searchAutoComplete = searchView.findViewById(R.id.search_src_text);
+//        searchAutoComplete.setTextColor(Color.BLACK);
+//        searchAutoComplete.setHint("Search Doctor");
+//        searchAutoComplete.setHintTextColor(Color.BLACK);
+//        searchAutoComplete.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
+//
+//    }
 
     private void getDoctorList() {
 
@@ -171,24 +223,73 @@ public class FragmentDoctor extends Fragment implements DoctorHolder.OnDoctorCli
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
     }
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_toolbar, menu);
+
         super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_toolbar, menu);
 
-    }
-
-//    public boolean onOptionsItemSelected(MenuItem item){
-//        int itemId = item.getItemId();
-//        String message = "Doctor";
-//        if(itemId == R.id.txthospital);
-//        {
-//            message += "Search Doctor";
-//        }
+//        MenuItem menuItem =  menu.findItem(R.id.action_search);
+//        searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                searchView.clearFocus();
+//                return false;
+//            }
 //
-//        return super.onOptionsItemSelected(item);
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                return false;
+//            }
+//        });
+
     }
 
+    }
 
-
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        super.onPrepareOptionsMenu(menu);
+//        inflater.inflate(R.menu.menu_action_search, menu);
+//        MenuItem item = menu.findItem(R.id.action_search);
+//        searchView = (SearchView) MenuItemCompat.getActionView(item);
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String s) {
+//                searchView.clearFocus();
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String s) {
+//                final List<MyModel> filteredList = filter(mArrayList, s.toLowerCase());
+//                mAdapter.setFilter(filteredList);
+//                return true;
+//            }
+//        });
+//
+//    }
+//
+//    private List<MyModel.Data> filter(List<MyModel.Data> models, String query) {
+//        query = query.toLowerCase();
+//        final List<MyModel.Data> filteredList = new ArrayList<>();
+//        for (MyModel model : models) {
+//            final String text = (model.getCustmorName()).toLowerCase();
+//            if (text.contains(query)) {
+//                filteredList.add(model);
+//            }
+//        }
+//        return filteredList;
+//    }
+//
+//Class- MyFilterAdpater
+//
+//private ArrayList<MyModel>  mResultList;
+//
+//public void setFilter(List<MyModel.Data> model) {
+//        mResultList = new ArrayList<>();
+//        mResultList.addAll(model);
+//        notifyDataSetCh
