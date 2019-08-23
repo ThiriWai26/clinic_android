@@ -16,9 +16,16 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MyBookingHolder extends RecyclerView.ViewHolder {
 
     private OnItemClickListener listener;
+
     private CircleImageView imgdoctor;
     private TextView txtdoctorname,txthospitalname,txtDate,txtMap;
     private Button btncancel;
+
+    public interface OnItemClickListener  {
+
+        void onItemClick(String date, int timeId);
+
+    }
 
     public MyBookingHolder(@NonNull View itemView, OnItemClickListener listener) {
 
@@ -42,11 +49,7 @@ public class MyBookingHolder extends RecyclerView.ViewHolder {
         return new MyBookingHolder(view,listener);
     }
 
-    public interface OnItemClickListener  {
 
-        void onItemClick(String date, int timeId);
-
-    }
 }
 
 

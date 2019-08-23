@@ -61,15 +61,15 @@ public class ClinicDetailActivity extends AppCompatActivity {
         Log.e("buildingId",String.valueOf(buildingId));
         getBuildingDetail();
 
-        imgback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getApplicationContext(), ClinicActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        imgback.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent(getApplicationContext(), ClinicActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
     }
 
     private void getBuildingDetail() {

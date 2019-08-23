@@ -14,13 +14,24 @@
         android:layout_height="match_parent" />
 
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_home_navi"
-        app:menu="@menu/activity_drawer_drawer" />
+    <!--<android.support.design.widget.NavigationView-->
+        <!--android:id="@+id/nav_view1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="start"-->
+        <!--android:fitsSystemWindows="true"-->
+        <!--app:headerLayout="@layout/nav_header_home_navi"-->
+        <!--app:menu="@menu/activity_drawer_drawer" >-->
+
+        <ExpandableListView
+            android:id="@+id/navList"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|start"
+            android:background="#ffffff"
+            android:dividerHeight="0.5dp"
+            android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"/>
+
+    <!--</android.support.design.widget.NavigationView>-->
 
 </android.support.v4.widget.DrawerLayout>
