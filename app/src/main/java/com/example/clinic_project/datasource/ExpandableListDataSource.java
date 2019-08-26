@@ -25,19 +25,15 @@ public class ExpandableListDataSource {
 
         List<String> HomeNavigation = Arrays.asList(context.getResources().getStringArray(R.array.HomeNavigation));
 
-        List<String> homes = Arrays.asList(context.getResources().getStringArray(R.array.homes));
         List<String> medicines = Arrays.asList(context.getResources().getStringArray(R.array.medicines));
         List<String> favourites = Arrays.asList(context.getResources().getStringArray(R.array.favourites));
-        List<String> profiles = Arrays.asList(context.getResources().getStringArray(R.array.profiles));
-        List<String> settings = Arrays.asList(context.getResources().getStringArray(R.array.settings));
-        List<String> logout = Arrays.asList(context.getResources().getStringArray(R.array.logouts));
 
-        expandableListData.put(HomeNavigation.get(0), homes);
+        expandableListData.put(HomeNavigation.get(0), null);
         expandableListData.put(HomeNavigation.get(1), medicines);
         expandableListData.put(HomeNavigation.get(2), favourites);
-        expandableListData.put(HomeNavigation.get(3), profiles);
-        expandableListData.put(HomeNavigation.get(4), settings);
-        expandableListData.put(HomeNavigation.get(5), logout);
+        expandableListData.put(HomeNavigation.get(3), null);
+        expandableListData.put(HomeNavigation.get(4), null);
+        expandableListData.put(HomeNavigation.get(5), null);
 
         return expandableListData;
     }

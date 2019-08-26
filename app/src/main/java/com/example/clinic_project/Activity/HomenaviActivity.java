@@ -160,11 +160,19 @@ public class HomenaviActivity extends AppCompatActivity implements  View.OnClick
                         .get(childPosition).toString();
                 getSupportActionBar().setTitle(selectedItem);
 
-                if (items[1].equals(mExpandableListTitle.get(groupPosition))) {
+                if (items[0].equals(mExpandableListTitle.get(groupPosition))) {
                     mNavigationManager.showFragmentAction(selectedItem);
-                } else if (items[2].equals(mExpandableListTitle.get(groupPosition))) {
+                } else if (items[1].equals(mExpandableListTitle.get(groupPosition))) {
                     mNavigationManager.showFragmentComedy(selectedItem);
-                }  else {
+                } else if (items[2].equals(mExpandableListTitle.get(groupPosition))) {
+                    mNavigationManager.showFragmentDrama(selectedItem);
+                } else if (items[3].equals(mExpandableListTitle.get(groupPosition))) {
+                    mNavigationManager.showFragmentMusical(selectedItem);
+                } else if (items[4].equals(mExpandableListTitle.get(groupPosition))) {
+                    mNavigationManager.showFragmentThriller(selectedItem);
+                } else if (items[5].equals(mExpandableListTitle.get(groupPosition))) {
+                    mNavigationManager.showFragmentThriller(selectedItem);
+                } else {
                     throw new IllegalArgumentException("Not supported fragment type");
                 }
 

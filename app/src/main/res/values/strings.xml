@@ -44,12 +44,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="HomeNavigation">
-        <item>Home</item>
-        <item>Medicine</item>
-        <item>Favourite</item>
-        <item>Profile</item>
-        <item>Setting</item>
-        <item>Log Out</item>
+        <item >Home</item>
+        <item >Medicine</item>
+        <item >Favourite</item>
+        <item >Profile</item>
+        <item >Setting</item>
+        <item >Log Out</item>
     </string-array>
 
     <string-array name="homes">
@@ -57,23 +57,25 @@
     </string-array>
 
     <string-array name="medicines">
-        <item>Doctor</item>
-        <item>Hospital</item>
-        <item>Clinic</item>
-        <item>Lab</item>
+        <item> Hospital </item>
+        <item> Doctor </item>
+        <item> Lab </item>
+        <item> Clinic </item>
     </string-array>
 
     <string-array name="favourites">
-        <item>My Booking</item>
-        <item>My Favourite Doctor</item>
-        <item>My Favourite Hospital</item>
+        <item> My Booking </item>
+        <item> My Favourite Doctor </item>
+        <item> My Favourite Hospital </item>
     </string-array>
 
-    <string-array name="profiles" />
 
-    <string-array name="settings" />
 
-    <string-array name="logouts" />
+    <string-array name="profiles"/>
+
+    <string-array name="settings"/>
+
+    <string-array name="logouts"/>
 
 
 </resources>

@@ -9,7 +9,7 @@ import com.example.clinic_project.fragment.HomeFragment;
 
 public class TabPagerAdapter extends FragmentStatePagerAdapter {
 
-    String[] tab = {"Home"};
+    String[] tab = {"home"};
 
     public TabPagerAdapter(FragmentManager fm) {
         super(fm);

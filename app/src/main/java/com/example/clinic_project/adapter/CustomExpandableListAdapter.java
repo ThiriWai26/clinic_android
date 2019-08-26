@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.clinic_project.R;
@@ -46,8 +47,12 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             convertView = mLayoutInflater.inflate(R.layout.list_item, null);
         }
+
         TextView expandedListTextView = (TextView) convertView
             .findViewById(R.id.expandedListItem);
+
+        ImageView expandableImgaeView= convertView.findViewById(R.id.expandable_image);
+        expandableImgaeView.setImageResource(R.drawable.home);
         expandedListTextView.setText(expandedListText);
         return convertView;
     }
@@ -82,6 +87,10 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         }
         TextView listTitleTextView = (TextView) convertView.findViewById(R.id.listTitle);
         listTitleTextView.setTypeface(null, Typeface.BOLD);
+        listTitleTextView.setText(listTitle);
+
+        ImageView expandableImageView1 = convertView.findViewById(R.id.expandable_image1);
+        expandableImageView1.setImageResource(R.drawable.hearticon);
         listTitleTextView.setText(listTitle);
         return convertView;
     }
