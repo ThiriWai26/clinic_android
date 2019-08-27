@@ -1,31 +1,18 @@
 package com.example.clinic_project.Activity;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.database.DataSetObserver;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.clinic_project.R;
 import com.example.clinic_project.adapter.CustomExpandableListAdapter;
@@ -37,7 +24,6 @@ import com.example.clinic_project.fragment.FragmentLab;
 import com.example.clinic_project.fragment.FragmentMyBooking;
 import com.example.clinic_project.fragment.FragmentMyFavouriteDoctor;
 import com.example.clinic_project.fragment.FragmentMyFavouriteHospital;
-import com.example.clinic_project.fragment.HomeFragment;
 import com.example.clinic_project.fragment.NavigationManager;
 import com.example.clinic_project.service.Token;
 
@@ -60,11 +46,14 @@ public class HomenaviActivity extends AppCompatActivity implements  View.OnClick
     private ActionBarDrawerToggle mDrawerToggle;
     private ExpandableListView mExpandableListView;
     private ExpandableListAdapter mExpandableListAdapter;
+
     private List<String> mExpandableListTitle;
     private Map<String, List<String>> mExpandableListData;
 
-    private NavigationManager mNavigationManager;
+    public List<Integer> groupImages;
+    public HashMap<Integer, List<Integer>> childImages;
 
+    private NavigationManager mNavigationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +83,6 @@ public class HomenaviActivity extends AppCompatActivity implements  View.OnClick
 
         View listHeaderView = inflater.inflate(R.layout.nav_header_drawer2, null, false);
         mExpandableListView.addHeaderView(listHeaderView);
-
         mExpandableListData = ExpandableListDataSource.getData(this);
         mExpandableListTitle = new ArrayList(mExpandableListData.keySet());
 
@@ -108,7 +96,32 @@ public class HomenaviActivity extends AppCompatActivity implements  View.OnClick
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+//        prepareListData();
+
     }
+
+//    private void prepareListData() {
+//
+//        groupImages= new ArrayList<>();
+//        groupImages.add(R.drawable.hearticon);
+//        groupImages.add(R.drawable.hearticon2);
+//
+////        childImages = new HashMap<Integer, List<Integer>>();
+//        List<Integer> favourites = new ArrayList<>();
+//        favourites.add(R.drawable.ic_dr_home);
+//        favourites.add(R.drawable.ic_dr_phone);
+//        favourites.add(R.drawable.ic_clinic);
+//
+//        List<Integer> medicines = new ArrayList<>();
+//        medicines.add(R.drawable.ic_doctor);
+//        medicines.add(R.drawable.ic_lab);
+//        medicines.add(R.drawable.ic_clinic);
+//        medicines.add(R.drawable.ic_dr_home);
+
+//        childImages.put(groupImages.get(2), favourites);
+//        childImages.put(groupImages.get(1), medicines);
+
+//    }
 
     private void setupDrawer() {
 
@@ -161,17 +174,17 @@ public class HomenaviActivity extends AppCompatActivity implements  View.OnClick
                 getSupportActionBar().setTitle(selectedItem);
 
                 if (items[0].equals(mExpandableListTitle.get(groupPosition))) {
-                    mNavigationManager.showFragmentAction(selectedItem);
+                    mNavigationManager.showFragmentHome(selectedItem);
                 } else if (items[1].equals(mExpandableListTitle.get(groupPosition))) {
-                    mNavigationManager.showFragmentComedy(selectedItem);
+                    mNavigationManager.showFragmentMedicine(selectedItem);
                 } else if (items[2].equals(mExpandableListTitle.get(groupPosition))) {
-                    mNavigationManager.showFragmentDrama(selectedItem);
+                    mNavigationManager.showFragmentFavourite(selectedItem);
                 } else if (items[3].equals(mExpandableListTitle.get(groupPosition))) {
-                    mNavigationManager.showFragmentMusical(selectedItem);
+                    mNavigationManager.showFragmentProfile(selectedItem);
                 } else if (items[4].equals(mExpandableListTitle.get(groupPosition))) {
-                    mNavigationManager.showFragmentThriller(selectedItem);
+                    mNavigationManager.showFragmentSetting(selectedItem);
                 } else if (items[5].equals(mExpandableListTitle.get(groupPosition))) {
-                    mNavigationManager.showFragmentThriller(selectedItem);
+                    mNavigationManager.showFragmentLogout(selectedItem);
                 } else {
                     throw new IllegalArgumentException("Not supported fragment type");
                 }
@@ -185,7 +198,7 @@ public class HomenaviActivity extends AppCompatActivity implements  View.OnClick
 
         if (mNavigationManager != null) {
             String firstActionMovie = getResources().getStringArray(R.array.medicines)[0];
-            mNavigationManager.showFragmentAction(firstActionMovie);
+            mNavigationManager.showFragmentHome(firstActionMovie);
             getSupportActionBar().setTitle(firstActionMovie);
         }
     }

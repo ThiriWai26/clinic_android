@@ -44,12 +44,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="HomeNavigation">
-        <item >Home</item>
-        <item >Medicine</item>
-        <item >Favourite</item>
-        <item >Profile</item>
-        <item >Setting</item>
-        <item >Log Out</item>
+        <item attribute="@drawable/hearticon">Home</item>
+        <item attribute="@drawable/hearticon2">Medicine</item>
+        <item attribute="@drawable/hearticon3">Favourite</item>
+        <item attribute="@drawable/hearticon4">Profile</item>
+        <item attribute="@drawable/hearticon2">Setting</item>
+        <item attribute="@drawable/hearticon">Log Out</item>
     </string-array>
 
     <string-array name="homes">

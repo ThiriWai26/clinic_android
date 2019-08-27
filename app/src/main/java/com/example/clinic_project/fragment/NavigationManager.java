@@ -6,13 +6,15 @@ package com.example.clinic_project.fragment;
 
 public interface NavigationManager {
 
-    void showFragmentAction(String title);
+    void showFragmentFavourite(String title);
 
-    void showFragmentComedy(String title);
+    void showFragmentHome(String title);
 
-    void showFragmentDrama(String title);
+    void showFragmentLogout(String title);
 
-    void showFragmentMusical(String title);
+    void showFragmentMedicine(String title);
 
-    void showFragmentThriller(String title);
+    void showFragmentProfile(String title);
+
+    void showFragmentSetting(String title);
 }
