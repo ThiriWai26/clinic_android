@@ -66,7 +66,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 //        expandableImgaeView.setImageResource(imageId);
         expandedListTextView.setText(expandedListText);
 
-        expandableImgaeView.setImageResource(R.drawable.ic_clinic);
+        expandableImgaeView.setImageResource(R.drawable.ic_doctor);
 
         String name = getGroup(listPosition).toString();
 

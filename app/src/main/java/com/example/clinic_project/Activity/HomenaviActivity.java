@@ -96,7 +96,6 @@ public class HomenaviActivity extends AppCompatActivity implements  View.OnClick
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-//        prepareListData();
 
     }
 
@@ -149,6 +148,8 @@ public class HomenaviActivity extends AppCompatActivity implements  View.OnClick
 
     private void addDrawerItems() {
 
+        prepareListData();
+
         mExpandableListAdapter = new CustomExpandableListAdapter(this, mExpandableListTitle, mExpandableListData);
         mExpandableListView.setAdapter(mExpandableListAdapter);
         mExpandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -192,6 +193,28 @@ public class HomenaviActivity extends AppCompatActivity implements  View.OnClick
                 return false;
             }
         });
+    }
+
+    private void prepareListData() {
+
+        groupImages = new ArrayList<>();
+
+        childImages = new HashMap<Integer, List<Integer>>();
+
+        List<Integer> favourites = new ArrayList<>();
+        favourites.add(R.drawable.ic_dr_home);
+        favourites.add(R.drawable.ic_dr_phone);
+        favourites.add(R.drawable.ic_clinic);
+
+        List<Integer> medicines = new ArrayList<>();
+        medicines.add(R.drawable.ic_doctor);
+        medicines.add(R.drawable.ic_lab);
+        medicines.add(R.drawable.ic_clinic);
+        medicines.add(R.drawable.ic_dr_home);
+
+//        childImages.put(groupImages.get(2), favourites);
+//        childImages.put(groupImages.get(1), medicines);
+
     }
 
     private void selectFirstItemAsDefault() {
