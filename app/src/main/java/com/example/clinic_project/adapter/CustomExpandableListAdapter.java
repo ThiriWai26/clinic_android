@@ -28,6 +28,8 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     public List<Integer> groupImages;
     public HashMap<Integer, List<Integer>> childImages;
 
+    public int imageId;
+
     public CustomExpandableListAdapter(Context context, List<String> expandableListTitle,
                                        Map<String, List<String>> expandableListDetail) {
         mContext = context;
@@ -66,7 +68,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 //        expandableImgaeView.setImageResource(imageId);
         expandedListTextView.setText(expandedListText);
 
-        expandableImgaeView.setImageResource(R.drawable.ic_doctor);
+//        expandableImgaeView.setImageResource(R.drawable.ic_doctor);
 
         String name = getGroup(listPosition).toString();
 
@@ -144,6 +146,20 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         listTitleTextView.setText(listTitle);
 
         ImageView expandableImageView1 = convertView.findViewById(R.id.expandable_image1);
+
+//        imageId = this.groupImages.get(listPosition);
+//        expandableImageView1.setImageResource(imageId);
+
+//        if( getChildrenCount(listPosition) == 0){
+//            expandableImageView1.setVisibility( View.INVISIBLE);
+//        }
+//        else {
+//            expandableImageView1.setVisibility( View.VISIBLE);
+//            expandableImageView1.setImageResource (isExpanded ? R.drawable.ic_left_arrow : R.drawable.ic_right_arrow);
+//        }
+
+
+
         expandableImageView1.setImageResource(R.drawable.ic_dr_home);
 
 //        if (listTitle == "Favourite")
@@ -171,10 +187,8 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 //            expandableImageView1.setImageResource(R.drawable.ic_logout);
 //        }
 
-//        ImageView expandableImageView1 = convertView.findViewById(R.id.expandable_image1);
 //        int imageId = this.groupImages.get(listPosition);
 //        expandableImageView1.setImageResource(imageId);
-//        listTitleTextView.setText(listTitle);
 
         return convertView;
 

@@ -52,6 +52,16 @@
         <item>Log Out</item>
     </string-array>
 
+    <string name="HomeNavigationicons">
+        <item attribute="@drawable/ic_dr_home"> </item>
+        <item attribute="@drawable/fav2"> </item>
+        <item attribute="@drawable/medical_service"> </item>
+        <item attribute="@drawable/ic_doctor"> </item>
+        <item attribute="@drawable/setting"> </item>
+        <item attribute="@drawable/ic_logout"> </item>
+
+    </string>
+
     <string-array name="homes">
         <item>Home</item>
     </string-array>
@@ -70,12 +80,19 @@
     </string-array>
 
 
+    <string-array name="profiles" />
 
-    <string-array name="profiles"/>
+    <string-array name="settings" />
 
-    <string-array name="settings"/>
+    <string-array name="logouts" />
+    <string name="title_activity_another_homenavi">AnotherHomenaviActivity</string>
 
-    <string-array name="logouts"/>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
 
 
 </resources>

@@ -1,6 +1,7 @@
 package com.example.clinic_project.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -11,13 +12,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 
+import com.example.clinic_project.Activity.AnotherHomenaviActivity;
 import com.example.clinic_project.R;
 import com.example.clinic_project.service.Token;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private Button btnDoctor, btnHospital, btnLab, btnClinc;
-    private CardView mybooking,myfavdoctor,myfavhospital;
+    private CardView mybooking, myfavdoctor, myfavhospital;
     private String token;
 
 
@@ -32,8 +34,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -56,7 +57,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         myfavdoctor.setOnClickListener(this);
         myfavhospital.setOnClickListener(this);
 
-        token= Token.MyToken.getToken();
+        token = Token.MyToken.getToken();
 //        Log.e("MyBookingActivityToken", token);
         return view;
 
@@ -68,40 +69,56 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
 
         if (v == btnDoctor) {
-            loadFragment(new FragmentDoctor());
+            Intent intent = new Intent(getContext(), AnotherHomenaviActivity.class);
+            intent.putExtra("fragment","Doctor");
+            startActivity(intent);
         }
 
         if (v == btnHospital) {
-            loadFragment(new FragmentHostipal());
+
+            Intent intent = new Intent(getContext(), AnotherHomenaviActivity.class);
+            intent.putExtra("fragment","Hospital");
+            startActivity(intent);
         }
 
         if (v == btnLab) {
-            loadFragment(new FragmentLab());
+
+            Intent intent = new Intent(getContext(), AnotherHomenaviActivity.class);
+            intent.putExtra("fragment","Lab");
+            startActivity(intent);
         }
 
         if (v == btnClinc) {
-            loadFragment(new FragmentClinic());
+
+            Intent intent = new Intent(getContext(), AnotherHomenaviActivity.class);
+            intent.putExtra("fragment","Clinic");
+            startActivity(intent);
         }
 
-        if (v == mybooking){
-            loadFragment(new FragmentMyBooking());
+        if (v == mybooking) {
+
+            Intent intent = new Intent(getContext(), AnotherHomenaviActivity.class);
+            intent.putExtra("fragment","Booking");
+            startActivity(intent);
         }
 
-        if(v == myfavdoctor){
-            loadFragment(new FragmentMyFavouriteDoctor());
+        if (v == myfavdoctor) {
+
+            Intent intent = new Intent(getContext(), AnotherHomenaviActivity.class);
+            intent.putExtra("fragment","Favdoctor");
+            startActivity(intent);
         }
 
-        if(v == myfavhospital){
-            loadFragment(new FragmentMyFavouriteHospital());
-        }
 
+        if (v == myfavhospital) {
+
+            Intent intent = new Intent(getContext(), AnotherHomenaviActivity.class);
+            intent.putExtra("fragment","Favhospital");
+            startActivity(intent);
+        }
 
 
     }
 
 
-    private void loadFragment(Fragment fragment){
-        getFragmentManager().beginTransaction().replace(R.id.frame,fragment).commit();
-
-    }
 }

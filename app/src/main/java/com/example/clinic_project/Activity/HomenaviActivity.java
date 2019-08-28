@@ -24,6 +24,7 @@ import com.example.clinic_project.fragment.FragmentLab;
 import com.example.clinic_project.fragment.FragmentMyBooking;
 import com.example.clinic_project.fragment.FragmentMyFavouriteDoctor;
 import com.example.clinic_project.fragment.FragmentMyFavouriteHospital;
+import com.example.clinic_project.fragment.HomeFragment;
 import com.example.clinic_project.fragment.NavigationManager;
 import com.example.clinic_project.service.Token;
 
@@ -32,7 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class HomenaviActivity extends AppCompatActivity implements  View.OnClickListener {
+public class HomenaviActivity extends AppCompatActivity {
 
     private TextView tbTitle;
     private Button btnDoctor, btnHospital, btnLab, btnClinc;
@@ -148,7 +149,7 @@ public class HomenaviActivity extends AppCompatActivity implements  View.OnClick
 
     private void addDrawerItems() {
 
-        prepareListData();
+//        prepareListData();
 
         mExpandableListAdapter = new CustomExpandableListAdapter(this, mExpandableListTitle, mExpandableListData);
         mExpandableListView.setAdapter(mExpandableListAdapter);
@@ -195,27 +196,27 @@ public class HomenaviActivity extends AppCompatActivity implements  View.OnClick
         });
     }
 
-    private void prepareListData() {
-
-        groupImages = new ArrayList<>();
-
-        childImages = new HashMap<Integer, List<Integer>>();
-
-        List<Integer> favourites = new ArrayList<>();
-        favourites.add(R.drawable.ic_dr_home);
-        favourites.add(R.drawable.ic_dr_phone);
-        favourites.add(R.drawable.ic_clinic);
-
-        List<Integer> medicines = new ArrayList<>();
-        medicines.add(R.drawable.ic_doctor);
-        medicines.add(R.drawable.ic_lab);
-        medicines.add(R.drawable.ic_clinic);
-        medicines.add(R.drawable.ic_dr_home);
-
-//        childImages.put(groupImages.get(2), favourites);
-//        childImages.put(groupImages.get(1), medicines);
-
-    }
+//    private void prepareListData() {
+//
+//        groupImages = new ArrayList<>();
+//
+//        childImages = new HashMap<Integer, List<Integer>>();
+//
+//        List<Integer> favourites = new ArrayList<>();
+//        favourites.add(R.drawable.ic_dr_home);
+//        favourites.add(R.drawable.ic_dr_phone);
+//        favourites.add(R.drawable.ic_clinic);
+//
+//        List<Integer> medicines = new ArrayList<>();
+//        medicines.add(R.drawable.ic_doctor);
+//        medicines.add(R.drawable.ic_lab);
+//        medicines.add(R.drawable.ic_clinic);
+//        medicines.add(R.drawable.ic_dr_home);
+//
+////        childImages.put(groupImages.get(2), favourites);
+////        childImages.put(groupImages.get(1), medicines);
+//
+//    }
 
     private void selectFirstItemAsDefault() {
 
@@ -232,27 +233,7 @@ public class HomenaviActivity extends AppCompatActivity implements  View.OnClick
         tbTitle=findViewById(R.id.tvTitle);
         tbTitle.setText("Clinic Management");
 
-        btnDoctor = findViewById(R.id.btn_doctor);
-        btnHospital = findViewById(R.id.btn_hospital);
-        btnLab = findViewById(R.id.btn_lab);
-        btnClinc = findViewById(R.id.btn_clinic);
-
-        mybooking = findViewById(R.id.mybooking);
-        myfavdoctor = findViewById(R.id.myfavdoctor);
-        myfavhospital = findViewById(R.id.myfavhospital);
-
-        btnDoctor.setOnClickListener(this);
-        btnHospital.setOnClickListener(this);
-        btnLab.setOnClickListener(this);
-        btnClinc.setOnClickListener(this);
-
-        mybooking.setOnClickListener(this);
-        myfavdoctor.setOnClickListener(this);
-        myfavhospital.setOnClickListener(this);
-
-        token= Token.MyToken.getToken();
-
-
+        loadFragment(new HomeFragment());
     }
 
     private void initItems() {
@@ -309,48 +290,4 @@ public class HomenaviActivity extends AppCompatActivity implements  View.OnClick
 
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v == btnDoctor) {
-            tbTitle.setText("Doctors");
-            loadFragment(new FragmentDoctor());
-        }
-
-        if (v == btnHospital) {
-
-            tbTitle.setText("Hospitals");
-            loadFragment(new FragmentHostipal());
-        }
-
-        if (v == btnLab) {
-
-            tbTitle.setText("Labs");
-            loadFragment(new FragmentLab());
-        }
-
-        if (v == btnClinc) {
-
-            tbTitle.setText("Clinics");
-            loadFragment(new FragmentClinic());
-        }
-
-        if (v == mybooking){
-
-            tbTitle.setText("My Booking");
-            loadFragment(new FragmentMyBooking());
-        }
-
-        if(v == myfavdoctor){
-            tbTitle.setText("My Favourite Doctors");
-            loadFragment(new FragmentMyFavouriteDoctor());
-        }
-
-        if(v == myfavhospital){
-
-            tbTitle.setText("My Favourite Hospital");
-            loadFragment(new FragmentMyFavouriteHospital());
-        }
-
-
-    }
 }
