@@ -21,10 +21,11 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Activity.NewCardViewActivity"></activity>
         <activity
             android:name=".Activity.AnotherHomenaviActivity"
             android:label="@string/title_activity_another_homenavi"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activity.DoctorsByHospital" />
         <activity android:name=".Activity.NewActivity" />
         <activity android:name=".Activity.MyFavouriteHospitalActivity" />

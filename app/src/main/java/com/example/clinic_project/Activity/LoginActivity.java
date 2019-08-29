@@ -56,7 +56,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         edtpassword = findViewById(R.id.password_id);
         token = pref.getString("token", null);
 
-
         service = new RetrofitService();
         if (token != null) {
 
