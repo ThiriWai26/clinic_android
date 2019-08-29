@@ -158,8 +158,6 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 //            expandableImageView1.setImageResource (isExpanded ? R.drawable.ic_left_arrow : R.drawable.ic_right_arrow);
 //        }
 
-
-
         expandableImageView1.setImageResource(R.drawable.ic_dr_home);
 
 //        if (listTitle == "Favourite")
