@@ -25,13 +25,17 @@ import android.widget.TextView;
 import com.example.clinic_project.R;
 import com.example.clinic_project.adapter.CustomExpandableListAdapter;
 import com.example.clinic_project.datasource.ExpandableListDataSource;
+import com.example.clinic_project.fragment.FragmentAssessment;
 import com.example.clinic_project.fragment.FragmentClinic;
 import com.example.clinic_project.fragment.FragmentDoctor;
+import com.example.clinic_project.fragment.FragmentDrag;
+import com.example.clinic_project.fragment.FragmentExamination;
 import com.example.clinic_project.fragment.FragmentHostipal;
 import com.example.clinic_project.fragment.FragmentLab;
 import com.example.clinic_project.fragment.FragmentMyBooking;
 import com.example.clinic_project.fragment.FragmentMyFavouriteDoctor;
 import com.example.clinic_project.fragment.FragmentMyFavouriteHospital;
+import com.example.clinic_project.fragment.FragmentRegistration;
 import com.example.clinic_project.fragment.NavigationManager;
 
 import java.util.ArrayList;
@@ -215,6 +219,22 @@ public class AnotherHomenaviActivity extends AppCompatActivity  implements Navig
         if(fragmentName.equals("Favhospital")){
             loadFragment(new FragmentMyFavouriteHospital());
             txttitle.setText("My Favourite Hospital");
+        }
+        if(fragmentName.equals("Examination")){
+            loadFragment(new FragmentExamination());
+            txttitle.setText("Examination");
+        }
+        if(fragmentName.equals("Registration")){
+            loadFragment(new FragmentRegistration());
+            txttitle.setText("Registration");
+        }
+        if(fragmentName.equals("Assessment")){
+            loadFragment(new FragmentAssessment());
+            txttitle.setText("Assessment");
+        }
+        if(fragmentName.equals("Drag")){
+            loadFragment(new FragmentDrag());
+            txttitle.setText("Drag");
         }
     }
 

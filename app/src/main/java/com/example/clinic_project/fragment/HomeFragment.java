@@ -19,7 +19,7 @@ import com.example.clinic_project.service.Token;
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private Button btnDoctor, btnHospital, btnLab, btnClinc;
-    private CardView mybooking, myfavdoctor, myfavhospital;
+    private CardView mybooking, myfavdoctor, myfavhospital, examination, registration, assessment, drag;
     private String token;
 
 
@@ -48,6 +48,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         myfavdoctor = view.findViewById(R.id.myfavdoctor);
         myfavhospital = view.findViewById(R.id.myfavhospital);
 
+        examination = view.findViewById(R.id.cardexam);
+        registration = view.findViewById(R.id.cardregi);
+        assessment = view.findViewById(R.id.cardassess);
+        drag = view.findViewById(R.id.carddrag);
+
         btnDoctor.setOnClickListener(this);
         btnHospital.setOnClickListener(this);
         btnLab.setOnClickListener(this);
@@ -56,6 +61,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         mybooking.setOnClickListener(this);
         myfavdoctor.setOnClickListener(this);
         myfavhospital.setOnClickListener(this);
+
+        examination.setOnClickListener(this);
+        registration.setOnClickListener(this);
+        assessment.setOnClickListener(this);
+        drag.setOnClickListener(this);
 
         token = Token.MyToken.getToken();
 //        Log.e("MyBookingActivityToken", token);
@@ -114,6 +124,34 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             Intent intent = new Intent(getContext(), AnotherHomenaviActivity.class);
             intent.putExtra("fragment","Favhospital");
+            startActivity(intent);
+        }
+
+        if (v == examination) {
+
+            Intent intent = new Intent(getContext(), AnotherHomenaviActivity.class);
+            intent.putExtra("fragment", "Examination");
+            startActivity(intent);
+        }
+
+        if (v == registration) {
+
+            Intent intent = new Intent(getContext(), AnotherHomenaviActivity.class);
+            intent.putExtra("fragment", "Registration");
+            startActivity(intent);
+        }
+
+        if (v == assessment) {
+
+            Intent intent = new Intent(getContext(), AnotherHomenaviActivity.class);
+            intent.putExtra("fragment","Assessment");
+            startActivity(intent);
+        }
+
+        if (v == drag) {
+
+            Intent intent = new Intent(getContext(), AnotherHomenaviActivity.class);
+            intent.putExtra("fragment", "Drag");
             startActivity(intent);
         }
 
