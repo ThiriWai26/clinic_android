@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/featuredphoto"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/examination11"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_margin="8dp"
+            android:layout_below="@+id/featuredphoto"
+            android:text="Nyein"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+
+        <ImageView
+            android:id="@+id/addressimg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/name"
+            android:layout_margin="8dp"
+            android:background="@drawable/locationimg"/>
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name"
+            android:layout_toRightOf="@+id/addressimg"
+            android:layout_margin="8dp"
+            android:text="Location"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/txtlocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/location"
+            android:layout_toRightOf="@id/addressimg"
+            android:layout_margin="8dp"
+            android:text=" Mandalay"
+            android:textColor="#000000"
+            android:textSize="12dp"/>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/txtlocation"
+            android:layout_marginTop="4dp"
+            android:background="#C7C4C4" />
+
+
+        <ImageView
+            android:id="@+id/locationimg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/view1"
+            android:layout_margin="8dp"
+            android:background="@drawable/address"/>
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view1"
+            android:layout_toRightOf="@id/locationimg"
+            android:layout_margin="8dp"
+            android:text="Address"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/txtaddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/address"
+            android:layout_toRightOf="@id/locationimg"
+            android:layout_margin="8dp"
+            android:text=" No.333, 82nd Rd, Bet 29th &amp; 30th St, Mandalay, Mandalay, Myanmar"
+            android:textColor="#000000"
+            android:textSize="12dp"/>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/txtaddress"
+            android:layout_marginTop="4dp"
+            android:background="#C7C4C4" />
+
+        <ImageView
+            android:id="@+id/aboutimg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/view"
+            android:layout_margin="8dp"
+            android:background="@drawable/aboutimg3"/>
+
+        <TextView
+            android:id="@+id/about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view"
+            android:layout_toRightOf="@id/aboutimg"
+            android:layout_margin="8dp"
+            android:text="About"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/txtabout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/about"
+            android:layout_toRightOf="@id/aboutimg"
+            android:layout_margin="8dp"
+            android:text=" You might be interested in other subsections of the health directory such as these location directories: clinic, doctor, pharmacy, veterinary doctor or dentist"
+            android:textColor="#000000"
+            android:textSize="12dp"/>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

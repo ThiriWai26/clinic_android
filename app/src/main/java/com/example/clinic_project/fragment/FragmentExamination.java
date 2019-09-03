@@ -20,6 +20,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.clinic_project.Activity.ExaminationDetailActivity;
 import com.example.clinic_project.Activity.HospitalDetailActivity;
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingListResponse;
@@ -83,7 +84,15 @@ public class FragmentExamination extends Fragment implements ExaminationHolder.O
     }
 
 
+    @Override
+    public void onExaminationClick() {
+
+        Intent intent = new Intent(getContext(), ExaminationDetailActivity.class);
+        startActivity(intent);
+
     }
+
+}
 
 
 
