@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ import android.view.ViewGroup;
 import com.example.clinic_project.R;
 import com.example.clinic_project.adapter.AssessmentAdapter;
 import com.example.clinic_project.adapter.ExaminationAdapter;
+import com.example.clinic_project.adapter.ViewPagerAdapter;
+import com.example.clinic_project.adapter.ViewPagerAssessmentAdapter;
 import com.example.clinic_project.holder.AssessmentHolder;
 import com.example.clinic_project.holder.ExaminationHolder;
 
@@ -24,6 +27,7 @@ public class FragmentAssessment extends Fragment implements AssessmentHolder.OnI
 
     private RecyclerView recyclerView;
     private AssessmentAdapter adapter;
+    private ViewPager viewPager;
 
     public FragmentAssessment() {
         // Required empty public constructor
@@ -40,6 +44,10 @@ public class FragmentAssessment extends Fragment implements AssessmentHolder.OnI
         recyclerView = view.findViewById(R.id.recyclerView);
         adapter = new AssessmentAdapter(this);
 
+        ViewPagerAssessmentAdapter viewPagerAssessmentAdapter = new ViewPagerAssessmentAdapter(getContext());
+        viewPager = view.findViewById(R.id.viewPager);
+        viewPager.setAdapter(viewPagerAssessmentAdapter);
+
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -48,6 +56,7 @@ public class FragmentAssessment extends Fragment implements AssessmentHolder.OnI
 
 
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }

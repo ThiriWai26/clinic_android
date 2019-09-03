@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ import android.view.ViewGroup;
 import com.example.clinic_project.R;
 import com.example.clinic_project.adapter.ExaminationAdapter;
 import com.example.clinic_project.adapter.RegistrationAdapter;
+import com.example.clinic_project.adapter.ViewPagerAdapter;
+import com.example.clinic_project.adapter.ViewPagerRegistrationAdapter;
 import com.example.clinic_project.holder.ExaminationHolder;
 import com.example.clinic_project.holder.RegistrationHolder;
 
@@ -24,6 +27,7 @@ public class FragmentRegistration extends Fragment implements RegistrationHolder
 
     private RecyclerView recyclerView;
     private RegistrationAdapter adapter;
+    private ViewPager viewPager;
 
     public FragmentRegistration() {
         // Required empty public constructor
@@ -39,6 +43,10 @@ public class FragmentRegistration extends Fragment implements RegistrationHolder
 
         recyclerView = view.findViewById(R.id.recyclerView);
         adapter = new RegistrationAdapter(this);
+
+        ViewPagerRegistrationAdapter viewPagerRegistrationAdapter = new ViewPagerRegistrationAdapter(getContext());
+        viewPager = view.findViewById(R.id.viewPager);
+        viewPager.setAdapter(viewPagerRegistrationAdapter);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -25,6 +26,7 @@ import com.example.clinic_project.Response.BuildingListResponse;
 import com.example.clinic_project.Response.TownListResponse;
 import com.example.clinic_project.adapter.BuildingAdapter;
 import com.example.clinic_project.adapter.ExaminationAdapter;
+import com.example.clinic_project.adapter.ViewPagerAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.BuildingHolder;
 import com.example.clinic_project.holder.ExaminationHolder;
@@ -47,6 +49,7 @@ public class FragmentExamination extends Fragment implements ExaminationHolder.O
 
     private RecyclerView recyclerView;
     private ExaminationAdapter adapter;
+    private ViewPager viewPager;
 
     public FragmentExamination() {
         // Required empty public constructor
@@ -62,6 +65,10 @@ public class FragmentExamination extends Fragment implements ExaminationHolder.O
 
         recyclerView = view.findViewById(R.id.recyclerView);
         adapter = new ExaminationAdapter(this);
+
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getContext());
+        viewPager = view.findViewById(R.id.viewPager);
+        viewPager.setAdapter(viewPagerAdapter);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

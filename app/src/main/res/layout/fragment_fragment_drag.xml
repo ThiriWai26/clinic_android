@@ -18,17 +18,11 @@
             android:focusableInTouchMode="true"
             android:orientation="vertical">
 
-            <RelativeLayout
-                android:id="@+id/cardadv"
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:layout_marginTop="0dp">
-
-                <include
-                    android:id="@+id/card_view"
-                    layout="@layout/layout_advertise_drag" />
-
-            </RelativeLayout>
+                android:layout_marginTop="4dp"/>
 
             <TextView
                 android:id="@+id/address"
