@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.clinic_project.R;
 
-public class RegistrationHolder extends RecyclerView.ViewHolder {
+public class RegistrationHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     private OnItemClickListener listener;
     private TextView txName, txLocation, txId;
@@ -25,6 +25,8 @@ public class RegistrationHolder extends RecyclerView.ViewHolder {
         txLocation = itemView.findViewById(R.id.txLocation);
         txId = itemView.findViewById(R.id.txid);
         imageView = itemView.findViewById(R.id.imageView1);
+
+        itemView.setOnClickListener(this);
     }
 
     public static RegistrationHolder create(LayoutInflater inflater, ViewGroup parent, OnItemClickListener listener) {
@@ -36,6 +38,14 @@ public class RegistrationHolder extends RecyclerView.ViewHolder {
     public static void bindData() {
     }
 
+    @Override
+    public void onClick(View v) {
+        listener.onRegistrationClick();
+    }
+
     public interface OnItemClickListener {
+
+        public void onRegistrationClick ();
+
     }
 }

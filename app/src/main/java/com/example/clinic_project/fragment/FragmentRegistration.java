@@ -1,6 +1,7 @@
 package com.example.clinic_project.fragment;
 
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.clinic_project.Activity.RegistrationDetailActivity;
 import com.example.clinic_project.R;
 import com.example.clinic_project.adapter.ExaminationAdapter;
 import com.example.clinic_project.adapter.RegistrationAdapter;
@@ -61,7 +63,12 @@ public class FragmentRegistration extends Fragment implements RegistrationHolder
     }
 
 
+    @Override
+    public void onRegistrationClick() {
+        Intent intent = new Intent(getContext(), RegistrationDetailActivity.class);
+        startActivity(intent);
     }
+}
 
 
 

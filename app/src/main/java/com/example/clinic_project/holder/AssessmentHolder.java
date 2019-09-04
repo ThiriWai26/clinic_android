@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.clinic_project.R;
 
-public class AssessmentHolder extends RecyclerView.ViewHolder {
+public class AssessmentHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     private OnItemClickListener listener;
     private TextView txName, txLocation, txId;
@@ -25,6 +25,8 @@ public class AssessmentHolder extends RecyclerView.ViewHolder {
         txLocation = itemView.findViewById(R.id.txLocation);
         txId = itemView.findViewById(R.id.txid);
         imageView = itemView.findViewById(R.id.imageView1);
+
+        itemView.setOnClickListener(this);
     }
 
     public static AssessmentHolder create(LayoutInflater inflater, ViewGroup parent, AssessmentHolder.OnItemClickListener listener) {
@@ -36,6 +38,13 @@ public class AssessmentHolder extends RecyclerView.ViewHolder {
     public static void bindData() {
     }
 
+    @Override
+    public void onClick(View v) {
+        listener.onAssessmentClick();
+    }
+
     public interface OnItemClickListener {
+
+        public void onAssessmentClick ();
     }
 }

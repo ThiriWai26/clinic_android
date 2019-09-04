@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nested"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarSize="0dp">
+
+        <RelativeLayout
+            android:id="@+id/pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/featuredphoto"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/pharmacyimg2"
+                android:scaleType="fitXY"/>
+
+            <!--<de.hdodenhof.circleimageview.CircleImageView-->
+            <!--android:id="@+id/nameimg"-->
+            <!--android:layout_width="32dp"-->
+            <!--android:layout_height="32dp"-->
+            <!--android:layout_below="@+id/featuredphoto"-->
+            <!--android:layout_margin="16dp"-->
+            <!--android:src="@drawable/blood_scan"-->
+            <!--android:tag="image_tag" />-->
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="24dp"
+                android:layout_below="@+id/featuredphoto"
+                android:text="Cherry Pharmacy"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#000000"/>
+
+            <ImageView
+                android:id="@+id/addressimg"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_below="@+id/name"
+                android:background="@drawable/locationimg1"/>
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="24dp"
+                android:layout_toRightOf="@+id/addressimg"
+                android:text="Location"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:id="@+id/txtlocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/location"
+                android:layout_toRightOf="@id/addressimg"
+                android:text=" Mandalay"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="4dp"
+                android:textColor="#000000"
+                android:textSize="12dp"/>
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="wrap_content"
+                android:layout_height="0.3dp"
+                android:layout_below="@+id/txtlocation"
+                android:layout_marginTop="12dp"
+                android:background="#C7C4C4" />
+
+
+            <ImageView
+                android:id="@+id/locationimg"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="26dp"
+                android:layout_below="@id/view1"
+                android:background="@drawable/addressimg" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view1"
+                android:layout_toRightOf="@id/locationimg"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="24dp"
+                android:text="Address"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:id="@+id/txtaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/address"
+                android:layout_toRightOf="@id/locationimg"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="24dp"
+                android:text=" 17th Street, between 82x83 streets, Aung Myay Thar Zan Township, Mandalay."
+                android:textColor="#000000"
+                android:textSize="12dp"/>
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="0.3dp"
+                android:layout_below="@+id/txtaddress"
+                android:layout_marginTop="12dp"
+                android:background="#C7C4C4" />
+
+            <ImageView
+                android:id="@+id/aboutimg"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_below="@id/view"
+                android:background="@drawable/aboutimge"/>
+
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view"
+                android:layout_toRightOf="@id/aboutimg"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="24dp"
+                android:text="About"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:id="@+id/txtabout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/about"
+                android:layout_toRightOf="@id/aboutimg"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="24dp"
+                android:text="Pharmacy is the science and technique of preparing, dispensing, and reviewing drugs and providing additional clinical services. It is a health profession that links health sciences with pharmaceutical sciences and aims to ensure the safe, effective, and affordable use of drugs."
+                android:textColor="#000000"
+                android:textSize="12dp"/>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="wrap_content"
+                android:layout_height="0.3dp"
+                android:layout_below="@+id/txtabout"
+                android:layout_marginTop="12dp"
+                android:background="#C7C4C4" />
+
+            <ImageView
+                android:id="@+id/phoneimg"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="24dp"
+                android:layout_below="@id/view2"
+                android:background="@drawable/phoneimg1"/>
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view2"
+                android:layout_toRightOf="@id/phoneimg"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="18dp"
+                android:text="Phone Number"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:id="@+id/txtphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/phone"
+                android:layout_toRightOf="@id/aboutimg"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="26dp"
+                android:text=" 09 - 962054976 "
+                android:textColor="#000000"
+                android:textSize="12dp"/>
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="wrap_content"
+                android:layout_height="0.3dp"
+                android:layout_below="@+id/txtphone"
+                android:layout_marginTop="10dp"
+                android:background="#C7C4C4" />
+
+            <ImageView
+                android:id="@+id/timeimg"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginLeft="24dp"
+                android:layout_below="@id/view3"
+                android:background="@drawable/timeimg1"/>
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view3"
+                android:layout_toRightOf="@id/timeimg"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="20dp"
+                android:text="Avaiable Time"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:id="@+id/txttime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/time"
+                android:layout_toRightOf="@id/aboutimg"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="26dp"
+                android:text=" On/Off"
+                android:textColor="#000000"
+                android:textSize="12dp"/>
+
+
+
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

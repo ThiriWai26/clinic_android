@@ -34,6 +34,9 @@
         <activity android:name=".Activity.DepartmentActivity" />
         <activity android:name=".Activity.ServiceBookingActivity" />
         <activity android:name=".Activity.ExaminationDetailActivity" />
+        <activity android:name=".Activity.RegistrationDetailActivity" />
+        <activity android:name=".Activity.AssessmentDetailActivity" />
+        <activity android:name=".Activity.DragDetailActivity" />
         <activity
             android:name=".Activity.ServiceActivity2"
             android:label="@string/title_activity_service2" />

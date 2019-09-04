@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.clinic_project.R;
 
-public class DragHolder extends RecyclerView.ViewHolder {
+public class DragHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     private OnItemClickListener listener;
     private TextView txName, txLocation, txId;
@@ -26,6 +26,8 @@ public class DragHolder extends RecyclerView.ViewHolder {
         txId = itemView.findViewById(R.id.txid);
         imageView = itemView.findViewById(R.id.imageView1);
 
+        itemView.setOnClickListener(this);
+
     }
 
     public static DragHolder create(LayoutInflater inflater, ViewGroup parent, OnItemClickListener listener) {
@@ -37,6 +39,13 @@ public class DragHolder extends RecyclerView.ViewHolder {
     public static void bindData() {
     }
 
+    @Override
+    public void onClick(View v) {
+        listener.onDragClick();
+    }
+
     public interface OnItemClickListener {
+
+        public void onDragClick ();
     }
 }

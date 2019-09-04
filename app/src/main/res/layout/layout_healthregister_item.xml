@@ -21,7 +21,7 @@
             android:id="@+id/imageView1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/registeruser1"
+            android:background="@drawable/pharmacy6"
             android:scaleType="centerCrop"
             android:src="@drawable/corner_radius" />
 
@@ -56,41 +56,32 @@
                 <TextView
                     android:id="@+id/txName"
                     android:layout_width="wrap_content"
-                    android:layout_height="28dp"
+                    android:layout_height="26dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="16dp"
                     android:layout_toRightOf="@id/imageView1"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text=" Registration"
+                    android:text=" Name"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="#000000"
                     tools:ignore="NotSibling,RtlCompat" />
 
                 <TextView
-                    android:id="@+id/txLocation"
+                    android:id="@+id/txTown"
                     android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_toRightOf="@id/txName"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text=" Location "
-                    android:textSize="14sp"
-                    android:textColor="#000000"
-                    tools:ignore="NotSibling,RtlCompat" />
-
-                <RatingBar
-                    android:id="@+id/rating"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="26dp"
+                    android:layout_marginTop="0dp"
                     android:layout_marginStart="16dp"
                     android:layout_below="@+id/txName"
-                    android:layout_marginTop="1dp"
-                    tools:ignore="RtlCompat" />
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text=" Location"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    tools:ignore="NotSibling,RtlCompat" />
 
             </RelativeLayout>
         </RelativeLayout>

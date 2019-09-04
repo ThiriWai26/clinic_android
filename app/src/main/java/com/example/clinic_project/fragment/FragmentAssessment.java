@@ -1,6 +1,7 @@
 package com.example.clinic_project.fragment;
 
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.clinic_project.Activity.AssessmentDetailActivity;
 import com.example.clinic_project.R;
 import com.example.clinic_project.adapter.AssessmentAdapter;
 import com.example.clinic_project.adapter.ExaminationAdapter;
@@ -62,7 +64,12 @@ public class FragmentAssessment extends Fragment implements AssessmentHolder.OnI
     }
 
 
+    @Override
+    public void onAssessmentClick() {
+        Intent intent = new Intent(getContext(), AssessmentDetailActivity.class);
+        startActivity(intent);
     }
+}
 
 
 

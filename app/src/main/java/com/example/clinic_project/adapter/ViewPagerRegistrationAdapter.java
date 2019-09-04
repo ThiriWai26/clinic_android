@@ -29,7 +29,7 @@ public class ViewPagerRegistrationAdapter extends PagerAdapter {
     }
 
     private int [] images = new int[
-            ]{R.drawable.examination, R.drawable.examination1, R.drawable.examination9};
+            ]{R.drawable.pharmacy2, R.drawable.pharmacy1, R.drawable.pharmacy3};
 
 
     public Object instantiateItem (ViewGroup container, int position) {

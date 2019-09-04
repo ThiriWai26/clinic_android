@@ -222,19 +222,19 @@ public class AnotherHomenaviActivity extends AppCompatActivity  implements Navig
         }
         if(fragmentName.equals("Examination")){
             loadFragment(new FragmentExamination());
-            txttitle.setText("Examination");
+            txttitle.setText("Blood Donation");
         }
         if(fragmentName.equals("Registration")){
             loadFragment(new FragmentRegistration());
-            txttitle.setText("Registration");
+            txttitle.setText("Pharmacy");
         }
         if(fragmentName.equals("Assessment")){
             loadFragment(new FragmentAssessment());
-            txttitle.setText("Assessment");
+            txttitle.setText("NGO");
         }
         if(fragmentName.equals("Drag")){
             loadFragment(new FragmentDrag());
-            txttitle.setText("Drag");
+            txttitle.setText("Emergency");
         }
     }
 

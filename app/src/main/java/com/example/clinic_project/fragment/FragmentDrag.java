@@ -1,6 +1,7 @@
 package com.example.clinic_project.fragment;
 
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -11,7 +12,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.example.clinic_project.Activity.DragDetailActivity;
 import com.example.clinic_project.R;
 import com.example.clinic_project.adapter.DragAdapter;
 import com.example.clinic_project.adapter.ExaminationAdapter;
@@ -61,7 +64,12 @@ public class FragmentDrag extends Fragment implements DragHolder.OnItemClickList
     }
 
 
+    @Override
+    public void onDragClick() {
+        Intent intent = new Intent(getContext(), DragDetailActivity.class);
+        startActivity(intent);
     }
+}
 
 
 
