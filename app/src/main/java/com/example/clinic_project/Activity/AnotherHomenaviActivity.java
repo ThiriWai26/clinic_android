@@ -87,15 +87,17 @@ public class AnotherHomenaviActivity extends AppCompatActivity  implements Navig
         addDrawerItems();
         setupDrawer();
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         if (savedInstanceState == null) {
             selectFirstItemAsDefault();
         }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.hamburger);
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
     }
 
