@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingDetailResponse;
 import com.example.clinic_project.api.Api;
+import com.example.clinic_project.fragment.FragmentExamination;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
 import com.google.android.gms.maps.GoogleMap;
@@ -25,7 +26,7 @@ import retrofit2.Response;
 
 public class ExaminationDetailActivity extends AppCompatActivity {
 
-    private ImageView imageView;
+    private ImageView imageView,imgback;
     private TextView name,address,about;
 
 

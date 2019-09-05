@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.clinic_project.MapsActivity;
@@ -31,8 +33,10 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgback,imgphone,imgSpecial,imgmap,imgfab,imgfav,imgservice;
+    private ImageView imageView,imgback,imgphone,imgSpecial,imgmap,imgfav,imgservice;
     private TextView address,txtname,txtlocation,textabout,textviewmap,textservice;
+    private RelativeLayout hservice,department;
+    private Button btn;
     private CardView cardservice,carddepartment;
     private GoogleMap googleMap;
     private int buildingId = -1;
@@ -54,7 +58,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
         imageView = findViewById(R.id.imageView);
         imgSpecial = findViewById(R.id.imgsetting);
-        imgfab = findViewById(R.id.fab);
+        btn = findViewById(R.id.btn);
         address = findViewById(R.id.address);
         txtname = findViewById(R.id.tvName);
         imgback = findViewById(R.id.imgback);
@@ -67,9 +71,9 @@ public class HospitalDetailActivity extends AppCompatActivity {
         textservice = findViewById(R.id.txservice);
         token = Token.MyToken.getToken();
         service = new RetrofitService();
+        hservice= findViewById(R.id.relativeservice);
+        department = findViewById(R.id.relativedepartment);
 
-        cardservice = findViewById(R.id.cardservice);
-        carddepartment = findViewById(R.id.dapartment);
 
         Bundle bundle = getIntent().getExtras();
         buildingId = bundle.getInt("buildingId");
@@ -103,7 +107,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
             }
         });
 
-        imgfab.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DoctorsByClinic.class);
@@ -120,13 +124,13 @@ public class HospitalDetailActivity extends AppCompatActivity {
                    isFavourite=false;
                }
                else {
-                   imgfav.setBackgroundResource(R.drawable.favouriteblack1);
+                   imgfav.setBackgroundResource(R.drawable.favouritered);
                    isFavourite=true;
                }
            }
        });
 
-        cardservice.setOnClickListener(new View.OnClickListener() {
+        hservice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ServiceActivity.class);
@@ -134,7 +138,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
             }
         });
 
-        carddepartment.setOnClickListener(new View.OnClickListener() {
+        department.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DepartmentActivity.class);

@@ -51,7 +51,7 @@
                     android:layout_weight="1"
                     android:layout_toRightOf="@id/profile"
                     android:gravity="center_vertical"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="18dp"
                     android:text=" Doctor Name"
                     android:textStyle="bold"
                     android:textSize="17sp"

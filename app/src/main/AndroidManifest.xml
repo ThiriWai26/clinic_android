@@ -37,6 +37,7 @@
         <activity android:name=".Activity.RegistrationDetailActivity" />
         <activity android:name=".Activity.AssessmentDetailActivity" />
         <activity android:name=".Activity.DragDetailActivity" />
+
         <activity
             android:name=".Activity.ServiceActivity2"
             android:label="@string/title_activity_service2" />
