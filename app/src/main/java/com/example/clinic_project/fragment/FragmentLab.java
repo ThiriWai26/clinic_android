@@ -4,6 +4,7 @@ package com.example.clinic_project.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -19,6 +20,7 @@ import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingListResponse;
 import com.example.clinic_project.Response.TownListResponse;
 import com.example.clinic_project.adapter.BuildingAdapter;
+import com.example.clinic_project.adapter.ViewPagerLabAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.BuildingHolder;
 import com.example.clinic_project.model.Building;
@@ -41,6 +43,8 @@ public class FragmentLab extends Fragment implements BuildingHolder.OnBuildingCl
     private RetrofitService service;
     private RecyclerView recyclerView;
     BuildingAdapter adapter;
+
+    private ViewPager viewPager;
 
     List<Building> building = new ArrayList<>();
     List<Building> newBuildings = new ArrayList<>();
@@ -65,6 +69,10 @@ public class FragmentLab extends Fragment implements BuildingHolder.OnBuildingCl
         service = new RetrofitService();
         recyclerView = view.findViewById(R.id.recyclerView);
         adapter = new BuildingAdapter(this);
+
+        ViewPagerLabAdapter viewPagerLabAdapter = new ViewPagerLabAdapter(getContext());
+        viewPager = view.findViewById(R.id.viewPager);
+        viewPager.setAdapter(viewPagerLabAdapter);
 
         token = Token.MyToken.getToken();
 

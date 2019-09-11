@@ -7,6 +7,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -28,6 +29,7 @@ import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingListResponse;
 import com.example.clinic_project.Response.TownListResponse;
 import com.example.clinic_project.adapter.BuildingAdapter;
+import com.example.clinic_project.adapter.ViewPagerClinicAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.BuildingHolder;
 import com.example.clinic_project.model.Building;
@@ -66,6 +68,8 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
 
     private Context mContext;
 
+    private ViewPager viewPager;
+
 
     public FragmentClinic() {
         // Required empty public constructor
@@ -88,6 +92,10 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         token = Token.MyToken.getToken();
+
+        ViewPagerClinicAdapter viewPagerClinicAdapter = new ViewPagerClinicAdapter(getContext());
+        viewPager = view.findViewById(R.id.viewPager);
+        viewPager.setAdapter(viewPagerClinicAdapter);
 
 
         Log.e("ClinicActivityToken", token);

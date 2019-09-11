@@ -1,88 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_width="wrap_content"
+    android:layout_height="200dp"
+    android:gravity="center_horizontal"
+    android:background="#ffffff"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view"
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        card_view:cardBackgroundColor="#fff"
-        card_view:cardCornerRadius="4dp"
-        card_view:cardElevation="3dp"
-        card_view:cardUseCompatPadding="true">
+        android:layout_height="130dp"
+        android:background="@drawable/clinicimg"
+        android:scaleType="fitXY" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/txid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_below="@+id/imageView1"
+        tools:ignore="NotSibling">
+
+        <TextView
+            android:id="@+id/txName"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text=" Clinic Name"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            tools:ignore="NotSibling,RtlCompat" />
+
+        <RatingBar
+            android:id="@+id/rating"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="2dp">
+            android:layout_marginStart="80dp"
+            android:layout_toRightOf="@+id/txName"
+            android:layout_marginTop="10dp"
+            tools:ignore="NotSibling,RtlCompat" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvid"
-                android:visibility="gone"/>
+        <TextView
+            android:id="@+id/txLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@id/txName"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="  Location "
+            android:textSize="14sp"
+            android:textColor="#000000"
+            tools:ignore="NotSibling,RtlCompat" />
 
+    </RelativeLayout>
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="16dp"
-                android:src="@drawable/ic_launcher_background"
-                android:tag="image_tag"/>
+    <!--<View-->
+    <!--android:id="@+id/view1"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="4dp"-->
+    <!--android:layout_below="@+id/textLocation"-->
+    <!--android:layout_marginTop="200dp"-->
+    <!--android:layout_marginBottom="10dp"-->
+    <!--android:background="#F7F5F5" />-->
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="8dp"
-                android:orientation="vertical">
+    <!--</android.support.v7.widget.CardView>-->
 
-                <TextView
-                    android:id="@+id/tvName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Doctor Name"
-                    android:typeface="sans"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tvType"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="2dp"
-                    android:paddingBottom="2dp"
-                    android:text="Specialist"
-                    android:textColor="#1abc9c"
-                    android:textSize="14sp"
-                    android:typeface="sans" />
-
-                <TextView
-                    android:id="@+id/tvAddress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Location"
-                    android:textAllCaps="false"
-                    android:textSize="15sp"
-                    android:typeface="sans" />
+</RelativeLayout>
 
 
-            </LinearLayout>
+<!--firstUIdesign-->
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
 
-            <ImageButton
-                android:id="@+id/btn_clinic_detail"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:background="#ffff"
-                android:src="@drawable/ic_right_arrow" />
-        </LinearLayout>
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:id="@+id/card_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"-->
+        <!--card_view:cardBackgroundColor="#fff"-->
+        <!--card_view:cardCornerRadius="4dp"-->
+        <!--card_view:cardElevation="3dp"-->
+        <!--card_view:cardUseCompatPadding="true">-->
 
-    </android.support.v7.widget.CardView>
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:paddingTop="2dp">-->
 
-</LinearLayout>
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/tvid"-->
+                <!--android:visibility="gone"/>-->
+
+
+            <!--<de.hdodenhof.circleimageview.CircleImageView-->
+                <!--android:id="@+id/profile"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_margin="16dp"-->
+                <!--android:src="@drawable/ic_launcher_background"-->
+                <!--android:tag="image_tag"/>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_margin="8dp"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tvName"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Doctor Name"-->
+                    <!--android:typeface="sans"-->
+                    <!--android:textSize="16sp" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tvType"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:paddingTop="2dp"-->
+                    <!--android:paddingBottom="2dp"-->
+                    <!--android:text="Specialist"-->
+                    <!--android:textColor="#1abc9c"-->
+                    <!--android:textSize="14sp"-->
+                    <!--android:typeface="sans" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tvAddress"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Location"-->
+                    <!--android:textAllCaps="false"-->
+                    <!--android:textSize="15sp"-->
+                    <!--android:typeface="sans" />-->
+
+
+            <!--</LinearLayout>-->
+
+            <!--<ImageButton-->
+                <!--android:id="@+id/btn_clinic_detail"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:background="#ffff"-->
+                <!--android:src="@drawable/ic_right_arrow" />-->
+        <!--</LinearLayout>-->
+
+    <!--</android.support.v7.widget.CardView>-->
+
+<!--</LinearLayout>-->

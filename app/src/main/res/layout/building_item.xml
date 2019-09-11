@@ -22,8 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:background="@drawable/img_hospital"
-            android:scaleType="fitXY"
-            android:src="@drawable/corner_radius" />
+            android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/txid"
