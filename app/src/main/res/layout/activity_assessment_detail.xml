@@ -70,13 +70,13 @@
 
             <ImageView
                 android:id="@+id/phone"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:layout_below="@+id/imageView"
                 android:layout_toRightOf="@id/tvName"
                 android:layout_marginLeft="150dp"
-                android:layout_marginTop="23dp"
-                android:background="@drawable/phonenew"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/ic_phone_black_24dp"
                 android:scaleType="fitXY"
                 tools:ignore="NotSibling" />
 
@@ -96,7 +96,7 @@
                 android:layout_below="@id/view"
                 android:src="@drawable/addressimg"
                 android:layout_marginLeft="24dp"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="4dp"/>
 
             <TextView
                 android:id="@+id/tvLocation"
@@ -106,7 +106,7 @@
                 android:text=" Address"
                 android:layout_toRightOf="@id/diamond"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="3dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:textSize="16dp"/>
@@ -122,23 +122,32 @@
                 android:text="Shwe Phyu Plaza, Mandalay"
                 android:textSize="14sp" />
 
+            <View
+                android:id="@+id/view1"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_below="@+id/textLocation"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="10dp"
+                android:background="#F7F5F5" />
+
             <ImageView
                 android:id="@+id/diamond1"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_below="@id/textLocation"
+                android:layout_below="@id/view1"
                 android:src="@drawable/aboutimag4"
                 android:layout_marginLeft="24dp"
-                android:layout_marginTop="21dp"/>
+                android:layout_marginTop="4dp"/>
 
 
             <TextView
                 android:id="@+id/about"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textLocation"
+                android:layout_below="@+id/view1"
                 android:layout_toRightOf="@+id/diamond1"
-                android:layout_marginTop="19dp"
+                android:layout_marginTop="3dp"
                 android:layout_marginLeft="12dp"
                 android:text=" About"
                 android:textStyle="bold"
@@ -156,22 +165,31 @@
                 android:text="a non profit organization that operates independently of any government,typically one whose purpose is to address a social or political issue"
                 android:textSize="14sp" />
 
+            <View
+                android:id="@+id/view2"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_below="@+id/textabout"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="10dp"
+                android:background="#F7F5F5" />
+
             <ImageView
                 android:id="@+id/diamond2"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_below="@id/textabout"
+                android:layout_below="@id/view2"
                 android:src="@drawable/clock1"
                 android:layout_marginLeft="24dp"
-                android:layout_marginTop="18dp"/>
+                android:layout_marginTop="4dp"/>
 
             <TextView
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textabout"
+                android:layout_below="@+id/view2"
                 android:layout_toRightOf="@id/diamond2"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginLeft="12dp"
                 android:text=" Avaiable Time"
                 android:textStyle="bold"

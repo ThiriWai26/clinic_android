@@ -116,21 +116,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful()) {
-                    Log.e("Token", response.body().token);
+                    if(response.body().isSuccess) {
+                        Log.e("Token", response.body().token);
 
-                    token = response.body().token;
-                    Token.MyToken.setToken(token);
+                        token = response.body().token;
+                        Token.MyToken.setToken(token);
 
-                    editor.putString("token", token);
-                    editor.apply();
-                    editor.commit();
+                        editor.putString("token", token);
+                        editor.apply();
+                        editor.commit();
 
-                    Intent intent = new Intent(getApplicationContext(), HomenaviActivity.class);
-                    intent.putExtra("Token", response.body().token);
-                    Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_LONG).show();
-                    startActivity(intent);
+                        Intent intent = new Intent(getApplicationContext(), HomenaviActivity.class);
+                        intent.putExtra("Token", response.body().token);
+                        Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_LONG).show();
+                        startActivity(intent);
 //                    progressBar.setVisibility(View.GONE);
 //                    finish();
+                    }
 
                 } else {
 

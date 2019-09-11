@@ -96,7 +96,7 @@ public class AnotherHomenaviActivity extends AppCompatActivity  implements Navig
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.hamburger);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_dehaze_black_24dp);
 
 
     }
@@ -105,6 +105,7 @@ public class AnotherHomenaviActivity extends AppCompatActivity  implements Navig
 
         if (mNavigationManager != null) {
             String firstActionMovie = getResources().getStringArray(R.array.medicines)[0];
+
             mNavigationManager.showFragmentHome(firstActionMovie);
             getSupportActionBar().setTitle(firstActionMovie);
         }

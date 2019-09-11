@@ -94,13 +94,13 @@
 
             <ImageView
                 android:id="@+id/phone"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:layout_below="@+id/imageView"
                 android:layout_toRightOf="@id/tvName"
-                android:layout_marginLeft="160dp"
-                android:layout_marginTop="23dp"
-                android:background="@drawable/phonenew"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/ic_phone_black_24dp"
                 android:scaleType="fitXY"
                 tools:ignore="NotSibling" />
 
@@ -113,14 +113,23 @@
                 android:layout_marginBottom="10dp"
                 android:background="#F7F5F5" />
 
+            <ImageView
+                android:id="@+id/diamond"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_below="@id/view"
+                android:src="@drawable/locationimg1"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="9dp"/>
 
             <TextView
                 android:id="@+id/tvAddress"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:layout_marginLeft="24dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="12dp"
                 android:layout_below="@+id/view"
+                android:layout_toRightOf="@+id/diamond"
                 android:text=" Location"
                 android:textSize="16dp"
                 android:textStyle="bold"
@@ -131,22 +140,32 @@
                 android:id="@+id/address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="60dp"
                 android:layout_below="@+id/tvAddress"
                 android:text=""
                 android:textSize="14dp"
                 android:textColor="#000000"
                 tools:ignore="DuplicateIds" />
 
+            <ImageView
+                android:id="@+id/diamond1"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_below="@id/address"
+                android:src="@drawable/addressimg"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="20dp"/>
+
             <TextView
                 android:id="@+id/tvLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/address"
+                android:layout_toRightOf="@+id/diamond1"
                 android:text=" Address"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="19dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:textSize="16dp"/>
@@ -156,20 +175,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvLocation"
-                android:layout_marginLeft="28dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="6dp"
                 android:layout_weight="1"
                 android:text=" "
                 android:textSize="14sp" />
 
+            <ImageView
+                android:id="@+id/diamond2"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_below="@id/textLocation"
+                android:src="@drawable/aboutimag4"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="21dp"/>
 
             <TextView
                 android:id="@+id/about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textLocation"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="24dp"
+                android:layout_toRightOf="@+id/diamond2"
+                android:layout_marginTop="19dp"
+                android:layout_marginLeft="12dp"
                 android:text=" About"
                 android:textStyle="bold"
                 android:textColor="#000000"
@@ -180,8 +208,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/about"
-                android:layout_marginLeft="28dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="6dp"
                 android:layout_weight="1"
                 android:textSize="14sp" />
 

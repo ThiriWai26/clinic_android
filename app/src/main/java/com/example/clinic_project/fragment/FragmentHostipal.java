@@ -1,23 +1,20 @@
 package com.example.clinic_project.fragment;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -28,6 +25,7 @@ import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingListResponse;
 import com.example.clinic_project.Response.TownListResponse;
 import com.example.clinic_project.adapter.BuildingAdapter;
+import com.example.clinic_project.adapter.ViewPagerHospitalAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.BuildingHolder;
 import com.example.clinic_project.model.Building;
@@ -37,7 +35,6 @@ import com.example.clinic_project.service.Token;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,6 +48,7 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
     private SearchView searchView;
     private RecyclerView recyclerView;
     private RetrofitService service;
+    private ViewPager viewPager;
     private TextView txthospital;
     private ImageView imgsetting,imageView1;
     private int typeId = 2;
@@ -85,6 +83,10 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
         imgsetting = view.findViewById(R.id.imgsetting);
         imageView1 = view.findViewById(R.id.imageView1);
         adapter = new BuildingAdapter(this);
+
+        ViewPagerHospitalAdapter viewPagerHospitalAdapter = new ViewPagerHospitalAdapter(getContext());
+        viewPager = view.findViewById(R.id.viewPager);
+        viewPager.setAdapter(viewPagerHospitalAdapter);
 
         token = Token.MyToken.getToken();
 

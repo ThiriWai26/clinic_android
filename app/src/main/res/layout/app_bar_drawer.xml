@@ -91,7 +91,7 @@
         android:clipChildren="true"
         android:clipToPadding="true"
         android:scrollbars="vertical"
-        tools:listitem="@layout/layout_doctor_list"
+        tools:listitem="@layout/layout_doctor_lists"
         tools:ignore="NotSibling"
         android:background="#FFFFFF" />
 

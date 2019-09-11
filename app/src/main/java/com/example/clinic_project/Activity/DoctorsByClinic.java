@@ -105,7 +105,7 @@ public class DoctorsByClinic extends AppCompatActivity implements DoctorHolder.O
     @Override
     public void onDoctorClick(int id) {
 
-        Intent intent = new Intent(getApplicationContext(), DoctorDetailActivity.class);
+        Intent intent = new Intent(getApplicationContext(), CalenderViewActivity.class);
         intent.putExtra("doctorId", id);
         intent.putExtra("Token", token);
         Log.e("doctor_id", String.valueOf(id));

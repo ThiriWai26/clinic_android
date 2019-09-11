@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -26,6 +27,8 @@ import com.example.clinic_project.R;
 import com.example.clinic_project.Response.DoctorListResponse;
 import com.example.clinic_project.Response.SpecializationListResponse;
 import com.example.clinic_project.adapter.DoctorAdapter;
+import com.example.clinic_project.adapter.ViewPagerAdapter;
+import com.example.clinic_project.adapter.ViewPagerDoctorAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.DoctorHolder;
 import com.example.clinic_project.model.Doctor;
@@ -50,6 +53,7 @@ public class FragmentDoctor extends Fragment implements DoctorHolder.OnDoctorCli
     private SearchView searchView;
     private TextView txtdoctor;
     private ImageView imgsetting;
+    private ViewPager viewPager;
 
     private DoctorAdapter adapter;
     ArrayAdapter<String> dataAdapter;
@@ -78,6 +82,10 @@ public class FragmentDoctor extends Fragment implements DoctorHolder.OnDoctorCli
         txtdoctor = view.findViewById(R.id.textdoctor);
         imgsetting = view.findViewById(R.id.imgsetting);
         searchView = view.findViewById(R.id.action_search);
+
+        ViewPagerDoctorAdapter viewPagerDoctorAdapter = new ViewPagerDoctorAdapter(getContext());
+        viewPager = view.findViewById(R.id.viewPager);
+        viewPager.setAdapter(viewPagerDoctorAdapter);
 
         adapter = new DoctorAdapter(this);
         token = Token.MyToken.getToken();
