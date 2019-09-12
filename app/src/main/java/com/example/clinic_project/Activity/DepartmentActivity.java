@@ -17,10 +17,9 @@ import com.example.clinic_project.R;
 import com.example.clinic_project.adapter.DepartmentAdapter;
 import com.example.clinic_project.holder.DepartmentHolder;
 
-public class DepartmentActivity extends AppCompatActivity implements DepartmentHolder.OnItemClickListener{
+public class DepartmentActivity extends AppCompatActivity{
 
     private RecyclerView recyclerView;
-    private DepartmentAdapter adapter;
 
 
     @Override
@@ -54,10 +53,7 @@ public class DepartmentActivity extends AppCompatActivity implements DepartmentH
         });
 
         recyclerView = findViewById(R.id.recyclerView);
-        adapter = new DepartmentAdapter(this);
 
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 

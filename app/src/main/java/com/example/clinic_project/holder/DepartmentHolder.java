@@ -21,9 +21,7 @@ public class DepartmentHolder extends RecyclerView.ViewHolder {
 
         super(itemView);
         this.listener = listener;
-        imgservice = itemView.findViewById(R.id.imgservice);
         txtname = itemView.findViewById(R.id.textname);
-        txtdesp = itemView.findViewById(R.id.textdesp);
 
     }
 

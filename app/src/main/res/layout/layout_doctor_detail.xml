@@ -69,14 +69,12 @@
                     android:layout_height="24dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginLeft="24dp"
-                    android:layout_below="@+id/name"
                     android:background="@drawable/service"/>
 
                 <TextView
                     android:id="@+id/location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/name"
                     android:layout_marginTop="24dp"
                     android:layout_marginLeft="24dp"
                     android:layout_toRightOf="@+id/imageservice"

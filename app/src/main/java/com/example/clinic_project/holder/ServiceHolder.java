@@ -23,11 +23,8 @@ public class ServiceHolder extends RecyclerView.ViewHolder  {
 
         super(itemView);
         this.listener = listener;
-        texttitle = itemView.findViewById(R.id.texttitle);
-        textprice = itemView.findViewById(R.id.textprice);
         btnbook = itemView.findViewById(R.id.btnbook);
-        btnsave = itemView.findViewById(R.id.btnsave);
-        imgView = itemView.findViewById(R.id.imgservice);
+//        btnsave = itemView.findViewById(R.id.btnsave);
 
     }
 

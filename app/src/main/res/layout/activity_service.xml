@@ -14,8 +14,6 @@
         android:background="#ffffff"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -42,10 +40,10 @@
                 android:orientation="horizontal">
 
                 <!--<ImageView-->
-                    <!--android:id="@+id/serviceback"-->
-                    <!--android:layout_width="20dp"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:src="@drawable/img_back1"/>-->
+                <!--android:id="@+id/serviceback"-->
+                <!--android:layout_width="20dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:src="@drawable/img_back1"/>-->
 
                 <TextView
                     android:id="@+id/txtdoctor"
@@ -66,58 +64,154 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/appBarLayout"
-        android:scrollbars="none">
+    <!--<android.support.v4.widget.NestedScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/appBarLayout"-->
+        <!--android:layout_marginTop="4dp"-->
+        <!--android:scrollbars="none">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusableInTouchMode="true"
-            android:orientation="vertical">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_below="@id/appBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="0dp"
+                android:layout_margin="8dp"
+                android:layout_gravity="center_horizontal"
+                android:clipChildren="true"
+                android:clipToPadding="true"
+                android:scrollbars="vertical"
+                tools:listitem="@layout/layout_service_cardview"
+                android:background="#FFFFFF"
+                tools:ignore="NotSibling" />
 
-                <RelativeLayout
-                    android:id="@+id/cardR"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="0dp">
-
-                    <include
-                        android:id="@+id/card_view"
-                        layout="@layout/layout_service_category" />
-
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/textservicecateg"
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:layout_marginLeft="16dp"
-                    android:text="Services"
-                    android:layout_below="@id/cardR"
-                    android:layout_marginTop="0dp"
-                    android:textColor="#000"
-                    android:textStyle="bold"
-                    android:textSize="18dp"/>
-
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_below="@id/textservicecateg"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="2dp"
-                    android:layout_gravity="center_horizontal"
-                    android:clipChildren="true"
-                    android:clipToPadding="true"
-                    android:scrollbars="vertical"
-                    tools:listitem="@layout/layout_service_cardview"
-                    android:background="#FFFFFF"
-                    tools:ignore="NotSibling" />
-
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    <!--</android.support.v4.widget.NestedScrollView>-->
 
 </RelativeLayout>
+
+
+<!--firstUIdesign-->
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="#fff"-->
+    <!--tools:context=".Activity.ServiceActivity">-->
+
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:id="@+id/appBarLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:background="#ffffff"-->
+        <!--android:theme="@style/AppTheme.AppBarOverlay">-->
+
+
+
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:id="@+id/toolbar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_alignBottom="@+id/appBarLayout"-->
+            <!--android:layout_marginLeft="1dp"-->
+            <!--android:layout_marginRight="1dp"-->
+            <!--android:background="#FFFFFF"-->
+            <!--android:elevation="0dp"-->
+            <!--app:contentInsetEnd="5dp"-->
+            <!--app:contentInsetLeft="5dp"-->
+            <!--app:contentInsetRight="5dp"-->
+            <!--app:contentInsetStart="5dp"-->
+            <!--app:contentInsetStartWithNavigation="2dp"-->
+            <!--app:titleTextColor="#000000"-->
+            <!--android:textColor="#000000"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:id="@+id/serviceback"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:layout_width="20dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:src="@drawable/img_back1"/>&ndash;&gt;-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/txtdoctor"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Service"-->
+                    <!--android:textAppearance="@android:style/TextAppearance.Medium"-->
+                    <!--android:textColor="#000000"-->
+                    <!--android:layout_marginStart="90dp"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:textStyle="bold"-->
+                    <!--tools:ignore="RtlCompat" />-->
+
+            <!--</LinearLayout>-->
+
+        <!--</android.support.v7.widget.Toolbar>-->
+
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+    <!--<android.support.v4.widget.NestedScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/appBarLayout"-->
+        <!--android:scrollbars="none">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:focusableInTouchMode="true"-->
+            <!--android:orientation="vertical">-->
+
+                <!--<RelativeLayout-->
+                    <!--android:id="@+id/cardR"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="150dp"-->
+                    <!--android:layout_marginTop="0dp">-->
+
+                    <!--<include-->
+                        <!--android:id="@+id/card_view"-->
+                        <!--layout="@layout/layout_service_category" />-->
+
+                <!--</RelativeLayout>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/textservicecateg"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="32dp"-->
+                    <!--android:layout_marginLeft="16dp"-->
+                    <!--android:text="Services"-->
+                    <!--android:layout_below="@id/cardR"-->
+                    <!--android:layout_marginTop="0dp"-->
+                    <!--android:textColor="#000"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="18dp"/>-->
+
+
+                <!--<android.support.v7.widget.RecyclerView-->
+                    <!--android:id="@+id/recyclerView"-->
+                    <!--android:layout_below="@id/textservicecateg"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_marginTop="2dp"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:clipChildren="true"-->
+                    <!--android:clipToPadding="true"-->
+                    <!--android:scrollbars="vertical"-->
+                    <!--tools:listitem="@layout/layout_service_cardview"-->
+                    <!--android:background="#FFFFFF"-->
+                    <!--tools:ignore="NotSibling" />-->
+
+        <!--</LinearLayout>-->
+    <!--</android.support.v4.widget.NestedScrollView>-->
+
+<!--</RelativeLayout>-->

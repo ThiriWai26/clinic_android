@@ -62,14 +62,14 @@ public class DoctorDetailActivity extends AppCompatActivity  {
         tvName = findViewById(R.id.tvName);
         tvType = findViewById(R.id.tvType);
         tvabout = findViewById(R.id.tvabout);
-        textabout = findViewById(R.id.textabout);
+        textabout = findViewById(R.id.txtabout);
         tvType = findViewById(R.id.tvType);
-        button = findViewById(R.id.btnDoctor);
+        tvspecial = findViewById(R.id.txtspecialist);
         imageView=findViewById(R.id.imageView);
         imgback = findViewById(R.id.imgback);
         imgfav = findViewById(R.id.imgfav);
+        button = findViewById(R.id.btn);
 
-        btnBook=findViewById(R.id.fab);
 
         Bundle bundle = getIntent().getExtras();
         doctorId = bundle.getInt("doctorId");
@@ -77,7 +77,7 @@ public class DoctorDetailActivity extends AppCompatActivity  {
 
         getDoctorDetail();
 
-        btnBook.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CalenderViewActivity.class);
