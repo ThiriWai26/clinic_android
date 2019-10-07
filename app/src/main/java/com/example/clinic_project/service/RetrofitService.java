@@ -5,7 +5,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitService {
 
-    public static final String BASE_URL="http://128.199.180.50";
+//    public static final String BASE_URL="http://128.199.180.50";
+    public static final String BASE_URL="http://192.168.100.201:8001";
+
 
     public Retrofit getRetrofitService(){
 
@@ -17,3 +19,4 @@ public class RetrofitService {
         return getService;
     }
 }
+

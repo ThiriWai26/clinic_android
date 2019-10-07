@@ -14,7 +14,7 @@ public class BuildingListResponse {
     @SerializedName("next_page_url")
     public String nextPage;
 
-    @SerializedName("previou_page_url")
+    @SerializedName("previous_page_url")
     public String previousPage;
 
     @SerializedName("first_page_url")
@@ -23,7 +23,7 @@ public class BuildingListResponse {
     @SerializedName("last_page_url")
     public String lastPage;
 
-    @SerializedName("buildings")
+    @SerializedName("Buildings")
     public BuildingList buildingList;
 
 }

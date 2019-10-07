@@ -115,7 +115,7 @@ public class DoctorDetailActivity extends AppCompatActivity  {
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
                         Picasso.get()
-                                .load("http://128.199.180.50/api/get_image/" + response.body().doctorDetail.photo)
+                                .load("http://192.168.100.201:8000/api/download_image/" + response.body().doctorDetail.photo)
                                 .into(imageView);
 
                         String specialis=response.body().doctorDetail.specialists.get(0);

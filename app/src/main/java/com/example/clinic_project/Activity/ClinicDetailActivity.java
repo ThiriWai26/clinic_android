@@ -32,7 +32,7 @@ public class ClinicDetailActivity extends AppCompatActivity {
     private TextView txtname, txtlocation,textabout;
     private Button btndoctor;
     private int buildingId = -1;
-    private int typeId = 1;
+    private String type = "clinics";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,20 +77,20 @@ public class ClinicDetailActivity extends AppCompatActivity {
         Log.e("Building_detail","successs");
 
         Api buildingDetailApi = service.getRetrofitService().create(Api.class);
-        buildingDetailApi.getBuildingDetail(token, buildingId, typeId).enqueue(new Callback<BuildingDetailResponse>() {
+        buildingDetailApi.getBuildingDetail(token, type, buildingId).enqueue(new Callback<BuildingDetailResponse>() {
             @Override
             public void onResponse(Call<BuildingDetailResponse> call, Response<BuildingDetailResponse> response) {
                 if(response.isSuccessful()){
-                    if(response.body().isScuccess){
+                    if(response.body().isSuccess){
                         Picasso.get()
-                                .load("http://128.199.180.50/api/get_image/" + response.body().buildingDetails.get(0).freaturedPhoto)
+                                .load("http://192.168.100.201:8000/api/download_image/" + response.body().buildingDetails.featurePhoto)
                                 .into(imageView);
 
-                        txtname.setText(response.body().buildingDetails.get(0).name);
-                        txtlocation.setText(response.body().buildingDetails.get(0).townName);
+                        txtname.setText(response.body().buildingDetails.name);
+                        txtlocation.setText(response.body().buildingDetails.townName);
 //                        txtphoneno.setText(response.body().buildingDetails.get(0).phoneNumber.get(0));
-//                        txttown.setText(response.body().buildingDetails.get(0).address);
-                        textabout.setText(response.body().buildingDetails.get(0).phoneNumber.get(0));
+//                        txttown.setText(response.body().buildingDetails.address);
+                        textabout.setText(response.body().buildingDetails.phoneNumber.get(0));
 
                     }
                 }

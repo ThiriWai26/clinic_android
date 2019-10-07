@@ -6,13 +6,19 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.example.clinic_project.holder.MyFavouriteHospitalHolder;
+import com.example.clinic_project.model.Favourite;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MyFavouriteHospitalAdapter extends RecyclerView.Adapter<MyFavouriteHospitalHolder> {
 
+    List<Favourite> favouriteList;
     MyFavouriteHospitalHolder.OnItemClickListener listener;
 
     public MyFavouriteHospitalAdapter (MyFavouriteHospitalHolder.OnItemClickListener listener){
 
+        favouriteList = new ArrayList<>();
         this.listener = listener;
     }
 
@@ -28,12 +34,21 @@ public class MyFavouriteHospitalAdapter extends RecyclerView.Adapter<MyFavourite
     @Override
     public void onBindViewHolder(@NonNull MyFavouriteHospitalHolder myFavouriteHospitalHolder, int i) {
 
-        MyFavouriteHospitalHolder.bindData();
+        MyFavouriteHospitalHolder.bindData(favouriteList.get(i));
 
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+
+        return favouriteList.size();
+    }
+
+    public void addItem(List<Favourite> favourites){
+
+        this.favouriteList.clear();
+        this.favouriteList.addAll(favourites);
+        notifyDataSetChanged();
+
     }
 }

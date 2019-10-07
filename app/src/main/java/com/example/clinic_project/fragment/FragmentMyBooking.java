@@ -11,17 +11,19 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.MyBookingResponse;
 import com.example.clinic_project.adapter.MyBookingAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.MyBookingHolder;
+import com.example.clinic_project.model.Bookings;
 import com.example.clinic_project.service.RetrofitService;
+import com.example.clinic_project.service.Token;
 
-import de.hdodenhof.circleimageview.CircleImageView;
+import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,13 +35,10 @@ public class FragmentMyBooking extends Fragment implements MyBookingHolder.OnIte
 
     private RetrofitService service;
     private RecyclerView recyclerView;
-    private CircleImageView imgdoctor;
-    private Button btncancel;
-    private TextView txtdoctorname,txthospitalname,txtdate,txtmap;
     private String token = null;
 
     private MyBookingAdapter adapter;
-
+    List<Bookings> bookings = new ArrayList<>();
 
     public FragmentMyBooking() {
         // Required empty public constructor
@@ -52,16 +51,11 @@ public class FragmentMyBooking extends Fragment implements MyBookingHolder.OnIte
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment_my_booking, container, false);
 
-        txtdoctorname = view.findViewById(R.id.tvName);
-        txthospitalname = view.findViewById(R.id.tvhospitalname);
-        txtdate = view.findViewById(R.id.tvtime);
-        txtmap = view.findViewById(R.id.tvMap);
-        imgdoctor = view.findViewById(R.id.profile);
-        btncancel = view.findViewById(R.id.btncancel);
         service = new RetrofitService();
-
         recyclerView = view.findViewById(R.id.recyclerView);
         adapter = new MyBookingAdapter(this);
+        token = Token.MyToken.getToken();
+//        Log.e("token",token);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -78,24 +72,30 @@ public class FragmentMyBooking extends Fragment implements MyBookingHolder.OnIte
             public void onResponse(Call<MyBookingResponse> call, Response<MyBookingResponse> response) {
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
+                        Log.e("response.body","success");
 
-
+                        adapter.addItem(response.body().upcomingBooking.bookings);
+                        Log.e("mybookingsize",String.valueOf(bookings.size()));
+                        adapter.notifyDataSetChanged();
                     }
+                    else {
+                        Log.e("response.body","fail");
+                    }
+                }else {
+
+                    Log.e("response","fail");
                 }
             }
 
             @Override
             public void onFailure(Call<MyBookingResponse> call, Throwable t) {
 
+                Log.e("onfailure", t.toString());
             }
         });
 
     }
 
-    @Override
-    public void onItemClick(String date, int timeId) {
-
-    }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,6 +105,11 @@ public class FragmentMyBooking extends Fragment implements MyBookingHolder.OnIte
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_toolbar, menu);
         super.onCreateOptionsMenu(menu, inflater);
+
+    }
+
+    @Override
+    public void onItemClick(int parseInt) {
 
     }
 }

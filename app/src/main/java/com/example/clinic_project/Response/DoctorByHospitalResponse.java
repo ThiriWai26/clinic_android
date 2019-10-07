@@ -10,4 +10,16 @@ public class DoctorByHospitalResponse {
 
     @SerializedName("doctors")
     public DoctorList doctorByHospital;
+
+    @SerializedName("next_page_url")
+    public String nextPageUrl;
+
+    @SerializedName("previous_page_url")
+    public String previousPageUrl;
+
+    @SerializedName("first_page_url")
+    public String firstPageUrl;
+
+    @SerializedName("last_page_url ")
+    public String lastPageUrl;
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".Activity.CalenderViewActivity">
 
         <!--<ImageView-->
@@ -23,19 +24,19 @@
             android:textSize="20dp"
             android:gravity="center_vertical"/>
 
-        <Button
-            android:id="@+id/btnbooking"
-            android:layout_width="74dp"
-            android:layout_height="23dp"
+
+        <TextView
+            android:id="@+id/tvbooking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/title"
             android:layout_alignParentRight="true"
             android:layout_marginTop="6dp"
-            android:layout_marginRight="21dp"
-            android:layout_marginBottom="14dp"
-            android:background="@drawable/home_activity_button"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="16dp"
             android:text="Booking"
-            android:textColor="#fff"
-            android:textSize="12sp" />
+            android:textColor="#000000"
+            android:textSize="14sp" />
 
         <View
             android:id="@+id/view"
@@ -51,16 +52,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp" />
 
-        <!--<android.support.design.widget.FloatingActionButton-->
-            <!--android:id="@+id/floating"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_below="@+id/calendarView"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_marginRight="25dp"-->
-            <!--android:src="@android:drawable/ic_input_add"/>-->
-
-
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_below="@id/calendarView"
@@ -69,7 +60,7 @@
             android:clipChildren="true"
             android:clipToPadding="true"
             android:scrollbars="vertical"
-            tools:listitem="@layout/book_item"/>
+            tools:listitem="@layout/hospital_schedule"/>
 
 
 </RelativeLayout>

@@ -53,7 +53,7 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
     private RetrofitService service;
     private TextView txtclinic;
     private ImageView imgsetting;
-    private int typeId = 1;
+    private String type = "clinics";
     private int townId = 0;
 
     private BuildingAdapter adapter;
@@ -98,10 +98,10 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
         viewPager.setAdapter(viewPagerClinicAdapter);
 
 
-        Log.e("ClinicActivityToken", token);
+//        Log.e("ClinicActivityToken", token);
 
         getLocationList(token);
-        getClinicList(typeId,townId);
+        getClinicList(type,townId);
         return view;
     }
 
@@ -115,6 +115,7 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
             public void onResponse(Call<TownListResponse> call, Response<TownListResponse> response) {
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
+                        Log.e("response.body","success");
                         townLists = response.body().towns;
                         for (TownList townList : townLists) {
                             locations.add(townList.name);
@@ -122,6 +123,9 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
                         }
                         adapter.notifyDataSetChanged();
                         Toast.makeText(getContext(), "Successful!", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Log.e("response","fail");
                     }
 
                 }
@@ -134,12 +138,12 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
         });
     }
 
-    private void getClinicList(int typeId, int townId){
+    private void getClinicList(String type, int townId){
 
         Log.e("clinicList","success");
 
         Api buildingListApi = service.getRetrofitService().create(Api.class);
-        buildingListApi.getBuildingList(token,typeId,townId).enqueue(new Callback<BuildingListResponse>() {
+        buildingListApi.getBuildingList(token,type,townId).enqueue(new Callback<BuildingListResponse>() {
             @Override
             public void onResponse(Call<BuildingListResponse> call, Response<BuildingListResponse> response) {
                 if(response.isSuccessful()){

@@ -19,11 +19,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RegisterActivity extends AppCompatActivity{
+public class RegisterActivity extends AppCompatActivity {
 
     private EditText edtphone, edtpassword, edtconpassword;
     private TextView txtregister, txtregphone, txtregpassword, txtconpassword, signin;
-    private long phoneNumber;
+    private String phoneNumber;
     private String password;
     private String confirmpassword;
     private ProgressBar progressBar;
@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity{
             public void onClick(View v) {
 
                 Log.e("btn","success");
-                phoneNumber = Long.parseLong(edtphone.getText().toString());
+                phoneNumber =edtphone.getText().toString();
                 password = edtpassword.getText().toString();
                 confirmpassword = edtconpassword.getText().toString();
 
@@ -90,39 +90,36 @@ public class RegisterActivity extends AppCompatActivity{
         });
     }
 
-    private void registerUser(long phoneNumber, String password, String confirmpassword) {
+    private void registerUser(String phoneNumber, String password, String confirmpassword) {
 //        final ProgressDialog progressDialog = new ProgressDialog(RegisterActivity.this);
 //        progressDialog.setCancelable(false);
 //        progressDialog.setMessage("Please Wait");
 //        progressDialog.show();
         Api api = service.getRetrofitService().create(Api.class);
 
-        Log.e("phone Number", String.valueOf(this.phoneNumber));
+        Log.e("phone Number", this.phoneNumber);
         Log.e("PasswordConfirm", this.confirmpassword);
 
         api.userRegister(this.phoneNumber, this.password, this.confirmpassword).enqueue(new Callback<RegisterResponse>() {
             @Override
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-                    Log.e("response.isSuccess", "work");
+                Log.e("response.isSuccess", "work");
+                if(response.body().isSuccess) {
+                    if (response.isSuccessful()) {
 
-                if(response.isSuccessful()){
                         Log.e("Register token", response.body().token);
-                    Toast.makeText(RegisterActivity.this, "Register Success", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-//                        progressDialog.dismiss();
+                        Toast.makeText(RegisterActivity.this, "Register Success", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                         startActivity(intent);
                         Log.e("RegisterOnResponse", "success");
-
-
+                    } else {
+                        Log.e("response.body", "fail");
                     }
-
-                else {
-                    Log.e("response.isSuccess", "fail");
                 }
             }
 
             @Override
-            public void onFailure(Call<RegisterResponse> call,Throwable t) {
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
                 Log.e("onFailure", t.toString());
                 Toast.makeText(RegisterActivity.this, "Register fail", Toast.LENGTH_LONG).show();
 

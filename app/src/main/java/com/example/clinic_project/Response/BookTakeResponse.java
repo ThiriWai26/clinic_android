@@ -9,4 +9,7 @@ public class BookTakeResponse {
 
     @SerializedName("message")
     public String message;
+
+    @SerializedName("error_message")
+    public String errorMessage;
 }

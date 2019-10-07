@@ -22,9 +22,8 @@ import com.example.clinic_project.Response.MyBookingResponse;
 import com.example.clinic_project.adapter.MyBookingAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.MyBookingHolder;
-import com.example.clinic_project.model.MyBooking;
+import com.example.clinic_project.model.Bookings;
 import com.example.clinic_project.service.RetrofitService;
-import com.example.clinic_project.service.Token;
 
 
 import java.util.ArrayList;
@@ -45,7 +44,7 @@ public class MyBookingActivity extends AppCompatActivity implements MyBookingHol
     private TextView txtdoctorname,txthospitalname,txtdate,txtmap;
     private String token = null;
 
-    List<MyBooking> booking = new ArrayList<>();
+    List<Bookings> bookings = new ArrayList<>();
 
 
     @Override
@@ -97,9 +96,17 @@ public class MyBookingActivity extends AppCompatActivity implements MyBookingHol
             public void onResponse(Call<MyBookingResponse> call, Response<MyBookingResponse> response) {
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
-
+                        Log.e("response.body","success");
+                        adapter.addItem(response.body().upcomingBooking.bookings);
+                        Log.e("Hospital_buildingSize",String.valueOf(bookings.size()));
+                        adapter.notifyDataSetChanged();
 
                     }
+                    else {
+                        Log.e("response.body","fail");
+                    }
+                }else {
+                    Log.e("response","fail");
                 }
             }
 
@@ -109,11 +116,6 @@ public class MyBookingActivity extends AppCompatActivity implements MyBookingHol
             }
         });
 
-
-    }
-
-    @Override
-    public void onItemClick(String date, int timeId) {
 
     }
 
@@ -148,5 +150,10 @@ public class MyBookingActivity extends AppCompatActivity implements MyBookingHol
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onItemClick(int parseInt) {
+
     }
 }

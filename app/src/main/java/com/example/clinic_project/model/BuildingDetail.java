@@ -6,34 +6,51 @@ import java.util.List;
 
 public class BuildingDetail {
 
-    public BuildingDetail(){
-
-    }
-
     @SerializedName("id")
     public int id;
 
     @SerializedName("name")
     public String name;
 
-    @SerializedName("town_name")
-    public String townName;
-
     @SerializedName("address")
     public String address;
 
+    @SerializedName("about")
+    public String about;
+
+    @SerializedName("latitude")
+    public String latitude;
+
+    @SerializedName("longitude")
+    public String longitude;
+
+    @SerializedName("logo")
+    public String logo;
+
+    @SerializedName("feature_photo")
+    public String featurePhoto;
+
     @SerializedName("photos")
-    public List<String> photos;
+    public String photos;
 
-    @SerializedName("featured_photo")
-    public String freaturedPhoto;
-
-    @SerializedName("phone_number")
+    @SerializedName("phone_numbers")
     public List<String> phoneNumber;
 
-    @SerializedName("google_map_location")
-    public String map;
+    @SerializedName("rating")
+    public float rating;
 
+    @SerializedName("is_public")
+    public int ispublic;
+
+    @SerializedName("town_id")
+    public int townId;
+
+    @SerializedName("town_name")
+    public String townName;
+
+    public BuildingDetail(){
+
+    }
 
 
 }

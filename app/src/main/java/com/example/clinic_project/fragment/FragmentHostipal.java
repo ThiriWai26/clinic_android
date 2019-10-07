@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.example.clinic_project.Activity.HospitalDetailActivity;
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingListResponse;
+import com.example.clinic_project.Response.RatingResponse;
 import com.example.clinic_project.Response.TownListResponse;
 import com.example.clinic_project.adapter.BuildingAdapter;
 import com.example.clinic_project.adapter.ViewPagerHospitalAdapter;
@@ -51,7 +52,8 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
     private ViewPager viewPager;
     private TextView txthospital;
     private ImageView imgsetting,imageView1;
-    private int typeId = 2;
+
+    private String type = "hospitals";
     private int townId = 0;
     Bundle b;
 
@@ -60,8 +62,6 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
     List<TownList> townLists = new ArrayList<>();
 
     List<Building> building = new ArrayList<>();
-    List<Building> newBuildings = new ArrayList<>();
-    private LinearLayoutManager linearLayoutManager;
     private String token = null;
 
     public FragmentHostipal() {
@@ -76,7 +76,6 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_fragment_hostipal, container, false);
 
-//        searchView = view.findViewById(R.id.sv);
         recyclerView = view.findViewById(R.id.recyclerView);
         service = new RetrofitService();
         txthospital = view.findViewById(R.id.txthospital);
@@ -84,21 +83,19 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
         imageView1 = view.findViewById(R.id.imageView1);
         adapter = new BuildingAdapter(this);
 
+        token = Token.MyToken.getToken();
+        Log.e("hospitalToken", token);
+
         ViewPagerHospitalAdapter viewPagerHospitalAdapter = new ViewPagerHospitalAdapter(getContext());
         viewPager = view.findViewById(R.id.viewPager);
         viewPager.setAdapter(viewPagerHospitalAdapter);
-
-        token = Token.MyToken.getToken();
-
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         getLocationList(token);
-        getBuildingList(typeId,townId);
+        getBuildingList(type,townId);
 
-//        searchViewFilter();
-//        searchViewModify();
-
+//        getRating();
         return view;
     }
 
@@ -131,29 +128,36 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
         });
     }
 
-    private void getBuildingList(int typeId, int townId) {
+    private void getBuildingList(String type, int townId) {
 
         Log.e("buildingList","success");
-
         Api buildingListApi = service.getRetrofitService().create(Api.class);
-        buildingListApi.getBuildingList(token,typeId,townId).enqueue(new Callback<BuildingListResponse>() {
+        buildingListApi.getBuildingList(token,type,townId).enqueue(new Callback<BuildingListResponse>() {
             @Override
             public void onResponse(Call<BuildingListResponse> call, Response<BuildingListResponse> response) {
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
+                        Log.e("response.body","success");
 
-                        building = response.body().buildingList.data;
-                        adapter.addItem(building);
+                        adapter.addItem(response.body().buildingList.data);
                         Log.e("Hospital_buildingSize",String.valueOf(building.size()));
 
-                    }
 
+                        adapter.notifyDataSetChanged();
+                    }
+                    else {
+                        Log.e("response.body","fail");
+                    }
+                }
+                else {
+                    Log.e("response", "fail");
                 }
             }
 
             @Override
             public void onFailure(Call<BuildingListResponse> call, Throwable t) {
 
+                Log.e("hospital_failure",t.toString());
             }
         });
     }

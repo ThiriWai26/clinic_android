@@ -4,10 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class DoctorList {
+public class UpcomingBooking {
 
     @SerializedName("data")
-    public List<Doctor> doctors;
+    public List<Bookings> bookings;
 
     @SerializedName("next_page_url")
     public String nextPageUrl;
@@ -20,6 +20,4 @@ public class DoctorList {
 
     @SerializedName("last_page_url ")
     public String lastPageUrl;
-
-
 }

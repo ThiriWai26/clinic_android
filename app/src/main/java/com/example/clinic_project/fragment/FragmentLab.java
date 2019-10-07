@@ -51,7 +51,7 @@ public class FragmentLab extends Fragment implements BuildingHolder.OnBuildingCl
     List<String> location = new ArrayList<>();
     private List<TownList> townLists = new ArrayList<>();
     private String token = null;
-    private int typeId = 3;
+    private String type = "labs";
     private int townId = 0;
 
 
@@ -80,15 +80,15 @@ public class FragmentLab extends Fragment implements BuildingHolder.OnBuildingCl
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         getLocationList(token);
-        getBuildingList(typeId,townId);
+        getBuildingList(type,townId);
         return view;
 
     }
 
-    private void getBuildingList(int typeId, int townId) {
+    private void getBuildingList(String type, int townId) {
 
         Api buildingListApi = service.getRetrofitService().create(Api.class);
-        buildingListApi.getBuildingList(token,typeId,townId).enqueue(new Callback<BuildingListResponse>() {
+        buildingListApi.getBuildingList(token,type,townId).enqueue(new Callback<BuildingListResponse>() {
             @Override
             public void onResponse(Call<BuildingListResponse> call, Response<BuildingListResponse> response) {
                 if(response.isSuccessful()){

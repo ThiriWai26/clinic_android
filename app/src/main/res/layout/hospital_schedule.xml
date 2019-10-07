@@ -32,33 +32,50 @@
             android:layout_margin="16dp">
 
             <TextView
-                android:id="@+id/tvname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/tvTime"
-                android:paddingLeft="30dp"
-                android:text="Shwe Taw Win"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tvLocation"
+                android:id="@+id/txid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvname"
-                android:layout_toRightOf="@id/tvTime"
-                android:paddingLeft="30dp"
-                android:text="Mandalay"
-                android:textColor="#b6b3b3"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/txtstarttime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:text="Start Time"
+                android:textColor="#424040"
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/tvTime"
+                android:id="@+id/txtendtime"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="10:45 AM"
-                android:textSize="12sp"
-                android:gravity="center_vertical"
-                android:textColor="#666666" />
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvstarttime"
+                android:paddingLeft="8dp"
+                android:text="End Time"
+                android:textColor="#424040"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvstarttime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/txtstarttime"
+                android:paddingLeft="16dp"
+                android:textColor="#b6b3b3"
+                android:text="2:00 PM"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvendtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvstarttime"
+                android:layout_toRightOf="@id/txtendtime"
+                android:paddingLeft="24dp"
+                android:text="5:00 PM"
+                android:textColor="#b6b3b3"
+                android:textSize="12sp" />
 
 
         </RelativeLayout>

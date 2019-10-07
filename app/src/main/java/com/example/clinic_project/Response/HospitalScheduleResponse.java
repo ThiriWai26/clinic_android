@@ -1,15 +1,16 @@
 package com.example.clinic_project.Response;
 
-import com.example.clinic_project.model.BuildingDetail;
+
+import com.example.clinic_project.model.HospitalSchedule;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class BuildingDetailResponse {
+public class HospitalScheduleResponse {
 
     @SerializedName("is_success")
     public boolean isSuccess;
 
-    @SerializedName("building")
-    public BuildingDetail buildingDetails;
+    @SerializedName("schedules")
+    public List<HospitalSchedule> hospitalSchedules;
 }

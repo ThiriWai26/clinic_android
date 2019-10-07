@@ -63,7 +63,7 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
     private RetrofitService service;
     private TextView txthospital;
     private ImageView imgsetting,imageView1;
-    private int typeId = 2;
+    private String type = "hospitals";
     private int townId = 0;
 
     private BuildingAdapter adapter;
@@ -104,12 +104,12 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
 
     }
 
-    private void getBuildingList(int typeId, int townId) {
+    private void getBuildingList(String typeId, int townId) {
 
         Log.e("buildingList","success");
 
         Api buildingListApi = service.getRetrofitService().create(Api.class);
-        buildingListApi.getBuildingList(token,typeId,townId).enqueue(new Callback<BuildingListResponse>() {
+        buildingListApi.getBuildingList(token,type,townId).enqueue(new Callback<BuildingListResponse>() {
             @Override
             public void onResponse(Call<BuildingListResponse> call, Response<BuildingListResponse> response) {
                 if(response.isSuccessful()){
@@ -148,7 +148,7 @@ public class HospitalActivity extends AppCompatActivity implements NavigationVie
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         getLocationList(token);
-        getBuildingList(typeId,townId);
+        getBuildingList(type,townId);
 
 //        Bundle bundle = getIntent().getExtras();
 //        townListId = bundle.getInt("specializationId");

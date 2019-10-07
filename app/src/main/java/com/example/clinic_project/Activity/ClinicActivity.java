@@ -18,12 +18,12 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.support.v7.widget.SearchView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,10 +35,8 @@ import com.example.clinic_project.adapter.BuildingAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.BuildingHolder;
 import com.example.clinic_project.model.Building;
-import com.example.clinic_project.model.Clinic;
 import com.example.clinic_project.model.TownList;
 import com.example.clinic_project.service.RetrofitService;
-import com.example.clinic_project.service.Token;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -113,37 +111,37 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
         Log.e("ClinicActivityToken", token);
 
         getLocationList(token);
-        getClinicList(typeId,townId);
+//        getClinicList(typeId,townId);
 
     }
 
-    private void getClinicList(int typeId, int townId) {
-
-        Log.e("clinicList","success");
-
-        Api buildingListApi = service.getRetrofitService().create(Api.class);
-        buildingListApi.getBuildingList(token,typeId,townId).enqueue(new Callback<BuildingListResponse>() {
-            @Override
-            public void onResponse(Call<BuildingListResponse> call, Response<BuildingListResponse> response) {
-                if(response.isSuccessful()){
-                    if(response.body().isSuccess){
-
-                        building = response.body().buildingList.data;
-                        adapter.addItem(building);
-                        Log.e("Clinic_buildingSize",String.valueOf(building.size()));
-
-                    }
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<BuildingListResponse> call, Throwable t) {
-
-            }
-        });
-
-    }
+//    private void getClinicList(int typeId, int townId) {
+//
+//        Log.e("clinicList","success");
+//
+//        Api buildingListApi = service.getRetrofitService().create(Api.class);
+//        buildingListApi.getBuildingList(token,typeId,townId).enqueue(new Callback<BuildingListResponse>() {
+//            @Override
+//            public void onResponse(Call<BuildingListResponse> call, Response<BuildingListResponse> response) {
+//                if(response.isSuccessful()){
+//                    if(response.body().isSuccess){
+//
+//                        building = response.body().buildingList.data;
+//                        adapter.addItem(building);
+//                        Log.e("Clinic_buildingSize",String.valueOf(building.size()));
+//
+//                    }
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<BuildingListResponse> call, Throwable t) {
+//
+//            }
+//        });
+//
+//    }
 
     private void getLocationList(String token) {
 

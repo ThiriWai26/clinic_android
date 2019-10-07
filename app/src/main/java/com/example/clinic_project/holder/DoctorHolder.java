@@ -45,7 +45,6 @@ public class DoctorHolder extends RecyclerView.ViewHolder implements View.OnClic
         tvId = view.findViewById(R.id.tvid);
         tvname = view.findViewById(R.id.tvName);
         tvSpecial = view.findViewById(R.id.tvType);
-//        tvAddress = view.findViewById(R.id.tvAddress);
         imgProfile = view.findViewById(R.id.profile);
         btnDoctorDetail = view.findViewById(R.id.btn_doctor_detail);
 
@@ -56,31 +55,29 @@ public class DoctorHolder extends RecyclerView.ViewHolder implements View.OnClic
 
 
     public void bindData(Doctor doctor) {
-        String special = doctor.specialists.get(0);
-        String address = doctor.towns.get(0);
+
+        tvId.setText(String.valueOf(doctor.id));
         tvname.setText(doctor.name);
 
-        for (int i = 1; i < doctor.specialists.size(); i++) {
-            special += ", " + doctor.specialists.get(i);
-        }
-
-        for (int i = 1; i < doctor.towns.size(); i++) {
-            address += ", " + doctor.towns.get(i);
-        }
-
-        tvSpecial.setText(special);
-
-//        tvAddress.setText(address);
-
-        Log.e("photo",doctor.photo);
-
         Picasso.get()
-                .load("http://128.199.180.50/api/get_image/" + doctor.photo)
+                .load("http://192.168.100.201:8001/api/download_image/" + doctor.photo)
                 .resize(40, 40)
                 .onlyScaleDown()
                 .centerCrop()
                 .into(imgProfile);
-        tvId.setText(String.valueOf(doctor.id));
+
+        String special = doctor.specialists.get(0);
+        for (int i = 1; i < doctor.specialists.size(); i++) {
+            special += ", " + doctor.specialists.get(i);
+        }
+
+        tvSpecial.setText(special);
+
+        Log.e("id", String.valueOf(doctor.id));
+        Log.e("name",doctor.name);
+        Log.e("photo",doctor.photo);
+        Log.e("specialist", String.valueOf(doctor.specialists));
+
     }
 
     @Override

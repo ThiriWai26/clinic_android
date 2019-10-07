@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         if (v == Login) {
 //            progressBar.setVisibility(View.VISIBLE);
-            long phone = Long.parseLong(edtphoneno.getText().toString());
+            String phone = edtphoneno.getText().toString();
             String pass1 = edtpassword.getText().toString();
 
             Log.e("phone_num", String.valueOf(phone));
@@ -108,10 +108,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
     }
 
-    private void userLogin(long phone, String pass1) {
+    private void userLogin(String phone, String pass1) {
 
         Api api = service.getRetrofitService().create(Api.class);
-
         api.login(phone, pass1).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {

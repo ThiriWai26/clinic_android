@@ -15,7 +15,7 @@
         android:clipChildren="true"
         android:clipToPadding="true"
         android:scrollbars="vertical"
-        tools:listitem="@layout/building_item"
+        tools:listitem="@layout/layout_favhospital_layout"
         android:background="#FFFFFF"/>
 
 </FrameLayout>

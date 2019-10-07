@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.DoctorHolder;
 import com.example.clinic_project.model.Doctor;
 import com.example.clinic_project.service.RetrofitService;
+import com.example.clinic_project.service.Token;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,13 +30,12 @@ public class DoctorsByHospital extends AppCompatActivity implements DoctorHolder
 
     private RecyclerView recyclerView;
     private RetrofitService service;
-    private TextView textname, texttype;
     private ImageView imgback;
     DoctorAdapter adapter;
 
-    List<Doctor> doctors = new ArrayList<>();
+    List<Doctor> doctor = new ArrayList<>();
     private String token = null;
-    private int hospital_id = 2;
+    private int hospital_id = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +49,10 @@ public class DoctorsByHospital extends AppCompatActivity implements DoctorHolder
 
         recyclerView = findViewById(R.id.recyclerView);
         service = new RetrofitService();
-        textname = findViewById(R.id.tvName);
-        texttype = findViewById(R.id.tvType);
-        imgback = findViewById(R.id.imgback);
+        imgback = findViewById(R.id.imageback);
+
+        token = Token.MyToken.getToken();
+//        Log.e("DrawerActivityToken", token);
 
         adapter = new DoctorAdapter(this);
         recyclerView.setAdapter(adapter);
@@ -63,37 +65,45 @@ public class DoctorsByHospital extends AppCompatActivity implements DoctorHolder
     private void getDoctorByHospital() {
 
         Log.e("doctorbyhospital","success");
-        Api doctorbyhospitalApi = service.getRetrofitService().create(Api.class);
-        doctorbyhospitalApi.getDoctorsByHospital(token,hospital_id).enqueue(new Callback<DoctorByHospitalResponse>() {
+        Api doctorByHospitalApi = service.getRetrofitService().create(Api.class);
+        doctorByHospitalApi.getDoctorsByHospital(token,hospital_id).enqueue(new Callback<DoctorByHospitalResponse>() {
             @Override
             public void onResponse(Call<DoctorByHospitalResponse> call, Response<DoctorByHospitalResponse> response) {
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
-
-                        doctors = response.body().doctorByHospital.doctors;
-                        adapter.addDoctors(doctors);
-                        Log.e("DoctorsByHospital", String.valueOf(doctors.size()));
-
+                        Log.e("response.body","success");
+                        doctor = response.body().doctorByHospital.doctors;
+                        adapter.addDoctors(doctor);
+                        Log.e("doctorbyhospital_size",String.valueOf(doctor.size()));
                     }
+                    else {
+                        Log.e("response.body","fail");
+                    }
+                }else{
+                    Log.e("response","fail");
                 }
             }
 
             @Override
-            public void onFailure(Call<DoctorByHospitalResponse> call, Throwable t) {
+            public void onFailure(Call<DoctorByHospitalResponse> call, Throwable throwable) {
 
             }
         });
-
     }
+
 
     @Override
     public void onDoctorClick(int id) {
 
-        Intent intent = new Intent(getApplicationContext(), DoctorDetailActivity.class);
+        Intent intent = new Intent(getApplicationContext(), CalenderViewActivity.class);
         intent.putExtra("doctorId", id);
         intent.putExtra("Token", token);
         Log.e("doctor_id", String.valueOf(id));
         startActivity(intent);
 
+    }
+
+    public void onBackClick(View view) {
+        finish();
     }
 }

@@ -59,7 +59,7 @@ public class DoctorsByClinic extends AppCompatActivity implements DoctorHolder.O
 
     private void initActivity() {
 
-        textname = findViewById(R.id.tvname);
+        textname = findViewById(R.id.tvName);
         texttype = findViewById(R.id.tvType);
         imageback = findViewById(R.id.imageback);
         recyclerView = findViewById(R.id.recyclerView);

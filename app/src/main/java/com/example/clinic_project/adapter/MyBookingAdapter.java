@@ -6,13 +6,17 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.example.clinic_project.holder.MyBookingHolder;
+import com.example.clinic_project.model.Bookings;
 
-public class
-MyBookingAdapter extends RecyclerView.Adapter<MyBookingHolder> {
+import java.util.ArrayList;
+import java.util.List;
 
+public class MyBookingAdapter extends RecyclerView.Adapter<MyBookingHolder> {
+
+    List<Bookings> bookings = new ArrayList<>();
     MyBookingHolder.OnItemClickListener listener;
 
-    public MyBookingAdapter (MyBookingHolder.OnItemClickListener listener){
+    public MyBookingAdapter(MyBookingHolder.OnItemClickListener listener){
 
         this.listener = listener;
     }
@@ -20,7 +24,6 @@ MyBookingAdapter extends RecyclerView.Adapter<MyBookingHolder> {
     @NonNull
     @Override
     public MyBookingHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         return MyBookingHolder.create(inflater,viewGroup,listener);
     }
@@ -28,15 +31,23 @@ MyBookingAdapter extends RecyclerView.Adapter<MyBookingHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyBookingHolder myBookingHolder, int i) {
 
-        MyBookingHolder.bindData();
+        MyBookingHolder.bindData(bookings.get(i));
     }
 
     @Override
     public int getItemCount() {
-
-        return 10;
+        return bookings.size();
     }
+
+    public void addItem(List<Bookings> bookings) {
+
+        this.bookings.clear();
+        this.bookings.addAll(bookings);
+        notifyDataSetChanged();
+
+        }
 }
+
 
 
 
