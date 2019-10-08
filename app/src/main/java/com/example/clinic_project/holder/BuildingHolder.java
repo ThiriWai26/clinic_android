@@ -22,7 +22,7 @@ public class BuildingHolder extends RecyclerView.ViewHolder implements View.OnCl
     private OnBuildingClickListener listener;
     private TextView txName, txLocation, txId;
     private ImageView imageView;
-    private RatingBar rating;
+    private RatingBar ratingBar;
 
     public static BuildingHolder create(LayoutInflater inflater, ViewGroup parent, OnBuildingClickListener listener) {
 
@@ -46,9 +46,7 @@ public class BuildingHolder extends RecyclerView.ViewHolder implements View.OnCl
         txName.setText(building.name);
         txLocation.setText(building.townName);
         txId.setText(String.valueOf(building.id));
-//        rating.setTextAlignment(building.rating);
-        int numberOfStars = (int) rating.getRating();
-
+        ratingBar.setRating(building.rating);
 
         Picasso.get()
                 .load("http://192.168.100.201:8001/api/download_image/" + building.image)
@@ -84,7 +82,7 @@ public class BuildingHolder extends RecyclerView.ViewHolder implements View.OnCl
         txName = view.findViewById(R.id.txName);
         txId = view.findViewById(R.id.txid);
         imageView = view.findViewById(R.id.imageView1);
-        rating = (RatingBar) view.findViewById(R.id.rating);
+        ratingBar = view.findViewById(R.id.rating);
 
         view.setOnClickListener(this);
 

@@ -64,6 +64,10 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
     List<Building> building = new ArrayList<>();
     private String token = null;
 
+    private int value = 5;
+    private int rateableid = -1;
+    private String rateableType = "hospitals";
+
     public FragmentHostipal() {
         // Required empty public constructor
     }
@@ -141,7 +145,6 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
 
                         adapter.addItem(response.body().buildingList.data);
                         Log.e("Hospital_buildingSize",String.valueOf(building.size()));
-
 
                         adapter.notifyDataSetChanged();
                     }

@@ -21,6 +21,7 @@ import com.example.clinic_project.Response.FavouriteListResponse;
 import com.example.clinic_project.Response.FavouriteResponse;
 import com.example.clinic_project.Response.RatingResponse;
 import com.example.clinic_project.Response.UnsetFavouriteResponse;
+import com.example.clinic_project.Response.UserRatingResponse;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
@@ -39,6 +40,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
     private TextView address,txtname,txtlocation,textabout,textviewmap,textservice;
     private RelativeLayout hservice,department;
     private Button bookanappointment;
+    private RatingBar ratingBar;
 
     private int buildingId = -1;
     private String type = "hospitals";
@@ -49,7 +51,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
     private int rateableId = -1;
     private String rateableType = "hospitals";
-    private int value = -1;
+    private int value = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +82,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
         service = new RetrofitService();
         hservice= findViewById(R.id.relativeservice);
         department = findViewById(R.id.relativedepartment);
+        ratingBar = findViewById(R.id.rating);
 
         Bundle bundle = getIntent().getExtras();
         buildingId = bundle.getInt("buildingId");
@@ -166,6 +169,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
     }
 
+
     private void getBuildingDetail() {
 
         Log.e("Building_detail","successs");
@@ -193,6 +197,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
                         address.setText(response.body().buildingDetails.townName);
                         txtlocation.setText(response.body().buildingDetails.address);
                         textabout.setText(response.body().buildingDetails.about);
+                        ratingBar.setRating(response.body().buildingDetails.rating);
 
                         Log.e("featured photo",response.body().buildingDetails.featurePhoto);
                         Log.e("photo",response.body().buildingDetails.photos);
@@ -200,6 +205,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
                         Log.e("address",response.body().buildingDetails.address);
                         Log.e("location",response.body().buildingDetails.townName);
                         Log.e("about",response.body().buildingDetails.about);
+                        Log.e("rating", String.valueOf(response.body().buildingDetails.rating));
 
                         getRating();
 
@@ -216,7 +222,6 @@ public class HospitalDetailActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<BuildingDetailResponse> call, Throwable t) {
                 Log.e("onfailure", t.toString());
-
             }
         });
 
@@ -244,7 +249,7 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<FavouriteResponse> call, Throwable t) {
-
+                Log.e("onfailure",t.toString());
             }
         });
     }
@@ -300,12 +305,40 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<RatingResponse> call, Throwable throwable) {
-
+                Log.e("onfailure",throwable.toString());
             }
         });
 
     }
 
+    private void getUserRating(){
 
+        Log.e("getUserRating","success");
+        Api userRatingApi = service.getRetrofitService().create(Api.class);
+        userRatingApi.getUserRating(token,rateableId,rateableType).enqueue(new Callback<UserRatingResponse>() {
+            @Override
+            public void onResponse(Call<UserRatingResponse> call, Response<UserRatingResponse> response) {
+                if(response.isSuccessful()){
+                    if(response.body().isSuccess){
+                        Log.e("response.body","success");
+                        Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_LONG).show();
+                    }else{
+                        Log.e("response.body","fail");
+                        Toast.makeText(getApplicationContext(), response.body().errorMessage,Toast.LENGTH_LONG).show();
+                    }
+                }else{
+                    Log.e("response","fail");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserRatingResponse> call, Throwable throwable) {
+                Log.e("onfailure",throwable.toString());
+            }
+        });
+
+
+
+    }
 
 }

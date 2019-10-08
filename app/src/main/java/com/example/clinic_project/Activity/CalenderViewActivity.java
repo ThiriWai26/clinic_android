@@ -96,13 +96,15 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
             }
         });
 
-        tvbook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.e("tvbookOnClick","success");
-                getBookingList();
-            }
-        });
+        if((date != null) && (scheduleId != -1)) {
+            tvbook.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.e("tvbookOnClick", "success");
+                    getBookingList();
+                }
+            });
+        }
 
     }
 
