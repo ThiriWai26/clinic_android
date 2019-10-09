@@ -64,7 +64,6 @@ public class FragmentMyBooking extends Fragment implements MyBookingHolder.OnIte
     }
 
     private void getMyBooking() {
-
         Log.e("mybooking","success");
         Api myBookingApi = service.getRetrofitService().create(Api.class);
         myBookingApi.getMyBooking(token).enqueue(new Callback<MyBookingResponse>() {
@@ -73,7 +72,6 @@ public class FragmentMyBooking extends Fragment implements MyBookingHolder.OnIte
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
                         Log.e("response.body","success");
-
                         adapter.addItem(response.body().upcomingBooking.bookings);
                         Log.e("mybookingsize",String.valueOf(bookings.size()));
                         adapter.notifyDataSetChanged();
@@ -89,7 +87,6 @@ public class FragmentMyBooking extends Fragment implements MyBookingHolder.OnIte
 
             @Override
             public void onFailure(Call<MyBookingResponse> call, Throwable t) {
-
                 Log.e("onfailure", t.toString());
             }
         });

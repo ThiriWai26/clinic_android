@@ -1,10 +1,7 @@
 package com.example.clinic_project.Response;
 
-import com.example.clinic_project.model.Building;
 import com.example.clinic_project.model.BuildingList;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 
 public class BuildingListResponse {
 

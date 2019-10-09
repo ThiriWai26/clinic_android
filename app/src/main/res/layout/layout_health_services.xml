@@ -219,6 +219,29 @@
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
+<!--            <android.support.v7.widget.CardView-->
+<!--                android:id="@+id/cardnew"-->
+<!--                android:layout_width="160dp"-->
+<!--                android:layout_height="110dp"-->
+<!--                android:layout_below="@id/cardassess"-->
+<!--                app:cardCornerRadius="10dp"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:elevation="14dp">-->
+<!--                -->
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="#EC6694">-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:src="@drawable/img_doctor"-->
+<!--                        android:alpha="0.3"-->
+<!--                        -->
+<!--                        -->
+<!--                </RelativeLayout>-->
+<!--            </android.support.v7.widget.CardView>-->
+
         </RelativeLayout>
 
 </RelativeLayout>

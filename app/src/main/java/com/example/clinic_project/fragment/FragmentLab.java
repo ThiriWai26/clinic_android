@@ -86,23 +86,28 @@ public class FragmentLab extends Fragment implements BuildingHolder.OnBuildingCl
     }
 
     private void getBuildingList(String type, int townId) {
-
+        Log.e("getbuildingList","success");
         Api buildingListApi = service.getRetrofitService().create(Api.class);
         buildingListApi.getBuildingList(token,type,townId).enqueue(new Callback<BuildingListResponse>() {
             @Override
             public void onResponse(Call<BuildingListResponse> call, Response<BuildingListResponse> response) {
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
+                        Log.e("response.body","success");
                         building = response.body().buildingList.data;
                         Log.e("Lab_BuildingSize", String.valueOf(building.size()));
                         adapter.addItem(building);
+                    }else {
+                            Log.e("response.body","success");
                     }
+                }else{
+                    Log.e("response","fail");
                 }
             }
 
             @Override
             public void onFailure(Call<BuildingListResponse> call, Throwable t) {
-
+                Log.e("onfailure",t.toString());
             }
         });
     }
@@ -128,7 +133,7 @@ public class FragmentLab extends Fragment implements BuildingHolder.OnBuildingCl
 
             @Override
             public void onFailure(Call<TownListResponse> call, Throwable t) {
-
+                Log.e("onfailure",t.toString());
             }
         });
     }

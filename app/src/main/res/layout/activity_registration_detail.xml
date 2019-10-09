@@ -113,11 +113,13 @@
 
             <TextView
                 android:id="@+id/textLocation"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvLocation"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="6dp"
+                android:layout_marginRight="40dp"
+                android:justificationMode="inter_word"
                 android:layout_weight="1"
                 android:text="17th Street, between 82x83 streets, Aung Myay Thar Zan Township, Mandalay."
                 android:textSize="14sp" />
@@ -156,11 +158,13 @@
 
             <TextView
                 android:id="@+id/textabout"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/about"
                 android:layout_marginLeft="60dp"
+                android:layout_marginRight="40dp"
                 android:layout_marginTop="6dp"
+                android:justificationMode="inter_word"
                 android:layout_weight="1"
                 android:text="Pharmacy is the science and technique of preparing, dispensing, and reviewing drugs and providing additional clinical services. It is a health profession that links health sciences with pharmaceutical sciences and aims to ensure the safe, effective, and affordable use of drugs."
                 android:textSize="14sp" />
@@ -203,6 +207,7 @@
                 android:layout_below="@+id/time"
                 android:layout_marginTop="6dp"
                 android:layout_marginLeft="60dp"
+                android:layout_marginRight="40dp"
                 android:text=" On/Off"
                 android:textColor="#000000"
                 android:textSize="12dp"/>

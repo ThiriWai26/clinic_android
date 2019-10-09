@@ -50,7 +50,6 @@ public class FragmentDrag extends Fragment implements DragHolder.OnItemClickList
         ViewPagerDragAdapter viewPagerDragAdapter = new ViewPagerDragAdapter(getContext());
         viewPager = view.findViewById(R.id.viewPager);
         viewPager.setAdapter(viewPagerDragAdapter);
-
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

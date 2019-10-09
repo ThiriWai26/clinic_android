@@ -113,11 +113,13 @@
 
             <TextView
                 android:id="@+id/textLocation"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvLocation"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="6dp"
+                android:layout_marginRight="40dp"
+                android:justificationMode="inter_word"
                 android:layout_weight="1"
                 android:text="Shwe Phyu Plaza, Mandalay"
                 android:textSize="14sp" />
@@ -156,11 +158,13 @@
 
             <TextView
                 android:id="@+id/textabout"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/about"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="6dp"
+                android:layout_marginRight="40dp"
+                android:justificationMode="inter_word"
                 android:layout_weight="1"
                 android:text="a non profit organization that operates independently of any government,typically one whose purpose is to address a social or political issue"
                 android:textSize="14sp" />

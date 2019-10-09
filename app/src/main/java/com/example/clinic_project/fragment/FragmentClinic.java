@@ -133,34 +133,35 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
 
             @Override
             public void onFailure(Call<TownListResponse> call, Throwable t) {
-
+                Log.e("onfailure",t.toString());
             }
         });
     }
 
     private void getClinicList(String type, int townId){
-
         Log.e("clinicList","success");
-
         Api buildingListApi = service.getRetrofitService().create(Api.class);
         buildingListApi.getBuildingList(token,type,townId).enqueue(new Callback<BuildingListResponse>() {
             @Override
             public void onResponse(Call<BuildingListResponse> call, Response<BuildingListResponse> response) {
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
-
+                        Log.e("response.body","success");
                         building = response.body().buildingList.data;
                         adapter.addItem(building);
                         Log.e("Clinic_buildingSize",String.valueOf(building.size()));
-
                     }
-
+                    else{
+                        Log.e("response.body","fail");
+                    }
+                }else{
+                    Log.e("response","fail");
                 }
             }
 
             @Override
             public void onFailure(Call<BuildingListResponse> call, Throwable t) {
-
+                Log.e("onfailure",t.toString());
             }
         });
 

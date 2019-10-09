@@ -161,21 +161,24 @@ public class FragmentDoctor extends Fragment implements DoctorHolder.OnDoctorCli
         doctorListApi.getDoctorList(token).enqueue(new Callback<DoctorListResponse>() {
             @Override
             public void onResponse(Call<DoctorListResponse> call, Response<DoctorListResponse> response) {
-
                 if (response.isSuccessful()) {
                     if (response.body().isSuccess) {
+                        Log.e("response.body","success");
                         doctors = response.body().doctorLists.doctors;
                         adapter.addDoctors(doctors);
-
                         Log.e("DoctorLists", String.valueOf(doctors.size()));
                     }
+                    else{
+                        Log.e("response.body","fail");
+                    }
+                }else {
+                    Log.e("response","fail");
                 }
-
             }
 
             @Override
             public void onFailure(Call<DoctorListResponse> call, Throwable t) {
-
+                Log.e("onfailure",t.toString());
             }
         });
     }
@@ -192,8 +195,6 @@ public class FragmentDoctor extends Fragment implements DoctorHolder.OnDoctorCli
 
                         specializationLists = response.body().specializations;
                         Log.e("Special size", String.valueOf(response.body().specializations.size()));
-
-
                         for (SpecializationList special : specializationLists) {
                             categories.add(special.name);
                             Log.e("name", special.name);

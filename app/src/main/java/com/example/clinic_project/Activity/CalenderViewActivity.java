@@ -78,6 +78,17 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        calendarView = findViewById(R.id.calendarView);
+        imgback = findViewById(R.id.imgback);
+        tvbook = findViewById(R.id.tvbooking);
+        recyclerView = findViewById(R.id.recyclerView);
+        service = new RetrofitService();
+        token  = Token.MyToken.getToken();
+
+        Bundle bundle1 = getIntent().getExtras();
+        doctorId = bundle1.getInt("doctorId");
+        Log.e("doctorId",String.valueOf(doctorId));
+
         Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int month = calendar.get(Calendar.MONTH);
@@ -96,7 +107,15 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
             }
         });
 
+//        tvbook.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getBookingList();
+//            }
+//        });
+
         if((date != null) && (scheduleId != -1)) {
+            Log.e("ifcondition","success");
             tvbook.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -104,6 +123,8 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
                     getBookingList();
                 }
             });
+        }else{
+            Log.e("ifcondition","fail");
         }
 
     }
@@ -159,8 +180,8 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
             }
 
             @Override
-            public void onFailure(Call<HospitalScheduleResponse> call, Throwable throwable) {
-
+            public void onFailure(Call<HospitalScheduleResponse> call, Throwable t) {
+                Log.e("onfailure",t.toString());
             }
         });
 

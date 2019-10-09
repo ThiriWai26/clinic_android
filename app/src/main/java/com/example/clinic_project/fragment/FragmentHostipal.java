@@ -127,7 +127,7 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
 
             @Override
             public void onFailure(Call<TownListResponse> call, Throwable t) {
-
+                Log.e("onfailure",t.toString());
             }
         });
     }

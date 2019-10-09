@@ -113,11 +113,13 @@
 
             <TextView
                 android:id="@+id/textLocation"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvLocation"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="6dp"
+                android:layout_marginRight="40dp"
+                android:justificationMode="inter_word"
                 android:layout_weight="1"
                 android:text="No.333, 82nd Rd, Bet 29th &amp; 30th St, Mandalay, Mandalay, Myanmar"
                 android:textSize="14sp" />
@@ -152,6 +154,8 @@
                 android:layout_below="@id/about"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="6dp"
+                android:layout_marginRight="40dp"
+                android:justificationMode="inter_word"
                 android:layout_weight="1"
                 android:text="You might be interested in other subsections of the health directory such as these location directories: clinic, doctor, pharmacy, veterinary doctor or dentist"
                 android:textSize="14sp" />
@@ -180,11 +184,12 @@
 
             <TextView
                 android:id="@+id/txttime"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/time"
                 android:layout_marginTop="6dp"
                 android:layout_marginLeft="60dp"
+                android:justificationMode="inter_word"
                 android:text=" On/Off"
                 android:textColor="#000000"
                 android:textSize="12dp"/>

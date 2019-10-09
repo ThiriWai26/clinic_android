@@ -135,13 +135,13 @@ public class HospitalDetailActivity extends AppCompatActivity {
            public void onClick(View v) {
 
                if (isFavourite){
-                   imgfav.setBackgroundResource(R.drawable.favouritewhite);
+                   imgfav.setBackgroundResource(R.drawable.ic_favorite_border_black_24dp);
                    isFavourite=false;
                    unsetFavourite();
                }
 
                else {
-                   imgfav.setBackgroundResource(R.drawable.favouritered);
+                   imgfav.setBackgroundResource(R.drawable.ic_favorite_black_24dp);
                    isFavourite=true;
                    setFavourite();
 
