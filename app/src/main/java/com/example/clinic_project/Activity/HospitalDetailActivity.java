@@ -1,11 +1,14 @@
 package com.example.clinic_project.Activity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,12 +20,13 @@ import android.widget.Toast;
 
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingDetailResponse;
-import com.example.clinic_project.Response.FavouriteListResponse;
 import com.example.clinic_project.Response.FavouriteResponse;
 import com.example.clinic_project.Response.RatingResponse;
 import com.example.clinic_project.Response.UnsetFavouriteResponse;
 import com.example.clinic_project.Response.UserRatingResponse;
+import com.example.clinic_project.adapter.ContactNumberAdapter;
 import com.example.clinic_project.api.Api;
+import com.example.clinic_project.holder.ContactNumberHolder;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
 import com.squareup.picasso.Picasso;
@@ -32,12 +36,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class HospitalDetailActivity extends AppCompatActivity {
+public class HospitalDetailActivity extends AppCompatActivity implements ContactNumberHolder.OnItemClickListener {
 
     private RetrofitService service;
     private String token;
     private ImageView imageView,imgback,imgphone,imgprofile,imgSpecial,imgmap,imgfav,imgservice;
-    private TextView address,txtname,txtlocation,textabout,textviewmap,textservice;
+    private TextView address,txtname,txtlocation,textabout,textviewmap,textservice,txtphoneno;
     private RelativeLayout hservice,department;
     private Button bookanappointment;
     private RatingBar ratingBar;
@@ -52,6 +56,10 @@ public class HospitalDetailActivity extends AppCompatActivity {
     private int rateableId = -1;
     private String rateableType = "hospitals";
     private int value = 5;
+
+    private RecyclerView recyclerView;
+    private ContactNumberAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,15 +121,6 @@ public class HospitalDetailActivity extends AppCompatActivity {
 //            }
 //        });
 
-        imgphone.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PhoneActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
         bookanappointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -166,9 +165,16 @@ public class HospitalDetailActivity extends AppCompatActivity {
             }
         });
 
+        imgphone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                getphonenumberList();
+                Intent intent = new Intent(getApplicationContext(), NewCardViewActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
-
 
     private void getBuildingDetail() {
 
@@ -341,4 +347,21 @@ public class HospitalDetailActivity extends AppCompatActivity {
 
     }
 
+    private void getphonenumberList() {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.layout_phonenumber_dialog);
+        dialog.show();
+
+        adapter = new ContactNumberAdapter(this);
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+
+    @Override
+    public void onContactNumberClick() {
+
+    }
 }

@@ -88,7 +88,7 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
         adapter = new BuildingAdapter(this);
 
         token = Token.MyToken.getToken();
-        Log.e("hospitalToken", token);
+//        Log.e("hospitalToken", token);
 
         ViewPagerHospitalAdapter viewPagerHospitalAdapter = new ViewPagerHospitalAdapter(getContext());
         viewPager = view.findViewById(R.id.viewPager);

@@ -26,7 +26,6 @@ public class RegisterActivity extends AppCompatActivity {
     private String phoneNumber;
     private String password;
     private String confirmpassword;
-    private ProgressBar progressBar;
 
     private RetrofitService service;
 
@@ -91,10 +90,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void registerUser(String phoneNumber, String password, String confirmpassword) {
-//        final ProgressDialog progressDialog = new ProgressDialog(RegisterActivity.this);
-//        progressDialog.setCancelable(false);
-//        progressDialog.setMessage("Please Wait");
-//        progressDialog.show();
+
         Api api = service.getRetrofitService().create(Api.class);
 
         Log.e("phone Number", this.phoneNumber);
@@ -107,14 +103,18 @@ public class RegisterActivity extends AppCompatActivity {
                 if(response.body().isSuccess) {
                     if (response.isSuccessful()) {
 
-                        Log.e("Register token", response.body().token);
+                        Log.e("response.body", "success");
+                        Log.e("register_token", String.valueOf(response.body().token));
                         Toast.makeText(RegisterActivity.this, "Register Success", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        intent.putExtra("token", response.body().token);
                         startActivity(intent);
-                        Log.e("RegisterOnResponse", "success");
-                    } else {
-                        Log.e("response.body", "fail");
+                        finish();
+
                     }
+                } else {
+                    Log.e("response.body", "fail");
+                    Toast.makeText(RegisterActivity.this, response.body().errorMessage, Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -125,7 +125,6 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
-//        Log.e("passowrd", this.password);
 
     }
 

@@ -14,4 +14,19 @@
     <dimen name="design_bottom_navigation_text_size" tools:override="true">5sp</dimen>
     <dimen name="design_bottom_navigation_active_text_size" tools:override="true">5sp</dimen>
 
+    <dimen name="view_width">240dp</dimen>
+    <dimen name="input_text_size">12sp</dimen>
+    <dimen name="title_text_size">16dp</dimen>
+    <dimen name="btnstyle_height">42dp</dimen>
+
+    <dimen name="margin_smallest">2dp</dimen>
+    <dimen name="margin_sm">4dp</dimen>
+    <dimen name="margin_md">8dp</dimen>
+    <dimen name="margin_lg">16dp</dimen>
+    <dimen name="margin_xl">32dp</dimen>
+    <dimen name="margin_xxl">64dp</dimen>
+    <dimen name="margin_xxxl">72dp</dimen>
+
+    <dimen name="default_margin">24dp</dimen>
+
 </resources>

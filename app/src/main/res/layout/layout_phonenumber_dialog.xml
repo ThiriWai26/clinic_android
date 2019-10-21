@@ -91,45 +91,45 @@
 
     </RelativeLayout>
 
-    <!--    <RelativeLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_below="@+id/view1"-->
-    <!--        tools:ignore="UnknownId">-->
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/view1"-->
+<!--        tools:ignore="UnknownId">-->
 
-    <!--            <TextView-->
-    <!--                android:id="@+id/tv_ok"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginLeft="20dp"-->
-    <!--                android:layout_marginBottom="20dp"-->
-    <!--                android:layout_marginTop="@dimen/margin_lg"-->
-    <!--                android:gravity="center"-->
-    <!--                android:textColor="@color/colorAccent"-->
-    <!--                android:text="OK"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/tv_ok"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginBottom="20dp"-->
+<!--                android:layout_marginTop="@dimen/margin_lg"-->
+<!--                android:gravity="center"-->
+<!--                android:textColor="@color/colorAccent"-->
+<!--                android:text="OK"/>-->
 
-    <!--            <ImageView-->
-    <!--                android:id="@+id/line"-->
-    <!--                android:layout_width="30dp"-->
-    <!--                android:layout_height="24dp"-->
-    <!--                android:layout_marginLeft="60dp"-->
-    <!--                android:layout_marginTop="@dimen/margin_lg"-->
-    <!--                android:layout_toRightOf="@+id/tv_ok"-->
-    <!--                android:layout_gravity="center_vertical"-->
-    <!--                android:background="@drawable/line1" />-->
+<!--            <ImageView-->
+<!--                android:id="@+id/line"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="24dp"-->
+<!--                android:layout_marginLeft="60dp"-->
+<!--                android:layout_marginTop="@dimen/margin_lg"-->
+<!--                android:layout_toRightOf="@+id/tv_ok"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:background="@drawable/line1" />-->
 
-    <!--            <TextView-->
-    <!--                android:id="@+id/tv_cancel"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginLeft="60dp"-->
-    <!--                android:layout_marginTop="@dimen/margin_lg"-->
-    <!--                android:layout_marginRight="20dp"-->
-    <!--                android:gravity="center"-->
-    <!--                android:layout_toRightOf="@+id/line"-->
-    <!--                android:textColor="@color/colorAccent"-->
-    <!--                android:text="CANCEL"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/tv_cancel"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="60dp"-->
+<!--                android:layout_marginTop="@dimen/margin_lg"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_toRightOf="@+id/line"-->
+<!--                android:textColor="@color/colorAccent"-->
+<!--                android:text="CANCEL"/>-->
 
-    <!--    </RelativeLayout>-->
+<!--    </RelativeLayout>-->
 
 </RelativeLayout>

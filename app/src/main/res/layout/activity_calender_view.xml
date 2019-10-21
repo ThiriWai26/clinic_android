@@ -53,15 +53,25 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp" />
 
+<!--        <View-->
+<!--            android:id="@+id/view1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_below="@id/calendarView"-->
+<!--            android:layout_marginBottom="12dp"-->
+<!--            android:background="#E2E4E2" />-->
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_below="@id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
             android:clipChildren="true"
             android:clipToPadding="true"
             android:scrollbars="vertical"
-            tools:listitem="@layout/hospital_schedule"/>
+            tools:listitem="@layout/hospital_schedule"
+            android:background="#FFFFFF"/>
 
 
 </RelativeLayout>

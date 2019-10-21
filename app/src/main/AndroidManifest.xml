@@ -21,13 +21,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activity.NewCardViewActivity"></activity>
+        <activity android:name=".Activity.NewCardViewActivity" />
         <activity
             android:name=".Activity.AnotherHomenaviActivity"
             android:label="@string/title_activity_another_homenavi"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activity.DoctorsByHospital" />
-        <activity android:name=".Activity.NewActivity" />
         <activity android:name=".Activity.MyFavouriteHospitalActivity" />
         <activity android:name=".Activity.MyFavouriteDoctorActivity" />
         <activity android:name=".Activity.MyBookingActivity" />
@@ -37,7 +36,6 @@
         <activity android:name=".Activity.RegistrationDetailActivity" />
         <activity android:name=".Activity.AssessmentDetailActivity" />
         <activity android:name=".Activity.DragDetailActivity" />
-
         <activity
             android:name=".Activity.ServiceActivity2"
             android:label="@string/title_activity_service2" />

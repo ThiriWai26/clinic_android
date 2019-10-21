@@ -129,12 +129,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         intent.putExtra("Token", response.body().token);
                         Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_LONG).show();
                         startActivity(intent);
-//                    progressBar.setVisibility(View.GONE);
-//                    finish();
+
+                    }else{
+                        Toast.makeText(LoginActivity.this,response.body().errorMessage,Toast.LENGTH_LONG).show();
                     }
 
                 } else {
-
                     Toast.makeText(LoginActivity.this, "Login Fail", Toast.LENGTH_LONG).show();
                 }
 

@@ -23,6 +23,8 @@ import com.example.clinic_project.model.HospitalSchedule;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
 
+import java.time.DayOfWeek;
+import java.time.MonthDay;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -43,12 +45,12 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
     private List<HospitalSchedule> hospitalSchedules = new ArrayList<>();
 
     private String token = null;
-    private int doctorId = 1;
+    private int doctorId = -1;
     private int hospitalId = 1;
-    private int day = 1;
+    private int day;
 
     private String date = "2019-10-05";
-    private int scheduleId = 1;
+    private int scheduleId = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,12 +91,16 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
         doctorId = bundle1.getInt("doctorId");
         Log.e("doctorId",String.valueOf(doctorId));
 
-        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
+//        Bundle bundle2 = getIntent().getExtras();
+//        hospitalId = bundle2.getInt("buildingId");
+        Log.e("hospitalId",String.valueOf(hospitalId));
+
+        final Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+        final int days = calendar.get(Calendar.DAY_OF_MONTH);
         int month = calendar.get(Calendar.MONTH);
         int year = calendar.get(Calendar.YEAR);
 
-        date = String.valueOf(day) + "-" + String.valueOf(month + 1) + "-" + String.valueOf(year);
+        date = String.valueOf(days) + "-" + String.valueOf(month + 1) + "-" + String.valueOf(year);
         Log.e("Date format",date);
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -102,30 +108,32 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
 
                 date = String.valueOf(dayOfMonth) + "-" + String.valueOf(month + 1) + "-" + String.valueOf(year);
-                Log.e("date", date);
+                calendar.set(year,month,dayOfMonth);
+                int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+
+                 if((dayOfWeek-1)==0){
+                     day = 8;
+                 }
+                 else {
+                     day = dayOfWeek -1;
+                 }
+
+                 Log.e("day",String.valueOf(day));
+
                 getHospitalSchedule();
             }
         });
 
-//        tvbook.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getBookingList();
-//            }
-//        });
-
-        if((date != null) && (scheduleId != -1)) {
             Log.e("ifcondition","success");
             tvbook.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.e("tvbookOnClick", "success");
-                    getBookingList();
+                    if((date != null) && (scheduleId != -1)) {
+                        Log.e("tvbookOnClick", "success");
+                        getBookingList();
+                    }
                 }
             });
-        }else{
-            Log.e("ifcondition","fail");
-        }
 
     }
 
@@ -157,7 +165,6 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
             }
     }
 
-
     private void getHospitalSchedule() {
         Log.e("getHospitalSchedule","success");
         Api hospitalscheduleApi = service.getRetrofitService().create(Api.class);
@@ -168,14 +175,13 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
                     if(response.body().isSuccess){
                         Log.e("response.body","success");
                         adapter.addItem(response.body().hospitalSchedules);
-                        Log.e("hospitalScheduleSize", String.valueOf(hospitalSchedules.size()));
                     }
                     else {
-                        Log.e("response.body","fail");
+                      adapter.clearItem();
                     }
                 }
                 else{
-                    Log.e("response","fail");
+                    Log.e("server response","fail");
                 }
             }
 

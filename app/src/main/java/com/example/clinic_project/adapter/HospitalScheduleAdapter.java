@@ -70,4 +70,9 @@ public class HospitalScheduleAdapter extends RecyclerView.Adapter<HospitalSchedu
         Log.e("add Item","Success");
 
     }
+
+    public void clearItem(){
+        this.hospitalSchedules.clear();
+        notifyDataSetChanged();
+    }
 }
