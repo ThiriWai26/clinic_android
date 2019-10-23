@@ -40,7 +40,6 @@ public class HospitalScheduleAdapter extends RecyclerView.Adapter<HospitalSchedu
 
         bookHolder.bindData(hospitalSchedules.get(i));
 
-
 //        if(selectedPosition == i)
 //            bookHolder.itemView.setBackgroundColor(Color.parseColor("#8FFCCF"));
 //

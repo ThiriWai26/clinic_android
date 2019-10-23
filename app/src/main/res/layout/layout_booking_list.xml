@@ -28,9 +28,11 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="@dimen/margin_lg"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="24dp"
+
+                android:layout_gravity="center"
                 android:tag="image_tag"
                 android:src="@drawable/img_doctor" />
 
@@ -38,7 +40,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/margin_md"
                 android:orientation="vertical">
 
                 <TextView
@@ -93,11 +95,13 @@
 
                      <Button
                          android:id="@+id/btncancel"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
+                         android:layout_width="68dp"
+                         android:layout_height="32dp"
                          android:layout_gravity="center"
+                         android:layout_marginTop="@dimen/margin_md"
                          android:background="@drawable/dr_appointment_style_color_green"
-                         android:text="Cancel" />
+                         android:text="Cancel"
+                         android:textSize="12sp"/>
 
             </LinearLayout>
 

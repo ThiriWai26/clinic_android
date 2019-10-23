@@ -79,8 +79,8 @@ public class FragmentLab extends Fragment implements BuildingHolder.OnBuildingCl
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        getLocationList(token);
-        getBuildingList(type,townId);
+//        getLocationList(token);
+//        getBuildingList(type,townId);
         return view;
 
     }

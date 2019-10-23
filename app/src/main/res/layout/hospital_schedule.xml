@@ -79,6 +79,12 @@
                     android:textColor="#b6b3b3"
                     android:textSize="12sp" />
 
+                <ImageView
+                    android:id="@+id/imgmark"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true" />
+
             </RelativeLayout>
 
         </RelativeLayout>

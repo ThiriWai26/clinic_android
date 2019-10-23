@@ -140,7 +140,6 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
                     }
                 }
             });
-
     }
 
     private void getBookingList() {
@@ -204,7 +203,6 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
     @Override
     public void onItemClick(int scheduleId) {
 
-        this.date = date;
         this.scheduleId = scheduleId;
 
         Log.e("scheduleId",String.valueOf(scheduleId));

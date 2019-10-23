@@ -24,7 +24,8 @@
         android:id="@+id/relative"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_margin="@dimen/margin_md"
+        android:layout_marginTop="@dimen/margin_sm"
         android:layout_below="@+id/imageView1"
         tools:ignore="NotSibling">
 
@@ -32,14 +33,11 @@
             android:id="@+id/txName"
             android:layout_width="wrap_content"
             android:layout_height="28dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginStart="16dp"
             android:layout_weight="1"
+            android:layout_marginLeft="@dimen/margin_md"
             android:gravity="center_vertical"
-            android:text=" Clinic Name"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
+            style="@style/TitleInputLayout"
+            android:text="Clinic Name"
             tools:ignore="NotSibling,RtlCompat" />
 
         <RatingBar
@@ -47,22 +45,22 @@
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:layout_toRightOf="@+id/txName"
-            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/margin_md"
+            android:gravity="center_horizontal"
             tools:ignore="NotSibling,RtlCompat" />
 
         <TextView
             android:id="@+id/txLocation"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/txName"
-            android:layout_marginStart="16dp"
+            android:layout_marginLeft="@dimen/margin_md"
+            android:layout_marginTop="@dimen/margin_sm"
             android:layout_weight="1"
+            android:text="Location"
             android:gravity="center_vertical"
-            android:text="  Location "
-            android:textSize="14sp"
-            android:textColor="#000000"
+            style="@style/NormalTextInputLayout"
             tools:ignore="NotSibling,RtlCompat" />
 
     </RelativeLayout>

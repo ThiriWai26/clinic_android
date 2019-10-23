@@ -1,5 +1,6 @@
 package com.example.clinic_project.holder;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -27,7 +29,8 @@ public class HospitalScheduleHolder extends RecyclerView.ViewHolder {
     private RelativeLayout bookItem;
     private OnItemClickListener listener;
     private TextView id,starttime, endtime, booking;
-
+    private ImageView imgmark;
+    private boolean isMark;
 
     public HospitalScheduleHolder(@NonNull View itemView, OnItemClickListener listener) {
 
@@ -44,12 +47,12 @@ public class HospitalScheduleHolder extends RecyclerView.ViewHolder {
         endtime = itemView.findViewById(R.id.tvendtime);
         bookItem = itemView.findViewById(R.id.bookItem);
         booking = itemView.findViewById(R.id.tvbooking);
+        imgmark = itemView.findViewById(R.id.imgmark);
 
     }
 
     public void bindData(final HospitalSchedule hospitalSchedule) {
 
-//        id.setText(hospitalSchedule.id);
         starttime.setText(hospitalSchedule.startTime);
         endtime.setText(hospitalSchedule.endTime);
 
@@ -57,16 +60,25 @@ public class HospitalScheduleHolder extends RecyclerView.ViewHolder {
         Log.e("startTime",hospitalSchedule.startTime);
         Log.e("endTime",hospitalSchedule.endTime);
 
-
-
         bookItem.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NewApi")
             @Override
             public void onClick(View v) {
-
                 listener.onItemClick(hospitalSchedule.id);
+
+                if(isMark) {
+                    Log.e("Mark","false");
+                    imgmark.setBackgroundResource(0);
+                    isMark=false;
+
+                }
+                else{
+                    Log.e("Mark","true");
+                    imgmark.setBackgroundResource(R.drawable.correctmark);
+                    isMark=true;
+                }
             }
         });
-
     }
 
 

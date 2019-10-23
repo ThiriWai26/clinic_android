@@ -31,7 +31,7 @@
                 android:id="@+id/imgback"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:paddingLeft="16dp"
+                android:paddingLeft="@dimen/margin_lg"
                 android:src ="@drawable/ic_keyboard_backspace_black_24dp"
                 tools:ignore="VectorDrawableCompat" />
 
@@ -39,25 +39,11 @@
                 android:id="@+id/imgfav"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="270dp"
-                android:layout_marginTop="15dp"
-                android:layout_toRightOf="@+id/imgback"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/margin_lg"
                 android:src="@drawable/ic_favorite_border_black_24dp"
                 android:clickable="true"
                 tools:ignore="RtlCompat,VectorDrawableCompat" />
-
-            <!--<TextView-->
-                <!--android:id="@+id/address"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:layout_marginLeft="24dp"-->
-                <!--android:layout_below="@+id/imageView"-->
-                <!--android:text=""-->
-                <!--android:textSize="20dp"-->
-                <!--android:textStyle="bold"-->
-                <!--android:textColor="#000000"-->
-                <!--tools:ignore="DuplicateIds" />-->
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile"

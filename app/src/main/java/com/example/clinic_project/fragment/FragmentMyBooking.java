@@ -55,13 +55,14 @@ public class FragmentMyBooking extends Fragment implements MyBookingHolder.OnIte
         recyclerView = view.findViewById(R.id.recyclerView);
         adapter = new MyBookingAdapter(this);
         token = Token.MyToken.getToken();
-//        Log.e("token",token);
+        Log.e("mybookingToken",token);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         getMyBooking();
         return view;
     }
+
 
     private void getMyBooking() {
         Log.e("mybooking","success");
