@@ -1,9 +1,11 @@
 package com.example.clinic_project.adapter;
 
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.clinic_project.holder.HospitalScheduleHolder;
@@ -37,6 +39,7 @@ public class HospitalScheduleAdapter extends RecyclerView.Adapter<HospitalSchedu
     public void onBindViewHolder(@NonNull HospitalScheduleHolder bookHolder, final int i) {
 
         bookHolder.bindData(hospitalSchedules.get(i));
+
 
 //        if(selectedPosition == i)
 //            bookHolder.itemView.setBackgroundColor(Color.parseColor("#8FFCCF"));

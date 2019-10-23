@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
     private ImageView imgback;
     private TextView tvbook;
     private RecyclerView recyclerView;
+    private RelativeLayout bookItem;
     private RetrofitService service;
     private HospitalScheduleAdapter adapter;
     private List<HospitalSchedule> hospitalSchedules = new ArrayList<>();
@@ -49,7 +51,7 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
     private int hospitalId = 1;
     private int day;
 
-    private String date = "2019-10-05";
+    private String date = "";
     private int scheduleId = -1;
 
     @Override
@@ -68,8 +70,9 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
         recyclerView = findViewById(R.id.recyclerView);
         service = new RetrofitService();
         token= Token.MyToken.getToken();
+        bookItem = findViewById(R.id.bookItem);
 
-        Bundle bundle = getIntent().getExtras();
+        final Bundle bundle = getIntent().getExtras();
         token = Token.MyToken.getToken();
 
         doctorId = bundle.getInt("doctorId");
@@ -117,20 +120,23 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
                  else {
                      day = dayOfWeek -1;
                  }
-
+                 Log.e("date",String.valueOf(date));
                  Log.e("day",String.valueOf(day));
 
                 getHospitalSchedule();
             }
         });
 
-            Log.e("ifcondition","success");
+
             tvbook.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if((date != null) && (scheduleId != -1)) {
-                        Log.e("tvbookOnClick", "success");
+                    Log.e("ScheduleId", String.valueOf(scheduleId));
+                    if(scheduleId != -1) {
+                        Log.e("bookOnClick", "success");
                         getBookingList();
+                    }else {
+                        Log.e("bookOnClick","fail");
                     }
                 }
             });
@@ -152,7 +158,7 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
                                 Toast.makeText(getApplicationContext(), response.body().errorMessage, Toast.LENGTH_LONG).show();
                             }
                         } else {
-                            Log.e("response.body","fail");
+                            Log.e("server response","fail");
                         }
                     }
                     @Override
@@ -175,6 +181,7 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
                     if(response.body().isSuccess){
                         Log.e("response.body","success");
                         adapter.addItem(response.body().hospitalSchedules);
+                        Log.e("hospitalScheduleSize", String.valueOf(hospitalSchedules.size()));
                     }
                     else {
                       adapter.clearItem();
@@ -195,12 +202,12 @@ public class CalenderViewActivity extends AppCompatActivity implements HospitalS
 
 
     @Override
-    public void onItemClick(String date, int scheduleId) {
+    public void onItemClick(int scheduleId) {
 
         this.date = date;
         this.scheduleId = scheduleId;
 
-        Log.e("dayId,scheduleId", date + "," + String.valueOf(scheduleId));
+        Log.e("scheduleId",String.valueOf(scheduleId));
     }
 
 

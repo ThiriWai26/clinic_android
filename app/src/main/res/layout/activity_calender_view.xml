@@ -16,28 +16,29 @@
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="August 2019"
-            android:layout_marginLeft="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Book Your Doctor"
+            android:padding="@dimen/margin_lg"
+            android:layout_marginStart="@dimen/margin_md"
             android:textColor="#000"
             android:textSize="20dp"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_md" />
 
 
         <TextView
             android:id="@+id/tvbooking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/title"
+            android:padding="@dimen/margin_lg"
+            android:layout_marginRight="@dimen/margin_md"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="6dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="16dp"
-            android:text="Booking"
+            android:layout_marginTop="@dimen/margin_sm"
+            android:text="Done"
             android:textStyle="bold"
             android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textSize="16dp" />
 
         <View
             android:id="@+id/view"

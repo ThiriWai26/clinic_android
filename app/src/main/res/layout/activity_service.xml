@@ -71,20 +71,17 @@
         <!--android:layout_marginTop="4dp"-->
         <!--android:scrollbars="none">-->
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_below="@id/appBarLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="0dp"
-                android:layout_margin="8dp"
-                android:layout_gravity="center_horizontal"
-                android:clipChildren="true"
-                android:clipToPadding="true"
-                android:scrollbars="vertical"
-                tools:listitem="@layout/layout_service_cardview"
-                android:background="#FFFFFF"
-                tools:ignore="NotSibling" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_below="@id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:clipChildren="true"
+            android:clipToPadding="true"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/layout_service_cardview"
+            android:background="#FFFFFF"/>
 
     <!--</android.support.v4.widget.NestedScrollView>-->
 

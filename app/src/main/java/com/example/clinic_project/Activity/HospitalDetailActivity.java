@@ -41,7 +41,7 @@ public class HospitalDetailActivity extends AppCompatActivity implements Contact
     private RetrofitService service;
     private String token;
     private ImageView imageView,imgback,imgphone,imgprofile,imgSpecial,imgmap,imgfav,imgservice;
-    private TextView address,txtname,txtlocation,textabout,textviewmap,textservice,txtphoneno;
+    private TextView address,txtname,txtlocation,textabout,textviewmap,textservice,txtphoneno,txtcancel,txtok;
     private RelativeLayout hservice,department;
     private Button bookanappointment;
     private RatingBar ratingBar;
@@ -168,9 +168,7 @@ public class HospitalDetailActivity extends AppCompatActivity implements Contact
         imgphone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                getphonenumberList();
-                Intent intent = new Intent(getApplicationContext(), NewCardViewActivity.class);
-                startActivity(intent);
+                getphonenumberList();
             }
         });
 
@@ -351,12 +349,32 @@ public class HospitalDetailActivity extends AppCompatActivity implements Contact
 
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.layout_phonenumber_dialog);
-        dialog.show();
 
         adapter = new ContactNumberAdapter(this);
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = dialog.findViewById(R.id.recyclerView);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        dialog.show();
+
+        txtcancel = dialog.findViewById(R.id.tv_cancel);
+        txtok = dialog.findViewById(R.id.tv_ok);
+
+        txtcancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        txtok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+
     }
 
 
