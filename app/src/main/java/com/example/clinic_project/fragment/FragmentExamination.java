@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.clinic_project.Activity.ExaminationDetailActivity;
 import com.example.clinic_project.Activity.HospitalDetailActivity;
+import com.example.clinic_project.Activity.LabDetailActivity;
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingListResponse;
 import com.example.clinic_project.Response.TownListResponse;
@@ -87,7 +88,7 @@ public class FragmentExamination extends Fragment implements ExaminationHolder.O
     @Override
     public void onExaminationClick() {
 
-        Intent intent = new Intent(getContext(), ExaminationDetailActivity.class);
+        Intent intent = new Intent(getContext(), LabDetailActivity.class);
         startActivity(intent);
 
     }

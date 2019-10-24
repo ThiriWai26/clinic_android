@@ -41,25 +41,22 @@ public class HospitalDetailActivity extends AppCompatActivity implements Contact
     private RetrofitService service;
     private String token;
     private ImageView imageView,imgback,imgphone,imgprofile,imgSpecial,imgmap,imgfav,imgservice;
-    private TextView address,txtname,txtlocation,textabout,textviewmap,textservice,txtphoneno,txtcancel,txtok;
+    private TextView tvaddress,tvname,tvlocation,tvabout,txtcancel,txtok;
     private RelativeLayout hservice,department;
     private Button bookanappointment;
     private RatingBar ratingBar;
+    private RecyclerView recyclerView;
+    private ContactNumberAdapter adapter;
 
     private int buildingId = -1;
     private String type = "hospitals";
     private boolean isFavourite;
-
     private int favouriteableId = -1;
     private String favouriteableType = "hospitals";
 
     private int rateableId = -1;
     private String rateableType = "hospitals";
     private int value = 5;
-
-    private RecyclerView recyclerView;
-    private ContactNumberAdapter adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,26 +73,24 @@ public class HospitalDetailActivity extends AppCompatActivity implements Contact
         imageView = findViewById(R.id.imageView);
         imgprofile = findViewById(R.id.profile);
         imgSpecial = findViewById(R.id.imgsetting);
-        bookanappointment = findViewById(R.id.btn);
-        address = findViewById(R.id.address);
-        txtname = findViewById(R.id.tvName);
+        bookanappointment = findViewById(R.id.btnbook);
+        tvaddress = findViewById(R.id.address);
+        tvname = findViewById(R.id.tvName);
         imgback = findViewById(R.id.imgback);
-        txtlocation = findViewById(R.id.textLocation);
-        textabout = findViewById(R.id.textabout);
+        tvlocation = findViewById(R.id.textLocation);
+        tvabout = findViewById(R.id.textabout);
         imgphone = findViewById(R.id.phone);
         imgfav = findViewById(R.id.imgfav);
         imgservice = findViewById(R.id.imageservice);
-        textservice = findViewById(R.id.txservice);
-        token = Token.MyToken.getToken();
-        service = new RetrofitService();
         hservice= findViewById(R.id.relativeservice);
         department = findViewById(R.id.relativedepartment);
         ratingBar = findViewById(R.id.rating);
+        token = Token.MyToken.getToken();
+        service = new RetrofitService();
 
         Bundle bundle = getIntent().getExtras();
         buildingId = bundle.getInt("buildingId");
         Log.e("buildingId",String.valueOf(buildingId));
-        getBuildingDetail();
 
         favouriteableId = bundle.getInt("buildingId");
         Log.e("favouriteableId",String.valueOf(favouriteableId));
@@ -103,6 +98,7 @@ public class HospitalDetailActivity extends AppCompatActivity implements Contact
         rateableId = bundle.getInt("buildingId");
         Log.e("rateableId",String.valueOf(rateableId));
 
+        getBuildingDetail();
         imgback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -186,21 +182,18 @@ public class HospitalDetailActivity extends AppCompatActivity implements Contact
                 if(response.body().isSuccess){
                     if(response.isSuccessful()){
 
-                        Picasso.get()
-                                .load("http://192.168.100.201:8001/api/download_image/" + response.body().buildingDetails.featurePhoto)
-                                .into(imageView);
+                        Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + response.body().buildingDetails.featurePhoto).into(imageView);
 
-//                        Picasso.get()
-//                                .load("http://192.168.100.201:8001/api/download_image/" + response.body().buildingDetails.photos)
+//                        Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + response.body().buildingDetails.photos)
 //                                .resize(40, 40)
 //                                .onlyScaleDown()
 //                                .centerCrop()
 //                                .into(imgprofile);
 
-                        txtname.setText(response.body().buildingDetails.name);
-                        address.setText(response.body().buildingDetails.townName);
-                        txtlocation.setText(response.body().buildingDetails.address);
-                        textabout.setText(response.body().buildingDetails.about);
+                        tvname.setText(response.body().buildingDetails.name);
+                        tvaddress.setText(response.body().buildingDetails.townName);
+                        tvlocation.setText(response.body().buildingDetails.address);
+                        tvabout.setText(response.body().buildingDetails.about);
                         ratingBar.setRating(response.body().buildingDetails.rating);
 
                         Log.e("featured photo",response.body().buildingDetails.featurePhoto);
@@ -220,7 +213,6 @@ public class HospitalDetailActivity extends AppCompatActivity implements Contact
                 }else {
                     Log.e("response","fail");
                 }
-
             }
 
             @Override
@@ -382,4 +374,5 @@ public class HospitalDetailActivity extends AppCompatActivity implements Contact
     public void onContactNumberClick() {
 
     }
+
 }

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.clinic_project.R;
@@ -21,6 +22,7 @@ public class ServiceHolder extends RecyclerView.ViewHolder  {
     private OnItemClickListener listener;
     private TextView texttitle,textservice,textprice,btnbook,btnsave;
     private ImageView imgView;
+    private RatingBar ratingBar;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public ServiceHolder(@NonNull View itemView, OnItemClickListener listener) {
@@ -28,7 +30,6 @@ public class ServiceHolder extends RecyclerView.ViewHolder  {
         super(itemView);
         this.listener = listener;
         btnbook = itemView.findViewById(R.id.btnbook);
-//        btnsave = itemView.findViewById(R.id.btnsave);
 
     }
 

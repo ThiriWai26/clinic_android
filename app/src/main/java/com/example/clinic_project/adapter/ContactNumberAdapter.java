@@ -19,7 +19,7 @@ public class ContactNumberAdapter extends RecyclerView.Adapter<ContactNumberHold
     List<BuildingDetail> buildingDetailList;
     ContactNumberHolder.OnItemClickListener listener;
 
-    public ContactNumberAdapter(HospitalDetailActivity listener) {
+    public ContactNumberAdapter(ContactNumberHolder.OnItemClickListener listener) {
 
         buildingDetailList = new ArrayList<>();
         this.listener = (ContactNumberHolder.OnItemClickListener) listener;

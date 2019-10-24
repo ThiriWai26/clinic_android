@@ -29,6 +29,7 @@ import com.example.clinic_project.R;
 import com.example.clinic_project.Response.BuildingListResponse;
 import com.example.clinic_project.Response.TownListResponse;
 import com.example.clinic_project.adapter.BuildingAdapter;
+import com.example.clinic_project.adapter.ClinicAdapter;
 import com.example.clinic_project.adapter.ViewPagerClinicAdapter;
 import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.BuildingHolder;
@@ -49,26 +50,14 @@ import retrofit2.Response;
  */
 public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildingClickListener {
 
-    private RecyclerView recyclerView;
     private RetrofitService service;
-    private TextView txtclinic;
-    private ImageView imgsetting;
-    private String type = "clinics";
-    private int townId = 0;
-
-    private BuildingAdapter adapter;
-    List<String> locations = new ArrayList<>();
-
-    List<TownList> townLists = new ArrayList<>();
-
-    List<Building> building = new ArrayList<>();
-    List<Building> newBuildings = new ArrayList<>();
-    private LinearLayoutManager linearLayoutManager;
-    private String token = null;
-
-    private Context mContext;
-
+    private RecyclerView recyclerView;
     private ViewPager viewPager;
+    private ClinicAdapter adapter;
+    private String token = null;
+    private String type = "labs";
+    private int townId = 0;
+    List<Building> building = new ArrayList<>();
 
 
     public FragmentClinic() {
@@ -82,61 +71,41 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment_clinic, container, false);
 
-        recyclerView = view.findViewById(R.id.recyclerView);
-        txtclinic = view.findViewById(R.id.txtclinic);
-        imgsetting = view.findViewById(R.id.imgsetting);
-        service = new RetrofitService();
-        adapter = new BuildingAdapter(this);
-
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        token = Token.MyToken.getToken();
-
-        ViewPagerClinicAdapter viewPagerClinicAdapter = new ViewPagerClinicAdapter(getContext());
-        viewPager = view.findViewById(R.id.viewPager);
-        viewPager.setAdapter(viewPagerClinicAdapter);
-
-
-//        Log.e("ClinicActivityToken", token);
-
-        getLocationList(token);
-        getClinicList(type,townId);
         return view;
     }
 
-    private void getLocationList(String token) {
-
-        Log.e("LocationList","success");
-        Api townListApi = service.getRetrofitService().create(Api.class);
-        townListApi.getTownList(token).enqueue(new Callback<TownListResponse>() {
-
-            @Override
-            public void onResponse(Call<TownListResponse> call, Response<TownListResponse> response) {
-                if(response.isSuccessful()){
-                    if(response.body().isSuccess){
-                        Log.e("response.body","success");
-                        townLists = response.body().towns;
-                        for (TownList townList : townLists) {
-                            locations.add(townList.name);
-                            Log.e("locations", townList.name);
-                        }
-                        adapter.notifyDataSetChanged();
-                        Toast.makeText(getContext(), "Successful!", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        Log.e("response","fail");
-                    }
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<TownListResponse> call, Throwable t) {
-                Log.e("onfailure",t.toString());
-            }
-        });
-    }
+//    private void getLocationList(String token) {
+//
+//        Log.e("LocationList","success");
+//        Api townListApi = service.getRetrofitService().create(Api.class);
+//        townListApi.getTownList(token).enqueue(new Callback<TownListResponse>() {
+//
+//            @Override
+//            public void onResponse(Call<TownListResponse> call, Response<TownListResponse> response) {
+//                if(response.isSuccessful()){
+//                    if(response.body().isSuccess){
+//                        Log.e("response.body","success");
+//                        townLists = response.body().towns;
+//                        for (TownList townList : townLists) {
+//                            locations.add(townList.name);
+//                            Log.e("locations", townList.name);
+//                        }
+//                        adapter.notifyDataSetChanged();
+//                        Toast.makeText(getContext(), "Successful!", Toast.LENGTH_SHORT).show();
+//                    }
+//                    else{
+//                        Log.e("response","fail");
+//                    }
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<TownListResponse> call, Throwable t) {
+//                Log.e("onfailure",t.toString());
+//            }
+//        });
+//    }
 
     private void getClinicList(String type, int townId){
         Log.e("clinicList","success");
@@ -189,26 +158,6 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
         inflater.inflate(R.menu.menu_toolbar, menu);
         MenuItem item = menu.findItem(R.id.action_search);
 
-
-//        SearchView searchView = new SearchView(((MainActivity) mContext).getSupportActionBar().getThemedContext());
-//        MenuItemCompat.setShowAsAction(item, MenuItemCompat.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);
-//        MenuItemCompat.setActionView(item, searchView);
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                return false;
-//            }
-//        });
-//        searchView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
 
     }
 }

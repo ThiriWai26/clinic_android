@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bookItem"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?attr/selectableItemBackgroundBorderless"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        card_view:cardBackgroundColor="#fff"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="1dp"
+        card_view:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:id="@+id/border"
+                android:background="#22E6A8"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/txid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/txtstarttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:text="Open Time"
+                    android:textColor="#424040"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtendtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvstarttime"
+                    android:paddingLeft="8dp"
+                    android:text="Close Time"
+                    android:textColor="#424040"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvstarttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/txtstarttime"
+                    android:paddingLeft="16dp"
+                    android:textColor="#b6b3b3"
+                    android:text="2:00 PM"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvendtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvstarttime"
+                    android:layout_toRightOf="@id/txtendtime"
+                    android:paddingLeft="14dp"
+                    android:text="5:00 PM"
+                    android:textColor="#b6b3b3"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/imgmark"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

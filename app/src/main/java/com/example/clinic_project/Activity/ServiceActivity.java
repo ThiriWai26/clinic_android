@@ -21,7 +21,6 @@ import com.example.clinic_project.service.RetrofitService;
 
 public class ServiceActivity extends AppCompatActivity implements ServiceHolder.OnItemClickListener {
 
-    private SearchView searchView;
     private RetrofitService service;
     private RecyclerView recyclerView;
     private ServiceAdapter adapter;

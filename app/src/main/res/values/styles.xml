@@ -81,6 +81,17 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="NormalTextInputLayout" parent="@style/Widget.Design.TextInputLayout">
+        <item name="hintTextAppearance">@style/HintColor</item>
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/grey</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/grey</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlActivated">@android:color/white</item>
+    </style>
+
 
 </resources>
 

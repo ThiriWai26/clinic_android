@@ -25,6 +25,7 @@
     <string name="label_forgerpwd">Forget Password</string>
     <string name="label_health_service">Health Service</string>
     <string name="label_doctor_name">Doctor Name</string>
+    <string name="label_hospital">Hospital</string>
     <string name="label_hospital_name">Hospital Name</string>
     <string name="label_date">Date</string>
     <string name="label_map">Map</string>

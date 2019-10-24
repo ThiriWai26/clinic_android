@@ -21,6 +21,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Activity.BookingLabActivity"></activity>
+        <activity android:name=".Activity.ServiceByClinicActivity" />
+        <activity android:name=".Activity.ServiceByLabActivity" />
         <activity android:name=".Activity.NewCardViewActivity" />
         <activity
             android:name=".Activity.AnotherHomenaviActivity"

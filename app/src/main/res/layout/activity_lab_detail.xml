@@ -20,7 +20,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imgfeaturedphoto"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="fitXY"/>
@@ -31,13 +31,25 @@
                 android:layout_height="60dp"
                 android:paddingLeft="16dp"
                 android:src ="@drawable/ic_keyboard_backspace_black_24dp"
+                android:onClick="onbackClick"
                 tools:ignore="VectorDrawableCompat" />
+
+            <ImageView
+                android:id="@+id/imgfav"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/margin_lg"
+                android:src="@drawable/ic_favorite_border_black_24dp"
+                android:clickable="true"
+                android:onClick="onFavouriteClick"
+                tools:ignore="RtlCompat,VectorDrawableCompat" />
 
             <RelativeLayout
                 android:id="@+id/relative"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imageView"
+                android:layout_below="@id/imgfeaturedphoto"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -85,6 +97,7 @@
                         android:layout_gravity="center"
                         android:background="@drawable/ic_phone_black_24dp"
                         android:scaleType="fitXY"
+                        android:onClick="onPhoneDilogClick"
                         tools:ignore="NotSibling" />
 
             </RelativeLayout>
@@ -105,7 +118,7 @@
                 android:layout_below="@+id/view"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -116,44 +129,182 @@
                         android:layout_height="18dp"
                         android:src="@drawable/locationimg1"
                         android:layout_marginLeft="@dimen/default_margin"
-                        android:layout_marginTop="9dp"/>
+                        android:layout_marginTop="@dimen/margin_md"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/margin_md"
-                            android:orientation="vertical">
+                            android:layout_below="@+id/view"
+                            android:layout_toRightOf="@+id/diamond"
+                            android:orientation="vertical"
+                            tools:ignore="NotSibling">
 
                             <TextView
-                                android:id="@+id/tvAddress"
+                                android:id="@+id/tvLocation"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/view"
+                                android:layout_marginLeft="@dimen/margin_md"
                                 android:text="Location"
                                 android:textStyle="bold"
                                 style="@style/NormalTextInputLayout"
                                 tools:ignore="DuplicateIds" />
 
                             <TextView
-                                android:id="@+id/address"
+                                android:id="@+id/location"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_md"
                                 android:layout_marginTop="@dimen/margin_sm"
                                 android:text=""
                                 style="@style/NormalTextInputLayout"
                                 tools:ignore="DuplicateIds" />
                         </LinearLayout>
 
-                </LinearLayout>
+                </RelativeLayout>
 
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/linear1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/linear"
+                android:orientation="vertical">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/home"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/addressimg"
+                        android:layout_marginLeft="@dimen/default_margin"
+                        android:layout_marginTop="@dimen/margin_md"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_md"
+                        android:layout_toRightOf="@+id/home"
+                        android:orientation="vertical"
+                        tools:ignore="NotSibling">
+
+                        <TextView
+                            android:id="@+id/tvAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Address"
+                            android:layout_marginLeft="@dimen/margin_md"
+                            android:textStyle="bold"
+                            style="@style/NormalTextInputLayout"
+                            tools:ignore="DuplicateIds" />
+
+                        <TextView
+                            android:id="@+id/address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_sm"
+                            android:text=""
+                            android:layout_marginLeft="@dimen/margin_md"
+                            style="@style/NormalTextInputLayout"
+                            tools:ignore="DuplicateIds" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/linear1"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imgabout"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/aboutimag4"
+                        android:layout_marginLeft="@dimen/default_margin"
+                        android:layout_marginTop="@dimen/margin_md"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_md"
+                        android:layout_toRightOf="@+id/imgabout"
+                        android:orientation="vertical"
+                        tools:ignore="NotSibling">
+
+                        <TextView
+                            android:id="@+id/tvabout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="About"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="@dimen/margin_md"
+                            style="@style/NormalTextInputLayout"
+                            tools:ignore="DuplicateIds" />
+
+                        <TextView
+                            android:id="@+id/about"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_sm"
+                            android:text=""
+                            android:layout_marginLeft="@dimen/margin_md"
+                            style="@style/NormalTextInputLayout"
+                            tools:ignore="DuplicateIds" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <include
+                android:id="@+id/cardview"
+                layout="@layout/layout_lab_item"
+                android:layout_below="@id/linear2"
+                android:layout_marginTop="@dimen/margin_sm"
+                android:layout_marginLeft="@dimen/margin_sm"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent" />
 
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
-</RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnbook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pic"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="#3586FD"
+            android:text="Book An Appointment"
+            android:textColor="#FFFFFF"
+            tools:ignore="NotSibling"
+            android:onClick="onBookAppointmentClick"/>
+
+    </RelativeLayout>
+
+    </RelativeLayout>
 
 
 <!--*cardview*****-->

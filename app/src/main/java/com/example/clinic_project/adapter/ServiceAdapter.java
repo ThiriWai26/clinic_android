@@ -1,6 +1,9 @@
 package com.example.clinic_project.adapter;
 
+import android.annotation.SuppressLint;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -16,6 +19,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceHolder> {
         this.listener = listener;
     }
 
+    @SuppressLint("NewApi")
     @NonNull
     @Override
     public ServiceHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -28,7 +32,6 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceHolder> {
     public void onBindViewHolder(@NonNull ServiceHolder serviceHolder, int i) {
 
         ServiceHolder.bindData();
-
     }
 
     @Override

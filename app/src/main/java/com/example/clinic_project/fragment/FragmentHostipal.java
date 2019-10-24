@@ -50,8 +50,6 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
     private RecyclerView recyclerView;
     private RetrofitService service;
     private ViewPager viewPager;
-    private TextView txthospital;
-    private ImageView imgsetting,imageView1;
 
     private String type = "hospitals";
     private int townId = 0;
@@ -60,7 +58,6 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
     private BuildingAdapter adapter;
     List<String> locations = new ArrayList<>();
     List<TownList> townLists = new ArrayList<>();
-
     List<Building> building = new ArrayList<>();
     private String token = null;
 
@@ -82,9 +79,6 @@ public class FragmentHostipal extends Fragment implements BuildingHolder.OnBuild
 
         recyclerView = view.findViewById(R.id.recyclerView);
         service = new RetrofitService();
-        txthospital = view.findViewById(R.id.txthospital);
-        imgsetting = view.findViewById(R.id.imgsetting);
-        imageView1 = view.findViewById(R.id.imageView1);
         adapter = new BuildingAdapter(this);
 
         token = Token.MyToken.getToken();
