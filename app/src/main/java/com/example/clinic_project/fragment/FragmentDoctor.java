@@ -90,8 +90,8 @@ public class FragmentDoctor extends Fragment implements DoctorHolder.OnDoctorCli
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        getSpecializationList(token);
-        getDoctorList();
+//        getSpecializationList(token);
+//        getDoctorList();
 //        searchViewFilter();
 //        searchViewModify();
 

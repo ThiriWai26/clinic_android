@@ -99,7 +99,7 @@
                 android:layout_marginTop="4dp"/>
 
             <TextView
-                android:id="@+id/tvLocation"
+                android:id="@+id/Address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/view"
@@ -112,10 +112,10 @@
                 android:textSize="16dp"/>
 
             <TextView
-                android:id="@+id/textLocation"
+                android:id="@+id/tvAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvLocation"
+                android:layout_below="@id/Address"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginRight="40dp"
@@ -128,7 +128,7 @@
                 android:id="@+id/view1"
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
-                android:layout_below="@+id/textLocation"
+                android:layout_below="@+id/tvAddress"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="10dp"
                 android:background="#F7F5F5" />
@@ -157,7 +157,7 @@
                 android:textSize="16dp"/>
 
             <TextView
-                android:id="@+id/textabout"
+                android:id="@+id/tvabout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/about"
@@ -201,7 +201,7 @@
                 android:textSize="16dp"/>
 
             <TextView
-                android:id="@+id/txttime"
+                android:id="@+id/tvTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/time"

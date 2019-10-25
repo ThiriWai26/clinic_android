@@ -7,13 +7,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.clinic_project.R;
+import com.example.clinic_project.service.RetrofitService;
 
 
 public class DragDetailActivity extends AppCompatActivity {
 
-    private ImageView imageView;
-    private TextView name,address,about;
-
+    private RetrofitService service;
+    private ImageView featurephoto,profile,imgback;
+    private TextView tvname,tvtown,tvaddress,tvabout,tvtime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

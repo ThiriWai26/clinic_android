@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.clinic_project.R;
+import com.example.clinic_project.Response.FavouriteListResponse;
 import com.example.clinic_project.Response.MyFavouriteDoctorResponse;
 import com.example.clinic_project.Response.SpecializationListResponse;
 import com.example.clinic_project.adapter.MyFavouriteDoctorAdapter;
@@ -73,33 +74,11 @@ public class FragmentMyFavouriteDoctor extends Fragment implements MyFavouriteDo
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         token = Token.MyToken.getToken();
-        getMyFavDoctor();
         getSpecializationList(token);
 
         return view;
     }
 
-    private void getMyFavDoctor() {
-
-        Log.e("myfavDoctor", "success");
-        Api myfavdoctorApi = service.getRetrofitService().create(Api.class);
-        myfavdoctorApi.getMyFavouriteDoctor(token).enqueue(new Callback<MyFavouriteDoctorResponse>() {
-            @Override
-            public void onResponse(Call<MyFavouriteDoctorResponse> call, Response<MyFavouriteDoctorResponse> response) {
-                if(response.isSuccessful()){
-                    if(response.body().isSuccess){
-
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<MyFavouriteDoctorResponse> call, Throwable t) {
-
-            }
-        });
-
-    }
 
     private void getSpecializationList(String token){
 
