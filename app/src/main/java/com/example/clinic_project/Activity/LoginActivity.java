@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Login = findViewById(R.id.btn_login);
         edtphoneno = findViewById(R.id.phoneno_id);
         edtpassword = findViewById(R.id.password_id);
-        token = pref.getString("token", null);
+//        token = pref.getString("token", null);
 
         service = new RetrofitService();
         if (token != null) {

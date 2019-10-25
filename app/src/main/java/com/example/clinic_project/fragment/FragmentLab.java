@@ -40,12 +40,12 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentLab extends Fragment implements LabHolder.OnLabClickListener {
+public class FragmentLab extends Fragment implements BuildingHolder.OnBuildingClickListener {
 
     private RetrofitService service;
     private RecyclerView recyclerView;
     private ViewPager viewPager;
-    private LabAdapter adapter;
+    private BuildingAdapter adapter;
     private String token = null;
     private String type = "labs";
     private int townId = 0;
@@ -69,7 +69,7 @@ public class FragmentLab extends Fragment implements LabHolder.OnLabClickListene
         viewPager = view.findViewById(R.id.viewPager);
         viewPager.setAdapter(viewPagerLabAdapter);
 
-        adapter = new LabAdapter(this);
+        adapter = new BuildingAdapter(this);
         token = Token.MyToken.getToken();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -118,7 +118,7 @@ public class FragmentLab extends Fragment implements LabHolder.OnLabClickListene
     }
 
     @Override
-    public void onLabClick(int id) {
+    public void onBuildingClick(int id) {
         Intent intent = new Intent(getContext(), LabDetailActivity.class);
         intent.putExtra("buildingId", id);
         intent.putExtra("typeId",2);

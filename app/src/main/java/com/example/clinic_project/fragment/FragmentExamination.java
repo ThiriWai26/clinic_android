@@ -88,7 +88,7 @@ public class FragmentExamination extends Fragment implements ExaminationHolder.O
     @Override
     public void onExaminationClick() {
 
-        Intent intent = new Intent(getContext(), LabDetailActivity.class);
+        Intent intent = new Intent(getContext(), ExaminationDetailActivity.class);
         startActivity(intent);
 
     }

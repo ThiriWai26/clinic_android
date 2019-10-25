@@ -79,6 +79,7 @@ public class HospitalScheduleHolder extends RecyclerView.ViewHolder {
                 }
             }
         });
+        imgmark.setVisibility(View.GONE);
     }
 
 

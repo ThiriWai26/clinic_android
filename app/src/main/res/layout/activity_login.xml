@@ -77,7 +77,6 @@
                 android:text="@string/lable_login"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textStyle="bold"
                 android:layout_gravity="center"
                 android:textSize="@dimen/margin_lg"/>
 

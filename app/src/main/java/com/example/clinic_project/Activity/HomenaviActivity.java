@@ -99,30 +99,6 @@ public class HomenaviActivity extends AppCompatActivity {
 
 
     }
-
-//    private void prepareListData() {
-//
-//        groupImages= new ArrayList<>();
-//        groupImages.add(R.drawable.hearticon);
-//        groupImages.add(R.drawable.hearticon2);
-//
-////        childImages = new HashMap<Integer, List<Integer>>();
-//        List<Integer> favourites = new ArrayList<>();
-//        favourites.add(R.drawable.ic_dr_home);
-//        favourites.add(R.drawable.ic_dr_phone);
-//        favourites.add(R.drawable.ic_clinic);
-//
-//        List<Integer> medicines = new ArrayList<>();
-//        medicines.add(R.drawable.ic_doctor);
-//        medicines.add(R.drawable.ic_lab);
-//        medicines.add(R.drawable.ic_clinic);
-//        medicines.add(R.drawable.ic_dr_home);
-
-//        childImages.put(groupImages.get(2), favourites);
-//        childImages.put(groupImages.get(1), medicines);
-
-//    }
-
     private void setupDrawer() {
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {
@@ -196,28 +172,6 @@ public class HomenaviActivity extends AppCompatActivity {
         });
     }
 
-//    private void prepareListData() {
-//
-//        groupImages = new ArrayList<>();
-//
-//        childImages = new HashMap<Integer, List<Integer>>();
-//
-//        List<Integer> favourites = new ArrayList<>();
-//        favourites.add(R.drawable.ic_dr_home);
-//        favourites.add(R.drawable.ic_dr_phone);
-//        favourites.add(R.drawable.ic_clinic);
-//
-//        List<Integer> medicines = new ArrayList<>();
-//        medicines.add(R.drawable.ic_doctor);
-//        medicines.add(R.drawable.ic_lab);
-//        medicines.add(R.drawable.ic_clinic);
-//        medicines.add(R.drawable.ic_dr_home);
-//
-////        childImages.put(groupImages.get(2), favourites);
-////        childImages.put(groupImages.get(1), medicines);
-//
-//    }
-
     private void selectFirstItemAsDefault() {
 
         if (mNavigationManager != null) {
@@ -228,7 +182,6 @@ public class HomenaviActivity extends AppCompatActivity {
     }
 
     private void initActivity() {
-
 
         tbTitle=findViewById(R.id.tvTitle);
         tbTitle.setText("Clinic Management");

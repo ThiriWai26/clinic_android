@@ -53,7 +53,7 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
     private RetrofitService service;
     private RecyclerView recyclerView;
     private ViewPager viewPager;
-    private ClinicAdapter adapter;
+    private BuildingAdapter adapter;
     private String token = null;
     private String type = "labs";
     private int townId = 0;
@@ -70,6 +70,14 @@ public class FragmentClinic extends Fragment implements BuildingHolder.OnBuildin
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment_clinic, container, false);
+
+        service = new RetrofitService();
+        recyclerView = view.findViewById(R.id.cliniclistRecyclerview);
+        adapter = new BuildingAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        getClinicList(type,townId);
 
         return view;
     }

@@ -22,7 +22,7 @@ import retrofit2.Response;
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText edtphone, edtpassword, edtconpassword;
-    private TextView txtregister, txtregphone, txtregpassword, txtconpassword, signin;
+    private TextView txtregister, signin;
     private String phoneNumber;
     private String password;
     private String confirmpassword;
@@ -44,12 +44,9 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void init() {
-        edtphone = findViewById(R.id.regusername_id);
-        edtpassword = findViewById(R.id.regpassword_id);
-        edtconpassword = findViewById(R.id.regconpassword_id);
-        txtregphone = findViewById(R.id.txtreg_phoneno);
-        txtregpassword = findViewById(R.id.txtreg_password);
-        txtconpassword = findViewById(R.id.txtreg_conpassword);
+        edtphone = findViewById(R.id.edtreg_phoneno);
+        edtpassword = findViewById(R.id.edtregpassword_id);
+        edtconpassword = findViewById(R.id.edtregconfpassword_id);
         txtregister = findViewById(R.id.tx_register);
         signin = findViewById(R.id.txt_signin);
 
