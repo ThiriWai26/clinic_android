@@ -255,7 +255,6 @@ public class AnotherHomenaviActivity extends AppCompatActivity  implements Navig
         }
     }
 
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         return false;
