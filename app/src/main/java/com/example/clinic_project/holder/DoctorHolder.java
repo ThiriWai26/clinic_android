@@ -8,7 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.example.clinic_project.service.RetrofitService;
 import com.squareup.picasso.Picasso;
 
 
@@ -22,9 +25,9 @@ public class DoctorHolder extends RecyclerView.ViewHolder implements View.OnClic
 
     private OnDoctorClickListener listener;
 
-    private TextView tvname, tvSpecial,  tvId;
-    private ImageView imgProfile;
-    private ImageButton btnDoctorDetail;
+    private TextView tvname,tvId,tvtype;
+    private ImageView featurephoto,profile;
+    private RatingBar ratingBar;
 
     public interface OnDoctorClickListener {
         public void onDoctorClick (int id);
@@ -43,11 +46,11 @@ public class DoctorHolder extends RecyclerView.ViewHolder implements View.OnClic
 
         tvId = view.findViewById(R.id.tvid);
         tvname = view.findViewById(R.id.tvName);
-        tvSpecial = view.findViewById(R.id.tvType);
-        imgProfile = view.findViewById(R.id.profile);
-        btnDoctorDetail = view.findViewById(R.id.btn_doctor_detail);
+        tvtype = view.findViewById(R.id.tvType);
+        featurephoto = view.findViewById(R.id.featuredphoto);
+        profile = view.findViewById(R.id.profile);
+        ratingBar = view.findViewById(R.id.rating);
 
-        btnDoctorDetail.setOnClickListener(this);
         view.setOnClickListener(this);
     }
 
@@ -55,25 +58,19 @@ public class DoctorHolder extends RecyclerView.ViewHolder implements View.OnClic
 
         tvId.setText(String.valueOf(doctor.id));
         tvname.setText(doctor.name);
+//        tvtype.setText(doctor.);
 
         Picasso.get()
-                .load("http://192.168.100.201:8001/api/download_image/" + doctor.photo)
-                .resize(40, 40)
-                .onlyScaleDown()
+                .load(RetrofitService.BASE_URL+ "/api/download_image/" + doctor.photo)
+                .resize(800,700)
                 .centerCrop()
-                .into(imgProfile);
-
-        String special = doctor.specialists.get(0);
-        for (int i = 1; i < doctor.specialists.size(); i++) {
-            special += ", " + doctor.specialists.get(i);
-        }
-
-        tvSpecial.setText(special);
+                .into(featurephoto);
+        Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + doctor.photo).into(profile);
 
         Log.e("id", String.valueOf(doctor.id));
         Log.e("name",doctor.name);
-        Log.e("photo",doctor.photo);
-        Log.e("specialist", String.valueOf(doctor.specialists));
+        Log.e("featurePhoto",doctor.photo);
+        Log.e("profile",doctor.photo);
 
     }
 
@@ -88,7 +85,7 @@ public class DoctorHolder extends RecyclerView.ViewHolder implements View.OnClic
     }
 
     public static DoctorHolder create(LayoutInflater inflater, ViewGroup parent, OnDoctorClickListener listener) {
-        View view = inflater.inflate(R.layout.layout_doctor_list, parent, false);
+        View view = inflater.inflate(R.layout.layout_doctor_lists, parent, false);
         return new DoctorHolder(view, listener);
     }
 }

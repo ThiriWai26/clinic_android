@@ -51,7 +51,7 @@
                 android:clipToPadding="true"
                 android:scrollbars="vertical"
                 tools:ignore="NotSibling"
-                tools:listitem="@layout/layout_doctor_lists" />
+                tools:listitem="@layout/layout_doctor_list" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

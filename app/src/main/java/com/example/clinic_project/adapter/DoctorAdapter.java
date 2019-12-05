@@ -17,7 +17,6 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorHolder> {
     private DoctorHolder.OnDoctorClickListener listener;
 
     public DoctorAdapter(DoctorHolder.OnDoctorClickListener listener){
-
         doctorLists = new ArrayList<>();
         this.listener=listener;
     }
@@ -25,17 +24,13 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorHolder> {
     @NonNull
     @Override
     public DoctorHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-
-
         LayoutInflater inflater=LayoutInflater.from(viewGroup.getContext());
         return DoctorHolder.create(inflater,viewGroup,listener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull DoctorHolder doctorHolder, int i) {
-
         doctorHolder.bindData(doctorLists.get(i));
-
     }
 
     @Override

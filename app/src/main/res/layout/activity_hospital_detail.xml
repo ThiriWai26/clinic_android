@@ -40,7 +40,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/margin_md"
+                android:layout_marginRight="@dimen/margin_xl"
                 android:layout_marginTop="@dimen/margin_lg"
                 android:src="@drawable/favorite"
                 android:clickable="true"

@@ -18,9 +18,9 @@ public class DoctorDetail {
     @SerializedName("specialists")
     public List<String> specialists;
 
-    @SerializedName("clinics")
-    public List<String> clinics;
-
+//    @SerializedName("clinics")
+//    public List<String> clinics;
+//
     @SerializedName("towns")
     public List<String> towns;
 

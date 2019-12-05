@@ -113,7 +113,6 @@ public class RegistrationDetailActivity extends AppCompatActivity {
 
 
     public void onBackRegistrationClick(View view) {
-        Intent intent = new Intent(getApplicationContext(), FragmentRegistration.class);
-        startActivity(intent);
+        finish();
     }
 }

@@ -114,7 +114,6 @@ public class DragDetailActivity extends AppCompatActivity {
 
 
     public void onBackDragClick(View view) {
-        Intent intent = new Intent(getApplicationContext(), FragmentDrag.class);
-        startActivity(intent);
+        finish();
     }
 }

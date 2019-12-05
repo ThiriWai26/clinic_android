@@ -94,11 +94,16 @@ public interface Api {
     @POST("/api/other_service_details")
     Call<OtherServiceDetailResponse> getOtherServiceDetail (@Field("token") String token, @Field("type") String type, @Field("service_id") int serviceId);
 
-
+    @FormUrlEncoded
+    @POST("/api/doctor/all")
+    Call<DoctorListResponse> getDoctorList(@Field("token") String token);
 
     @FormUrlEncoded
-    @POST("/api/doctor_list")
-    Call<DoctorListResponse> getDoctorList(@Field("token") String token);
+    @POST("/api/doctor_details")
+    Call<DoctorDetailResponse> getDoctorDetail(@Field("token") String token, @Field("doctor_id") int id);
+
+
+
 
     @FormUrlEncoded
     @POST("/api/doctor_list_by_specialization")
@@ -108,9 +113,7 @@ public interface Api {
     @POST("/api/specialization_list")
     Call<SpecializationListResponse> getSpecializationList(@Field("token") String token);
 
-    @FormUrlEncoded
-    @POST("/api/doctor_details")
-    Call<DoctorDetailResponse> getDoctorDetail(@Field("token") String token, @Field("doctor_id") int id);
+
 
     @FormUrlEncoded
     @POST("/api/town_list")

@@ -109,12 +109,10 @@ public class AssessmentDetailActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
-    public void onBackAssessementClick(View view) {
-        Intent intent = new Intent(getApplicationContext(), FragmentAssessment.class);
-        startActivity(intent);
+
+    public void onBackAssessmentClick(View view) {
+        finish();
     }
 }

@@ -56,6 +56,7 @@ public class ExaminationDetailActivity extends AppCompatActivity {
         tvabout = findViewById(R.id.tvabout);
         tvstarttime = findViewById(R.id.tvstarttime);
         tvendtime = findViewById(R.id.tvendtime);
+        imgback = findViewById(R.id.imgback);
 
         token = Token.MyToken.getToken();
 
@@ -117,9 +118,7 @@ public class ExaminationDetailActivity extends AppCompatActivity {
         });
     }
 
-
     public void onBackExaminationClick(View view) {
-        Intent intent = new Intent (getApplicationContext(), FragmentExamination.class);
-        startActivity(intent);
+        finish();
     }
 }

@@ -57,6 +57,17 @@
                     android:textSize="17sp"
                     tools:ignore="NotSibling" />
 
+                <RatingBar
+                    android:id="@+id/rating"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/margin_md"
+                    android:layout_marginTop="26dp"
+                    android:gravity="center_horizontal"
+                    tools:ignore="NotSibling,RtlCompat" />
+
                 <TextView
                     android:id="@+id/tvType"
                     android:layout_width="wrap_content"
@@ -74,14 +85,14 @@
             </RelativeLayout>
 
 
-            <ImageButton
-                android:id="@+id/btn_doctor_detail"
-                android:layout_width="24dp"
-                android:layout_height="75dp"
-                android:layout_marginRight="16dp"
-                android:background="#ffff"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/ic_right_arrow" />
+<!--            <ImageButton-->
+<!--                android:id="@+id/btn_doctor_detail"-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="75dp"-->
+<!--                android:layout_marginRight="16dp"-->
+<!--                android:background="#ffff"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:src="@drawable/ic_right_arrow" />-->
 
             <View
                 android:id="@+id/view"

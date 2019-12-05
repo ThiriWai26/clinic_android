@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.clinic_project.R;
@@ -27,8 +28,9 @@ public class DoctorDetailActivity extends AppCompatActivity  {
 
     private RetrofitService service;
     private String token;
-    private ImageView imageView,imgback,imgfav;
-    private TextView tvName,tvType,tvabout,textabout,tvspecial;
+    private ImageView featurephoto,profile,imgback,imgfav;
+    private TextView tvName,tvtown,tvabout,tvspecial;
+    private RatingBar ratingBar;
     private Button button;
     private int doctorId = -1;
     private FloatingActionButton btnBook;
@@ -42,14 +44,6 @@ public class DoctorDetailActivity extends AppCompatActivity  {
 
         initActivity();
 
-//        imgback.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), FragmentDoctor.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
     }
 
     private void initActivity() {
@@ -60,15 +54,15 @@ public class DoctorDetailActivity extends AppCompatActivity  {
         Log.e("doctordetailtoken",token);
 
         tvName = findViewById(R.id.tvName);
-        tvType = findViewById(R.id.tvType);
+        tvtown = findViewById(R.id.tvTown);
         tvabout = findViewById(R.id.tvabout);
-        textabout = findViewById(R.id.txtabout);
-        tvType = findViewById(R.id.tvType);
-        tvspecial = findViewById(R.id.txtspecialist);
-        imageView=findViewById(R.id.imageView);
+        tvspecial = findViewById(R.id.tvspecialists);
+        featurephoto=findViewById(R.id.featuredphoto);
         imgback = findViewById(R.id.imgback);
+        profile = findViewById(R.id.Profile);
         imgfav = findViewById(R.id.imgfav);
         button = findViewById(R.id.btn);
+        ratingBar = findViewById(R.id.rating);
 
         Bundle bundle = getIntent().getExtras();
         doctorId = bundle.getInt("doctorId");
@@ -113,42 +107,55 @@ public class DoctorDetailActivity extends AppCompatActivity  {
             public void onResponse(Call<DoctorDetailResponse> call, Response<DoctorDetailResponse> response) {
                 if(response.isSuccessful()){
                     if(response.body().isSuccess){
-                        Picasso.get()
-                                .load("http://192.168.100.201:8000/api/download_image/" + response.body().doctorDetail.photo)
-                                .into(imageView);
+                        Log.e("response.body","success");
+
+                        Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + response.body().doctorDetail.photo).into(featurephoto);
+                        Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + response.body().doctorDetail.photo).into(profile);
+//                        String clinics=response.body().doctorDetail.clinics.get(0);
+//                        for(int i=1;i<response.body().doctorDetail.clinics.size();i++){
+//                            clinics+=","+response.body().doctorDetail.clinics.get(i);
+//                        }
+//                        tvclinic.setText(clinics);
+                        tvName.setText(response.body().doctorDetail.name);
+                        tvabout.setText(response.body().doctorDetail.about);
+//                        ratingBar.setRating(response.body().doctorDetail.rating);
+
+                        String towns=response.body().doctorDetail.towns.get(0);
+                        for(int i=1;i<response.body().doctorDetail.towns.size();i++){
+                            towns+=","+response.body().doctorDetail.towns.get(i);}
+                        tvtown.setText(towns);
 
                         String specialis=response.body().doctorDetail.specialists.get(0);
-                        String clinics=response.body().doctorDetail.clinics.get(0);
-                        String towns=response.body().doctorDetail.towns.get(0);
-
                         for(int i=1;i<response.body().doctorDetail.specialists.size();i++){
                             specialis+=","+response.body().doctorDetail.specialists.get(i);
                         }
+                        tvspecial.setText(specialis);
 
-
-                        for(int i=1;i<response.body().doctorDetail.clinics.size();i++){
-                            clinics+=","+response.body().doctorDetail.clinics.get(i);
-                        }
-
-
-                        for(int i=1;i<response.body().doctorDetail.towns.size();i++){
-                            towns+=","+response.body().doctorDetail.towns.get(i);
-                        }
-
-                        textabout.setText(response.body().doctorDetail.about);
-//                        tvclinic.setText(clinics);
-//                        tvtown.setText(towns);
-                        tvName.setText(response.body().doctorDetail.name);
+                        Log.e("Name", response.body().doctorDetail.name);
+                        Log.e("FeaturePhoto", response.body().doctorDetail.photo);
+                        Log.e("Profile", response.body().doctorDetail.photo);
+                        Log.e("Town", String.valueOf(response.body().doctorDetail.towns));
+                        Log.e("About", response.body().doctorDetail.about);
+                        Log.e("Specialists", String.valueOf(response.body().doctorDetail.specialists));
                     }
+                    else{
+                         Log.e("response.body","fail");
+                    }
+                }
+                else {
+                    Log.e("response","fail");
                 }
             }
 
             @Override
             public void onFailure(Call<DoctorDetailResponse> call, Throwable t) {
-
+                Log.e("failure",t.toString());
             }
         });
 
+    }
 
+    public void onBackDoctorList(View view) {
+        finish();
     }
 }

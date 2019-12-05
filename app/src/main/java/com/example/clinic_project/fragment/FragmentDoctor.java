@@ -47,19 +47,16 @@ public class FragmentDoctor extends Fragment implements DoctorHolder.OnDoctorCli
 
     private RecyclerView recyclerView;
     private RetrofitService service;
-    private SearchView searchView;
-    private TextView txtdoctor;
-    private ImageView imgsetting;
     private ViewPager viewPager;
 
     private DoctorAdapter adapter;
+    List<Doctor> doctors = new ArrayList<>();
+    private String token = null;
+
     ArrayAdapter<String> dataAdapter;
     List<SpecializationList> specializationLists = new ArrayList<>();
     List<String> categories = new ArrayList<>();
-
-    List<Doctor> doctors = new ArrayList<>();
     List<Doctor> newDoctors = new ArrayList<>();
-    private String token = null;
 
 
     public FragmentDoctor() {
@@ -76,9 +73,6 @@ public class FragmentDoctor extends Fragment implements DoctorHolder.OnDoctorCli
 
         recyclerView = view.findViewById(R.id.recyclerView);
         service = new RetrofitService();
-        txtdoctor = view.findViewById(R.id.textdoctor);
-        imgsetting = view.findViewById(R.id.imgsetting);
-        searchView = view.findViewById(R.id.action_search);
 
         ViewPagerDoctorAdapter viewPagerDoctorAdapter = new ViewPagerDoctorAdapter(getContext());
         viewPager = view.findViewById(R.id.viewPager);
@@ -86,17 +80,15 @@ public class FragmentDoctor extends Fragment implements DoctorHolder.OnDoctorCli
 
         adapter = new DoctorAdapter(this);
         token = Token.MyToken.getToken();
-//        Log.e("DrawerActivityToken", token);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        getDoctorList();
+
 //        getSpecializationList(token);
-//        getDoctorList();
 //        searchViewFilter();
 //        searchViewModify();
-
         return view;
-
     }
 
 //    private void searchViewFilter() {
@@ -229,73 +221,11 @@ public class FragmentDoctor extends Fragment implements DoctorHolder.OnDoctorCli
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-
     }
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_toolbar, menu);
-
-//        MenuItem menuItem =  menu.findItem(R.id.action_search);
-//        searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                searchView.clearFocus();
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                return false;
-//            }
-//        });
-
     }
 
     }
-
-//    @Override
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//        super.onPrepareOptionsMenu(menu);
-//        inflater.inflate(R.menu.menu_action_search, menu);
-//        MenuItem item = menu.findItem(R.id.action_search);
-//        searchView = (SearchView) MenuItemCompat.getActionView(item);
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String s) {
-//                searchView.clearFocus();
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String s) {
-//                final List<MyModel> filteredList = filter(mArrayList, s.toLowerCase());
-//                mAdapter.setFilter(filteredList);
-//                return true;
-//            }
-//        });
-//
-//    }
-//
-//    private List<MyModel.Data> filter(List<MyModel.Data> models, String query) {
-//        query = query.toLowerCase();
-//        final List<MyModel.Data> filteredList = new ArrayList<>();
-//        for (MyModel model : models) {
-//            final String text = (model.getCustmorName()).toLowerCase();
-//            if (text.contains(query)) {
-//                filteredList.add(model);
-//            }
-//        }
-//        return filteredList;
-//    }
-//
-//Class- MyFilterAdpater
-//
-//private ArrayList<MyModel>  mResultList;
-//
-//public void setFilter(List<MyModel.Data> model) {
-//        mResultList = new ArrayList<>();
-//        mResultList.addAll(model);
-//        notifyDataSetCh
