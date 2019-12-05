@@ -1,5 +1,7 @@
 package com.example.clinic_project.api;
 
+import com.example.clinic_project.Response.OtherServiceDetailResponse;
+import com.example.clinic_project.Response.OtherServiceListResponse;
 import com.example.clinic_project.Response.BookResponse;
 import com.example.clinic_project.Response.BookTakeResponse;
 import com.example.clinic_project.Response.BuildingDetailResponse;
@@ -56,11 +58,9 @@ public interface Api {
     @POST("/api/booking")
     Call<BookTakeResponse> getBookTake(@Field("token") String token, @Field("date") String date, @Field("schedule_id") int scheduleId);
 
-
     @FormUrlEncoded
     @POST("/api/hospital_schedule")
     Call<HospitalScheduleResponse> getHospitalSchedule (@Field("token") String token, @Field("hospital_id") int hospitalId, @Field("doctor_id") int doctorId, @Field("day") int day);
-
 
     @FormUrlEncoded
     @POST("/api/upcoming_bookings")
@@ -86,7 +86,13 @@ public interface Api {
     @POST("/api/user_rating")
     Call<UserRatingResponse> getUserRating (@Field("token") String token, @Field("rateable_id") int rateableId, @Field("rateable_type") String rateableType);
 
+    @FormUrlEncoded
+    @POST("/api/other_service_list")
+    Call<OtherServiceListResponse> getOtherServiceList (@Field("token") String token, @Field("type") String type, @Field("town_id") int townId);
 
+    @FormUrlEncoded
+    @POST("/api/other_service_details")
+    Call<OtherServiceDetailResponse> getOtherServiceDetail (@Field("token") String token, @Field("type") String type, @Field("service_id") int serviceId);
 
 
 

@@ -4,6 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="200dp"
     android:gravity="center_horizontal"
+    android:id="@+id/layout"
     xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
         <ImageView
@@ -46,10 +47,11 @@
                     style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="180dp"
-                    android:layout_toRightOf="@+id/txName"
-                    android:layout_marginTop="10dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/margin_md"
+                    android:gravity="center_horizontal"
                     tools:ignore="NotSibling,RtlCompat" />
+
 
                 <TextView
                     android:id="@+id/txLocation"

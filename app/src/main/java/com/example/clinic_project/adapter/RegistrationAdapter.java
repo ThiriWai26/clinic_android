@@ -6,13 +6,18 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.example.clinic_project.holder.RegistrationHolder;
+import com.example.clinic_project.model.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RegistrationAdapter extends RecyclerView.Adapter<RegistrationHolder> {
 
+    List<Service> services;
     RegistrationHolder.OnItemClickListener listener;
 
     public RegistrationAdapter(RegistrationHolder.OnItemClickListener listener) {
-
+        services = new ArrayList<>();
         this.listener = listener;
     }
 
@@ -26,11 +31,17 @@ public class RegistrationAdapter extends RecyclerView.Adapter<RegistrationHolder
     @Override
     public void onBindViewHolder(@NonNull RegistrationHolder registrationHolder, int i) {
 
-        RegistrationHolder.bindData();
+        registrationHolder.bindData(services.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return services.size();
+    }
+
+    public void addItem(List<Service> service) {
+        this.services.clear();
+        this.services.addAll(service);
+        notifyDataSetChanged();
     }
 }

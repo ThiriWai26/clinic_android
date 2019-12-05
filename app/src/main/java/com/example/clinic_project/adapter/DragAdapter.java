@@ -7,34 +7,42 @@ import android.view.ViewGroup;
 
 import com.example.clinic_project.holder.DragHolder;
 import com.example.clinic_project.holder.ExaminationHolder;
+import com.example.clinic_project.model.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DragAdapter extends RecyclerView.Adapter<DragHolder> {
 
+    List<Service> services;
     DragHolder.OnItemClickListener listener;
 
     public DragAdapter(DragHolder.OnItemClickListener listener) {
-
+        services = new ArrayList<>();
         this.listener = listener;
     }
 
-    public DragHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public void addItem(List<Service> serviceList) {
+        this.services.clear();
+        this.services.addAll(serviceList);
+        notifyDataSetChanged();
+    }
 
+    @NonNull
+    @Override
+    public DragHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        return DragHolder.create(inflater,viewGroup,listener);
+        return DragHolder.create(inflater, viewGroup, listener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull DragHolder dragHolder, int i) {
+        dragHolder.bindData(services.get(i));
 
-        DragHolder.bindData();
     }
 
-
-
+    @Override
     public int getItemCount() {
-
-        return 5;
+        return services.size();
     }
-
-
 }

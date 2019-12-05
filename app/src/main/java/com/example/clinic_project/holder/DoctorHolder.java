@@ -37,7 +37,6 @@ public class DoctorHolder extends RecyclerView.ViewHolder implements View.OnClic
         initView (itemView);
 
         itemView.setOnClickListener(this);
-
     }
 
     private void initView(View view) {
@@ -50,9 +49,7 @@ public class DoctorHolder extends RecyclerView.ViewHolder implements View.OnClic
 
         btnDoctorDetail.setOnClickListener(this);
         view.setOnClickListener(this);
-
     }
-
 
     public void bindData(Doctor doctor) {
 

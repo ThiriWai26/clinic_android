@@ -21,6 +21,7 @@ import android.view.Menu;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.clinic_project.R;
 import com.example.clinic_project.adapter.CustomExpandableListAdapter;
@@ -100,6 +101,8 @@ public class AnotherHomenaviActivity extends AppCompatActivity  implements Navig
 
 
     }
+
+
 
     private void selectFirstItemAsDefault() {
 
@@ -256,7 +259,35 @@ public class AnotherHomenaviActivity extends AppCompatActivity  implements Navig
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//        Fragment selectedFragment = null;
+//        switch (item.getItemId()) {
+//            case R.id.navigation_home:
+//                Fragment fragment = new HomeFragment();
+//                loadFragment(fragment);
+//                Toast.makeText(getApplicationContext(), "New Feeds",Toast.LENGTH_LONG).show();
+//                return true;
+//
+//            case R.id.navigation_dashboard:
+//                Fragment fragment1 = new DashboardFragment();
+//                Toast.makeText(getApplicationContext(), "Video",Toast.LENGTH_LONG).show();
+//                loadFragment(fragment1);
+//                return true;
+//
+//            case R.id.navigation_notifications:
+//                Fragment fragment2 = new NotificationsFragment();
+//                Toast.makeText(getApplicationContext(), "Topic",Toast.LENGTH_LONG).show();
+//                loadFragment(fragment2);
+//                return true;
+//
+//            case R.id.navigation_messages:
+//                Fragment fragment3 = new MessageFragment();
+//                Toast.makeText(getApplicationContext(), "Articles",Toast.LENGTH_LONG).show();
+//                loadFragment(fragment3);
+//                return true;
+//        }
+////        getSupportFragmentManager().beginTransaction().replace(R.id.frame, selectedFragment).commit();
+//        return loadFragment(selectedFragment);
         return false;
     }
 }

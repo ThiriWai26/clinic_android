@@ -11,29 +11,17 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.clinic_project.Activity.ExaminationDetailActivity;
-import com.example.clinic_project.Activity.HospitalDetailActivity;
-import com.example.clinic_project.Activity.LabDetailActivity;
 import com.example.clinic_project.R;
-import com.example.clinic_project.Response.BuildingListResponse;
-import com.example.clinic_project.Response.TownListResponse;
-import com.example.clinic_project.adapter.BuildingAdapter;
+import com.example.clinic_project.Response.OtherServiceListResponse;
 import com.example.clinic_project.adapter.ExaminationAdapter;
 import com.example.clinic_project.adapter.ViewPagerAdapter;
 import com.example.clinic_project.api.Api;
-import com.example.clinic_project.holder.BuildingHolder;
 import com.example.clinic_project.holder.ExaminationHolder;
-import com.example.clinic_project.model.Building;
-import com.example.clinic_project.model.TownList;
+import com.example.clinic_project.model.Service;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
 
@@ -52,6 +40,12 @@ public class FragmentExamination extends Fragment implements ExaminationHolder.O
     private RecyclerView recyclerView;
     private ExaminationAdapter adapter;
     private ViewPager viewPager;
+    private RetrofitService service;
+
+    private String token = null;
+    private String type = "blood_donation";
+    private int townId = 0;
+    List<Service> services = new ArrayList<>();
 
     public FragmentExamination() {
         // Required empty public constructor
@@ -65,8 +59,10 @@ public class FragmentExamination extends Fragment implements ExaminationHolder.O
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_fragment_examination, container, false);
 
+        service = new RetrofitService();
         recyclerView = view.findViewById(R.id.recyclerView);
         adapter = new ExaminationAdapter(this);
+        token = Token.MyToken.getToken();
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getContext());
         viewPager = view.findViewById(R.id.viewPager);
@@ -75,7 +71,39 @@ public class FragmentExamination extends Fragment implements ExaminationHolder.O
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        getExaminationList();
         return view;
+    }
+
+    private void getExaminationList() {
+
+        Log.e("examinationList","success");
+        Api examinationListApi = service.getRetrofitService().create(Api.class);
+        examinationListApi.getOtherServiceList(token,type,townId).enqueue(new Callback<OtherServiceListResponse>() {
+            @Override
+            public void onResponse(Call<OtherServiceListResponse> call, Response<OtherServiceListResponse> response) {
+                if(response.isSuccessful()){
+                    if(response.body().isSuccess){
+                        Log.e("response.body","success");
+
+                        adapter.addItem(response.body().otherServiceList.data);
+                        Log.e("BloodDonation Size",String.valueOf(services.size()));
+                        adapter.notifyDataSetChanged();
+                    }
+                    else {
+                        Log.e("response.body.","false");
+                    }
+                    }
+                    else {
+                        Log.e("response.body","fail");
+                    }
+            }
+
+            @Override
+            public void onFailure(Call<OtherServiceListResponse> call, Throwable t) {
+                Log.e("failure",t.toString());
+            }
+        });
     }
 
 
@@ -86,12 +114,15 @@ public class FragmentExamination extends Fragment implements ExaminationHolder.O
 
 
     @Override
-    public void onExaminationClick() {
+    public void onExaminationClick(int id) {
 
         Intent intent = new Intent(getContext(), ExaminationDetailActivity.class);
+        intent.putExtra("serviceId", id);
+        Log.e("serviceId",String.valueOf(id));
         startActivity(intent);
 
     }
+
 
 }
 

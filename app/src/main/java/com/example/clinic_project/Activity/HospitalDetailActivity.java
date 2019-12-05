@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v4.text.HtmlCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,6 +30,7 @@ import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.ContactNumberHolder;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
+import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
@@ -196,7 +198,7 @@ public class HospitalDetailActivity extends AppCompatActivity implements Contact
                         tvabout.setText(response.body().buildingDetails.about);
                         ratingBar.setRating(response.body().buildingDetails.rating);
 
-                        Log.e("featured photo",response.body().buildingDetails.featurePhoto);
+//                        Log.e("featured photo",response.body().buildingDetails.featurePhoto);
                         Log.e("photo",response.body().buildingDetails.photos);
                         Log.e("name",response.body().buildingDetails.name);
                         Log.e("address",response.body().buildingDetails.address);
@@ -374,5 +376,6 @@ public class HospitalDetailActivity extends AppCompatActivity implements Contact
     public void onContactNumberClick() {
 
     }
+
 
 }

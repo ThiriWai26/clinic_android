@@ -55,11 +55,11 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD7wedCmnXF9pCgX_2ConWyLSQOMwWUL1A" /> <!-- <meta-data -->
+            android:value="AIzaSyAi-lx5p8kKwxdyJrIc4tkoi9zgfzpMZHY" /> <!-- <meta-data -->
         <!-- android:name="com.google.android.maps.v2.API_KEY" -->
         <!-- android:value="@string/google_maps_key" /> -->
         <activity
-            android:name=".MapsActivity"
+            android:name=".Activity.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".Activity.PhoneActivity" />
         <activity

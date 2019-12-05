@@ -22,7 +22,7 @@ public class ContactNumberAdapter extends RecyclerView.Adapter<ContactNumberHold
     public ContactNumberAdapter(ContactNumberHolder.OnItemClickListener listener) {
 
         buildingDetailList = new ArrayList<>();
-        this.listener = (ContactNumberHolder.OnItemClickListener) listener;
+        this.listener = listener;
     }
 
     public ContactNumberHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {

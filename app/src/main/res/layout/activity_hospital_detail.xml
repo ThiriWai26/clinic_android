@@ -40,8 +40,9 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin_md"
                 android:layout_marginTop="@dimen/margin_lg"
-                android:src="@drawable/ic_favorite_border_black_24dp"
+                android:src="@drawable/favorite"
                 android:clickable="true"
                 tools:ignore="RtlCompat,VectorDrawableCompat" />
 

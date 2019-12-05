@@ -9,7 +9,7 @@ public class Token {
 
         public static void setToken(String token) { MyToken.token = token; }
 
-        public static String token;
+        public static String token ;
         public MyToken(){
         }
     }

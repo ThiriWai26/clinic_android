@@ -31,7 +31,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:paddingLeft="16dp"
-                android:src="@drawable/ic_back_arrow" />
+                android:src="@drawable/ic_back_arrow"
+                android:onClick="onBackExaminationClick"/>
 
             <RelativeLayout
                 android:id="@+id/relative"
@@ -83,12 +84,13 @@
                     android:id="@+id/phone"
                     android:layout_width="28dp"
                     android:layout_height="28dp"
+                    android:layout_below="@+id/imageView"
                     android:layout_alignParentRight="true"
-                    android:layout_margin="@dimen/margin_lg"
-                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/margin_lg"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="30dp"
                     android:background="@drawable/ic_phone_black_24dp"
                     android:scaleType="fitXY"
-                    android:onClick="onClinicPhoneDilogClick"
                     tools:ignore="NotSibling" />
 
             </RelativeLayout>
@@ -131,7 +133,7 @@
                         tools:ignore="NotSibling">
 
                         <TextView
-                            android:id="@+id/tvAddress"
+                            android:id="@+id/address"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Address"
@@ -141,7 +143,7 @@
                             tools:ignore="DuplicateIds" />
 
                         <TextView
-                            android:id="@+id/address"
+                            android:id="@+id/tvaddress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/margin_sm"
@@ -191,7 +193,7 @@
                             tools:ignore="NotSibling">
 
                             <TextView
-                                android:id="@+id/tvabout"
+                                android:id="@+id/about"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="About"
@@ -201,7 +203,7 @@
                                 tools:ignore="DuplicateIds" />
 
                             <TextView
-                                android:id="@+id/about"
+                                android:id="@+id/tvabout"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/margin_sm"
@@ -261,15 +263,67 @@
                                     style="@style/NormalTextInputLayout"
                                     tools:ignore="DuplicateIds" />
 
-                                <TextView
-                                    android:id="@+id/tvTime"
+                                <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/margin_sm"
-                                    android:text="On/Off"
-                                    android:layout_marginLeft="@dimen/margin_md"
-                                    android:textSize="12sp"
-                                    tools:ignore="DuplicateIds" />
+                                    android:orientation="horizontal"
+                                    android:layout_below="@id/texttime" >
+
+                                    <TextView
+                                        android:id="@+id/starttime"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/margin_sm"
+                                        android:text="Start Time :"
+                                        android:layout_marginLeft="@dimen/margin_md"
+                                        android:textColor="@color/black"
+                                        android:textSize="12sp"
+                                        tools:ignore="DuplicateIds" />
+
+                                    <TextView
+                                        android:id="@+id/tvstarttime"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/margin_sm"
+                                        android:layout_toRightOf="@id/starttime"
+                                        android:text=" "
+                                        android:layout_marginLeft="@dimen/margin_md"
+                                        android:textSize="12sp"
+                                        android:textColor="@color/black"
+                                        tools:ignore="DuplicateIds" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_below="@id/texttime" >
+
+                                    <TextView
+                                        android:id="@+id/endtime"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/margin_sm"
+                                        android:text="End Time   :"
+                                        android:layout_marginLeft="@dimen/margin_md"
+                                        android:textColor="@color/black"
+                                        android:textSize="12sp"
+                                        tools:ignore="DuplicateIds" />
+
+                                    <TextView
+                                        android:id="@+id/tvendtime"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/margin_sm"
+                                        android:layout_toRightOf="@id/starttime"
+                                        android:text=" "
+                                        android:layout_marginLeft="@dimen/margin_md"
+                                        android:textColor="@color/black"
+                                        android:textSize="12sp"
+                                        tools:ignore="DuplicateIds" />
+
+                                </LinearLayout>
                             </LinearLayout>
 
                         </RelativeLayout>

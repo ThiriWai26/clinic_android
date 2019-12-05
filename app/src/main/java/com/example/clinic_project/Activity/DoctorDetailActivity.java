@@ -70,7 +70,6 @@ public class DoctorDetailActivity extends AppCompatActivity  {
         imgfav = findViewById(R.id.imgfav);
         button = findViewById(R.id.btn);
 
-
         Bundle bundle = getIntent().getExtras();
         doctorId = bundle.getInt("doctorId");
         Log.e("doctorId",String.valueOf(doctorId));

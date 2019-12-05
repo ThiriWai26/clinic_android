@@ -24,7 +24,6 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingHolder> {
         this.listener=listener;
     }
 
-
     @NonNull
     @Override
     public BuildingHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {

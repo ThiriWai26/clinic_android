@@ -2,19 +2,25 @@ package com.example.clinic_project.holder;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.clinic_project.R;
+import com.example.clinic_project.model.Service;
+import com.example.clinic_project.service.RetrofitService;
+import com.squareup.picasso.Picasso;
 
-public class AssessmentHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class AssessmentHolder extends RecyclerView.ViewHolder  {
 
     private OnItemClickListener listener;
     private TextView txName, txLocation, txId;
     private ImageView imageView;
+    private RelativeLayout layout;
 
     public AssessmentHolder(@NonNull View itemView, OnItemClickListener listener) {
 
@@ -25,26 +31,41 @@ public class AssessmentHolder extends RecyclerView.ViewHolder implements View.On
         txLocation = itemView.findViewById(R.id.txLocation);
         txId = itemView.findViewById(R.id.txid);
         imageView = itemView.findViewById(R.id.imageView1);
-
-        itemView.setOnClickListener(this);
+        layout = itemView.findViewById(R.id.layout);
     }
 
     public static AssessmentHolder create(LayoutInflater inflater, ViewGroup parent, AssessmentHolder.OnItemClickListener listener) {
 
         View view = inflater.inflate(R.layout.layout_healthassessment_item, parent, false);
-        return new AssessmentHolder(view, (AssessmentHolder.OnItemClickListener) listener);
+        return new AssessmentHolder(view, listener);
     }
 
-    public static void bindData() {
+    public void bindData(final Service service) {
+        txName.setText(service.name);
+        txLocation.setText(service.address);
+        txId.setText(String.valueOf(service.id));
+        Picasso.get()
+                .load(RetrofitService.BASE_URL + "/api/download_image/" + service.featurePhoto)
+                .resize(800, 700)
+                .centerCrop()
+                .into(imageView);
+
+        Log.e("Name", service.name);
+        Log.e("Location", service.address);
+        Log.e("id", String.valueOf(service.id));
+        Log.e("featurePhoto", service.featurePhoto);
+
+        layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onAssessmentClick(service.id);
+            }
+        });
     }
 
-    @Override
-    public void onClick(View v) {
-        listener.onAssessmentClick();
-    }
 
     public interface OnItemClickListener {
 
-        public void onAssessmentClick ();
+        public void onAssessmentClick(int i);
     }
 }

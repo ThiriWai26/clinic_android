@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
     android:background="#fff"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    tools:ignore="Orientation">
 
     <TextView
         android:id="@+id/textcategories"
@@ -19,32 +19,44 @@
         android:textStyle="bold"
         android:textSize="18dp"/>
 
-        <RelativeLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textcategories"
+        android:layout_margin="@dimen/margin_md"
+        android:orientation="vertical">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textcategories"
-            android:layout_marginStart="10dp"
-            android:orientation="horizontal"
-            tools:ignore="RtlCompat">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardexam"
-                android:layout_width="160dp"
-                android:layout_height="110dp"
-                app:cardCornerRadius="10dp"
-                android:layout_margin="4dp"
-                android:elevation="14dp">
+            <LinearLayout
+                android:id="@+id/linearone"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_marginRight="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardexam"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#71E975">
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="4dp"
+                    android:elevation="14dp">
 
-                    <ImageView
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/img_doctor"
-                        android:alpha="0.3"/>
+                        android:background="#71E975">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/blooddonation2"
+                            android:alpha="0.3"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -54,30 +66,37 @@
 
                             <ImageView
                                 android:id="@+id/img1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="32dp"
-                                android:layout_marginLeft="65dp"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/margin_xl"
                                 android:src="@drawable/blood1"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Blood Donation"
-                                android:layout_marginStart="4dp"
-                                android:layout_marginTop="12dp"
+                                android:layout_marginTop="@dimen/margin_md"
                                 android:layout_gravity="center"
                                 android:textColor="#ffffff"
                                 tools:ignore="RtlCompat" />
 
                         </LinearLayout>
-                </RelativeLayout>
-            </android.support.v7.widget.CardView>
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lineartwo"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <android.support.v7.widget.CardView
                 android:id="@+id/cardregi"
-                android:layout_width="160dp"
-                android:layout_height="110dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/cardexam"
                 app:cardCornerRadius="10dp"
                 android:layout_margin="4dp"
@@ -91,7 +110,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/img_doctor"
+                        android:src="@drawable/pharmacy2"
                         android:alpha="0.3"/>
 
                     <LinearLayout
@@ -104,16 +123,15 @@
                             android:id="@+id/img2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="36dp"
-                            android:layout_marginLeft="65dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/margin_xl"
                             android:src="@drawable/registration"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Pharmacy"
-                            android:layout_marginStart="4dp"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="@dimen/margin_md"
                             android:layout_gravity="center"
                             android:textColor="#ffffff"
                             tools:ignore="RtlCompat" />
@@ -121,127 +139,124 @@
                     </LinearLayout>
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
+        </LinearLayout>
+        </LinearLayout>
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardassess"
-                android:layout_width="160dp"
-                android:layout_height="110dp"
-                android:layout_below="@id/cardexam"
-                app:cardCornerRadius="10dp"
-                android:layout_margin="4dp"
-                android:elevation="14dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textcategories"
+            android:orientation="horizontal">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/linearthree"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_marginRight="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardassess"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#F3A32A">
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="4dp"
+                    android:elevation="14dp">
 
-                    <ImageView
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/img_doctor"
-                        android:alpha="0.3"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_marginTop="0dp">
+                        android:background="#F3A32A">
 
                         <ImageView
-                            android:id="@+id/img3"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="32dp"
-                            android:layout_marginLeft="65dp"
-                            android:src="@drawable/assessment1"/>
+                            android:src="@drawable/ngoimage"
+                            android:alpha="0.3"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="NGO"
-                            android:layout_marginStart="4dp"
-                            android:layout_marginTop="12dp"
-                            android:layout_gravity="center"
-                            android:textColor="#ffffff"
-                            tools:ignore="RtlCompat" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="0dp">
 
-                    </LinearLayout>
-                </RelativeLayout>
-            </android.support.v7.widget.CardView>
+                            <ImageView
+                                android:id="@+id/img3"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/margin_xl"
+                                android:src="@drawable/assessment1"/>
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/carddrag"
-                android:layout_width="160dp"
-                android:layout_height="110dp"
-                android:layout_below="@id/cardregi"
-                android:layout_toRightOf="@+id/cardassess"
-                app:cardCornerRadius="10dp"
-                android:layout_margin="4dp"
-                android:elevation="14dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="NGO"
+                                android:layout_marginTop="@dimen/margin_md"
+                                android:layout_gravity="center"
+                                android:textColor="#ffffff"
+                                tools:ignore="RtlCompat" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
+                        </LinearLayout>
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearfour"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/carddrag"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#F8738D">
+                    android:layout_toRightOf="@+id/cardexam"
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="4dp"
+                    android:elevation="14dp">
 
-                    <ImageView
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/img_doctor"
-                        android:alpha="0.3"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_marginTop="0dp">
+                        android:background="#F8738D">
 
                         <ImageView
-                            android:id="@+id/img4"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="36dp"
-                            android:layout_marginLeft="65dp"
-                            android:src="@drawable/emergencyimg"/>
+                            android:src="@drawable/dragimage4"
+                            android:alpha="0.3"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Emergency"
-                            android:layout_marginStart="4dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_gravity="center"
-                            android:textColor="#ffffff"
-                            tools:ignore="RtlCompat" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="0dp">
 
-                    </LinearLayout>
-                </RelativeLayout>
-            </android.support.v7.widget.CardView>
+                            <ImageView
+                                android:id="@+id/img4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/margin_xl"
+                                android:src="@drawable/emergencyimg"/>
 
-<!--            <android.support.v7.widget.CardView-->
-<!--                android:id="@+id/cardnew"-->
-<!--                android:layout_width="160dp"-->
-<!--                android:layout_height="110dp"-->
-<!--                android:layout_below="@id/cardassess"-->
-<!--                app:cardCornerRadius="10dp"-->
-<!--                android:layout_margin="4dp"-->
-<!--                android:elevation="14dp">-->
-<!--                -->
-<!--                <RelativeLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:background="#EC6694">-->
-<!--                    <ImageView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:src="@drawable/img_doctor"-->
-<!--                        android:alpha="0.3"-->
-<!--                        -->
-<!--                        -->
-<!--                </RelativeLayout>-->
-<!--            </android.support.v7.widget.CardView>-->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Drag"
+                                android:layout_marginTop="@dimen/margin_md"
+                                android:layout_gravity="center"
+                                android:textColor="#ffffff"
+                                tools:ignore="RtlCompat" />
 
-        </RelativeLayout>
-
+                        </LinearLayout>
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

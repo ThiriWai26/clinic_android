@@ -33,6 +33,7 @@ import com.example.clinic_project.Response.BuildingListResponse;
 import com.example.clinic_project.Response.TownListResponse;
 import com.example.clinic_project.adapter.BuildingAdapter;
 import com.example.clinic_project.api.Api;
+import com.example.clinic_project.fragment.HomeFragment;
 import com.example.clinic_project.holder.BuildingHolder;
 import com.example.clinic_project.model.Building;
 import com.example.clinic_project.model.TownList;
@@ -93,6 +94,7 @@ public class ClinicActivity extends AppCompatActivity implements NavigationView.
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
 

@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Login = findViewById(R.id.btn_login);
         edtphoneno = findViewById(R.id.phoneno_id);
         edtpassword = findViewById(R.id.password_id);
-//        token = pref.getString("token", null);
+        token = pref.getString("token", null);
 
         service = new RetrofitService();
         if (token != null) {
@@ -74,11 +74,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                     Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                     startActivity(intent);
-
                 }
             });
         }
-
     }
 
     @Override
@@ -88,7 +86,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             String phone = edtphoneno.getText().toString();
             String pass1 = edtpassword.getText().toString();
 
-            Log.e("phone_num", String.valueOf(phone));
+            Log.e("phone_num", phone);
             Log.e("pass", pass1);
 
 //            Intent intent=new Intent(LoginActivity.this,HomeActivity.class);
@@ -111,7 +109,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void userLogin(String phone, String pass1) {
 
         Api api = service.getRetrofitService().create(Api.class);
-        api.login(phone, pass1).enqueue(new Callback<LoginResponse>() {
+        api.login(phone,pass1).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful()) {
@@ -137,15 +135,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 } else {
                     Toast.makeText(LoginActivity.this, "Login Fail", Toast.LENGTH_LONG).show();
                 }
-
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-
                 Log.e("Throwable", t.toString());
-
-
+                Log.e("onfailure",call.toString());
             }
         });
     }

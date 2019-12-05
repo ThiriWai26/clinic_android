@@ -34,6 +34,7 @@ public class BuildingHolder extends RecyclerView.ViewHolder implements View.OnCl
     public void onClick(View v) {
 
         listener.onBuildingClick(Integer.parseInt((String) txId.getText()));
+        Log.e("ID",String.valueOf(txId.getText()));
         int position;
         position = getAdapterPosition();
         Log.e("position", String.valueOf(position));
@@ -56,7 +57,7 @@ public class BuildingHolder extends RecyclerView.ViewHolder implements View.OnCl
 
         Log.e("id", String.valueOf(building.id));
         Log.e("name",building.name);
-        Log.e("feature_photo",building.image);
+//        Log.e("feature_photo",building.image);
         Log.e("town_id", String.valueOf(building.townId));
         Log.e("rating", String.valueOf(building.rating));
         Log.e("town_name",building.townName);

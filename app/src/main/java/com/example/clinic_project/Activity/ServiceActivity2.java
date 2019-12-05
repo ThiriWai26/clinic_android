@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.clinic_project.MapsActivity;
 import com.example.clinic_project.R;
 
 public class ServiceActivity2 extends AppCompatActivity {
