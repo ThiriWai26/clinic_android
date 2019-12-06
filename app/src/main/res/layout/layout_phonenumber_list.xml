@@ -38,6 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="28dp"
                     android:layout_weight="1"
+                    android:layout_marginTop="4dp"
                     android:layout_toRightOf="@id/imgphone"
                     android:layout_marginLeft="@dimen/margin_lg"
                     android:layout_gravity="center"

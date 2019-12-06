@@ -125,11 +125,11 @@ public class DoctorDetailActivity extends AppCompatActivity  {
                             towns+=","+response.body().doctorDetail.towns.get(i);}
                         tvtown.setText(towns);
 
-                        String specialis=response.body().doctorDetail.specialists.get(0);
-                        for(int i=1;i<response.body().doctorDetail.specialists.size();i++){
-                            specialis+=","+response.body().doctorDetail.specialists.get(i);
-                        }
-                        tvspecial.setText(specialis);
+//                        String specialis=response.body().doctorDetail.specialists.get(0);
+//                        for(int i=1;i<response.body().doctorDetail.specialists.size();i++){
+//                            specialis+=","+response.body().doctorDetail.specialists.get(i);
+//                        }
+//                        tvspecial.setText(specialis);
 
                         Log.e("Name", response.body().doctorDetail.name);
                         Log.e("FeaturePhoto", response.body().doctorDetail.photo);

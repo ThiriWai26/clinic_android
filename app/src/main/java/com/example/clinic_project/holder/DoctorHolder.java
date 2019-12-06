@@ -58,18 +58,25 @@ public class DoctorHolder extends RecyclerView.ViewHolder implements View.OnClic
 
         tvId.setText(String.valueOf(doctor.id));
         tvname.setText(doctor.name);
-//        tvtype.setText(doctor.);
 
-        Picasso.get()
-                .load(RetrofitService.BASE_URL+ "/api/download_image/" + doctor.photo)
-                .resize(800,700)
-                .centerCrop()
-                .into(featurephoto);
+//        String specialis= doctor.specialists.get(0);
+//        for(int i=1;i<doctor.specialists.size();i++){
+//            specialis+=","+doctor.specialists.get(i);
+//        }
+//        tvtype.setText(specialis);
+
+//        Picasso.get()
+//                .load(RetrofitService.BASE_URL+ "/api/download_image/" + doctor.photo)
+//                .resize(800,700)
+//                .centerCrop()
+//                .into(featurephoto);
+
+
         Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + doctor.photo).into(profile);
 
         Log.e("id", String.valueOf(doctor.id));
         Log.e("name",doctor.name);
-        Log.e("featurePhoto",doctor.photo);
+        Log.e("specialists", String.valueOf(doctor.specialists));
         Log.e("profile",doctor.photo);
 
     }
@@ -85,7 +92,7 @@ public class DoctorHolder extends RecyclerView.ViewHolder implements View.OnClic
     }
 
     public static DoctorHolder create(LayoutInflater inflater, ViewGroup parent, OnDoctorClickListener listener) {
-        View view = inflater.inflate(R.layout.layout_doctor_lists, parent, false);
+        View view = inflater.inflate(R.layout.layout_doctor_list, parent, false);
         return new DoctorHolder(view, listener);
     }
 }

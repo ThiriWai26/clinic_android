@@ -20,7 +20,7 @@
     <string name="title_hospital">Hospital</string>
     <string name="title_doctor">Doctor</string>
 
-    <string name="label_phno">Phone Number</string>
+    <string name="label_phno">Select Number</string>
     <string name="lable_login">Login</string>
     <string name="label_forgerpwd">Forget Password</string>
     <string name="label_health_service">Health Service</string>

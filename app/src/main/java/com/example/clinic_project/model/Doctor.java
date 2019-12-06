@@ -15,6 +15,8 @@ public class Doctor {
     @SerializedName("photo")
     public String photo;
 
+    @SerializedName("specialists")
+    public List<String> specialists;
 
 }
 

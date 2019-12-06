@@ -32,12 +32,13 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
                     android:layout_gravity="center"
                     android:layout_margin="16dp"
                     android:maxHeight="48dp"
@@ -51,7 +52,7 @@
                     android:layout_weight="1"
                     android:layout_toRightOf="@id/profile"
                     android:gravity="center_vertical"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginTop="14dp"
                     android:text=" Doctor Name"
                     android:textStyle="bold"
                     android:textSize="17sp"
@@ -64,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/margin_md"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="22dp"
                     android:gravity="center_horizontal"
                     tools:ignore="NotSibling,RtlCompat" />
 
@@ -82,6 +83,15 @@
                     android:textSize="14sp"
                     tools:ignore="NotSibling" />
 
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/profile"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#C7C4C4" />
+
             </RelativeLayout>
 
 
@@ -94,21 +104,10 @@
 <!--                android:layout_alignParentRight="true"-->
 <!--                android:src="@drawable/ic_right_arrow" />-->
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:layout_below="@+id/btn_doctor_detail"
-                android:layout_marginTop="9dp"
-                android:layout_marginBottom="10dp"
-                android:background="#F7F5F5" />
 
 
 
         </RelativeLayout>
-
-
-
 
 
 
