@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,8 +13,10 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.OtherServiceDetailResponse;
@@ -45,6 +48,7 @@ public class ExaminationDetailActivity extends AppCompatActivity implements Exam
 
     private ExaminationPhoneNumberAdapter adapter;
     private RecyclerView phonenumberRecyclerView;
+    private int phoneNumber;
     private List<String> phoneNumbers = new ArrayList<>();
 
     @Override
@@ -150,13 +154,33 @@ public class ExaminationDetailActivity extends AppCompatActivity implements Exam
         dialog.show();
 
 
-//        PhoneStateListener phoneListener = new PhoneStateListener();
-//        TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
-//        telephonyManager.listen(phoneListener,PhoneStateListener.LISTEN_CALL_STATE);
+        PhoneStateListener phoneListener = new PhoneStateListener();
+        TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+        telephonyManager.listen(phoneListener,PhoneStateListener.LISTEN_CALL_STATE);
 
-//        new PhoneCallListener();
+        new PhoneCallListener();
     }
 
+
+    @Override
+    public void onExaminationPhoneNumberClick(TextView txphoneno) {
+        Log.e("intent","ok");
+        try {
+
+            Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+
+//            Bundle bundle = getIntent().getExtras();
+//            phoneNumber = bundle.getInt("PhoneNumber");
+//            Log.e("PhoneNumber",String.valueOf(phoneNumber));
+
+//            dialIntent.setData(Uri.parse("tel:"+ phoneNumber));
+
+            startActivity(dialIntent);
+        }catch(Exception e) {
+            Toast.makeText(getApplicationContext(),"Your call has failed...", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+    }
 
     private class PhoneCallListener extends PhoneStateListener {
 
@@ -170,13 +194,14 @@ public class ExaminationDetailActivity extends AppCompatActivity implements Exam
             if (TelephonyManager.CALL_STATE_RINGING == state) {
                 // phone ringing
                 Log.i(LOG_TAG, "RINGING, number: " + incomingNumber);
+                Toast.makeText(getApplicationContext(), incomingNumber + " calls you", Toast.LENGTH_LONG).show();
             }
 
             if (TelephonyManager.CALL_STATE_OFFHOOK == state) {
                 // active
                 Log.i(LOG_TAG, "OFFHOOK");
-
                 isPhoneCalling = true;
+                Toast.makeText(getApplicationContext(), "on call...", Toast.LENGTH_LONG).show();
             }
 
             if (TelephonyManager.CALL_STATE_IDLE == state) {
@@ -187,14 +212,11 @@ public class ExaminationDetailActivity extends AppCompatActivity implements Exam
                 if (isPhoneCalling) {
 
                     Log.i(LOG_TAG, "restart app");
-
+                    Toast.makeText(getApplicationContext(), "restart app after call", Toast.LENGTH_LONG).show();
                     // restart app
-                    Intent i = getBaseContext().getPackageManager()
-                            .getLaunchIntentForPackage(
-                                    getBaseContext().getPackageName());
+                    Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
-
                     isPhoneCalling = false;
                 }
 

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.example.clinic_project.holder.ExaminationHolder;
+import com.example.clinic_project.model.OtherServiceDetail;
 import com.example.clinic_project.model.Service;
 
 import java.util.ArrayList;
@@ -13,11 +14,13 @@ import java.util.List;
 
 public class ExaminationAdapter extends RecyclerView.Adapter<ExaminationHolder> {
 
+    List<OtherServiceDetail> otherServiceDetails;
     List<Service> services;
     ExaminationHolder.OnItemClickListener listener;
 
     public ExaminationAdapter(ExaminationHolder.OnItemClickListener listener) {
         services = new ArrayList<>();
+        otherServiceDetails = new ArrayList<>();
         this.listener = listener;
     }
 
