@@ -52,10 +52,12 @@ public class ExaminationHolder extends RecyclerView.ViewHolder {
                 .centerCrop()
                 .into(imageView);
 
+
+
         Log.e("id", String.valueOf(service.id));
         Log.e("Name", service.name);
         Log.e("Location", service.address);
-        Log.e("featurePhoto", service.featurePhoto);
+//        Log.e("featurePhoto", service.featurePhoto);
 
         layout.setOnClickListener(new View.OnClickListener() {
             @Override

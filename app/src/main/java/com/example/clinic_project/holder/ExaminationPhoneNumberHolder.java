@@ -12,48 +12,36 @@ import com.example.clinic_project.R;
 import com.example.clinic_project.model.OtherServiceDetail;
 import com.example.clinic_project.model.Phones;
 
-public class ContactNumberHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class ExaminationPhoneNumberHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     private OnItemClickListener listener;
     private TextView txphoneno;
-    private TextView tvid;
 
-    public ContactNumberHolder(@NonNull View itemView, OnItemClickListener listener) {
-
+    public ExaminationPhoneNumberHolder(@NonNull View itemView, ExaminationPhoneNumberHolder.OnItemClickListener listener) {
         super(itemView);
         this.listener = listener;
 
-        tvid = itemView.findViewById(R.id.tvid);
         txphoneno = itemView.findViewById(R.id.tvphoneno);
-
         itemView.setOnClickListener(this);
-
     }
 
-    public static ContactNumberHolder create(LayoutInflater inflater, ViewGroup parent, OnItemClickListener listener) {
-
+    public static ExaminationPhoneNumberHolder create(LayoutInflater inflater, ViewGroup parent, ExaminationPhoneNumberHolder.OnItemClickListener listener) {
         View view = inflater.inflate(R.layout.layout_phonenumber_list, parent, false);
-        return new ContactNumberHolder(view,listener);
+        return new ExaminationPhoneNumberHolder(view,listener);
     }
 
-    public void bindData() {
+    public void bindData(String phoneNumber) {
 
-//        txphoneno.setText(String.valueOf(otherServiceDetail.phoneNumber));
-//        Log.e("phoneno", String.valueOf(otherServiceDetail.phoneNumber));
+        txphoneno.setText(phoneNumber);
 
+        Log.e("phoneno", phoneNumber);
     }
 
     @Override
     public void onClick(View v) {
-//        listener.onContactNumberClick(Integer.parseInt((String) tvid.getText()));
-//        int position;
-//        position = getAdapterPosition();
-//        Log.e("position", String.valueOf(position));
+
     }
 
     public interface OnItemClickListener {
-
-        void onContactNumberClick(int i);
-
     }
 }

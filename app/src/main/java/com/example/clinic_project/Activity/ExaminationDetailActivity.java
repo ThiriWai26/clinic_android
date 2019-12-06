@@ -1,40 +1,51 @@
 package com.example.clinic_project.Activity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.clinic_project.R;
-import com.example.clinic_project.Response.BuildingDetailResponse;
 import com.example.clinic_project.Response.OtherServiceDetailResponse;
+import com.example.clinic_project.adapter.ContactNumberAdapter;
+import com.example.clinic_project.adapter.ExaminationPhoneNumberAdapter;
 import com.example.clinic_project.api.Api;
-import com.example.clinic_project.fragment.FragmentExamination;
-import com.example.clinic_project.model.OtherServiceDetail;
+import com.example.clinic_project.holder.ContactNumberHolder;
+import com.example.clinic_project.holder.ExaminationPhoneNumberHolder;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
-import com.google.android.gms.maps.GoogleMap;
-import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class ExaminationDetailActivity extends AppCompatActivity {
+public class ExaminationDetailActivity extends AppCompatActivity implements ExaminationPhoneNumberHolder.OnItemClickListener {
 
     private RetrofitService service;
     private ImageView featurephoto,profile,imgback;
-    private TextView tvname,tvtown,tvaddress,tvabout,tvstarttime,tvendtime;
+    private TextView tvname,tvtown,tvaddress,tvabout,tvstarttime,tvendtime,tvphoneno;
 
     private String token = null;
     private int serviceId = -1;
     private String type = "blood_donation";
+
+    private ExaminationPhoneNumberAdapter adapter;
+    private RecyclerView phonenumberRecyclerView;
+    private List<String> phoneNumbers = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +68,7 @@ public class ExaminationDetailActivity extends AppCompatActivity {
         tvstarttime = findViewById(R.id.tvstarttime);
         tvendtime = findViewById(R.id.tvendtime);
         imgback = findViewById(R.id.imgback);
+        tvphoneno = findViewById(R.id.txt_phoneno);
 
         token = Token.MyToken.getToken();
 
@@ -78,13 +90,15 @@ public class ExaminationDetailActivity extends AppCompatActivity {
                     if(response.body().isSuccess) {
                         Log.e("response.body", "success");
 
-                        Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + response.body().otherServiceDetail.featurePhoto).into(featurephoto);
-                        Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + response.body().otherServiceDetail.profile)
-                                .resize(40,40)
-                                .onlyScaleDown()
-                                .centerCrop()
-                                .into(profile);
+//                        Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + response.body().otherServiceDetail.featurePhoto).into(featurephoto);
+//                        Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + response.body().otherServiceDetail.profile)
+//                                .resize(40,40)
+//                                .onlyScaleDown()
+//                                .centerCrop()
+//                                .into(profile);
 
+                        phoneNumbers.addAll(response.body().otherServiceDetail.phoneNumber);
+                        Log.e("phoneNumbersdSize",String.valueOf(phoneNumbers.size()));
                         tvname.setText(response.body().otherServiceDetail.name);
                         tvtown.setText(response.body().otherServiceDetail.townName);
                         tvaddress.setText(response.body().otherServiceDetail.address);
@@ -98,8 +112,8 @@ public class ExaminationDetailActivity extends AppCompatActivity {
                         Log.e("About", response.body().otherServiceDetail.about);
                         Log.e("StartTime", String.valueOf(response.body().otherServiceDetail.startTime));
                         Log.e("EndTime", String.valueOf(response.body().otherServiceDetail.endTime));
-                        Log.e("FeaturePhoto",response.body().otherServiceDetail.featurePhoto);
-                        Log.e("Profile",response.body().otherServiceDetail.profile);
+//                        Log.e("FeaturePhoto",response.body().otherServiceDetail.featurePhoto);
+//                        Log.e("Profile",response.body().otherServiceDetail.profile);
 
                     }
                     else {
@@ -121,4 +135,72 @@ public class ExaminationDetailActivity extends AppCompatActivity {
     public void onBackExaminationClick(View view) {
         finish();
     }
+
+    public void onExaminationPhoneNumberClick(View view) {
+
+        Log.e("DoctorPhoneNumber","success");
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.layout_phonenumber_dialog);
+
+        adapter = new ExaminationPhoneNumberAdapter(this);
+        phonenumberRecyclerView = dialog.findViewById(R.id.PhonenumberrecyclerView);
+        phonenumberRecyclerView.setAdapter(adapter);
+        phonenumberRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter.addItem(phoneNumbers);
+        dialog.show();
+
+
+//        PhoneStateListener phoneListener = new PhoneStateListener();
+//        TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+//        telephonyManager.listen(phoneListener,PhoneStateListener.LISTEN_CALL_STATE);
+
+//        new PhoneCallListener();
+    }
+
+
+    private class PhoneCallListener extends PhoneStateListener {
+
+        private boolean isPhoneCalling = false;
+
+        String LOG_TAG = "LOGGING 123";
+
+        @Override
+        public void onCallStateChanged(int state, String incomingNumber) {
+
+            if (TelephonyManager.CALL_STATE_RINGING == state) {
+                // phone ringing
+                Log.i(LOG_TAG, "RINGING, number: " + incomingNumber);
+            }
+
+            if (TelephonyManager.CALL_STATE_OFFHOOK == state) {
+                // active
+                Log.i(LOG_TAG, "OFFHOOK");
+
+                isPhoneCalling = true;
+            }
+
+            if (TelephonyManager.CALL_STATE_IDLE == state) {
+                // run when class initial and phone call ended,
+                // need detect flag from CALL_STATE_OFFHOOK
+                Log.i(LOG_TAG, "IDLE");
+
+                if (isPhoneCalling) {
+
+                    Log.i(LOG_TAG, "restart app");
+
+                    // restart app
+                    Intent i = getBaseContext().getPackageManager()
+                            .getLaunchIntentForPackage(
+                                    getBaseContext().getPackageName());
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+
+                    isPhoneCalling = false;
+                }
+
+            }
+        }
+    }
+
+
 }

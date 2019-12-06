@@ -1,10 +1,15 @@
 package com.example.clinic_project.Activity;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,8 +19,9 @@ import android.widget.TextView;
 
 import com.example.clinic_project.R;
 import com.example.clinic_project.Response.DoctorDetailResponse;
+import com.example.clinic_project.adapter.ContactNumberAdapter;
 import com.example.clinic_project.api.Api;
-import com.example.clinic_project.fragment.FragmentDoctor;
+import com.example.clinic_project.holder.ContactNumberHolder;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
 import com.squareup.picasso.Picasso;
@@ -24,7 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DoctorDetailActivity extends AppCompatActivity  {
+public class DoctorDetailActivity extends AppCompatActivity implements ContactNumberHolder.OnItemClickListener {
 
     private RetrofitService service;
     private String token;
@@ -35,6 +41,9 @@ public class DoctorDetailActivity extends AppCompatActivity  {
     private int doctorId = -1;
     private FloatingActionButton btnBook;
     boolean isFavourite;
+
+    private ContactNumberAdapter adapter;
+    private RecyclerView phonenumberRecyclerView;
 
 
     @Override
@@ -95,7 +104,6 @@ public class DoctorDetailActivity extends AppCompatActivity  {
                 }
             }
         });
-
     }
 
     private void getDoctorDetail() {
@@ -157,5 +165,74 @@ public class DoctorDetailActivity extends AppCompatActivity  {
 
     public void onBackDoctorList(View view) {
         finish();
+    }
+
+    public void onDoctorPhoneNumberClick(View view) {
+
+        Log.e("DoctorPhoneNumber","success");
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.layout_phonenumber_dialog);
+
+        adapter = new ContactNumberAdapter(this);
+        phonenumberRecyclerView = dialog.findViewById(R.id.PhonenumberrecyclerView);
+        phonenumberRecyclerView.setAdapter(adapter);
+        phonenumberRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        dialog.show();
+
+        PhoneStateListener phoneListener = new PhoneStateListener();
+        TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+        telephonyManager.listen(phoneListener,PhoneStateListener.LISTEN_CALL_STATE);
+
+//        new PhoneCallListener();
+    }
+
+    private class PhoneCallListener extends PhoneStateListener {
+
+        private boolean isPhoneCalling = false;
+
+        String LOG_TAG = "LOGGING 123";
+
+        @Override
+        public void onCallStateChanged(int state, String incomingNumber) {
+
+            if (TelephonyManager.CALL_STATE_RINGING == state) {
+                // phone ringing
+                Log.i(LOG_TAG, "RINGING, number: " + incomingNumber);
+            }
+
+            if (TelephonyManager.CALL_STATE_OFFHOOK == state) {
+                // active
+                Log.i(LOG_TAG, "OFFHOOK");
+
+                isPhoneCalling = true;
+            }
+
+            if (TelephonyManager.CALL_STATE_IDLE == state) {
+                // run when class initial and phone call ended,
+                // need detect flag from CALL_STATE_OFFHOOK
+                Log.i(LOG_TAG, "IDLE");
+
+                if (isPhoneCalling) {
+
+                    Log.i(LOG_TAG, "restart app");
+
+                    // restart app
+                    Intent i = getBaseContext().getPackageManager()
+                            .getLaunchIntentForPackage(
+                                    getBaseContext().getPackageName());
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+
+                    isPhoneCalling = false;
+                }
+
+            }
+        }
+    }
+
+    @Override
+    public void onContactNumberClick(int i) {
+
     }
 }

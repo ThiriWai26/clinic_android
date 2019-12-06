@@ -99,6 +99,7 @@
                     android:layout_marginRight="@dimen/margin_lg"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/ic_phone_black_24dp"
+                    android:onClick="onDoctorPhoneNumberClick"
                     android:scaleType="fitXY"
                     tools:ignore="NotSibling" />
 

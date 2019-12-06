@@ -10,18 +10,18 @@ import com.example.clinic_project.holder.ContactNumberHolder;
 import com.example.clinic_project.holder.DragHolder;
 import com.example.clinic_project.holder.ExaminationHolder;
 import com.example.clinic_project.model.BuildingDetail;
+import com.example.clinic_project.model.OtherServiceDetail;
+import com.example.clinic_project.model.Phones;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ContactNumberAdapter extends RecyclerView.Adapter<ContactNumberHolder> {
 
-    List<BuildingDetail> buildingDetailList;
     ContactNumberHolder.OnItemClickListener listener;
 
     public ContactNumberAdapter(ContactNumberHolder.OnItemClickListener listener) {
 
-        buildingDetailList = new ArrayList<>();
         this.listener = listener;
     }
 
@@ -34,7 +34,7 @@ public class ContactNumberAdapter extends RecyclerView.Adapter<ContactNumberHold
     @Override
     public void onBindViewHolder(@NonNull ContactNumberHolder contactNumberHolder, int i) {
 
-        ContactNumberHolder.bindData();
+        contactNumberHolder.bindData();
     }
 
     public int getItemCount() {
@@ -42,12 +42,5 @@ public class ContactNumberAdapter extends RecyclerView.Adapter<ContactNumberHold
         return 5;
     }
 
-//    public void addItem(List<BuildingDetail> buildingDetails){
-//
-//        this.buildingDetailList.clear();
-//        this.buildingDetailList.addAll(buildingDetails);
-//        notifyDataSetChanged();
-//
-//    }
 
 }

@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
-import android.support.v4.text.HtmlCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,7 +29,6 @@ import com.example.clinic_project.api.Api;
 import com.example.clinic_project.holder.ContactNumberHolder;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
-import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
@@ -335,8 +333,6 @@ public class HospitalDetailActivity extends AppCompatActivity implements Contact
             }
         });
 
-
-
     }
 
     private void getphonenumberList() {
@@ -345,35 +341,34 @@ public class HospitalDetailActivity extends AppCompatActivity implements Contact
         dialog.setContentView(R.layout.layout_phonenumber_dialog);
 
         adapter = new ContactNumberAdapter(this);
-        recyclerView = dialog.findViewById(R.id.recyclerView);
+        recyclerView = dialog.findViewById(R.id.PhonenumberrecyclerView);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         dialog.show();
 
-        txtcancel = dialog.findViewById(R.id.tv_cancel);
-        txtok = dialog.findViewById(R.id.tv_ok);
+//        txtcancel = dialog.findViewById(R.id.tv_cancel);
+//        txtok = dialog.findViewById(R.id.tv_ok);
 
-        txtcancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-        txtok.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+//        txtcancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        txtok.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog.dismiss();
+//            }
+//        });
 
 
     }
 
-
     @Override
-    public void onContactNumberClick() {
+    public void onContactNumberClick(int i) {
 
     }
 

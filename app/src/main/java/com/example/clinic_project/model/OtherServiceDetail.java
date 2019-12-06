@@ -2,6 +2,8 @@ package com.example.clinic_project.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class OtherServiceDetail {
 
     @SerializedName("id")
@@ -45,4 +47,7 @@ public class OtherServiceDetail {
 
     @SerializedName("town_name")
     public String townName;
+
+    @SerializedName("phones")
+    public List<String> phoneNumber;
 }

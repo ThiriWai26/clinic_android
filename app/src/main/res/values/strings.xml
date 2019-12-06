@@ -20,7 +20,7 @@
     <string name="title_hospital">Hospital</string>
     <string name="title_doctor">Doctor</string>
 
-    <string name="label_phno">Select Number</string>
+    <string name="label_phno">Phone Number</string>
     <string name="lable_login">Login</string>
     <string name="label_forgerpwd">Forget Password</string>
     <string name="label_health_service">Health Service</string>
@@ -29,7 +29,7 @@
     <string name="label_hospital_name">Hospital Name</string>
     <string name="label_date">Date</string>
     <string name="label_map">Map</string>
-    <string name="label_phoneno">Contact Number</string>
+    <string name="label_phoneno">Select Number</string>
 
 
     <string name="app_name1">ExpandableNavigationDrawer</string>
