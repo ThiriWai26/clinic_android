@@ -90,6 +90,7 @@
                     android:layout_marginLeft="70dp"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/ic_phone_black_24dp"
+                    android:onClick="onRegistrationPhoneNumberClick"
                     android:scaleType="fitXY"
                     tools:ignore="NotSibling" />
 

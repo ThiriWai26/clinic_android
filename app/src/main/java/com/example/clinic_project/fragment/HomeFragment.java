@@ -1,12 +1,19 @@
 package com.example.clinic_project.fragment;
 
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -21,7 +28,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private Button btnDoctor, btnHospital, btnLab, btnClinc;
     private CardView mybooking, myfavdoctor, myfavhospital, examination, registration, assessment, drag;
     private String token;
-
 
     public HomeFragment() {
         // Required empty public constructor
@@ -66,14 +72,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         registration.setOnClickListener(this);
         assessment.setOnClickListener(this);
         drag.setOnClickListener(this);
-
         token = Token.MyToken.getToken();
-//        Log.e("MyBookingActivityToken", token);
+
         return view;
-
     }
-
-//
 
     @Override
     public void onClick(View v) {
@@ -157,6 +159,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
 
     }
+
 
 
 }

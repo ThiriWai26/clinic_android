@@ -48,8 +48,8 @@ public class ExaminationDetailActivity extends AppCompatActivity implements Exam
 
     private ExaminationPhoneNumberAdapter adapter;
     private RecyclerView phonenumberRecyclerView;
-    private int phoneNumber;
     private List<String> phoneNumbers = new ArrayList<>();
+    private String phno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +102,7 @@ public class ExaminationDetailActivity extends AppCompatActivity implements Exam
 //                                .into(profile);
 
                         phoneNumbers.addAll(response.body().otherServiceDetail.phoneNumber);
-                        Log.e("phoneNumbersdSize",String.valueOf(phoneNumbers.size()));
+                        Log.e("phoneNumbersSize",String.valueOf(phoneNumbers.size()));
                         tvname.setText(response.body().otherServiceDetail.name);
                         tvtown.setText(response.body().otherServiceDetail.townName);
                         tvaddress.setText(response.body().otherServiceDetail.address);
@@ -164,22 +164,21 @@ public class ExaminationDetailActivity extends AppCompatActivity implements Exam
 
     @Override
     public void onExaminationPhoneNumberClick(TextView txphoneno) {
-        Log.e("intent","ok");
-        try {
-
-            Intent dialIntent = new Intent(Intent.ACTION_DIAL);
-
+//        Log.e("intent","ok");
+//        try {
+//            Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+//
 //            Bundle bundle = getIntent().getExtras();
-//            phoneNumber = bundle.getInt("PhoneNumber");
-//            Log.e("PhoneNumber",String.valueOf(phoneNumber));
-
-//            dialIntent.setData(Uri.parse("tel:"+ phoneNumber));
-
-            startActivity(dialIntent);
-        }catch(Exception e) {
-            Toast.makeText(getApplicationContext(),"Your call has failed...", Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
+//            phno = bundle.getString("PhoneNumber");
+//            Log.e("phno",String.valueOf(phno));
+//
+//            dialIntent.setData(Uri.parse("tel:"+ phno));
+//
+//            startActivity(dialIntent);
+//        }catch(Exception e) {
+//            Toast.makeText(getApplicationContext(),"Your call has failed...", Toast.LENGTH_LONG).show();
+//            e.printStackTrace();
+//        }
     }
 
     private class PhoneCallListener extends PhoneStateListener {
