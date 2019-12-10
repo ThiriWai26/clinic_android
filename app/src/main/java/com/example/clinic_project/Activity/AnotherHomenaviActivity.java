@@ -73,23 +73,17 @@ public class AnotherHomenaviActivity extends AppCompatActivity  implements Navig
         setSupportActionBar(toolbar);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mActivityTitle = getTitle().toString();
-        mExpandableListView = findViewById(R.id.navList);
 
         init();
         initItems();
 
-        LayoutInflater inflater = getLayoutInflater();
-        View listHeaderView = inflater.inflate(R.layout.nav_header_drawer2, null, false);
-        mExpandableListView.addHeaderView(listHeaderView);
-        mExpandableListData = ExpandableListDataSource.getData(this);
-        mExpandableListTitle = new ArrayList(mExpandableListData.keySet());
-
-        addDrawerItems();
-        setupDrawer();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+//        navigationView.setNavigationItemSelectedListener(this);
 
         if (savedInstanceState == null) {
             selectFirstItemAsDefault();
@@ -98,7 +92,6 @@ public class AnotherHomenaviActivity extends AppCompatActivity  implements Navig
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_dehaze_black_24dp);
-
 
     }
 

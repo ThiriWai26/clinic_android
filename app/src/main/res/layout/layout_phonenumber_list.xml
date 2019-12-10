@@ -9,18 +9,19 @@
         <RelativeLayout
             android:id="@+id/relative"
             android:layout_width="match_parent"
-            android:layout_height="48dp">
+            android:layout_height="56dp"
+            tools:ignore="Orientation">
 
             <TextView
                 android:id="@+id/tvid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:visibility="gone" />
 
             <RelativeLayout
                 android:id="@+id/linear"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical">
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -28,20 +29,21 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
                     android:maxHeight="48dp"
                     android:tag="image_tag"
-                    android:src="@drawable/ic_phone_black_24dp"
+                    android:src="@drawable/phonecircle1"
                     tools:ignore="VectorDrawableCompat"
-                    android:layout_marginLeft="@dimen/margin_md" />
+                    android:layout_marginLeft="@dimen/margin_xl" />
 
                 <TextView
                     android:id="@+id/tvphoneno"
                     android:layout_width="wrap_content"
                     android:layout_height="28dp"
                     android:layout_weight="1"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="12dp"
                     android:layout_toRightOf="@id/imgphone"
-                    android:layout_marginLeft="@dimen/margin_lg"
+                    android:layout_marginLeft="@dimen/margin_xl"
                     android:layout_gravity="center"
                     android:text=" 09- 458970229 "
                     android:textStyle="bold"
@@ -50,18 +52,17 @@
 
             </RelativeLayout>
 
+<!--            <View-->
+<!--                android:id="@+id/view1"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:layout_marginLeft="@dimen/margin_xl"-->
+<!--                android:layout_marginRight="@dimen/margin_xl"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="12dp"-->
+<!--                android:background="#DDDBDB" />-->
 
         </RelativeLayout>
-
-<!--    <View-->
-<!--        android:id="@+id/view1"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="1dp"-->
-<!--        android:layout_below="@+id/relative"-->
-<!--        android:layout_marginTop="0dp"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        android:background="#DDDBDB" />-->
-
 
 </RelativeLayout>
 <!--    android:layout_margin="@dimen/margin_md"-->

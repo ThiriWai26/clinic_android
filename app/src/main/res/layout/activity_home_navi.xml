@@ -13,6 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        android:background="#E7DDDD"
+        app:headerLayout="@layout/nav_header_home_navi"
+        app:menu="@menu/bottom_nav_menu" />
 
     <!--<android.support.design.widget.NavigationView-->
         <!--android:id="@+id/nav_view1"-->
@@ -21,15 +30,17 @@
         <!--android:layout_gravity="start"-->
         <!--android:fitsSystemWindows="true">-->
 
-        <ExpandableListView
-            android:id="@+id/navList"
-            android:layout_width="250dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="left|start"
-            android:background="#ffffff"
-            android:dividerHeight="0.5dp"
-            android:groupIndicator="@null"
-            android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"/>
+<!--        <ExpandableListView-->
+<!--            android:id="@+id/navList"-->
+<!--            android:layout_width="250dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_gravity="left|start"-->
+
+
+<!--            android:background="#ffffff"-->
+<!--            android:dividerHeight="0.5dp"-->
+<!--            android:groupIndicator="@null"-->
+<!--            android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"/>-->
 
     <!--</android.support.design.widget.NavigationView>-->
 
