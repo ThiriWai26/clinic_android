@@ -27,6 +27,7 @@ import com.example.clinic_project.holder.ContactNumberHolder;
 import com.example.clinic_project.holder.ExaminationPhoneNumberHolder;
 import com.example.clinic_project.service.RetrofitService;
 import com.example.clinic_project.service.Token;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,7 +95,7 @@ public class ExaminationDetailActivity extends AppCompatActivity implements Exam
                     if(response.body().isSuccess) {
                         Log.e("response.body", "success");
 
-//                        Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + response.body().otherServiceDetail.featurePhoto).into(featurephoto);
+                        Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + response.body().otherServiceDetail.featurePhoto).into(featurephoto);
 //                        Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + response.body().otherServiceDetail.profile)
 //                                .resize(40,40)
 //                                .onlyScaleDown()
@@ -116,7 +117,7 @@ public class ExaminationDetailActivity extends AppCompatActivity implements Exam
                         Log.e("About", response.body().otherServiceDetail.about);
                         Log.e("StartTime", String.valueOf(response.body().otherServiceDetail.startTime));
                         Log.e("EndTime", String.valueOf(response.body().otherServiceDetail.endTime));
-//                        Log.e("FeaturePhoto",response.body().otherServiceDetail.featurePhoto);
+                        Log.e("FeaturePhoto",response.body().otherServiceDetail.featurePhoto);
 //                        Log.e("Profile",response.body().otherServiceDetail.profile);
 
                     }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvlogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textColor="@color/black"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="12dp"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/textlogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do you want to log out."
+        android:textSize="14sp"
+        android:layout_below="@+id/tvlogout"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="@dimen/margin_md" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_lg"
+        android:orientation="horizontal"
+        android:layout_below="@id/textlogout">
+
+        <TextView
+            android:id="@+id/tvcancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tvok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ok" />
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

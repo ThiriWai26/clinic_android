@@ -92,7 +92,7 @@ public class RegistrationDetailActivity extends AppCompatActivity implements Exa
                         Log.e("response.body", "success");
 
                         Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + response.body().otherServiceDetail.featurePhoto).into(featurephoto);
-                        Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + response.body().otherServiceDetail.profile)
+                        Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + response.body().otherServiceDetail.featurePhoto)
                                 .resize(40,40)
                                 .onlyScaleDown()
                                 .centerCrop()
@@ -159,18 +159,18 @@ public class RegistrationDetailActivity extends AppCompatActivity implements Exa
 
     @Override
     public void onExaminationPhoneNumberClick(TextView txphoneno) {
-        Log.e("intent","ok");
-        try {
-
-            Intent dialIntent = new Intent(Intent.ACTION_DIAL);
-            Log.e("PhoneNumber",String.valueOf(phoneNumbers));
-            dialIntent.setData(Uri.parse("tel:"+ phoneNumbers));
-
-            startActivity(dialIntent);
-        }catch(Exception e) {
-            Toast.makeText(getApplicationContext(),"Your call has failed...", Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
+//        Log.e("intent","ok");
+//        try {
+//
+//            Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+//            Log.e("PhoneNumber",String.valueOf(phoneNumbers));
+//            dialIntent.setData(Uri.parse("tel:"+ phoneNumbers));
+//
+//            startActivity(dialIntent);
+//        }catch(Exception e) {
+//            Toast.makeText(getApplicationContext(),"Your call has failed...", Toast.LENGTH_LONG).show();
+//            e.printStackTrace();
+//        }
     }
 
     private class PhoneCallListener extends PhoneStateListener {

@@ -1,5 +1,6 @@
 package com.example.clinic_project.Activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -19,9 +21,11 @@ import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.clinic_project.R;
 import com.example.clinic_project.adapter.CustomExpandableListAdapter;
+import com.example.clinic_project.adapter.ExaminationPhoneNumberAdapter;
 import com.example.clinic_project.datasource.ExpandableListDataSource;
 import com.example.clinic_project.fragment.FragmentClinic;
 import com.example.clinic_project.fragment.FragmentDoctor;
@@ -42,12 +46,7 @@ import java.util.Map;
 public class HomenaviActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private TextView tbTitle;
-    private Button btnDoctor, btnHospital, btnLab, btnClinc;
-    private CardView mybooking,myfavdoctor,myfavhospital;
-    private String token;
     private DrawerLayout mDrawerLayout;
-
-    private NavigationManager mNavigationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,16 +55,16 @@ public class HomenaviActivity extends AppCompatActivity implements NavigationVie
 
         initActivity();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navView);
+        NavigationView navigationView = findViewById(R.id.navView);
         navigationView.setNavigationItemSelectedListener(this);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_dehaze_black_24dp);
@@ -85,7 +84,7 @@ public class HomenaviActivity extends AppCompatActivity implements NavigationVie
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -99,19 +98,18 @@ public class HomenaviActivity extends AppCompatActivity implements NavigationVie
 
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_home) {
+            Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_medicine) {
+            Toast.makeText(this, "Medicine", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_favourite) {
+            Toast.makeText(this, "Favourite", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_profile) {
+            Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_setting) {
+            Toast.makeText(this, "Setting", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_logout) {
+            Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
 
             SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0);// 0 - for private mode
             SharedPreferences.Editor editor = pref.edit();
@@ -120,8 +118,9 @@ public class HomenaviActivity extends AppCompatActivity implements NavigationVie
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
+
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

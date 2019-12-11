@@ -159,16 +159,16 @@ public class AssessmentDetailActivity extends AppCompatActivity implements Exami
 
     @Override
     public void onExaminationPhoneNumberClick(TextView txphoneno) {
-        Log.e("intent","ok");
-        try {
-            Intent dialIntent = new Intent(Intent.ACTION_DIAL);
-            Log.e("PhoneNumber",String.valueOf(phoneNumbers));
-            dialIntent.setData(Uri.parse("tel:"+ phoneNumbers));
-            startActivity(dialIntent);
-        }catch(Exception e) {
-            Toast.makeText(getApplicationContext(),"Your call has failed...", Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
+//        Log.e("intent","ok");
+//        try {
+//            Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+//            Log.e("PhoneNumber",String.valueOf(phoneNumbers));
+//            dialIntent.setData(Uri.parse("tel:"+ phoneNumbers));
+//            startActivity(dialIntent);
+//        }catch(Exception e) {
+//            Toast.makeText(getApplicationContext(),"Your call has failed...", Toast.LENGTH_LONG).show();
+//            e.printStackTrace();
+//        }
     }
 
     private class PhoneCallListener extends PhoneStateListener {

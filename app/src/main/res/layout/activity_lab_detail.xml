@@ -34,16 +34,6 @@
                 android:onClick="onbackClick"
                 tools:ignore="VectorDrawableCompat" />
 
-            <ImageView
-                android:id="@+id/imgfav"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/margin_lg"
-                android:src="@drawable/ic_favorite_border_black_24dp"
-                android:clickable="true"
-                android:onClick="onFavouriteClick"
-                tools:ignore="RtlCompat,VectorDrawableCompat" />
 
             <RelativeLayout
                 android:id="@+id/relative"

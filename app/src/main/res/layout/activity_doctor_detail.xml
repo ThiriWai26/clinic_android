@@ -37,9 +37,9 @@
                 android:id="@+id/imgfav"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="270dp"
                 android:layout_marginTop="15dp"
-                android:layout_toRightOf="@+id/imgback"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="24dp"
                 android:src="@drawable/favouritewhite"
                 android:clickable="true"
                 tools:ignore="RtlCompat" />
@@ -74,34 +74,35 @@
                         android:id="@+id/tvName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_lg"
                         android:text="Name"
                         android:textStyle="bold"
                         android:textColor="#000000"
                         android:textSize="16dp"/>
 
-                    <RatingBar
-                        android:id="@+id/rating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/profile"
-                        android:layout_below="@+id/tvName"
-                        android:layout_marginTop="4dp"
-                        style="?android:attr/ratingBarStyleSmall" />
+<!--                    <RatingBar-->
+<!--                        android:id="@+id/rating"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_toRightOf="@+id/profile"-->
+<!--                        android:layout_below="@+id/tvName"-->
+<!--                        android:layout_marginTop="4dp"-->
+<!--                        style="?android:attr/ratingBarStyleSmall" />-->
 
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/phone"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_below="@+id/imageView"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/margin_lg"
-                    android:layout_marginTop="30dp"
-                    android:background="@drawable/ic_phone_black_24dp"
-                    android:onClick="onDoctorPhoneNumberClick"
-                    android:scaleType="fitXY"
-                    tools:ignore="NotSibling" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/phone"-->
+<!--                    android:layout_width="28dp"-->
+<!--                    android:layout_height="28dp"-->
+<!--                    android:layout_below="@+id/imageView"-->
+<!--                    android:layout_alignParentRight="true"-->
+<!--                    android:layout_marginRight="@dimen/margin_lg"-->
+<!--                    android:layout_marginTop="30dp"-->
+<!--                    android:background="@drawable/ic_phone_black_24dp"-->
+<!--                    android:onClick="onDoctorPhoneNumberClick"-->
+<!--                    android:scaleType="fitXY"-->
+<!--                    tools:ignore="NotSibling" />-->
 
             </RelativeLayout>
 

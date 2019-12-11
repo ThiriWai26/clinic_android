@@ -47,9 +47,6 @@ public class LabDetailActivity extends AppCompatActivity implements LabContactNu
     private String token = null;
     private int buildingId = -1;
     private String type = "labs";
-    private boolean isFavourite;
-    private int favouriteableId = -1;
-    private String favouriteableType = "labs";
     private int rateableId = -1;
     private String rateableType = "labs";
     private int value = 5;
@@ -190,74 +187,6 @@ public class LabDetailActivity extends AppCompatActivity implements LabContactNu
         startActivity(intent);
     }
 
-    public void onFavouriteClick(View view) {
-
-        if (isFavourite){
-            imgfav.setBackgroundResource(R.drawable.ic_favorite_border_black_24dp);
-            isFavourite=false;
-//            unsetFavourite();
-        }
-
-        else {
-            imgfav.setBackgroundResource(R.drawable.ic_favorite_black_24dp);
-            isFavourite=true;
-//            setFavourite();
-
-        }
-    }
-
-//    private void unsetFavourite() {
-//        Log.e("setFavourite","success");
-//        Api setFavouriteApi = RetrofitService.getRetrofitService().create(Api.class);
-//        setFavouriteApi.setFavourite(token, favouriteableId, favouriteableType).enqueue(new Callback<FavouriteResponse>() {
-//            @Override
-//            public void onResponse(Call<FavouriteResponse> call, Response<FavouriteResponse> response) {
-//                if(response.isSuccessful()){
-//                    if(response.body().isSuccess){
-//                        Log.e("response.body","success");
-//                        Toast.makeText(getApplicationContext(),"Set Favourite", Toast.LENGTH_LONG).show();
-//                    }
-//                    else {
-//                        Toast.makeText(getApplicationContext(),response.body().error_message,Toast.LENGTH_LONG).show();
-//                    }
-//                }else {
-//                    Log.e("response","fail");
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<FavouriteResponse> call, Throwable t) {
-//                Log.e("onfailure",t.toString());
-//            }
-//        });
-//    }
-//
-//    private void setFavourite(){
-//        Log.e("unsetFavourite","success");
-//        Api unsetFavouriteApi = service.getRetrofitService().create(Api.class);
-//        unsetFavouriteApi.unsetFavourite(token, favouriteableId, favouriteableType).enqueue(new Callback<UnsetFavouriteResponse>() {
-//            @Override
-//            public void onResponse(Call<UnsetFavouriteResponse> call, Response<UnsetFavouriteResponse> response) {
-//                if(response.isSuccessful()){
-//                    if(response.body().isSuccess){
-//                        Log.e("response.body","success");
-//                        Toast.makeText(getApplicationContext(),"Unset Favourite", Toast.LENGTH_LONG).show();
-//                    }
-//                    else {
-//                        Log.e("response.body","fail");
-//                        Toast.makeText(getApplicationContext(), "fail", Toast.LENGTH_LONG).show();
-//                    }
-//                }else {
-//                    Log.e("response","fail");
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<UnsetFavouriteResponse> call, Throwable throwable) {
-//                Log.e("onfailure",throwable.toString());
-//            }
-//        });
-//    }
 
     public void onPhoneDilogClick(View view) {
 

@@ -34,9 +34,6 @@ public class ClinicDetailActivity extends AppCompatActivity implements ServiceBy
     private String token = null;
     private int buildingId = -1;
     private String type = "clinics";
-    private boolean isFavourite;
-    private int favouriteableId = -1;
-    private String favouriteableType = "clinics";
     private int rateableId = -1;
     private String rateableType = "clinics";
     private int value = 5;
@@ -95,21 +92,6 @@ public class ClinicDetailActivity extends AppCompatActivity implements ServiceBy
         finish();
     }
 
-    public void onLabFavouriteClick(View view) {
-        if (isFavourite){
-            imgfav.setBackgroundResource(R.drawable.ic_favorite_border_black_24dp);
-            isFavourite=false;
-//            unsetFavourite();
-        }
-
-        else {
-            imgfav.setBackgroundResource(R.drawable.ic_favorite_black_24dp);
-            isFavourite=true;
-//            setFavourite();
-        }
-
-    }
-
     public void onClinicPhoneDilogClick(View view) {
 
         final Dialog dialog = new Dialog(this);
@@ -122,79 +104,9 @@ public class ClinicDetailActivity extends AppCompatActivity implements ServiceBy
 
         dialog.show();
 
-        tvcancel = dialog.findViewById(R.id.tv_cancel);
-        tvok = dialog.findViewById(R.id.tv_ok);
-
-        tvcancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-        tvok.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
     }
 
-//    private void setFavourite(){
-//
-//        Log.e("setFavourite","success");
-//        Api setFavouriteApi = service.getRetrofitService().create(Api.class);
-//        setFavouriteApi.setFavourite(token, favouriteableId, favouriteableType).enqueue(new Callback<FavouriteResponse>() {
-//            @Override
-//            public void onResponse(Call<FavouriteResponse> call, Response<FavouriteResponse> response) {
-//                if(response.isSuccessful()){
-//                    if(response.body().isSuccess){
-//                        Log.e("response.body","success");
-//                        Toast.makeText(getApplicationContext(),"Set Favourite", Toast.LENGTH_LONG).show();
-//                    }
-//                    else {
-//                        Toast.makeText(getApplicationContext(),response.body().error_message,Toast.LENGTH_LONG).show();
-//                    }
-//                }else {
-//                    Log.e("response","fail");
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<FavouriteResponse> call, Throwable t) {
-//                Log.e("onfailure",t.toString());
-//            }
-//        });
-//    }
-//
-//    private void unsetFavourite(){
-//
-//        Log.e("unsetFavourite","success");
-//        Api unsetFavouriteApi = service.getRetrofitService().create(Api.class);
-//        unsetFavouriteApi.unsetFavourite(token, favouriteableId, favouriteableType).enqueue(new Callback<UnsetFavouriteResponse>() {
-//            @Override
-//            public void onResponse(Call<UnsetFavouriteResponse> call, Response<UnsetFavouriteResponse> response) {
-//                if(response.isSuccessful()){
-//                    if(response.body().isSuccess){
-//                        Log.e("response.body","success");
-//                        Toast.makeText(getApplicationContext(),"Unset Favourite", Toast.LENGTH_LONG).show();
-//                    }
-//                    else {
-//                        Log.e("response.body","fail");
-//                        Toast.makeText(getApplicationContext(), "fail", Toast.LENGTH_LONG).show();
-//                    }
-//                }else {
-//                    Log.e("response","fail");
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<UnsetFavouriteResponse> call, Throwable throwable) {
-//                Log.e("onfailure",throwable.toString());
-//            }
-//        });
-//    }
-//
+
 //    private void getRating(){
 //
 //        Log.e("getRating","success");

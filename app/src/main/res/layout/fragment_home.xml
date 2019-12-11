@@ -29,6 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_xl"
+            android:layout_marginRight="@dimen/margin_xl"
             android:orientation="horizontal"
             android:layout_marginTop="1dp">
 
@@ -59,7 +61,7 @@
 
             <Button
                 android:id="@+id/btn_lab"
-                android:layout_width="wrap_content"
+                android:layout_width="76dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:background="#fff"
@@ -71,7 +73,7 @@
 
             <Button
                 android:id="@+id/btn_clinic"
-                android:layout_width="78dp"
+                android:layout_width="76dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:background="#fff"
